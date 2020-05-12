@@ -1,0 +1,183 @@
+﻿/*******************************************************************
+ *  Copyright(c) 2015-2020 YOUME All rights reserved.
+ *
+ *  简要描述:游密音频通话引擎
+ *
+ *  当前版本:1.0
+ *  作者:brucewang
+ *  日期:2015.9.30
+ *  说明:对外发布接口
+ *
+ *  取代版本:0.9
+ *  作者:brucewang
+ *  日期:2015.9.15
+ *  说明:内部测试接口
+ ******************************************************************/
+
+/**@file tsk_ragel_state.h
+ * @brief Ragel state for SIP, HTTP and MSRP parsing.
+ */
+#ifndef TINYSAK_RAGEL_STATE_H
+#define TINYSAK_RAGEL_STATE_H
+
+#include "tinysak_config.h"
+#include "tsk_params.h"
+
+#include <string.h>
+
+TSK_BEGIN_DECLS
+
+#if defined(_MSC_VER)
+#	define atoi64	_atoi64
+#else
+#	define atoi64	atoll
+#endif
+
+#if defined(_MSC_VER)
+#	define TSK_RAGEL_DISABLE_WARNINGS_BEGIN() \
+		__pragma(warning( push )) \
+		__pragma(warning( disable : 4267 4244 ))
+#	define TSK_RAGEL_DISABLE_WARNINGS_END() \
+		__pragma(warning( pop ))
+#else
+#	define TSK_RAGEL_DISABLE_WARNINGS_BEGIN()
+#	define TSK_RAGEL_DISABLE_WARNINGS_END()
+#endif /* _MSC_VER */
+
+/**@ingroup tsk_ragel_state_group
+*/
+#define TSK_SCANNER_SET_STRING(string) \
+	if(!string) \
+		{ \
+		int len = (int)(te  - ts);  \
+		if(len >0) \
+				{ \
+			string = (char*)tsk_calloc(len+1, sizeof(char)), memcpy(string, ts, len); \
+				} \
+		}
+
+/**@ingroup tsk_ragel_state_group
+*/
+#define TSK_PARSER_SET_STRING(string) \
+	{  \
+		int len = (int)(p  - tag_start);  \
+		TSK_FREE(string); \
+		if(len && tag_start){ \
+			string = (char*)tsk_calloc(len+1, sizeof(char)), memcpy(string, tag_start, len); \
+				}  \
+	}
+
+/**@ingroup tsk_ragel_state_group
+*/
+#define TSK_SCANNER_SET_INTEGER(integer) \
+	{ \
+		int len = (int)(te  - ts); \
+		if(len>=0) \
+				{ \
+			char* tmp = (char*)tsk_calloc(len+1, sizeof(char)); \
+			memcpy(tmp, ts, len); \
+			integer = atoi(tmp); \
+			tsk_free((void**)&tmp); \
+				} \
+	}
+
+/**@ingroup tsk_ragel_state_group
+*/
+#define TSK_PARSER_SET_INTEGER_EX(retval, type, func) \
+	{ \
+		int len = (int)(p  - tag_start); \
+		if(len>=0) \
+				{ \
+			char* tmp = (char*)tsk_calloc(len+1, sizeof(char)); \
+			memcpy(tmp, tag_start, len); \
+			retval = (type) func(tmp); \
+			tsk_free((void**)&tmp); \
+				} \
+	}
+/**@ingroup tsk_ragel_state_group
+* @def TSK_PARSER_SET_INTEGER
+*/
+/**@ingroup tsk_ragel_state_group
+* @def TSK_PARSER_SET_INT
+*/
+/**@ingroup tsk_ragel_state_group
+* @def TSK_PARSER_SET_UINT
+*/
+/**@ingroup tsk_ragel_state_group
+* @def TSK_PARSER_SET_FLOAT
+*/
+/**@ingroup tsk_ragel_state_group
+* @def TSK_PARSER_SET_DOUBLE
+*/
+#define TSK_PARSER_SET_INTEGER(retval) TSK_PARSER_SET_INTEGER_EX(retval, int, atoi)
+#define TSK_PARSER_SET_INT(retval) TSK_PARSER_SET_INTEGER(retval)
+#define TSK_PARSER_SET_UINT(retval) TSK_PARSER_SET_INTEGER_EX(retval, uint32_t, atoi64)
+#define TSK_PARSER_SET_FLOAT(retval) TSK_PARSER_SET_INTEGER_EX(retval, float, atof)
+#define TSK_PARSER_SET_DOUBLE(retval) TSK_PARSER_SET_INTEGER_EX(retval, double, atof)
+
+/**@ingroup tsk_ragel_state_group
+*/
+#define TSK_PARSER_ADD_PARAM(dest) \
+	{ \
+		tsk_size_t len = (tsk_size_t)(p  - tag_start); \
+		tsk_param_t *param = tsk_params_parse_param(tag_start, len); \
+		if(param) \
+				{ \
+			if(!dest) dest = tsk_list_create(); \
+			tsk_list_push_back_data(dest, ((void**) &param)); \
+				} \
+	}
+
+/**@ingroup tsk_ragel_state_group
+*/
+#define TSK_SACANNER_ADD_PARAM(dest) \
+	{ \
+		int len = (int)(te  - ts); \
+		if(len >0) \
+				{ \
+			tsk_param_t *param = tsk_params_parse_param(ts, len); \
+			if(param) \
+						{ \
+				if(!dest) dest = tsk_list_create(); \
+				tsk_list_push_back_data(dest, ((void**) &param)); \
+						} \
+				} \
+	}
+
+/**@ingroup tsk_ragel_state_group
+*/
+#define TSK_PARSER_ADD_STRING(dest) \
+	{ \
+		tsk_size_t len = (tsk_size_t)(p  - tag_start); \
+		tsk_string_t *string = tsk_string_create(tsk_null); \
+		string->value = (char*)tsk_calloc(len+1, sizeof(char)), memcpy(string->value, tag_start, len); \
+		if(!dest)  \
+				{  \
+			dest = tsk_list_create(); \
+				} \
+		tsk_list_push_back_data(dest, ((void**) &string)); \
+	}
+
+/**@ingroup tsk_ragel_state_group
+* Ragel state.
+*/
+typedef struct tsk_ragel_state_s
+{
+	int cs; /**< Ragel current state. */
+	const char *p; /**< Data pointing to the buffer to parse. */
+	const char *pe; /**< Data end pointer. */
+	const char *eof; /**< End of the file (in our case data) pointer. */
+	const char *eoh; /**< End of the headers. */
+
+	const char* tag_start; /**< Last tag start position set by ragel machine. */
+	const char* tag_end; /**< The end of the ragel tag. */
+}
+tsk_ragel_state_t;
+
+
+TINYSAK_API void tsk_ragel_state_init(tsk_ragel_state_t *state, const char *data, tsk_size_t size);
+
+TSK_END_DECLS
+
+#endif /* TINYSAK_RAGEL_STATE_H */
+

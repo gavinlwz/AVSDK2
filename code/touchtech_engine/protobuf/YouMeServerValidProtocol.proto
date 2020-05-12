@@ -1,0 +1,53 @@
+syntax = "proto2";
+option optimize_for = LITE_RUNTIME;
+package YouMeProtocol;
+import "common.proto";
+
+
+enum Bussiness
+{
+    Bussiness_AV=1;
+    Bussiness_IM=2;
+}
+
+message ServerValid
+{
+    required PacketHead head=1;
+    required bytes data=2;
+    required Bussiness bussines=3;
+    optional uint32 idc = 4;  //客户传的id
+    optional string idc_area = 5; //idc区域别名
+}
+
+message RedirectInfo
+{
+required string host = 1;
+required uint32 port = 2;
+}
+
+message ServerValidResponse
+{
+//0 成功 1 需要重试，重试的时间间隔由 timeout 决定 其他直接退出
+required int32 status = 1;
+required bytes data = 2;
+repeated NameValue configurations= 3;
+optional int32 timeout = 4;
+repeated RedirectInfo redirect_info_list = 5;
+optional int32  get_redirect_flag = 6; //是否需要走get_redirect CGI
+}
+
+message GetRedirectRequest
+{
+required PacketHead head = 1;
+repeated string idc_area = 2; //区域列表
+}
+
+
+message GetRedirectResponse
+{
+required int32 status = 1; //结果0:成功，其它失败
+repeated RedirectInfo redirect_info_list = 2;
+}
+
+
+

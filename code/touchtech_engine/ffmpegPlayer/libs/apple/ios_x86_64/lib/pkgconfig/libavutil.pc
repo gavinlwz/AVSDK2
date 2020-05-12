@@ -1,0 +1,14 @@
+prefix=/Volumes/data/Work/videoSDK/youme_voice_engine/ffmpegPlayer/build/ffmpeg_ios/build/ffmpeg-x86_64/output
+exec_prefix=${prefix}
+libdir=/Volumes/data/Work/videoSDK/youme_voice_engine/ffmpegPlayer/build/ffmpeg_ios/../../libs/apple/ios_x86_64/lib
+includedir=/Volumes/data/Work/videoSDK/youme_voice_engine/ffmpegPlayer/build/ffmpeg_ios/../../libs/apple/ios_x86_64/include
+
+Name: libavutil
+Description: FFmpeg utility library
+Version: 55.58.100
+Requires: 
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavutil -lm
+Libs.private: 
+Cflags: -I${includedir}

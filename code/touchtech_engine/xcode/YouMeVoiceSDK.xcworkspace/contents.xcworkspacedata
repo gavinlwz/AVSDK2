@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:YMScreenTest/YMSDKTest.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:YmVideoMacRef/YmVideoMacRef.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:YouMeVoiceEngine/youme_voice_engine.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:YmTalkTestSampleRef/YmTalkTestSampleRef.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:YmTalkTestRef/YmTalkTestRef.xcodeproj">
+   </FileRef>
+</Workspace>

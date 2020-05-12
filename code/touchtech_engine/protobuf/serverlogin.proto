@@ -1,0 +1,864 @@
+syntax = "proto2";
+package YouMeProtocol;
+option optimize_for = LITE_RUNTIME;
+import "common.proto";
+
+//重定向
+message Bridge
+{
+    required string bridgeid = 1;
+    optional PacketHead head =2;
+    optional int32 mode = 3; // 1 服务器混音 2 客户端混音
+    optional string area = 4;// 客户端所在区域，海外加速用
+}
+
+//重定向返回的服务器地址信息
+message Serveraddr
+{
+required string ip = 1;
+optional int32  port = 2;
+optional int32 status=3;
+//0 成功 1 需要重试，重试的时间间隔由 timeout 决定 其他直接退出
+optional int32 timeout=4;
+}
+
+
+// 加入会议
+message YouMeVoice_Command_JoinConference
+{
+    required PacketHead head =1;
+    required string roomid=2;
+    optional int32 capturerate =3;//采样率
+    optional int32 encodecomplex=4;//编码复杂度
+    optional bool enablevbr=5;//是否可变码率
+    optional int32 maxbandlimited=6;//最大带宽限制
+    optional bool interbandfec=7;//是否启动带内fec
+    optional bool outbandfec=8;//是否启动带外fec
+    optional int32 feclost=9;//fec 丢包率
+    optional bool enabledtx=10;//是否启动dtx
+    optional string userid=11;
+
+    // 以下域从 ver11 开始增加
+    optional bool  needUserList = 12; // 用户自己是否需要在登录时获取同房间的用户列表, 并且随后有用户进出房间时接收更新信息
+    optional string token       = 13;  //安全验证token
+    optional bool  check_room_exist = 14[default = false]; //在用户传true时检查room是否已创建，不然不起作用
+    optional bool  av_notify    = 15; //是否接收房间内其它用户已经开启音视频的通知（视频版本）
+    optional YouMeUserRole  user_role = 16; // 用户身份
+    optional int32 source       = 17; // 0-默认sdk;1-webrtc 
+    optional bool  auto_recive  = 18[default = true]; // 默认开启进入频道就接收视频流
+    optional uint32 timestamp         = 21; // 加入房间的时间戳，用于token计算，秒为单位
+}
+
+message StreamProxyInfo
+{
+required string ip   = 1;
+required uint32 port = 2;
+}
+
+// 加入会议回复
+message YouMeVoice_Command_JoinConferenceResponse
+{
+    message Speaker
+    {
+        optional int32  sessionid = 1; // 即请求消息里的对应的sessionid
+        optional string userid    = 2;
+    }
+
+    //head 中的 code 字段0 成功 1需要重试，重试时间由 timeout 决定，其他全部退出
+    required ServerPacketHead head =1;
+    required int32 udpport=2;
+    required int32 sessionid = 3;
+    optional int32 timeout =4;
+    optional int32 media_ctl_port = 5;
+    optional StreamProxyInfo stream_proxy = 6; // stream proxy信息
+    repeated Speaker       speaker_list = 7;
+
+    optional uint64 business_id = 10; // 业务id，用于记录本次登录至退出（或者异常退出）的完成会话id
+}
+
+
+// 离开会议
+message YouMeVoice_Command_LeaveConference
+{
+    required PacketHead head =1;
+    required string roomid=2;
+	required int32 sessionid=3;
+}
+
+// 成员列表请求&响应
+message YouMeVoice_Command_ChannelUserList_Request
+{
+required PacketHead head        = 1;
+required int32      sessionid   = 2; // 请求用户的sessionid
+required string     channel_id  = 3; // 获取哪个频道id的成员列表
+optional int32      start_index = 4; // 列表起始索引
+optional int32      req_count   = 5; // 请求获取的个数
+optional int32      notify_flag = 6[default = 0]; // 1打开，2关闭，其它不起作用
+}
+
+message YouMeVoice_UserInfo
+{
+    required string userid = 1;
+    optional int32  sessionid = 2;
+    optional string user_outer_ip = 3; // 用户外网ip，可用于p2p通信前检测判断
+    optional string user_inner_ip = 4; // 用户内网ip，可用于p2p通信
+    optional uint32 user_inner_port = 5; // 用户内网port, 可用于p2p通信
+}
+
+message YouMeVoice_Command_ChannelUserList_Response
+{
+required ServerPacketHead head           = 1;
+repeated string           userid         = 2; // 本次返回的列表
+optional string           req_channel_id = 3; // 获取成员列表的频道id
+optional int32            start_index    = 4; // 列表起始索引
+optional int32            left_count     = 5; // 剩余要获取的个数
+// req_count为-1就给实际的next_index（此时一次返回数量由服务器决定），不然给0
+optional int32            next_index     = 6;
+repeated YouMeVoice_UserInfo userinfo       = 7; // 用户信息列表，客户端需要更多的信息，新版本sdk用于替换userid字段
+}
+
+message JoinLeaveUser
+{
+optional string userid = 1;
+optional int32  flag   = 2; // 进入Join为1，退出Leave为2
+optional int32  sessionid = 3;
+}
+
+// 用户进出频道时，增量成员通知
+message YouMeVoice_Command_ChannelUserJoinLeaveNotify
+{
+required ServerPacketHead head       = 1;
+required string           channel_id = 2; // 频道id
+repeated JoinLeaveUser    user_list  = 3; // 增量通知的列表
+}
+
+// 登出回复
+message YouMeVoice_Command_LeaveConferenceResponse
+{
+    required ServerPacketHead head =1;
+}
+
+//心跳包
+message YouMeVoice_Command_Heart
+{
+    required PacketHead head =1;
+    required int32 sessionid=2;
+}
+
+
+
+//心跳包
+message YouMeVoice_Command_HeartResponse
+{
+    required ServerPacketHead head =1;
+}
+
+message YouMeVoice_Command_Kickout
+{
+    required ServerPacketHead head =1;
+}
+
+
+message YouMeVoice_Command_MicStatus
+{
+    required PacketHead head =1;
+    required int32 sessionid = 2;
+    required string userid = 3;
+    required int32 status = 4;//0打开 1关闭
+}
+
+message YouMeVoice_Command_MicStatusServer
+{
+required ServerPacketHead head =1;
+required string userid = 2;
+required int32 status = 3;
+}
+
+//通用状态事件
+message YouMeVoice_Command_CommonStatus
+{
+required PacketHead head =1;
+required int32 sessionid = 2;
+required string userid = 3;
+required STATUS_EVENT_TYPE eventType = 4;
+required int32 status = 5; // 0打开 1关闭 (eventType 为 IDENTITY_MODIFY 时值为 YouMeUserRole)
+}
+
+//接收通用状态事件
+message YouMeVoice_Command_CommonStatusServer
+{
+required ServerPacketHead head =1;
+required string userid = 2;
+required STATUS_EVENT_TYPE eventType = 3;
+required int32 status = 4;//0打开 1关闭 //0打开 1关闭 (eventType 为 IDENTITY_MODIFY 时值为 YouMeUserRole)
+}
+
+//聊天室全部成员的列表
+message YouMeVoice_Command_Recive_Members
+{
+required ServerPacketHead head =1;
+repeated string userid = 2;
+}
+
+//
+// 大小房间新增如下消息
+//
+
+// 加入房间请求
+message YouMeVoice_Command_JoinRoomRequest
+{
+required PacketHead head        = 1;
+optional int32      sessionid   = 2;
+optional string     roomid      = 3;
+optional bool  check_room_exist = 4[default = false]; //在用户传true时检查room是否已创建，不然不起作用
+optional bool  av_notify    = 5; //是否接收房间内其它用户已经开启音视频的通知（视频版本）
+}
+
+// 加入房间响应
+message YouMeVoice_Command_JoinRoomResponse
+{
+required ServerPacketHead head  = 1;
+optional int32       sessionid  = 2;
+optional string      roomid     = 3;
+optional bool        success    = 4;
+}
+
+// 离开房间请求
+message YouMeVoice_Command_LeaveRoomRequest
+{
+required PacketHead head        = 1;
+optional int32      sessionid   = 2;
+optional string     roomid      = 3;
+}
+
+// 离开房间响应
+message YouMeVoice_Command_LeaveRoomResponse
+{
+required ServerPacketHead head  = 1;
+optional int32      sessionid   = 2;
+optional string     roomid      = 3;
+optional bool       success     = 4;
+}
+
+//
+// 指定要发送语音的房间的信令
+//
+
+// 切换房间发送语音请求
+message YouMeVoice_Command_SpeakToRoomRequest
+{
+required PacketHead head      = 1;
+optional int32      sessionid = 2;
+optional string     roomid    = 3; // 该用户后面所有的语音要发送的房间id
+optional uint32     timestamp = 4; // 该用户从该时间戳开始的语音包才发往新的roomid，早于该时间戳的将被服务器丢弃
+}
+
+// 切换房间发送语音响应
+message YouMeVoice_Command_SpeakToRoomResponse
+{
+required ServerPacketHead head      = 1;
+optional int32            sessionid = 2;
+optional string           roomid    = 3; // 该用户后面所有的语音要发送的房间id
+optional uint32           timestamp = 4; // 该用户从该时间戳开始的语音包才发往新的roomid，早于该时间戳的将被服务器丢弃
+optional bool             success   = 5;
+}
+
+
+// 获取指定的session ID对应的user ID
+message YouMeVoice_Command_Session2UserIdRequest
+{
+    required PacketHead head      = 1;
+    repeated int32      sessionid = 2; // 房间内讲话的人的sessionid
+    optional int32      user_session = 3; //用户自己的session
+}
+
+message YouMeVoice_Command_Session2UserIdResponse
+{
+    message Speaker
+    {
+        optional int32  sessionid = 1; // 即请求消息里的对应的sessionid
+        optional string userid    = 2;
+    }
+
+    required ServerPacketHead head      = 1;
+    repeated Speaker          result    = 2;
+}
+
+enum FIGHT_MIC_ERROR_CODE
+{
+	FIGHT_MIC_SUCCESS = 0;  //抢麦成功
+	FIGHT_MIC_FULL    = 1;  //抢麦失败，人数满
+	FIGHT_MIC_END     = 2;  //抢麦失败，已经结束
+	FIGHT_MIC_QUEUE   = 98; //抢麦排队中,模式2抢麦进入队列
+	FIGHT_MIC_UNKNOWN = 99; //抢麦失败，未知原因
+}
+
+//抢麦房间通知类型事件
+enum FIGHT_MIC_EVENT_TYPE
+{
+	FIGHT_TYPE_INIT_NOTIFY = 1;//抢麦开始通知,Fight4MicInit这个通知，有对应room_id
+	FIGHT_TYPE_DEINIT_NOTIFY = 2; //抢麦结束通知，Fight4MicDeinit时候通知，有对应room_id
+	FIGHT_TYPE_GET_MIC_NOTIFY = 3; //谁抢到麦克风通知，有对应的user_id
+	FIGHT_TYPE_RELEASE_MIC_NOTIFY = 4;   //谁释放了麦克风，有对应的user_id
+}
+
+// 抢麦初始化请求
+message YouMeVoice_Command_Fight4MicInitRequest
+{
+	required PacketHead       head      = 1;
+	optional int32            session_id = 2; //用户session
+	required int32            mode = 3;           //抢麦模式
+	optional string           room_id = 4;        //房间id
+	optional int32            max_num = 5;	      //同时获得麦克风权限人数
+	optional int32            talk_time_out = 6;  //抢到麦后，通话超时时间,超时后，服务端发送超时通知
+	optional int32            judge_time_out = 7; //连接超时时间，默认5s，抢麦时候最多等5s返回响应
+	optional string           json_str = 8;       //用户自定义字符串，发送通知时，服务端透传
+	optional int32            notify_flag = 9;    //是否发送房间通知
+	optional int32            mic_enable_flag = 10; //是否开启麦克风开关	
+}
+
+// 抢麦初始化响应
+message YouMeVoice_Command_Fight4MicInitResponse
+{
+	required ServerPacketHead head      = 1;
+	optional int32            error_code = 2;   //0成功，其它值失败
+	optional int32            session_id = 3;
+	optional string           room_id    = 4;	
+}
+
+// 抢麦请求
+message YouMeVoice_Command_Fight4MicRequest
+{
+	required PacketHead       head      = 1;
+	optional int32            session_id = 2; //用户session
+	optional string           room_id = 3;    //room_id
+	optional int32            score = 4;	  //用户积分
+	optional string           json_params = 5;//用户自定义json
+}
+
+// 抢麦响应
+message YouMeVoice_Command_Fight4MicResponse
+{
+	required ServerPacketHead head      = 1;
+	optional int32            error_code = 2; //0抢麦成功，1抢麦失败(人数已满)，2抢麦已经结束，参考FIGHT_MIC_ERROR_CODE
+	optional int32            session_id = 3;
+	optional string           room_id    = 4;	
+	optional int32       	  mic_enable_flag = 5;//透传的抢麦后是否自动打开麦克风	
+	optional int32            talk_time  = 6;//抢麦麦后超时时间
+}
+
+// 抢麦反初始化请求
+message YouMeVoice_Command_Fight4MicDeinitRequest
+{
+	required PacketHead       head       = 1;
+	optional int32            session_id = 2;
+	optional string           room_id    = 3;
+	optional string           json_str   = 4;
+}
+
+// 抢麦反初始化响应
+message YouMeVoice_Command_Fight4MicDeinitResponse
+{
+	required ServerPacketHead head       = 1;
+	optional int32            error_code = 2;
+	optional int32            session_id = 3;
+	optional string           room_id    = 4;	
+}
+
+// 抢麦请求通知
+message YouMeVoice_Command_Fight4MicNotifyRequest
+{
+	required ServerPacketHead head       = 1;
+	optional int32            mode       = 2;   //mode = 1房间通知，mode = 2 模式2抢麦结果通知 
+	optional int32            event_type = 3;   //抢麦房间通知类型事件,见FIGHT_MIC_EVENT_TYPE
+	optional string           json_str   = 4;   //透传的用户自定义字符串
+	optional int32            mic_right  = 5;   //1获取了mic风权限，0未获取mic风权限
+	optional string           room_id    = 6;   //room_id
+	optional string           user_id    = 7;   //user_id
+	optional int32            mic_enable_flag = 8;//透传的抢麦后是否自动打开麦克风
+	optional int32            talk_time  = 9;   //抢到麦后可以说话的时间 mode = 2 模式2抢麦结果通知
+	optional int32            is_mic_flag = 10; //房间通知，是否还有麦可以抢，用于客户端状态抢麦状态通知
+}
+
+// 释放麦克风请求
+message YouMeVoice_Command_ReleaseMicRequest
+{
+	required PacketHead       head       = 1;
+	optional int32            session_id = 2;
+	optional string           room_id    = 3;
+}
+
+// 释放麦克风响应
+message YouMeVoice_Command_ReleaseMicResponse
+{
+	required ServerPacketHead head       = 1;
+	optional int32            error_code = 2;
+	optional int32            session_id = 3;
+	optional string           room_id    = 4;	
+}
+
+enum INVITE_ERROR_CODE
+{
+	INVITE_SUCCESS = 0;
+	INVITE_USER_NOT_EXIST = 1;//用户不存在
+	INVITE_USER_OFFLINE = 2;  //用户离线
+	INVITE_USER_REJECT = 3;   //用户拒绝
+	INVITE_TIME_OUT = 4;   //连接超时	
+	INVITE_UNKNOWN_ERROR = 99;  //其它未知错误
+}
+
+enum INVITE_EVENT_TYPE
+{
+	INVITE_TYPE_REQUEST = 1; //转发的连麦请求通知，通知被叫方, from_user_id = 主叫user，to_user_id = 被叫方
+	INVITE_TYPE_RESPONSE = 2; //转发的连麦响应通知，通知主叫方, from_user_id = 被叫user,to_user_id = 主叫user
+	INVITE_TYPE_CANCEL = 3;   //CANCEL，一方提前结束，通知另一方，from_user_id提前结束方，to_user_id另一方
+	INVITE_TYPE_SUCCESS = 4;  //房间通知其它成员，连麦成功，from_user_id主叫user, to_user_id被叫user
+	INVITE_TYPE_END     = 5;  //连麦结束通知其它成员，from_user_id被叫user,to_user_id被叫user
+}
+
+message YouMeVoice_Command_InviteInitRequest
+{
+	required PacketHead    head     = 1;
+	optional int32 session_id       = 2;
+	optional int32 connect_time_out = 3; //连麦连接超时时间
+	optional int32 talk_time_out    = 4; //连麦通话超时
+	optional string room_id         = 5;
+}
+
+message YouMeVoice_Command_InviteInitResponse
+{
+	required ServerPacketHead head       = 1;
+	optional int32         error_code    = 2;   //0成功，其它错误
+	optional int32         session_id    = 3;
+}
+
+// 连麦请求
+message YouMeVoice_Command_InviteRequest
+{
+	required PacketHead       head       = 1;
+	optional int32            session_id = 2;
+	optional string         to_user_id = 3;      //连麦被叫方
+	optional string        room_id = 4;
+	optional int32         connect_time_out = 5; //连接超时时间
+	optional int32         talk_time_out = 6;    //连麦通话时间
+	optional int32         notify_flag   = 7;    //是否通知房间其它人
+	optional string        json_str      = 8;    //用户自定义json	
+}
+
+// 连麦请求的回应
+message YouMeVoice_Command_InviteResponse
+{
+	required ServerPacketHead head       = 1;
+	optional int32         error_code    = 2;   //0成功，1找不到用户 2用户离线 3用户拒绝，参考INVITE_ERROR_CODE
+	optional int32         session_id    = 3;	
+}
+
+// 连麦通知
+message YouMeVoice_Command_InviteNotifyRequest
+{
+	required ServerPacketHead head       = 1;
+	optional string           from_user_id = 2;
+	optional string           to_user_id = 3; //连麦被叫列表
+	optional string           json_str  = 4;  //用户自定义json
+	optional int32            mode      = 5;   //mode = 1连麦房间通知其它成员，mode = 2 用户响应通知主被叫方
+	optional int32            event_type = 6;    //1连麦请求通知，2连麦响应通知 见INVITE_EVENT_TYPE
+	optional int32            error_code = 7;    //0成功，1找不到用户 2用户离线 3用户拒绝，参考INVITE_ERROR_CODE
+	optional int32            talk_time_out = 8; //连麦讲话时间
+}
+
+// 连麦回复请求
+message YouMeVoice_Command_AcceptRequest
+{
+	required PacketHead       head       = 1;
+	optional int32            session_id = 2;
+	optional string         to_user_id = 3;   //连麦主叫方
+	optional int32            error_code = 4;   //0成功，1找不到用户 2用户离线 3用户拒绝，参考INVITE_ERROR_CODE
+	optional string             json_str = 5;     //用户自定义json
+}
+
+// 连麦回复请求的回应
+message YouMeVoice_Command_AcceptResponse
+{
+	required ServerPacketHead head       = 1;
+	optional int32         error_code    = 2;   //错误码
+	optional int32         session_id    = 3;	
+	optional int32         talk_time_out = 4;
+}
+
+// 终止连麦请求
+message YouMeVoice_Command_InviteByeRequest
+{
+	required PacketHead       head       = 1;
+	optional int32            session_id = 2;
+}
+
+// 终止连麦请求的回应
+message YouMeVoice_Command_InviteByeResponse
+{
+	required ServerPacketHead head       = 1;
+	optional int32            error_code = 2;
+	optional int32            session_id = 3;	
+}
+
+// 屏蔽/恢复指定session ID的视频请求
+message YouMeVoice_Command_MaskVideoByUserIdRequest
+{
+    required PacketHead head      = 1;
+    optional string      user_id  = 2; // 被屏蔽者的userid
+    optional int32      sessionid = 3; // 自己的sessionid
+    optional int32       status   = 4; //1屏蔽，2打开
+}
+
+// 屏蔽指定session ID的视频响应
+message YouMeVoice_Command_MaskVideoByUserIdResponse
+{
+    required ServerPacketHead head = 1;
+    optional int32       sessionid = 2; // 自己的sessionid
+}
+
+
+message YouMeVoice_Command_MaskVideoNotifyRequest
+{
+    required ServerPacketHead head = 1;
+    optional string       from_user_id = 2; //谁发起的屏蔽
+    optional string       to_user_id = 3;   //屏蔽的谁
+    optional int32        status = 4;       //1屏蔽，2打开
+}
+
+// 摄像头打开关闭消息
+message YouMeVoice_Command_CameraStatusChangeRequest
+{
+    required PacketHead head      = 1;
+    optional int32      sessionid = 2; // 自己的sessionid
+    optional int32         status = 3; // 0:关闭，1:打开
+}
+
+// 摄像头打开关闭响应
+message YouMeVoice_Command_CameraStatusChangeResponse
+{
+    required ServerPacketHead head = 1;
+    optional int32       sessionid = 2; // 自己的sessionid
+}
+
+message YouMeVoice_Command_CameraNotifyRequest
+{
+    required ServerPacketHead head = 1;
+    optional string        user_id = 2; // 谁的摄像头发生改变
+    optional int32          status = 3; // 0:关闭，1:打开
+}
+
+// 频道内聊天消息发送
+message YouMeVoice_Command_SendMessageRequest
+{
+    required PacketHead head          = 1;
+    optional int32      sessionid     = 2;
+    optional string     to_channel_id = 3; // 当用户位于多频道时，可指定发消息至哪个频道，不指定则默认当前讲话的频道
+    optional bytes      msg_content   = 4;
+    optional uint64     msg_id        = 5; // 消息id，客户端携带
+    optional string     to_userid     = 9; // 指定消息发送到哪个用户id，该用户id在to_channel_id频道
+}
+
+message YouMeVoice_Command_SendMessageResponse
+{
+    required ServerPacketHead head          = 1;
+    optional int32            sessionid     = 2;
+    optional string           to_channel_id = 3;
+    optional uint64           msg_id        = 4; // 消息id，客户端携带，原样回送
+}
+
+message YouMeVoice_Command_MessageNotify
+{
+    required ServerPacketHead head           = 1;
+    optional int32            from_sessionid = 2;
+    optional string           from_userid    = 3;
+    optional string           to_channel_id  = 4;
+    optional bytes            msg_content    = 5;
+    optional uint64           msg_id         = 6; // 消息id，客户端携带，原样回送
+}
+
+
+message YouMeVoice_Command_KickingRequest {
+	required PacketHead  head = 1; // 请求用户的sessionid 
+	required int32      sessionid     = 2; // 踢人者session
+	required string     channel_id    = 3; // 被踢者房频道号
+	required string     user_id       = 4; // 被踢用户的 user_id
+	optional int64      kick_time     = 5; // 踢出频道时间  > 0 具体时间否则 不设置
+}
+
+message YouMeVoice_Command_KickingResponse {
+	required ServerPacketHead head          = 1;
+	optional string     channel_id    = 2; // 被踢者房频道号
+	optional string     user_id       = 3; // 被踢用户的 user_id
+	optional int32      sessionid     = 4; // 踢人者session
+}
+
+enum KICK_CODE {
+   KICK_BY_ADMIN = 1000;  // 被管理踢出频道
+   KICK_BY_RELOGIN = 1001; // 重复登录
+}
+
+message YouMeVoice_Command_KickingNotify {
+	required ServerPacketHead head    = 1;
+	optional string src_user_id       = 2; // 踢人者user_id
+	optional string kick_msg          = 3; // 被踢者通知信息
+	required string channel_id        = 4; // 频道id
+	optional int32  sessionid         = 5; // 踢人者session
+	optional int32  kick_code         = 6; // 被踢原因
+	optional int64  kick_time		  = 7; // 被踢时长
+	optional string kicked_user_id    = 8; // 被踢用户ID
+}
+
+
+enum MEDIA_CTL {
+  OPEN_MEDIA_STAT_NOTIFY = 1; // 打开媒体统计通知
+  CLOSE_MEDIA_STAT_NOTIFY = 2; // 关闭媒体统计通知
+  MEDIA_STAT_NOTIFY = 3;
+}
+
+
+message YouMeVoice_Media_ctl_Header {
+  required int32 cmd = 1;  // MEDIA_CTL
+  required int32 seq = 2; // 序列号
+  required int64 timestamp = 3 ; // 时间戳 
+  required int32 session = 4; // 用户session
+  optional int32 ret_code = 5; // 返回码 服务器返回
+}
+
+message LostPacketStatNotify {
+  required int32 min_seq = 1; // 本次统计最小序号
+  required int32 max_seq = 2; // 本次统计时最大序号
+  required int32 total_recv_num = 3; // 两次间隔时间收到的包
+  required int64 last_stat_st = 4; // 本次统计时的开始时间 到毫秒
+  required int64 curr_stat_st = 5; // 本次统计结束时间 到毫秒
+  optional int32 media_type = 6 [default = 1]; // 1 音频 2 视频
+}
+
+// 终端发此请求开启媒体统计功能
+message YouMeVoice_Command_Media_ctl_req {
+  required YouMeVoice_Media_ctl_Header head = 1;
+  optional int32 stat_interval = 2;  // 统计通知间隔
+  optional int32 stat_type = 3;  // 1 大流; 2 小流; 3 大小流
+}
+
+// 服务端通知终端收到的数据情况
+message YouMeVoice_Command_Media_ctl_rsp {
+  required YouMeVoice_Media_ctl_Header head = 1;
+  optional LostPacketStatNotify packet_stat  = 2;
+}
+
+message YouMeVoice_Command_AVInput_Status_Req {
+  required PacketHead head =1;
+  required int32 sessionid = 2;
+  required string userid = 3;
+  required int32 media_type = 4;// 1 音频 2 视频
+  required int32 op = 5; // 1打开 0关闭
+}
+
+message YouMeVoice_Command_AVInput_Status_Rsq {
+  required ServerPacketHead head =1;
+  required string userid = 2;
+  required int32 sessionid = 3;
+}
+
+message YouMeVoice_Command_AVInput_Notify {
+  required ServerPacketHead head =1;
+  required int32 sessionid = 2;
+  required string userid = 3;
+  required int32 media_type = 4;// 1 音频 2 视频
+  required int32 op = 5; // 1打开 0关闭
+}
+
+
+message YouMeVoice_Command_Query_User_Video_Info_Req {
+  required PacketHead head =1;
+  required int32 sessionid = 2; // 用户自己的session
+  repeated string other_userid_list = 3; // 需要查询的用户id 列表
+}
+
+message YouMeVoice_UserVedioInfo {
+  required int32 other_sessionid = 1;
+  required string other_userid = 2;
+  repeated YouMeVoice_Video_info video_info_list = 3;
+}
+
+message YouMeVoice_Video_info {
+  required int32 resolution_type = 1; // 分辨率类型 (目前只有0和1两种类型，服务器简单校验 透传)
+}
+
+message YouMeVoice_Command_Query_User_Video_Info_Rsp {
+  required ServerPacketHead head =1;
+  required int32 sessionid = 2; // 用户自己的session
+  repeated YouMeVoice_UserVedioInfo user_video_info_list = 3; 
+}
+
+message YouMeVoice_Command_Set_User_Video_Info_Req {
+  required PacketHead head =1;
+  required int32 sessionid = 2; // 用户自己的session
+  repeated YouMeVoice_UserVedioInfo user_video_info_list = 3; // 需要设置接收的用户视频信息
+}
+
+message YouMeVoice_Command_Set_User_Video_Info_Rsp {
+  required ServerPacketHead head =1;
+  required int32 sessionid = 2; // 用户自己的session
+}
+
+message YouMeVoice_Command_Set_User_Video_Info_Notify {
+  required ServerPacketHead head =1;
+  required int32 set_sessionid = 2; // 设置接收流的用户session
+  required string set_user_id = 3; // 设置接收流的用户ID
+  required YouMeVoice_Video_info video_info = 4; // 用户设置的接收流类型
+}
+
+message YouMeVoice_Media_Info {
+  optional int32 v_frame_rate = 1; // 视频帧率
+  optional int32 v_bit_rate = 2; // 视频码率
+  optional int32 v_lost_packet = 3; // 视频丢包率
+
+  optional int32 a_bit_rate = 4; // 音频码率
+  optional int32 a_lost_packet = 5; // 音频包率
+}
+
+message YouMeVoice_Command_BussReport_Req {
+  required PacketHead head =1;
+  required int32 sessionid = 2; // 用户自己的session
+  optional YouMeVoice_Media_Info video_info = 3; // 视频信息
+  optional string business_infos = 99; // 业务数据上报 json格式
+}
+
+message YouMeVoice_Command_BussReport_Rsp {
+  required ServerPacketHead head =1;
+  required int32 sessionid = 2; // 用户自己的session
+}
+
+message YouMeVoice_Video_SetPushSingle_Req{
+required PacketHead head =1;
+required int32 sessionid = 2; // 用户自己的session
+required string channelid = 3;
+required string user_id = 4;
+required string push_url = 5;
+}
+
+message YouMeVoice_Video_SetPushSingle_Rsp
+{
+required ServerPacketHead head =1;
+required int32 sessionid = 2; // 用户自己的session
+required string channelid = 3;
+required string user_id = 4;
+required int32 result = 5;
+}
+
+message YouMeVoice_Video_RemovePushSingle_Req
+{
+required PacketHead head =1;
+required int32 sessionid = 2; // 用户自己的session
+
+required string channelid =3;
+required string user_id = 4;
+}
+
+message  YouMeVoice_Video_RemovePushSingle_Rsp
+{
+required ServerPacketHead head =1;
+required int32 sessionid = 2; // 用户自己的session
+required string channelid =3;
+required string user_id = 4;
+required int32 result = 5;
+}
+
+
+message YouMeVoice_Video_SetPushMix_Req{
+    required PacketHead head =1;
+    required int32 sessionid = 2; // 用户自己的session
+	required string channelid = 3;
+	required string primary_userid =4;
+	required string push_url = 5;
+	optional int32 video_width=6;
+	optional int32 video_height = 7;
+}
+
+message YouMeVoice_Video_SetPushMix_Rsp
+{
+required ServerPacketHead head =1;
+required int32 sessionid = 2; // 用户自己的session
+required string channelid = 3;
+required int32 result = 4;
+}
+
+message YouMeVoice_Video_ClearPushMix_Req
+{
+	required PacketHead head =1;
+	required int32 sessionid = 2; // 用户自己的session
+
+	required string channelid =3;
+}
+
+message  YouMeVoice_Video_ClearPushMix_Rsp
+{
+	required ServerPacketHead head =1;
+	required int32 sessionid = 2; // 用户自己的session
+	required string channelid =3;
+	required int32 result = 4;
+}
+
+message YouMeVoice_Video_AddPushMixUser_Req{
+    required PacketHead head =1;
+    required int32 sessionid = 2; // 用户自己的session
+	required string channelid = 3;
+	required string userid =4;
+	required int32 x = 5;
+	required int32 y = 6;
+	required int32 z =7;
+	required int32 video_width = 8;
+	required int32 video_height = 9;
+}
+
+message  YouMeVoice_Video_AddPushMixUser_Rsp
+{
+    required ServerPacketHead head =1;
+    required int32 sessionid = 2; // 用户自己的session
+	required string channelid = 3;
+	required string userid =4;
+	required int32  result = 5;
+}
+
+message YouMeVoice_Video_DelPushMixUser_Req
+{
+	required PacketHead head =1;
+	required int32 sessionid = 2; // 用户自己的session
+
+	required string channelid =3;
+	required string userid =4;
+}
+
+message  YouMeVoice_Video_DelPushMixUser_Rsp
+{
+	required ServerPacketHead head =1;
+	required int32 sessionid = 2; // 用户自己的session
+	required string channelid = 3;
+	required string userid =4;
+	required int32  result = 5;
+}
+
+message YouMeVoice_Video_OtherSetPushMix_Notify
+{
+	required ServerPacketHead head = 1;
+	required string channelid =2;	
+	required string userid =3;		// 当前设置pushMix的人
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+syntax = "proto2";
+option optimize_for = LITE_RUNTIME;
+package YouMeProtocol;
+import "common.proto";
+
+enum UploadType
+{
+    UploadType_SDKValidFail=1;//SDK 验证失败
+    UploadType_RedirectFail=2;//重定向失败
+    UploadType_JoinRoomFail=4;//加入房间失败
+    UploadType_HeartFail=8;//心跳断开
+	UploadType_Notify=16;//主动通知上传日志
+}
+
+// 加入会议
+message UploadLog
+{
+    required PacketHead head =1;
+    required int32 filelen=2;
+    optional string md5=3;
+    optional UploadType upType=4;
+    optional int32 errorcode=5;
+	optional string userid=6;
+}

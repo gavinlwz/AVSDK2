@@ -1,0 +1,52 @@
+syntax = "proto2";
+option optimize_for = LITE_RUNTIME;
+package YouMeProtocol;
+import "common.proto";
+
+enum UserEvt
+{
+    Evt_Init_Start=0;//初始化开始
+    Evt_Init_End=1;
+    Evt_SDKValid_Start=2;
+    Evt_SDKValid_End=3;
+    Evt_Redirect_Start=4;
+    Evt_Redirect_End=5;
+    Evt_Join_Room_Start=6;
+    Evt_Join_Room_End=7;
+    Evt_Leave_Room=8;
+    Evt_UnInit=9;
+    Evt_PacketStatus=10;
+    Evt_SDKDNSParse=11;
+    Evt_RecordError=12;
+    Evt_PacketStatMultiUsers=13; // replacement of Evt_PacketStatus
+}
+
+enum RecordErrCode
+{
+    RecErr_OK=0;
+    RecErr_No_Permission=1;
+    RecErr_No_Data=2;
+    RecErr_Others=15;
+}
+
+message DataReportBase
+{
+    required PacketHead head=1;
+    required UserEvt evt=2;
+    optional int32 code =3;
+    optional int64 reporttime=4;
+    optional string userid=5; // 用户id
+}
+message DataReportReqHead
+{
+    required DataReportBase head=1;
+}
+
+
+message DataReport_Response
+{
+    required int32 code=1;
+}
+
+
+

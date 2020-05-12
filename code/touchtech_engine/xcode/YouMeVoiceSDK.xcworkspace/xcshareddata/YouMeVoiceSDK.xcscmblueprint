@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "fa837761-b011-4839-9757-7ed91606020c++2322",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "fa837761-b011-4839-9757-7ed91606020c++2322" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "fa837761-b011-4839-9757-7ed91606020c++2322" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "678CE5C1-3C94-4768-A44F-EBF29631DF8F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "fa837761-b011-4839-9757-7ed91606020c++2322" : "videoSDKMain\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "YouMeVoiceSDK",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "youme_voice_engine\/xcode\/YouMeVoiceSDK.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/code.nxit.us:9888\/repos\/hellocat",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "fa837761-b011-4839-9757-7ed91606020c++2322"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>YouMeVoiceEngine.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>youme_voice_engine_mac.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>705C07471BA1637600E5719D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>70AFD34E1C34E2B800523DEE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>70AFD8C81C34E30100523DEE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>70AFD8D21C34E3A000523DEE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>70AFDE491C34E81300523DEE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

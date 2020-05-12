@@ -1,0 +1,536 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		29B5445B1BC197DF000D1644 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B5445A1BC197DF000D1644 /* libz.1.2.5.dylib */; };
+		4239D9441DE2FC0000A530C7 /* ViewControllerProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 4239D9431DE2FC0000A530C7 /* ViewControllerProduct.m */; };
+		424D07211DEC136E00DF958C /* RadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 424D07201DEC136E00DF958C /* RadioButton.m */; };
+		42ED62F71DE3FD800075345E /* ViewControllerInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 42ED62F61DE3FD800075345E /* ViewControllerInterface.m */; };
+		704896501BA1D3760003575E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7048964F1BA1D3760003575E /* AudioToolbox.framework */; };
+		704896521BA1D9670003575E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 704896511BA1D9670003575E /* CoreFoundation.framework */; };
+		705C06DC1BA15DBC00E5719D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 705C06DB1BA15DBC00E5719D /* main.m */; };
+		705C06DF1BA15DBC00E5719D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 705C06DE1BA15DBC00E5719D /* AppDelegate.m */; };
+		705C06E21BA15DBC00E5719D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 705C06E11BA15DBC00E5719D /* ViewController.m */; };
+		705C06E51BA15DBC00E5719D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 705C06E31BA15DBC00E5719D /* Main.storyboard */; };
+		705C06E71BA15DBC00E5719D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 705C06E61BA15DBC00E5719D /* Images.xcassets */; };
+		705C06EA1BA15DBC00E5719D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 705C06E81BA15DBC00E5719D /* LaunchScreen.xib */; };
+		705C39BA1BA18EC200E5719D /* YouMeVoiceEngineOC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 705C39B91BA18EC200E5719D /* YouMeVoiceEngineOC.mm */; };
+		705C39BD1BA1979500E5719D /* YouMeVoiceEngineImp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 705C39BB1BA1979500E5719D /* YouMeVoiceEngineImp.mm */; };
+		708F12D61BAA93F20080E7C1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708F12D51BAA93F20080E7C1 /* CoreTelephony.framework */; };
+		708F12D91BAA96270080E7C1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708F12D81BAA96270080E7C1 /* SystemConfiguration.framework */; };
+		708F12DA1BAA96A90080E7C1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 704896571BA1E0D30003575E /* AVFoundation.framework */; };
+		70F323B51BD9BBA10060E370 /* libyoume_voice_engine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F323B41BD9BBA10060E370 /* libyoume_voice_engine.a */; };
+		7F7FFAB51C979D1400B898DF /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F7FFAB41C979D1400B898DF /* libsqlite3.0.tbd */; };
+		D02357D81D6D828B00F2EB71 /* kanong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D02357D71D6D828B00F2EB71 /* kanong.mp3 */; };
+		D0C91CA71D616C3D002B6561 /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C91CA41D616C3D002B6561 /* libavcodec.a */; };
+		D0C91CA81D616C3D002B6561 /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C91CA51D616C3D002B6561 /* libavformat.a */; };
+		D0C91CA91D616C3D002B6561 /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C91CA61D616C3D002B6561 /* libavutil.a */; };
+		DBD4E1861C7DD2DA0032E75B /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD4E1851C7DD2DA0032E75B /* libresolv.9.tbd */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AF9393151D30C41B0042607B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF93930F1D30C41B0042607B /* youme_voice_engine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 705C07481BA1637600E5719D;
+			remoteInfo = youme_voice_engine;
+		};
+		AF9393171D30C41B0042607B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF93930F1D30C41B0042607B /* youme_voice_engine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 70AFE3BF1C34E81300523DEE;
+			remoteInfo = youme_voice_engine_mac;
+		};
+		AF9393191D30C41B0042607B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF93930F1D30C41B0042607B /* youme_voice_engine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7FE2FF4E1CC888E300D56A7E;
+			remoteInfo = youme_voice_engine_resource;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		29B5445A1BC197DF000D1644 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		4239D9431DE2FC0000A530C7 /* ViewControllerProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerProduct.m; sourceTree = "<group>"; };
+		4239D9451DE2FC1D00A530C7 /* ViewControllerProduct.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerProduct.h; sourceTree = "<group>"; };
+		424D071F1DEC136E00DF958C /* RadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RadioButton.h; path = SDKTest/RadioButton.h; sourceTree = "<group>"; };
+		424D07201DEC136E00DF958C /* RadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RadioButton.m; path = SDKTest/RadioButton.m; sourceTree = "<group>"; };
+		42ED62F61DE3FD800075345E /* ViewControllerInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerInterface.m; sourceTree = "<group>"; };
+		42ED62FB1DE3FD8E0075345E /* ViewControllerInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerInterface.h; sourceTree = "<group>"; };
+		7018E29D1BB8DB4300313543 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = ../../thirdparties/iphone/lib/universal/libssl.a; sourceTree = "<group>"; };
+		7018E29E1BB8DB4300313543 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = ../../thirdparties/iphone/lib/universal/libcrypto.a; sourceTree = "<group>"; };
+		7018E2A11BB8E10200313543 /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
+		7041F4EA1BC18CA4007C7BC6 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		7048964F1BA1D3760003575E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		704896511BA1D9670003575E /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		704896531BA1D9A20003575E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		704896571BA1E0D30003575E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		704896591BA1E3DE0003575E /* libopus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopus.a; path = ../../thirdparties/iphone/lib/universal/libopus.a; sourceTree = "<group>"; };
+		7048965A1BA1E3DE0003575E /* libspeex.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libspeex.a; path = ../../thirdparties/iphone/lib/universal/libspeex.a; sourceTree = "<group>"; };
+		7048965B1BA1E3DE0003575E /* libspeexdsp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libspeexdsp.a; path = ../../thirdparties/iphone/lib/universal/libspeexdsp.a; sourceTree = "<group>"; };
+		7048965F1BA1E43B0003575E /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavcodec.a; path = ../../thirdparties/iphone/lib/universal/libavcodec.a; sourceTree = "<group>"; };
+		7048BF201BA284A40003575E /* libYouMeVoiceEngine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libYouMeVoiceEngine.a; path = "../YouMeVoiceEngine/build/Debug-iphoneos/libYouMeVoiceEngine.a"; sourceTree = "<group>"; };
+		7048BF221BA2AD600003575E /* VoiceEngineCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceEngineCallback.h; sourceTree = "<group>"; };
+		705C06D61BA15DBC00E5719D /* SDKTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDKTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		705C06DA1BA15DBC00E5719D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		705C06DB1BA15DBC00E5719D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		705C06DD1BA15DBC00E5719D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		705C06DE1BA15DBC00E5719D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		705C06E01BA15DBC00E5719D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		705C06E11BA15DBC00E5719D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		705C06E41BA15DBC00E5719D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		705C06E61BA15DBC00E5719D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		705C06E91BA15DBC00E5719D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		705C39B81BA18EC200E5719D /* YouMeVoiceEngineOC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouMeVoiceEngineOC.h; sourceTree = "<group>"; };
+		705C39B91BA18EC200E5719D /* YouMeVoiceEngineOC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = YouMeVoiceEngineOC.mm; sourceTree = "<group>"; };
+		705C39BB1BA1979500E5719D /* YouMeVoiceEngineImp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = YouMeVoiceEngineImp.mm; path = ../YouMeVoiceEngineImp.mm; sourceTree = "<group>"; };
+		705C39BC1BA1979500E5719D /* YouMeVoiceEngineImp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YouMeVoiceEngineImp.h; path = ../YouMeVoiceEngineImp.h; sourceTree = "<group>"; };
+		708F12D51BAA93F20080E7C1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		708F12D81BAA96270080E7C1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		70D805251BCFA22900CDFB82 /* libyoume_voice_engine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libyoume_voice_engine.a; path = "../YouMeVoiceEngine/build/Debug-iphoneos/libyoume_voice_engine.a"; sourceTree = "<group>"; };
+		70F323B41BD9BBA10060E370 /* libyoume_voice_engine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libyoume_voice_engine.a; path = "../DerivedData/YouMeVoiceSDK/Build/Products/Debug-iphoneos/libyoume_voice_engine.a"; sourceTree = "<group>"; };
+		7F7FFAB41C979D1400B898DF /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		AF93930F1D30C41B0042607B /* youme_voice_engine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = youme_voice_engine.xcodeproj; path = ../YouMeVoiceEngine/youme_voice_engine.xcodeproj; sourceTree = "<group>"; };
+		D02357D71D6D828B00F2EB71 /* kanong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = kanong.mp3; path = SDKTest/Resources/kanong.mp3; sourceTree = "<group>"; };
+		D0C91CA41D616C3D002B6561 /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavcodec.a; path = ../../ffmpegPlayer/libs/apple/universal/libavcodec.a; sourceTree = "<group>"; };
+		D0C91CA51D616C3D002B6561 /* libavformat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavformat.a; path = ../../ffmpegPlayer/libs/apple/universal/libavformat.a; sourceTree = "<group>"; };
+		D0C91CA61D616C3D002B6561 /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavutil.a; path = ../../ffmpegPlayer/libs/apple/universal/libavutil.a; sourceTree = "<group>"; };
+		DB667F581C22B9CD006C38F9 /* libProtocolBuffer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libProtocolBuffer.a; path = "../../../../../Library/Developer/Xcode/DerivedData/YouMeVoiceSDK-dbtcjahjiqsmokctviwkmukjprtz/Build/Products/Debug-iphoneos/libProtocolBuffer.a"; sourceTree = "<group>"; };
+		DB6680331C22BE34006C38F9 /* libOpenSSL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOpenSSL.a; path = "../../../../../Library/Developer/Xcode/DerivedData/YouMeVoiceSDK-dbtcjahjiqsmokctviwkmukjprtz/Build/Products/Debug-iphoneos/libOpenSSL.a"; sourceTree = "<group>"; };
+		DB6685E31C22CE9F006C38F9 /* libCrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCrypto.a; path = "../../../../../Library/Developer/Xcode/DerivedData/YouMeVoiceSDK-dbtcjahjiqsmokctviwkmukjprtz/Build/Products/Debug-iphoneos/libCrypto.a"; sourceTree = "<group>"; };
+		DB6688CF1C22D32D006C38F9 /* libCURL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCURL.a; path = "../../../../../Library/Developer/Xcode/DerivedData/YouMeVoiceSDK-dbtcjahjiqsmokctviwkmukjprtz/Build/Products/Debug-iphoneos/libCURL.a"; sourceTree = "<group>"; };
+		DBD4E1851C7DD2DA0032E75B /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		705C06D31BA15DBC00E5719D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0C91CA71D616C3D002B6561 /* libavcodec.a in Frameworks */,
+				D0C91CA81D616C3D002B6561 /* libavformat.a in Frameworks */,
+				D0C91CA91D616C3D002B6561 /* libavutil.a in Frameworks */,
+				7F7FFAB51C979D1400B898DF /* libsqlite3.0.tbd in Frameworks */,
+				DBD4E1861C7DD2DA0032E75B /* libresolv.9.tbd in Frameworks */,
+				70F323B51BD9BBA10060E370 /* libyoume_voice_engine.a in Frameworks */,
+				29B5445B1BC197DF000D1644 /* libz.1.2.5.dylib in Frameworks */,
+				708F12DA1BAA96A90080E7C1 /* AVFoundation.framework in Frameworks */,
+				708F12D91BAA96270080E7C1 /* SystemConfiguration.framework in Frameworks */,
+				708F12D61BAA93F20080E7C1 /* CoreTelephony.framework in Frameworks */,
+				704896521BA1D9670003575E /* CoreFoundation.framework in Frameworks */,
+				704896501BA1D3760003575E /* AudioToolbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		424D071B1DEC12D200DF958C /* RadioButton */ = {
+			isa = PBXGroup;
+			children = (
+				424D071F1DEC136E00DF958C /* RadioButton.h */,
+				424D07201DEC136E00DF958C /* RadioButton.m */,
+			);
+			name = RadioButton;
+			sourceTree = "<group>";
+		};
+		7048964E1BA1D3110003575E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D0C91CA61D616C3D002B6561 /* libavutil.a */,
+				D0C91CA51D616C3D002B6561 /* libavformat.a */,
+				D0C91CA41D616C3D002B6561 /* libavcodec.a */,
+				AF93930F1D30C41B0042607B /* youme_voice_engine.xcodeproj */,
+				7F7FFAB41C979D1400B898DF /* libsqlite3.0.tbd */,
+				DBD4E1851C7DD2DA0032E75B /* libresolv.9.tbd */,
+				DB6688CF1C22D32D006C38F9 /* libCURL.a */,
+				DB6685E31C22CE9F006C38F9 /* libCrypto.a */,
+				DB6680331C22BE34006C38F9 /* libOpenSSL.a */,
+				DB667F581C22B9CD006C38F9 /* libProtocolBuffer.a */,
+				70F323B41BD9BBA10060E370 /* libyoume_voice_engine.a */,
+				70D805251BCFA22900CDFB82 /* libyoume_voice_engine.a */,
+				29B5445A1BC197DF000D1644 /* libz.1.2.5.dylib */,
+				7041F4EA1BC18CA4007C7BC6 /* libz.tbd */,
+				7018E2A11BB8E10200313543 /* libz.1.2.5.tbd */,
+				7018E29D1BB8DB4300313543 /* libssl.a */,
+				7018E29E1BB8DB4300313543 /* libcrypto.a */,
+				708F12D81BAA96270080E7C1 /* SystemConfiguration.framework */,
+				708F12D51BAA93F20080E7C1 /* CoreTelephony.framework */,
+				7048BF201BA284A40003575E /* libYouMeVoiceEngine.a */,
+				7048965F1BA1E43B0003575E /* libavcodec.a */,
+				704896591BA1E3DE0003575E /* libopus.a */,
+				7048965A1BA1E3DE0003575E /* libspeex.a */,
+				7048965B1BA1E3DE0003575E /* libspeexdsp.a */,
+				704896571BA1E0D30003575E /* AVFoundation.framework */,
+				704896531BA1D9A20003575E /* CFNetwork.framework */,
+				704896511BA1D9670003575E /* CoreFoundation.framework */,
+				7048964F1BA1D3760003575E /* AudioToolbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		705C06CD1BA15DBC00E5719D = {
+			isa = PBXGroup;
+			children = (
+				424D071B1DEC12D200DF958C /* RadioButton */,
+				D02357D61D6D827300F2EB71 /* music */,
+				7048964E1BA1D3110003575E /* Frameworks */,
+				705C06D81BA15DBC00E5719D /* SDKTest */,
+				705C06D71BA15DBC00E5719D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		705C06D71BA15DBC00E5719D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				705C06D61BA15DBC00E5719D /* SDKTest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		705C06D81BA15DBC00E5719D /* SDKTest */ = {
+			isa = PBXGroup;
+			children = (
+				705C06DD1BA15DBC00E5719D /* AppDelegate.h */,
+				705C06DE1BA15DBC00E5719D /* AppDelegate.m */,
+				705C06E01BA15DBC00E5719D /* ViewController.h */,
+				705C06E11BA15DBC00E5719D /* ViewController.m */,
+				705C06E31BA15DBC00E5719D /* Main.storyboard */,
+				705C06E61BA15DBC00E5719D /* Images.xcassets */,
+				705C06E81BA15DBC00E5719D /* LaunchScreen.xib */,
+				705C06D91BA15DBC00E5719D /* Supporting Files */,
+				705C39B81BA18EC200E5719D /* YouMeVoiceEngineOC.h */,
+				705C39B91BA18EC200E5719D /* YouMeVoiceEngineOC.mm */,
+				705C39BB1BA1979500E5719D /* YouMeVoiceEngineImp.mm */,
+				705C39BC1BA1979500E5719D /* YouMeVoiceEngineImp.h */,
+				7048BF221BA2AD600003575E /* VoiceEngineCallback.h */,
+				4239D9431DE2FC0000A530C7 /* ViewControllerProduct.m */,
+				4239D9451DE2FC1D00A530C7 /* ViewControllerProduct.h */,
+				42ED62F61DE3FD800075345E /* ViewControllerInterface.m */,
+				42ED62FB1DE3FD8E0075345E /* ViewControllerInterface.h */,
+			);
+			path = SDKTest;
+			sourceTree = "<group>";
+		};
+		705C06D91BA15DBC00E5719D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				705C06DA1BA15DBC00E5719D /* Info.plist */,
+				705C06DB1BA15DBC00E5719D /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AF9393101D30C41B0042607B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF9393161D30C41B0042607B /* libyoume_voice_engine.a */,
+				AF9393181D30C41B0042607B /* libyoume_voice_engine_mac.a */,
+				AF93931A1D30C41B0042607B /* youme_voice_engine_resource.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D02357D61D6D827300F2EB71 /* music */ = {
+			isa = PBXGroup;
+			children = (
+				D02357D71D6D828B00F2EB71 /* kanong.mp3 */,
+			);
+			name = music;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		705C06D51BA15DBC00E5719D /* SDKTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 705C06F91BA15DBC00E5719D /* Build configuration list for PBXNativeTarget "SDKTest" */;
+			buildPhases = (
+				705C06D21BA15DBC00E5719D /* Sources */,
+				705C06D31BA15DBC00E5719D /* Frameworks */,
+				705C06D41BA15DBC00E5719D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SDKTest;
+			productName = SDKTest;
+			productReference = 705C06D61BA15DBC00E5719D /* SDKTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		705C06CE1BA15DBC00E5719D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = tencent;
+				TargetAttributes = {
+					705C06D51BA15DBC00E5719D = {
+						CreatedOnToolsVersion = 6.4;
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = 705C06D11BA15DBC00E5719D /* Build configuration list for PBXProject "SDKTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 705C06CD1BA15DBC00E5719D;
+			productRefGroup = 705C06D71BA15DBC00E5719D /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AF9393101D30C41B0042607B /* Products */;
+					ProjectRef = AF93930F1D30C41B0042607B /* youme_voice_engine.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				705C06D51BA15DBC00E5719D /* SDKTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		AF9393161D30C41B0042607B /* libyoume_voice_engine.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libyoume_voice_engine.a;
+			remoteRef = AF9393151D30C41B0042607B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AF9393181D30C41B0042607B /* libyoume_voice_engine_mac.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libyoume_voice_engine_mac.a;
+			remoteRef = AF9393171D30C41B0042607B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AF93931A1D30C41B0042607B /* youme_voice_engine_resource.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = youme_voice_engine_resource.bundle;
+			remoteRef = AF9393191D30C41B0042607B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		705C06D41BA15DBC00E5719D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				705C06E51BA15DBC00E5719D /* Main.storyboard in Resources */,
+				705C06EA1BA15DBC00E5719D /* LaunchScreen.xib in Resources */,
+				D02357D81D6D828B00F2EB71 /* kanong.mp3 in Resources */,
+				705C06E71BA15DBC00E5719D /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		705C06D21BA15DBC00E5719D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42ED62F71DE3FD800075345E /* ViewControllerInterface.m in Sources */,
+				705C06E21BA15DBC00E5719D /* ViewController.m in Sources */,
+				705C39BA1BA18EC200E5719D /* YouMeVoiceEngineOC.mm in Sources */,
+				424D07211DEC136E00DF958C /* RadioButton.m in Sources */,
+				705C39BD1BA1979500E5719D /* YouMeVoiceEngineImp.mm in Sources */,
+				705C06DF1BA15DBC00E5719D /* AppDelegate.m in Sources */,
+				4239D9441DE2FC0000A530C7 /* ViewControllerProduct.m in Sources */,
+				705C06DC1BA15DBC00E5719D /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		705C06E31BA15DBC00E5719D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				705C06E41BA15DBC00E5719D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		705C06E81BA15DBC00E5719D /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				705C06E91BA15DBC00E5719D /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		705C06F71BA15DBC00E5719D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "../../bindings/cocos2d-x/interface";
+			};
+			name = Debug;
+		};
+		705C06F81BA15DBC00E5719D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "../../bindings/cocos2d-x/interface";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		705C06FA1BA15DBC00E5719D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: me you (NUZXKA7782)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = SDKTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					../../ffmpegPlayer/libs/apple/universal,
+				);
+				LINKER_DISPLAYS_MANGLED_NAMES = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youme.joe.testvoice;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		705C06FB1BA15DBC00E5719D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: me you (Z5JLD7ST65)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = SDKTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					../../ffmpegPlayer/libs/apple/universal,
+				);
+				LINKER_DISPLAYS_MANGLED_NAMES = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youme.joe.testvoice;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		705C06D11BA15DBC00E5719D /* Build configuration list for PBXProject "SDKTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				705C06F71BA15DBC00E5719D /* Debug */,
+				705C06F81BA15DBC00E5719D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		705C06F91BA15DBC00E5719D /* Build configuration list for PBXNativeTarget "SDKTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				705C06FA1BA15DBC00E5719D /* Debug */,
+				705C06FB1BA15DBC00E5719D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 705C06CE1BA15DBC00E5719D /* Project object */;
+}

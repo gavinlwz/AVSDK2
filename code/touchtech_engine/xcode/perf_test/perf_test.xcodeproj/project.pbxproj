@@ -1,0 +1,283 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		708983BA1C3A4F47004DF1B5 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 708983B91C3A4F47004DF1B5 /* libz.1.2.5.tbd */; };
+		708983BC1C3A7653004DF1B5 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708983BB1C3A7653004DF1B5 /* CoreFoundation.framework */; };
+		708983C11C3A7F2F004DF1B5 /* VoiceTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 708983BF1C3A7F2F004DF1B5 /* VoiceTest.cpp */; };
+		70AFE4041C351AA700523DEE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 70AFE4031C351AA700523DEE /* main.cpp */; };
+		70AFE40B1C351AEB00523DEE /* libyoume_voice_engine_mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70AFE40A1C351AEB00523DEE /* libyoume_voice_engine_mac.a */; };
+		70AFE40E1C3524DC00523DEE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70AFE40C1C3524DC00523DEE /* AudioToolbox.framework */; };
+		70AFE40F1C3524DC00523DEE /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70AFE40D1C3524DC00523DEE /* AudioUnit.framework */; };
+		70AFE4111C3524E800523DEE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70AFE4101C3524E800523DEE /* AVFoundation.framework */; };
+		70AFE4131C3524FC00523DEE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70AFE4121C3524FC00523DEE /* CFNetwork.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		70AFE3FE1C351AA700523DEE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		708983B91C3A4F47004DF1B5 /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
+		708983BB1C3A7653004DF1B5 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		708983BF1C3A7F2F004DF1B5 /* VoiceTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VoiceTest.cpp; sourceTree = "<group>"; };
+		708983C01C3A7F2F004DF1B5 /* VoiceTest.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = VoiceTest.hpp; sourceTree = "<group>"; };
+		70AFE4001C351AA700523DEE /* perf_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = perf_test; sourceTree = BUILT_PRODUCTS_DIR; };
+		70AFE4031C351AA700523DEE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		70AFE40A1C351AEB00523DEE /* libyoume_voice_engine_mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libyoume_voice_engine_mac.a; path = ../YouMeVoiceEngine/build/Debug/libyoume_voice_engine_mac.a; sourceTree = "<group>"; };
+		70AFE40C1C3524DC00523DEE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		70AFE40D1C3524DC00523DEE /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		70AFE4101C3524E800523DEE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		70AFE4121C3524FC00523DEE /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		70AFE3FD1C351AA700523DEE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				708983BC1C3A7653004DF1B5 /* CoreFoundation.framework in Frameworks */,
+				708983BA1C3A4F47004DF1B5 /* libz.1.2.5.tbd in Frameworks */,
+				70AFE4111C3524E800523DEE /* AVFoundation.framework in Frameworks */,
+				70AFE4131C3524FC00523DEE /* CFNetwork.framework in Frameworks */,
+				70AFE40E1C3524DC00523DEE /* AudioToolbox.framework in Frameworks */,
+				70AFE40F1C3524DC00523DEE /* AudioUnit.framework in Frameworks */,
+				70AFE40B1C351AEB00523DEE /* libyoume_voice_engine_mac.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		70AFE3F71C351AA700523DEE = {
+			isa = PBXGroup;
+			children = (
+				708983BB1C3A7653004DF1B5 /* CoreFoundation.framework */,
+				708983B91C3A4F47004DF1B5 /* libz.1.2.5.tbd */,
+				70AFE4121C3524FC00523DEE /* CFNetwork.framework */,
+				70AFE4101C3524E800523DEE /* AVFoundation.framework */,
+				70AFE40C1C3524DC00523DEE /* AudioToolbox.framework */,
+				70AFE40D1C3524DC00523DEE /* AudioUnit.framework */,
+				70AFE40A1C351AEB00523DEE /* libyoume_voice_engine_mac.a */,
+				70AFE4021C351AA700523DEE /* perf_test */,
+				70AFE4011C351AA700523DEE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		70AFE4011C351AA700523DEE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				70AFE4001C351AA700523DEE /* perf_test */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		70AFE4021C351AA700523DEE /* perf_test */ = {
+			isa = PBXGroup;
+			children = (
+				70AFE4031C351AA700523DEE /* main.cpp */,
+				708983BF1C3A7F2F004DF1B5 /* VoiceTest.cpp */,
+				708983C01C3A7F2F004DF1B5 /* VoiceTest.hpp */,
+			);
+			path = perf_test;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		70AFE3FF1C351AA700523DEE /* perf_test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 70AFE4071C351AA700523DEE /* Build configuration list for PBXNativeTarget "perf_test" */;
+			buildPhases = (
+				70AFE3FC1C351AA700523DEE /* Sources */,
+				70AFE3FD1C351AA700523DEE /* Frameworks */,
+				70AFE3FE1C351AA700523DEE /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = perf_test;
+			productName = perf_test;
+			productReference = 70AFE4001C351AA700523DEE /* perf_test */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		70AFE3F81C351AA700523DEE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = tencent;
+				TargetAttributes = {
+					70AFE3FF1C351AA700523DEE = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = 70AFE3FB1C351AA700523DEE /* Build configuration list for PBXProject "perf_test" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 70AFE3F71C351AA700523DEE;
+			productRefGroup = 70AFE4011C351AA700523DEE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				70AFE3FF1C351AA700523DEE /* perf_test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		70AFE3FC1C351AA700523DEE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				708983C11C3A7F2F004DF1B5 /* VoiceTest.cpp in Sources */,
+				70AFE4041C351AA700523DEE /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		70AFE4051C351AA700523DEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		70AFE4061C351AA700523DEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		70AFE4081C351AA700523DEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = "\"MAC_OS\"";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "../../bindings/cocos2d-x/interface";
+			};
+			name = Debug;
+		};
+		70AFE4091C351AA700523DEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = "\"MAC_OS\"";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "../../bindings/cocos2d-x/interface";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		70AFE3FB1C351AA700523DEE /* Build configuration list for PBXProject "perf_test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70AFE4051C351AA700523DEE /* Debug */,
+				70AFE4061C351AA700523DEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		70AFE4071C351AA700523DEE /* Build configuration list for PBXNativeTarget "perf_test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70AFE4081C351AA700523DEE /* Debug */,
+				70AFE4091C351AA700523DEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 70AFE3F81C351AA700523DEE /* Project object */;
+}

@@ -1,0 +1,14 @@
+prefix=/Volumes/data/Work/videoSDK/youme_voice_engine/ffmpegPlayer/build/ffmpeg_ios/build/ffmpeg-mac_x86_64/output
+exec_prefix=${prefix}
+libdir=/Volumes/data/Work/videoSDK/youme_voice_engine/ffmpegPlayer/build/ffmpeg_ios/../../libs/apple/mac_x64/lib
+includedir=/Volumes/data/Work/videoSDK/youme_voice_engine/ffmpegPlayer/build/ffmpeg_ios/../../libs/apple/mac_x64/include
+
+Name: libavcodec
+Description: FFmpeg codec library
+Version: 57.89.100
+Requires: libavutil >= 55.58.100
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavcodec -framework CoreFoundation -framework AudioToolbox -framework CoreMedia -framework VideoDecodeAcceleration -Wl,-framework,CoreFoundation -Wl,-framework,Security -L/usr/local/lib -lSDL2 -L/usr/local/Cellar/x264/r2917/lib -lx264 -lfdk-aac -lm -lbz2 -lz -pthread -framework CoreServices
+Libs.private: 
+Cflags: -I${includedir}

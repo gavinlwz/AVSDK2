@@ -1,0 +1,14 @@
+prefix=/Volumes/FishSSD/Project/videoSDK_qiniu/youme_voice_engine/ffmpegPlayer/build/ffmpeg_ios/build/ffmpeg-armv7/output
+exec_prefix=${prefix}
+libdir=/Volumes/FishSSD/Project/videoSDK_qiniu/youme_voice_engine/ffmpegPlayer/build/ffmpeg_ios/../../libs/apple/ios_arm32/lib
+includedir=/Volumes/FishSSD/Project/videoSDK_qiniu/youme_voice_engine/ffmpegPlayer/build/ffmpeg_ios/../../libs/apple/ios_arm32/include
+
+Name: libavfilter
+Description: FFmpeg audio/video filtering library
+Version: 6.82.100
+Requires: libavutil >= 55.58.100
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavfilter -framework CoreFoundation -framework AudioToolbox -framework CoreMedia -lm -lbz2 -lz -pthread
+Libs.private: 
+Cflags: -I${includedir}

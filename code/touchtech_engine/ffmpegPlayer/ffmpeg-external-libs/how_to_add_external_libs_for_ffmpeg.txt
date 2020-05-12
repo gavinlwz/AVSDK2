@@ -1,0 +1,31 @@
+1. 在跟本文件相同的目录下创建一个名为 "libxxx" 的库， 其中 "xxx" 是实际的库名， 如 "libass"。
+2. 将库(以及改库依赖的其他库）的源代码放到 "libxxx" 下面。
+3. 复制 libass/libass-0.12-1.1/build_ndk.sh 到各个库的源代码根目录下面。
+4. 复制 libass/build_all_ndk.sh 到 libxxx/ 下面。
+5. 根据各个库的编译要求，修改它们下面的 build_ndk.sh 如下地方：
+	1）导出的环境变量：
+		export FONTCONFIG_CFLAGS="-I${INSTALL_PREFIX}/fontconfig/include"
+		export FONTCONFIG_LIBS="-L${INSTALL_PREFIX}/fontconfig/lib"
+		export FREETYPE_CFLAGS="-I${INSTALL_PREFIX}/freetype/include/freetype2"
+		export FREETYPE_LIBS="-L${INSTALL_PREFIX}/freetype/lib"
+		export FRIBIDI_CFLAGS="-I${INSTALL_PREFIX}/fribidi/include/fribidi"
+		export FRIBIDI_LIBS="-L${INSTALL_PREFIX}/fribidi/lib/"
+	2）编译输出目录名：
+	--prefix="${INSTALL_PREFIX}/libass"
+6. 修改 libxxx/build_all_ndk.sh, 调用各个库下面的 build_ndk.sh
+7. 修改 pkg-config-android-common， 在这行注释下面，仿照libass的做法，增加相应库的路径。
+	“# output faked pkg-config information for ... (add new lib information here)”
+
+	NOTE：需要做这一步是因为，ffmpeg的make过程，会调用 pkg-config 这个命令去获取第三方库的路径。而pkg-config
+	是系统命令，适合于HOST机器程序的编译，不适合交叉编译。所以我们写了 shell 脚本（pkg-config-android-arm
+	和 pkg-config-android-x86）来代替 pkg-config（在ffmpeg configure时可以指定pkg-config的替代程序）,
+	在这些脚本里面返回第三方库编译结果在当前编译环境下的路径。
+
+8. 在 ffmpeg-x.x.x/_build_FFmpeg_CodecParam_full.sh 或 ffmpeg-x.x.x/_build_FFmpeg_CodecParam_min.sh
+	里面， 修改几个环境变量的定义以使用新的库：
+	1. FFmpeg_CodecParam ：增加相应的选项在后面
+	2. 增加如下行：
+		EXTERNAL_LIBS_X86=${EXTERNAL_LIBS_X86} "$($(pwd)/../ffmpeg-external-libs/pkg-config-android-x86 --libs libxxx)"
+		EXTERNAL_LIBS_GCC=${EXTERNAL_LIBS_GCC} "$($(pwd)/../ffmpeg-external-libs/pkg-config-android-arm --libs libxxx)"
+9. 最后，根据你的NDK路径和版本设置环境变量 ANDROID_NDK_ROOT， ANDROID_NDK_VERSION，就可以开始编译了。
+

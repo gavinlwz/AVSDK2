@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test001" borderStyle="roundedRect" placeholder="请输入房间号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ABW-Aw-epa">
+                                <rect key="frame" x="20" y="64" width="374" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="o2V-oi-zLO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="user_888" borderStyle="roundedRect" placeholder="请输入用户名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nTG-h9-Fvz">
+                                <rect key="frame" x="20" y="118" width="374" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="tRl-aY-FJB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddm-FU-cYq">
+                                <rect key="frame" x="20" y="202" width="374" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="pWm-HU-dN3"/>
+                                </constraints>
+                                <state key="normal" title="进入房间"/>
+                                <connections>
+                                    <action selector="joinRoomBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9VF-d9-CRY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ew-uA-f3a">
+                                <rect key="frame" x="20" y="262" width="374" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.5845935941" blue="0.38662475349999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="F5s-N4-m2F"/>
+                                </constraints>
+                                <state key="normal" title="开启应用内录屏"/>
+                                <connections>
+                                    <action selector="openScreenCaptureBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tXq-01-N0b"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KDe-Ic-yXJ">
+                                <rect key="frame" x="20" y="812" width="374" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="wlh-lc-esC"/>
+                                </constraints>
+                                <state key="normal" title="打开测试视频"/>
+                                <connections>
+                                    <action selector="openTestVideoBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dZk-8u-MeB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="nTG-h9-Fvz" firstAttribute="top" secondItem="ABW-Aw-epa" secondAttribute="bottom" constant="20" id="1Yy-VY-E8L"/>
+                            <constraint firstItem="KDe-Ic-yXJ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-20" id="514-qF-q72"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nTG-h9-Fvz" secondAttribute="trailing" constant="20" id="8iE-MX-j1D"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ddm-FU-cYq" secondAttribute="trailing" constant="20" id="NB8-CG-t9c"/>
+                            <constraint firstItem="ABW-Aw-epa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Nr2-0T-RfD"/>
+                            <constraint firstItem="3Ew-uA-f3a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="RhH-mZ-1bR"/>
+                            <constraint firstItem="KDe-Ic-yXJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Wic-8R-7Xe"/>
+                            <constraint firstItem="nTG-h9-Fvz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Zg5-Oh-vWy"/>
+                            <constraint firstItem="ddm-FU-cYq" firstAttribute="top" secondItem="nTG-h9-Fvz" secondAttribute="bottom" constant="50" id="aI5-0t-SOm"/>
+                            <constraint firstItem="3Ew-uA-f3a" firstAttribute="top" secondItem="ddm-FU-cYq" secondAttribute="bottom" constant="30" id="fSQ-vn-YaZ"/>
+                            <constraint firstItem="ddm-FU-cYq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="pxY-Xb-luu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ABW-Aw-epa" secondAttribute="trailing" constant="20" id="rTc-jn-Zhl"/>
+                            <constraint firstItem="ABW-Aw-epa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="s9P-Fd-9Lq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3Ew-uA-f3a" secondAttribute="trailing" constant="20" id="sNZ-0X-iN7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KDe-Ic-yXJ" secondAttribute="trailing" constant="20" id="uFO-gb-xfa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="channelTextField" destination="ABW-Aw-epa" id="auH-dd-sdj"/>
+                        <outlet property="joinChannelBtn" destination="ddm-FU-cYq" id="8X7-6e-xLa"/>
+                        <outlet property="openCaptureBtn" destination="3Ew-uA-f3a" id="XpE-O9-1Qb"/>
+                        <outlet property="userNameTextField" destination="nTG-h9-Fvz" id="D4V-cl-nPG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="92"/>
+        </scene>
+    </scenes>
+</document>

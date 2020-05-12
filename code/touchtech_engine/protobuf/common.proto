@@ -1,0 +1,214 @@
+syntax = "proto2";
+package YouMeProtocol;
+option optimize_for = LITE_RUNTIME;
+enum Device_Platform
+{
+    Platform_Unknow = 0;
+    Platform_Android = 1;
+    Platform_IOS = 2;
+    Platform_Windows = 3;
+    Platform_OSX = 4;
+    Platform_Linux = 5;
+}
+enum NetworkType
+{
+NetworkType_Unknow=0;
+NetworkType_3G=1; //移动网络
+NetworkType_Wifi=2;
+}
+
+enum YouMeUserRole
+{
+YOUME_USER_NONE = 0;             // 非法用户，调用API时不能传此参数
+YOUME_USER_TALKER_FREE = 1;      // 自由讲话者，适用于小组通话（建议小组成员数最多10个），每个人都可以随时讲话, 同一个时刻只能在一个语音频道里面
+YOUME_USER_TALKER_ON_DEMAND = 2; // 需要通过抢麦等请求麦克风权限之后才可以讲话，适用于较大的组或工会等（比如几十个人），同一个时刻只能有一个或几个人能讲话, 同一个时刻只能在一个语音频道里面
+YOUME_USER_LISTENER = 3;         // 听众，主播/指挥/嘉宾的听众，同一个时刻只能在一个语音频道里面，只听不讲
+YOUME_USER_COMMANDER = 4;        // 指挥，国家/帮派等的指挥官，同一个时刻只能在一个语音频道里面，可以随时讲话，可以播放背景音乐，戴耳机情况下可以监听自己语音
+YOUME_USER_HOST = 5;             // 主播，广播型语音频道的主持人，同一个时刻只能在一个语音频道里面，可以随时讲话，可以播放背景音乐，戴耳机情况下可以监听自己语音
+YOUME_USER_GUSET = 6;            // 嘉宾，主播或指挥邀请的连麦嘉宾，同一个时刻只能在一个语音频道里面， 可以随时讲话
+YOUME_USER_DOLL_MACHINE_H5 = 99;
+}
+
+enum MSG_TYPE
+{
+MSG_SDK_AUTH   = 0; //服务器验证消息名
+MSG_SDK_Logout = 1; //服务器注销
+MSG_LOGIN      = 2; //登陆时上报登陆信息
+MSG_CALLBEGIN  = 3; //通话开始时上报通话开始信息。主要用于服务器纪录通话开始时间
+MSG_CALLEND    = 4; //通话结束时上报所有统计信息。
+MSG_LOGOUT     = 5; //登出时上报登陆信息
+MSG_GET_CONFIG = 6; //从服务器拉取配置
+MSG_JoinConference = 7; //加入会议
+MSG_LeaveConference = 8; //离开会议
+MSG_Heart = 9; //心跳
+MSG_DataReport = 10; //心跳
+MSG_Kickout = 11; //服务器主动踢掉
+MSG_Redirect = 17; //重定向
+MSG_UploadLog = 18; //日志上传
+// CFGSVR配置服务器
+MSG_CFGSVR_INFO_REQUEST  = 12; //业务服务器请求配置服务器下发配置
+MSG_CFGSVR_INFO_RESPONSE = 13; //配置服务器下发配置至业务服务器
+MSG_CFGSVR_WEB_NOTIFY    = 14; //WEB更新了数据库，通知配置服务器下发更新配置至业务服务器
+MSG_CFGSVR_HEARTBEAT     = 15; //业务服务器心跳包，用来检测业务服务器的存活状态
+MSG_CFGSVR_HEARTBEAT_ACK = 16; //心跳包ack，配置服务器收到业务服务器的心跳包，回ack
+MSG_MIC_STATUS = 19; //好友麦克风和扬声器打开关闭事件，命名是由于这个是从麦克风状态通知扩展后可以同时通知扬声器状态
+MSG_MIC_STATUS_SERVER = 20; //好友麦克风和扬声器打开关闭事件
+MSG_ROOM_MEMBERS_CHANGE = 23;//房间人员变化通知
+MSG_COMMON_STATUS = 24;//通用状态汇报事件
+MSG_COMMON_STATUS_SERVER = 25;//通用状态汇报事件
+MSG_JOIN_ROOM = 26;             /* 加入房间请求 */
+MSG_JOIN_ROOM_SERVER = 27;      /* 加入房间应答 */
+MSG_LEAVE_ROOM = 28;            /* 离开房间请求 */
+MSG_LEAVE_ROOM_SERVER = 29;     /* 离开房间应答 */
+MSG_SPEAK_TO_ROOM = 30;         /* 指定房间发送语音请求 */
+MSG_SPEAK_TO_ROOM_SERVER = 31;  /* 指定房间发送语音应答 */
+MSG_MCU_JOIN_LEAVE_ROOM = 32;   //混音服务器人员进出通知
+MSG_SESSIONID_TO_USERID = 33;   // 映射sessionid到userid
+MSG_GET_REDIRECT = 34;          //获取重定向列表，无尽对决需求
+
+MSG_GET_USER_LIST = 35;          // 成员列表请求
+MSG_GET_USER_LIST_SERVER = 36;   // 成员列表响应
+MSG_USER_JOIN_LEAVE_NOTIFY = 37; // 成员增量通知
+	
+//抢麦流程
+MSG_FIGHT_4_MIC_INIT   = 38;       // 抢麦初始化
+MSG_FIGHT_4_MIC_DEINIT = 39;     // 抢麦反初始化
+MSG_FIGHT_4_MIC        = 40;
+MSG_RELEASE_MIC        = 41;     // 释放麦克风
+MSG_FIGHT_4_MIC_NOTIFY = 42;     // 抢麦通知
+	
+//连麦流程
+MSG_INVITE             = 43;     // 连麦请求
+MSG_ACCEPT             = 44;     // 连麦接受处理
+MSG_INVITE_NOTIFY      = 45;     // 连麦通知
+MSG_INVITE_BYE         = 46;     // 结束连麦
+MSG_INVITE_INIT        = 47;     // 连麦初始化
+	
+MSG_MASK_VIDEO_BY_USERID = 48;   // 屏蔽指定user ID的视频
+MSG_MASK_VIDEO_BY_USERID_NFY = 49; // 被屏蔽者通知事件
+MSG_CAMERA_STATUS = 50;          // 自己的摄像头打开关闭事件
+MSG_CAMERA_STATUS_NFY = 51;      // 好友的摄像头打开关闭事件
+
+
+    // 频道内聊天消息发送和通知
+    MSG_SEND_MESSAGE        = 52;
+    MSG_SEND_MESSAGE_SERVER = 53;
+    MSG_MESSAGE_NOTIFY      = 54;
+
+    MSG_SET_SEND_LIST     = 55; // 频道转发白名单
+    MSG_SET_SEND_LIST_ACK     = 56; // 频道转发白名单响应
+
+    MSG_KICK_USRE         = 57; // 踢人
+    MSG_KICK_USRE_ACK     = 58; // 踢人返回
+    MSG_KICK_USRE_NOTIFY  = 59; // 被踢人通知
+
+MSG_MEDIA_AVINPUT_STAT       = 60; // 音视频开关通知
+MSG_MEDIA_AVINPUT_STAT_ACK   = 61; // 音视频开关通知响应
+MSG_MEDIA_AVINPUT_STAT_NOTIFY    = 62; // 音视频开关广播
+
+  MSG_KICK_OTHER_NOTIFY            = 63; // 通知其他人有人被踢出
+
+  MSG_QUERY_USER_VIDEO_INFO        = 64; // 查询用户上行视频信息
+  MSG_QUERY_USER_VIDEO_INFO_ACK    = 65; // 查询用户上行视频信息返回
+
+  MSG_SET_RECV_VIDEO_INFO        = 66; // 设置接收视频信息
+  MSG_SET_RECV_VIDEO_INFO_ACK    = 67; // 设置接收视频信息返回 
+
+  MSG_BUSS_REPORT                = 68; // 终端信息上报
+  MSG_BUSS_REPORT_ACK            = 69; // 终端信息上报响应
+
+  MSG_SET_PUSH_SINGLE            = 70;
+  MSG_SET_PUSH_SINGLE_ACK       =71;     
+  MSG_REMOVE_PUSH_SINGLE        = 72;
+  MSG_REMOVE_PUSH_SINGLE_ACK    =73;
+  MSG_SET_PUSH_MIX              =74;
+  MSG_SET_PUSH_MIX_ACK          =75;
+  MSG_CLEAR_PUSH_MIX            =76;
+  MSG_CLEAR_PUSH_MIX_ACK        =77;
+  MSG_ADD_PUSH_MIX_USER         =78;
+  MSG_ADD_PUSH_MIX_USER_ACK     =79;
+  MSG_REMOVE_PUSH_MIX_USER      =80;
+  MSG_REMOVE_PUSH_MIX_USER_ACK  =81;
+  MSG_OTHER_SET_PUSH_MIX        =82;
+
+  MSG_SET_RECV_VIDEO_INFO_NOTIFY = 84; // 设置接收视频信息通知发送方
+
+}
+
+enum STATUS_EVENT_TYPE
+{
+MIC_STATUS=0;//麦克风是否打开
+SPEAKER_STATUS=1;//扬声器是否打开
+MIC_CTR_STATUS=2;//麦克风控制状态
+SPEAKER_CTR_STATUS=3;//扬声器控制状态
+AVOID_STATUS=4;//指定用户进行语音消除
+IDENTITY_MODIFY=5; // 主播 <==>普通用户转换 status 参考 YouMeUserRole
+}
+
+// 数据包的头部信息
+message PacketHead
+{
+	//消息类型
+	required MSG_TYPE msgtype=1;
+	//协议版本号
+	required int32 msgversion =2;
+	//设备平台
+	required Device_Platform platform =3;
+	optional string Brand           = 4;//msgversion =2 的时候这个字段变成了手机的型号
+    optional string SysVersion        = 5;
+    optional int32  YmSdkVersion      = 6;
+    optional string CpuArch           = 7;
+    optional string PackageName       = 8;
+    optional string Identify =9;
+    optional string AppKey            = 10;
+    optional string SDKName           = 11;//用于区分是什么SDK，例如“voice”，“im”
+    optional string Model             =12;//手机型号
+    optional NetworkType NetworkType = 13;//网络类型
+    optional string CPUChip = 14;//CPU芯片
+    optional string UserId = 16; // 用户ID
+    optional uint64 BusinessId = 17;
+}
+
+
+// 请求头,ET 说需要再封装一下，否则他解不出来，但是客户端这边不用管这个了
+message ReqHead
+{
+  	required PacketHead head=1;
+}
+
+//服务器返回的协议头
+
+// 数据包的头部信息
+message ServerPacketHead
+{
+    //消息类型
+    required MSG_TYPE msgtype=1;
+    //协议版本号
+    required int32 msgversion=2;
+    //错误码
+    required int32 code=3;
+}
+
+message ServerReqHead
+{
+    required ServerPacketHead head=1;
+}
+
+enum NAME_TYPE
+{
+    NAME_UNKNOW = 0;
+    NAME_INT32  = 1;
+    NAME_UIN32  = 2;
+    NAME_INT64  = 3;
+    NAME_UINT64 = 4;
+    NAME_STRING = 5;
+    NAME_BYTES  = 6;
+    NAME_BOOL  = 7;
+}
+
+message NameValue
+{
+    required string name = 1;
+    required string value = 2;
+    required NAME_TYPE type  = 3;
+}

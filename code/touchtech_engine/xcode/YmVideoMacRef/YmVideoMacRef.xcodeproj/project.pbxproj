@@ -1,0 +1,720 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0F41F03520CF721900FB6C6D /* ParamSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F41F03420CF721900FB6C6D /* ParamSetting.m */; };
+		0F591AF420DA65CA00815418 /* ParamMacViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F591AF320DA65CA00815418 /* ParamMacViewController.m */; };
+		0FA08D1F20DBA6FE007CAC05 /* NSObject+SelectorOnMainThreadMutipleObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA08D1D20DBA6FD007CAC05 /* NSObject+SelectorOnMainThreadMutipleObjects.m */; };
+		0FEE442420DB5798008F3F49 /* RenderGroupMacView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FEE442320DB5798008F3F49 /* RenderGroupMacView.m */; };
+		BE776BC820DC92BB00E13A70 /* RenderGroupMacView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FEE442320DB5798008F3F49 /* RenderGroupMacView.m */; };
+		BE776BC920DC92BD00E13A70 /* NSObject+SelectorOnMainThreadMutipleObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA08D1D20DBA6FD007CAC05 /* NSObject+SelectorOnMainThreadMutipleObjects.m */; };
+		BE776BCA20DC92C100E13A70 /* ParamMacViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F591AF320DA65CA00815418 /* ParamMacViewController.m */; };
+		BE776BCE20DC977000E13A70 /* libyoume_voice_engine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE776BCB20DC977000E13A70 /* libyoume_voice_engine.a */; };
+		BE776BCF20DC977000E13A70 /* libYouMeCommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE776BCC20DC977000E13A70 /* libYouMeCommon.a */; };
+		BE776BD020DC977000E13A70 /* libffmpeg3.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE776BCD20DC977000E13A70 /* libffmpeg3.3.a */; };
+		BE776BD420DC9ED600E13A70 /* ExportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE776BD320DC9ED500E13A70 /* ExportOptions.plist */; };
+		BE7B21DC20A3EA1200DAAFCA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B21DB20A3EA1200DAAFCA /* AppDelegate.m */; };
+		BE7B21DF20A3EA1200DAAFCA /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BE7B21DE20A3EA1200DAAFCA /* ViewController.mm */; };
+		BE7B21E120A3EA1200DAAFCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE7B21E020A3EA1200DAAFCA /* Assets.xcassets */; };
+		BE7B21E420A3EA1200DAAFCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7B21E220A3EA1200DAAFCA /* Main.storyboard */; };
+		BE7B21E720A3EA1200DAAFCA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B21E620A3EA1200DAAFCA /* main.m */; };
+		BE8FD69A20D3A37D00B3DF85 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8FD69920D3A37C00B3DF85 /* CoreAudio.framework */; };
+		BE8FD69C20D3A38300B3DF85 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8FD69B20D3A38300B3DF85 /* IOKit.framework */; };
+		BE905F1C20BE7ABA00E2DE61 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F1B20BE7ABA00E2DE61 /* AVKit.framework */; };
+		BE905F1E20BE7AC100E2DE61 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F1D20BE7AC100E2DE61 /* CoreVideo.framework */; };
+		BE905F2020BE7AC600E2DE61 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F1F20BE7AC600E2DE61 /* VideoToolbox.framework */; };
+		BE905F2220BE7ACD00E2DE61 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F2120BE7ACD00E2DE61 /* CFNetwork.framework */; };
+		BE905F2420BE7AD500E2DE61 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F2320BE7AD500E2DE61 /* CoreFoundation.framework */; };
+		BE905F2620BE7AEF00E2DE61 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F2520BE7AEF00E2DE61 /* AudioToolbox.framework */; };
+		BE905F2820BE7AF600E2DE61 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F2720BE7AF600E2DE61 /* AVFoundation.framework */; };
+		BE905F2A20BE7B0000E2DE61 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F2920BE7B0000E2DE61 /* CoreTelephony.framework */; };
+		BE905F2C20BE7B0D00E2DE61 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F2B20BE7B0D00E2DE61 /* SystemConfiguration.framework */; };
+		BE905F2E20BE7B1800E2DE61 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F2D20BE7B1800E2DE61 /* libsqlite3.0.tbd */; };
+		BE905F3020BE7B2000E2DE61 /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F2F20BE7B2000E2DE61 /* libresolv.9.tbd */; };
+		BE905F3220BE7B2900E2DE61 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F3120BE7B2900E2DE61 /* libz.1.2.5.tbd */; };
+		BE905F4620BE8F3B00E2DE61 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F4520BE8F3B00E2DE61 /* libstdc++.tbd */; };
+		BE905F5220BEB2AF00E2DE61 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F5120BEB2AF00E2DE61 /* libiconv.tbd */; };
+		BE905F5420BEB2B800E2DE61 /* VideoDecodeAcceleration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F5320BEB2B800E2DE61 /* VideoDecodeAcceleration.framework */; };
+		BE905F5A20BEB3E100E2DE61 /* libbz2.1.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F5920BEB3E100E2DE61 /* libbz2.1.0.tbd */; };
+		BE905F5C20BEBD2700E2DE61 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F5B20BEBD2700E2DE61 /* CoreMedia.framework */; };
+		BEADEF4720DB52FF00B66C24 /* ParamSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F41F03420CF721900FB6C6D /* ParamSetting.m */; };
+		BEADEF4820DB52FF00B66C24 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BE7B21DE20A3EA1200DAAFCA /* ViewController.mm */; };
+		BEADEF4920DB52FF00B66C24 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B21E620A3EA1200DAAFCA /* main.m */; };
+		BEADEF4A20DB52FF00B66C24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7B21DB20A3EA1200DAAFCA /* AppDelegate.m */; };
+		BEADEF4C20DB52FF00B66C24 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8FD69B20D3A38300B3DF85 /* IOKit.framework */; };
+		BEADEF4D20DB52FF00B66C24 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8FD69920D3A37C00B3DF85 /* CoreAudio.framework */; };
+		BEADEF4E20DB52FF00B66C24 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F5B20BEBD2700E2DE61 /* CoreMedia.framework */; };
+		BEADEF4F20DB52FF00B66C24 /* libbz2.1.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F5920BEB3E100E2DE61 /* libbz2.1.0.tbd */; };
+		BEADEF5120DB52FF00B66C24 /* VideoDecodeAcceleration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F5320BEB2B800E2DE61 /* VideoDecodeAcceleration.framework */; };
+		BEADEF5220DB52FF00B66C24 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F5120BEB2AF00E2DE61 /* libiconv.tbd */; };
+		BEADEF5320DB52FF00B66C24 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F4520BE8F3B00E2DE61 /* libstdc++.tbd */; };
+		BEADEF5420DB52FF00B66C24 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F3120BE7B2900E2DE61 /* libz.1.2.5.tbd */; };
+		BEADEF5920DB52FF00B66C24 /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F2F20BE7B2000E2DE61 /* libresolv.9.tbd */; };
+		BEADEF5A20DB52FF00B66C24 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F2D20BE7B1800E2DE61 /* libsqlite3.0.tbd */; };
+		BEADEF5B20DB52FF00B66C24 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F2B20BE7B0D00E2DE61 /* SystemConfiguration.framework */; };
+		BEADEF5C20DB52FF00B66C24 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F2920BE7B0000E2DE61 /* CoreTelephony.framework */; };
+		BEADEF5E20DB52FF00B66C24 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F2720BE7AF600E2DE61 /* AVFoundation.framework */; };
+		BEADEF6020DB52FF00B66C24 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F2320BE7AD500E2DE61 /* CoreFoundation.framework */; };
+		BEADEF6120DB52FF00B66C24 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F2120BE7ACD00E2DE61 /* CFNetwork.framework */; };
+		BEADEF6220DB52FF00B66C24 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F1F20BE7AC600E2DE61 /* VideoToolbox.framework */; };
+		BEADEF6320DB52FF00B66C24 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F1D20BE7AC100E2DE61 /* CoreVideo.framework */; };
+		BEADEF6420DB52FF00B66C24 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F1B20BE7ABA00E2DE61 /* AVKit.framework */; };
+		BEADEF6720DB52FF00B66C24 /* res in Resources */ = {isa = PBXBuildFile; fileRef = BEBD371220D8D68B007016C2 /* res */; };
+		BEADEF6820DB52FF00B66C24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE7B21E020A3EA1200DAAFCA /* Assets.xcassets */; };
+		BEADEF6920DB52FF00B66C24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7B21E220A3EA1200DAAFCA /* Main.storyboard */; };
+		BEADEF7E20DBB8DF00B66C24 /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F3420BE7B7200E2DE61 /* libavcodec.a */; };
+		BEADEF7F20DBB8DF00B66C24 /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F3320BE7B7200E2DE61 /* libavformat.a */; };
+		BEADEF8020DBB8DF00B66C24 /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F3520BE7B7200E2DE61 /* libavutil.a */; };
+		BEADEF8120DBB8DF00B66C24 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F5720BEB3A300E2DE61 /* libswresample.a */; };
+		BEADEF8220DBB8DF00B66C24 /* libx264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F3620BE7B7200E2DE61 /* libx264.a */; };
+		BEADEF8320DBB8E900B66C24 /* libYouMeCommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FF547D420BFEDD900099828 /* libYouMeCommon.a */; };
+		BEBD371320D8D68B007016C2 /* res in Resources */ = {isa = PBXBuildFile; fileRef = BEBD371220D8D68B007016C2 /* res */; };
+		BEE0DCF1228EE94300DBFC5D /* libfdk-aac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE131D7A228D5FB0006D291C /* libfdk-aac.a */; };
+		BEE0DCF222928BD700DBFC5D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E43D8E22223A81F700A82CD9 /* CoreGraphics.framework */; };
+		BEE0DCF322928C6900DBFC5D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE905F2520BE7AEF00E2DE61 /* AudioToolbox.framework */; };
+		E43D8E23223A81F700A82CD9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E43D8E22223A81F700A82CD9 /* CoreGraphics.framework */; };
+		E4DBFF1F229F7C0800566954 /* youme_voice_engine_macd.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E4DBFF1E229F7C0800566954 /* youme_voice_engine_macd.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0F41F03320CF721800FB6C6D /* ParamSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParamSetting.h; sourceTree = "<group>"; };
+		0F41F03420CF721900FB6C6D /* ParamSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParamSetting.m; sourceTree = "<group>"; };
+		0F591AF220DA65CA00815418 /* ParamMacViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParamMacViewController.h; sourceTree = "<group>"; };
+		0F591AF320DA65CA00815418 /* ParamMacViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParamMacViewController.m; sourceTree = "<group>"; };
+		0FA08D1D20DBA6FD007CAC05 /* NSObject+SelectorOnMainThreadMutipleObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SelectorOnMainThreadMutipleObjects.m"; sourceTree = "<group>"; };
+		0FA08D1E20DBA6FD007CAC05 /* NSObject+SelectorOnMainThreadMutipleObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SelectorOnMainThreadMutipleObjects.h"; sourceTree = "<group>"; };
+		0FEE442220DB5798008F3F49 /* RenderGroupMacView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderGroupMacView.h; sourceTree = "<group>"; };
+		0FEE442320DB5798008F3F49 /* RenderGroupMacView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenderGroupMacView.m; sourceTree = "<group>"; };
+		0FF547D420BFEDD900099828 /* libYouMeCommon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libYouMeCommon.a; path = ../../youme_common/lib/macos/libYouMeCommon.a; sourceTree = "<group>"; };
+		BE131D7A228D5FB0006D291C /* libfdk-aac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libfdk-aac.a"; path = "../../ffmpegPlayer/libs/apple/osx/libfdk-aac.a"; sourceTree = "<group>"; };
+		BE776BCB20DC977000E13A70 /* libyoume_voice_engine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libyoume_voice_engine.a; path = SDK/libs/libyoume_voice_engine.a; sourceTree = "<group>"; };
+		BE776BCC20DC977000E13A70 /* libYouMeCommon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libYouMeCommon.a; path = SDK/libs/libYouMeCommon.a; sourceTree = "<group>"; };
+		BE776BCD20DC977000E13A70 /* libffmpeg3.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libffmpeg3.3.a; path = SDK/libs/libffmpeg3.3.a; sourceTree = "<group>"; };
+		BE776BD320DC9ED500E13A70 /* ExportOptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ExportOptions.plist; path = YmVideoMacRef/ExportOptions.plist; sourceTree = "<group>"; };
+		BE7B21D720A3EA1200DAAFCA /* YmVideoMacRef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YmVideoMacRef.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE7B21DA20A3EA1200DAAFCA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BE7B21DB20A3EA1200DAAFCA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BE7B21DD20A3EA1200DAAFCA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		BE7B21DE20A3EA1200DAAFCA /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		BE7B21E020A3EA1200DAAFCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BE7B21E320A3EA1200DAAFCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BE7B21E520A3EA1200DAAFCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE7B21E620A3EA1200DAAFCA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BE7B21E820A3EA1200DAAFCA /* YmVideoMacRef.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = YmVideoMacRef.entitlements; sourceTree = "<group>"; };
+		BE7B21F920A3F43100DAAFCA /* libyoume_voice_engine_mac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libyoume_voice_engine_mac.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE7B21FA20A3F44700DAAFCA /* libYouMeCommon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libYouMeCommon.a; path = ../../youme_common/lib/mac/libYouMeCommon.a; sourceTree = "<group>"; };
+		BE8FD69920D3A37C00B3DF85 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		BE8FD69B20D3A38300B3DF85 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		BE905F1B20BE7ABA00E2DE61 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		BE905F1D20BE7AC100E2DE61 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		BE905F1F20BE7AC600E2DE61 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		BE905F2120BE7ACD00E2DE61 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		BE905F2320BE7AD500E2DE61 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		BE905F2520BE7AEF00E2DE61 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		BE905F2720BE7AF600E2DE61 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		BE905F2920BE7B0000E2DE61 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		BE905F2B20BE7B0D00E2DE61 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BE905F2D20BE7B1800E2DE61 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		BE905F2F20BE7B2000E2DE61 /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
+		BE905F3120BE7B2900E2DE61 /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
+		BE905F3320BE7B7200E2DE61 /* libavformat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavformat.a; path = ../../ffmpegPlayer/libs/apple/osx/libavformat.a; sourceTree = "<group>"; };
+		BE905F3420BE7B7200E2DE61 /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavcodec.a; path = ../../ffmpegPlayer/libs/apple/osx/libavcodec.a; sourceTree = "<group>"; };
+		BE905F3520BE7B7200E2DE61 /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavutil.a; path = ../../ffmpegPlayer/libs/apple/osx/libavutil.a; sourceTree = "<group>"; };
+		BE905F3620BE7B7200E2DE61 /* libx264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libx264.a; path = ../../ffmpegPlayer/libs/apple/osx/libx264.a; sourceTree = "<group>"; };
+		BE905F3B20BE7B9400E2DE61 /* libMuseProcessor.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMuseProcessor.a; path = ../../../../videoSDK/youme_voice_engine/youme_common/thirdlib/libMuseProcessor.a; sourceTree = "<group>"; };
+		BE905F3D20BE7C5D00E2DE61 /* libMuseProcessor.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMuseProcessor.a; path = ../../youme_common/thirdlib/libMuseProcessor.a; sourceTree = "<group>"; };
+		BE905F4520BE8F3B00E2DE61 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		BE905F4E20BEA70100E2DE61 /* libYouMeCommon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libYouMeCommon.a; path = ../../youme_common/lib/ios/libYouMeCommon.a; sourceTree = "<group>"; };
+		BE905F5120BEB2AF00E2DE61 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		BE905F5320BEB2B800E2DE61 /* VideoDecodeAcceleration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoDecodeAcceleration.framework; path = System/Library/Frameworks/VideoDecodeAcceleration.framework; sourceTree = SDKROOT; };
+		BE905F5520BEB30000E2DE61 /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswscale.a; path = ../../ffmpegPlayer/libs/apple/osx/libswscale.a; sourceTree = "<group>"; };
+		BE905F5720BEB3A300E2DE61 /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswresample.a; path = ../../ffmpegPlayer/libs/apple/osx/libswresample.a; sourceTree = "<group>"; };
+		BE905F5920BEB3E100E2DE61 /* libbz2.1.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.1.0.tbd; path = usr/lib/libbz2.1.0.tbd; sourceTree = SDKROOT; };
+		BE905F5B20BEBD2700E2DE61 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		BEADEF6D20DB52FF00B66C24 /* YmVideoMacRefWithoutCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YmVideoMacRefWithoutCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEADEF6E20DB530100B66C24 /* YmVideoMacRef copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "YmVideoMacRef copy-Info.plist"; path = "/Users/pinky/workspace/videoSDK_mac/youme_voice_engine/xcode/YmVideoMacRef/YmVideoMacRef copy-Info.plist"; sourceTree = "<absolute>"; };
+		BEADEF6F20DB7B2300B66C24 /* YmVideoMacRefWithoutCode.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = YmVideoMacRefWithoutCode.entitlements; sourceTree = "<group>"; };
+		BEADEF7220DBB74800B66C24 /* libyoume_voice_engine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libyoume_voice_engine.a; path = "../../../../Output/youme_voice_engine/lib/macos/Release-macos/libyoume_voice_engine.a"; sourceTree = "<group>"; };
+		BEADEF7320DBB74800B66C24 /* libffmpeg3.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libffmpeg3.3.a; path = "../../../../Output/youme_voice_engine/lib/macos/Release-macos/libffmpeg3.3.a"; sourceTree = "<group>"; };
+		BEADEF7420DBB74800B66C24 /* libYouMeCommon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libYouMeCommon.a; path = "../../../../Output/youme_voice_engine/lib/macos/Release-macos/libYouMeCommon.a"; sourceTree = "<group>"; };
+		BEADEF7C20DBB8A600B66C24 /* libYouMeCommon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libYouMeCommon.a; path = ../../../../youme_voice_engine/youme_common/lib/ios/libYouMeCommon.a; sourceTree = "<group>"; };
+		BEBD371220D8D68B007016C2 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
+		E43D8E22223A81F700A82CD9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E4DBFF1E229F7C0800566954 /* youme_voice_engine_macd.dylib */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = youme_voice_engine_macd.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5B2165F20DCDCF2002A2748 /* libyoume_voice_engine_mac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libyoume_voice_engine_mac.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BE7B21D420A3EA1200DAAFCA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4DBFF1F229F7C0800566954 /* youme_voice_engine_macd.dylib in Frameworks */,
+				E43D8E23223A81F700A82CD9 /* CoreGraphics.framework in Frameworks */,
+				BE8FD69C20D3A38300B3DF85 /* IOKit.framework in Frameworks */,
+				BE8FD69A20D3A37D00B3DF85 /* CoreAudio.framework in Frameworks */,
+				BE905F5C20BEBD2700E2DE61 /* CoreMedia.framework in Frameworks */,
+				BEE0DCF1228EE94300DBFC5D /* libfdk-aac.a in Frameworks */,
+				BE905F5A20BEB3E100E2DE61 /* libbz2.1.0.tbd in Frameworks */,
+				BE905F5420BEB2B800E2DE61 /* VideoDecodeAcceleration.framework in Frameworks */,
+				BE905F5220BEB2AF00E2DE61 /* libiconv.tbd in Frameworks */,
+				BE905F4620BE8F3B00E2DE61 /* libstdc++.tbd in Frameworks */,
+				BE905F3220BE7B2900E2DE61 /* libz.1.2.5.tbd in Frameworks */,
+				BE905F3020BE7B2000E2DE61 /* libresolv.9.tbd in Frameworks */,
+				BEADEF7E20DBB8DF00B66C24 /* libavcodec.a in Frameworks */,
+				BEADEF7F20DBB8DF00B66C24 /* libavformat.a in Frameworks */,
+				BEADEF8020DBB8DF00B66C24 /* libavutil.a in Frameworks */,
+				BEADEF8120DBB8DF00B66C24 /* libswresample.a in Frameworks */,
+				BEADEF8220DBB8DF00B66C24 /* libx264.a in Frameworks */,
+				BE905F2E20BE7B1800E2DE61 /* libsqlite3.0.tbd in Frameworks */,
+				BE905F2C20BE7B0D00E2DE61 /* SystemConfiguration.framework in Frameworks */,
+				BE905F2A20BE7B0000E2DE61 /* CoreTelephony.framework in Frameworks */,
+				BEADEF8320DBB8E900B66C24 /* libYouMeCommon.a in Frameworks */,
+				BE905F2820BE7AF600E2DE61 /* AVFoundation.framework in Frameworks */,
+				BE905F2620BE7AEF00E2DE61 /* AudioToolbox.framework in Frameworks */,
+				BE905F2420BE7AD500E2DE61 /* CoreFoundation.framework in Frameworks */,
+				BE905F2220BE7ACD00E2DE61 /* CFNetwork.framework in Frameworks */,
+				BE905F2020BE7AC600E2DE61 /* VideoToolbox.framework in Frameworks */,
+				BE905F1E20BE7AC100E2DE61 /* CoreVideo.framework in Frameworks */,
+				BE905F1C20BE7ABA00E2DE61 /* AVKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEADEF4B20DB52FF00B66C24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEE0DCF322928C6900DBFC5D /* AudioToolbox.framework in Frameworks */,
+				BEE0DCF222928BD700DBFC5D /* CoreGraphics.framework in Frameworks */,
+				BEADEF4C20DB52FF00B66C24 /* IOKit.framework in Frameworks */,
+				BEADEF4D20DB52FF00B66C24 /* CoreAudio.framework in Frameworks */,
+				BEADEF4E20DB52FF00B66C24 /* CoreMedia.framework in Frameworks */,
+				BEADEF4F20DB52FF00B66C24 /* libbz2.1.0.tbd in Frameworks */,
+				BEADEF5120DB52FF00B66C24 /* VideoDecodeAcceleration.framework in Frameworks */,
+				BEADEF5220DB52FF00B66C24 /* libiconv.tbd in Frameworks */,
+				BEADEF5320DB52FF00B66C24 /* libstdc++.tbd in Frameworks */,
+				BEADEF5420DB52FF00B66C24 /* libz.1.2.5.tbd in Frameworks */,
+				BEADEF5920DB52FF00B66C24 /* libresolv.9.tbd in Frameworks */,
+				BEADEF5A20DB52FF00B66C24 /* libsqlite3.0.tbd in Frameworks */,
+				BE776BCE20DC977000E13A70 /* libyoume_voice_engine.a in Frameworks */,
+				BE776BCF20DC977000E13A70 /* libYouMeCommon.a in Frameworks */,
+				BE776BD020DC977000E13A70 /* libffmpeg3.3.a in Frameworks */,
+				BEADEF5B20DB52FF00B66C24 /* SystemConfiguration.framework in Frameworks */,
+				BEADEF5C20DB52FF00B66C24 /* CoreTelephony.framework in Frameworks */,
+				BEADEF5E20DB52FF00B66C24 /* AVFoundation.framework in Frameworks */,
+				BEADEF6020DB52FF00B66C24 /* CoreFoundation.framework in Frameworks */,
+				BEADEF6120DB52FF00B66C24 /* CFNetwork.framework in Frameworks */,
+				BEADEF6220DB52FF00B66C24 /* VideoToolbox.framework in Frameworks */,
+				BEADEF6320DB52FF00B66C24 /* CoreVideo.framework in Frameworks */,
+				BEADEF6420DB52FF00B66C24 /* AVKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BE7B21CE20A3EA1200DAAFCA = {
+			isa = PBXGroup;
+			children = (
+				BEADEF6F20DB7B2300B66C24 /* YmVideoMacRefWithoutCode.entitlements */,
+				BE776BD320DC9ED500E13A70 /* ExportOptions.plist */,
+				BE7B21D920A3EA1200DAAFCA /* YmVideoMacRef */,
+				BE7B21D820A3EA1200DAAFCA /* Products */,
+				BE7B21F720A3F43100DAAFCA /* Frameworks */,
+				BEADEF6E20DB530100B66C24 /* YmVideoMacRef copy-Info.plist */,
+			);
+			sourceTree = "<group>";
+		};
+		BE7B21D820A3EA1200DAAFCA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE7B21D720A3EA1200DAAFCA /* YmVideoMacRef.app */,
+				BEADEF6D20DB52FF00B66C24 /* YmVideoMacRefWithoutCode.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BE7B21D920A3EA1200DAAFCA /* YmVideoMacRef */ = {
+			isa = PBXGroup;
+			children = (
+				0FA08D1E20DBA6FD007CAC05 /* NSObject+SelectorOnMainThreadMutipleObjects.h */,
+				0FA08D1D20DBA6FD007CAC05 /* NSObject+SelectorOnMainThreadMutipleObjects.m */,
+				0FEE442220DB5798008F3F49 /* RenderGroupMacView.h */,
+				0FEE442320DB5798008F3F49 /* RenderGroupMacView.m */,
+				0F41F03320CF721800FB6C6D /* ParamSetting.h */,
+				0F41F03420CF721900FB6C6D /* ParamSetting.m */,
+				BE7B21DA20A3EA1200DAAFCA /* AppDelegate.h */,
+				BE7B21DB20A3EA1200DAAFCA /* AppDelegate.m */,
+				BE7B21DD20A3EA1200DAAFCA /* ViewController.h */,
+				BE7B21DE20A3EA1200DAAFCA /* ViewController.mm */,
+				BE7B21E020A3EA1200DAAFCA /* Assets.xcassets */,
+				BE7B21E220A3EA1200DAAFCA /* Main.storyboard */,
+				BEBD371220D8D68B007016C2 /* res */,
+				BE7B21E520A3EA1200DAAFCA /* Info.plist */,
+				BE7B21E620A3EA1200DAAFCA /* main.m */,
+				BE7B21E820A3EA1200DAAFCA /* YmVideoMacRef.entitlements */,
+				0F591AF220DA65CA00815418 /* ParamMacViewController.h */,
+				0F591AF320DA65CA00815418 /* ParamMacViewController.m */,
+			);
+			path = YmVideoMacRef;
+			sourceTree = "<group>";
+		};
+		BE7B21F720A3F43100DAAFCA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4DBFF1E229F7C0800566954 /* youme_voice_engine_macd.dylib */,
+				BE131D7A228D5FB0006D291C /* libfdk-aac.a */,
+				E43D8E22223A81F700A82CD9 /* CoreGraphics.framework */,
+				E5B2165F20DCDCF2002A2748 /* libyoume_voice_engine_mac.a */,
+				BEADEF7C20DBB8A600B66C24 /* libYouMeCommon.a */,
+				BEADEF7320DBB74800B66C24 /* libffmpeg3.3.a */,
+				BE776BCD20DC977000E13A70 /* libffmpeg3.3.a */,
+				BEADEF7220DBB74800B66C24 /* libyoume_voice_engine.a */,
+				BEADEF7420DBB74800B66C24 /* libYouMeCommon.a */,
+				BE776BCB20DC977000E13A70 /* libyoume_voice_engine.a */,
+				BE776BCC20DC977000E13A70 /* libYouMeCommon.a */,
+				BE8FD69B20D3A38300B3DF85 /* IOKit.framework */,
+				BE8FD69920D3A37C00B3DF85 /* CoreAudio.framework */,
+				0FF547D420BFEDD900099828 /* libYouMeCommon.a */,
+				BE905F5B20BEBD2700E2DE61 /* CoreMedia.framework */,
+				BE905F5920BEB3E100E2DE61 /* libbz2.1.0.tbd */,
+				BE905F5720BEB3A300E2DE61 /* libswresample.a */,
+				BE905F5520BEB30000E2DE61 /* libswscale.a */,
+				BE905F5320BEB2B800E2DE61 /* VideoDecodeAcceleration.framework */,
+				BE905F5120BEB2AF00E2DE61 /* libiconv.tbd */,
+				BE905F4E20BEA70100E2DE61 /* libYouMeCommon.a */,
+				BE905F4520BE8F3B00E2DE61 /* libstdc++.tbd */,
+				BE905F3B20BE7B9400E2DE61 /* libMuseProcessor.a */,
+				BE905F3D20BE7C5D00E2DE61 /* libMuseProcessor.a */,
+				BE905F3420BE7B7200E2DE61 /* libavcodec.a */,
+				BE905F3320BE7B7200E2DE61 /* libavformat.a */,
+				BE905F3520BE7B7200E2DE61 /* libavutil.a */,
+				BE905F3620BE7B7200E2DE61 /* libx264.a */,
+				BE905F3120BE7B2900E2DE61 /* libz.1.2.5.tbd */,
+				BE905F2F20BE7B2000E2DE61 /* libresolv.9.tbd */,
+				BE905F2D20BE7B1800E2DE61 /* libsqlite3.0.tbd */,
+				BE905F2B20BE7B0D00E2DE61 /* SystemConfiguration.framework */,
+				BE905F2920BE7B0000E2DE61 /* CoreTelephony.framework */,
+				BE905F2720BE7AF600E2DE61 /* AVFoundation.framework */,
+				BE905F2520BE7AEF00E2DE61 /* AudioToolbox.framework */,
+				BE905F2320BE7AD500E2DE61 /* CoreFoundation.framework */,
+				BE905F2120BE7ACD00E2DE61 /* CFNetwork.framework */,
+				BE905F1F20BE7AC600E2DE61 /* VideoToolbox.framework */,
+				BE905F1D20BE7AC100E2DE61 /* CoreVideo.framework */,
+				BE905F1B20BE7ABA00E2DE61 /* AVKit.framework */,
+				BE7B21FA20A3F44700DAAFCA /* libYouMeCommon.a */,
+				BE7B21F920A3F43100DAAFCA /* libyoume_voice_engine_mac.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BE7B21D620A3EA1200DAAFCA /* YmVideoMacRef */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE7B21EB20A3EA1200DAAFCA /* Build configuration list for PBXNativeTarget "YmVideoMacRef" */;
+			buildPhases = (
+				BE7B21D320A3EA1200DAAFCA /* Sources */,
+				BE7B21D420A3EA1200DAAFCA /* Frameworks */,
+				BE7B21D520A3EA1200DAAFCA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YmVideoMacRef;
+			productName = YmVideoMacRef;
+			productReference = BE7B21D720A3EA1200DAAFCA /* YmVideoMacRef.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BEADEF4520DB52FF00B66C24 /* YmVideoMacRefWithoutCode */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEADEF6A20DB52FF00B66C24 /* Build configuration list for PBXNativeTarget "YmVideoMacRefWithoutCode" */;
+			buildPhases = (
+				BEADEF4620DB52FF00B66C24 /* Sources */,
+				BEADEF4B20DB52FF00B66C24 /* Frameworks */,
+				BEADEF6620DB52FF00B66C24 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YmVideoMacRefWithoutCode;
+			productName = YmVideoMacRef;
+			productReference = BEADEF6D20DB52FF00B66C24 /* YmVideoMacRefWithoutCode.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BE7B21CF20A3EA1200DAAFCA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = youme;
+				TargetAttributes = {
+					BE7B21D620A3EA1200DAAFCA = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+					BEADEF4520DB52FF00B66C24 = {
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 0;
+							};
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = BE7B21D220A3EA1200DAAFCA /* Build configuration list for PBXProject "YmVideoMacRef" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BE7B21CE20A3EA1200DAAFCA;
+			productRefGroup = BE7B21D820A3EA1200DAAFCA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BE7B21D620A3EA1200DAAFCA /* YmVideoMacRef */,
+				BEADEF4520DB52FF00B66C24 /* YmVideoMacRefWithoutCode */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BE7B21D520A3EA1200DAAFCA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEBD371320D8D68B007016C2 /* res in Resources */,
+				BE7B21E120A3EA1200DAAFCA /* Assets.xcassets in Resources */,
+				BE7B21E420A3EA1200DAAFCA /* Main.storyboard in Resources */,
+				BE776BD420DC9ED600E13A70 /* ExportOptions.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEADEF6620DB52FF00B66C24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEADEF6720DB52FF00B66C24 /* res in Resources */,
+				BEADEF6820DB52FF00B66C24 /* Assets.xcassets in Resources */,
+				BEADEF6920DB52FF00B66C24 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BE7B21D320A3EA1200DAAFCA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F41F03520CF721900FB6C6D /* ParamSetting.m in Sources */,
+				BE7B21DF20A3EA1200DAAFCA /* ViewController.mm in Sources */,
+				0FEE442420DB5798008F3F49 /* RenderGroupMacView.m in Sources */,
+				0F591AF420DA65CA00815418 /* ParamMacViewController.m in Sources */,
+				0FA08D1F20DBA6FE007CAC05 /* NSObject+SelectorOnMainThreadMutipleObjects.m in Sources */,
+				BE7B21E720A3EA1200DAAFCA /* main.m in Sources */,
+				BE7B21DC20A3EA1200DAAFCA /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEADEF4620DB52FF00B66C24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEADEF4720DB52FF00B66C24 /* ParamSetting.m in Sources */,
+				BEADEF4820DB52FF00B66C24 /* ViewController.mm in Sources */,
+				BEADEF4920DB52FF00B66C24 /* main.m in Sources */,
+				BE776BC920DC92BD00E13A70 /* NSObject+SelectorOnMainThreadMutipleObjects.m in Sources */,
+				BE776BCA20DC92C100E13A70 /* ParamMacViewController.m in Sources */,
+				BE776BC820DC92BB00E13A70 /* RenderGroupMacView.m in Sources */,
+				BEADEF4A20DB52FF00B66C24 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BE7B21E220A3EA1200DAAFCA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE7B21E320A3EA1200DAAFCA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BE7B21E920A3EA1200DAAFCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BE7B21EA20A3EA1200DAAFCA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BE7B21EC20A3EA1200DAAFCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = NUZXKA7782;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../../bindings/cocos2d-x/interface\"",
+					"\"$(SRCROOT)/../../bindings/cocos2d-x/objc\"",
+					"\"$(SRCROOT)/../../youme_common/thirdlib\"",
+				);
+				INFOPLIST_FILE = YmVideoMacRef/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../../ffmpegPlayer/libs/apple/osx\"",
+					"\"$(SRCROOT)/../../youme_common/thirdlib\"",
+					"\"$(SRCROOT)/../../youme_common/lib/macos\"",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_BUNDLE_IDENTIFIER = com.youme.YmVideoMacRef;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Debug;
+		};
+		BE7B21ED20A3EA1200DAAFCA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = NUZXKA7782;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../../bindings/cocos2d-x/interface\"",
+					"\"$(SRCROOT)/../../bindings/cocos2d-x/objc\"",
+					"\"$(SRCROOT)/../../youme_common/thirdlib\"",
+				);
+				INFOPLIST_FILE = YmVideoMacRef/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../../ffmpegPlayer/libs/apple/osx\"",
+					"\"$(SRCROOT)/../../youme_common/thirdlib\"",
+					"\"$(SRCROOT)/../../youme_common/lib/macos\"",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_BUNDLE_IDENTIFIER = com.youme.YmVideoMacRef;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Release;
+		};
+		BEADEF6B20DB52FF00B66C24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = NUZXKA7782;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/SDK/include\"";
+				INFOPLIST_FILE = YmVideoMacRef/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/SDK/libs\"";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_BUNDLE_IDENTIFIER = com.youme.YmVideoMacRef;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Debug;
+		};
+		BEADEF6C20DB52FF00B66C24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = NUZXKA7782;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/SDK/include\"";
+				INFOPLIST_FILE = YmVideoMacRef/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/SDK/libs\"";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_BUNDLE_IDENTIFIER = com.youme.YmVideoMacRef;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE7B21D220A3EA1200DAAFCA /* Build configuration list for PBXProject "YmVideoMacRef" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE7B21E920A3EA1200DAAFCA /* Debug */,
+				BE7B21EA20A3EA1200DAAFCA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE7B21EB20A3EA1200DAAFCA /* Build configuration list for PBXNativeTarget "YmVideoMacRef" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE7B21EC20A3EA1200DAAFCA /* Debug */,
+				BE7B21ED20A3EA1200DAAFCA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEADEF6A20DB52FF00B66C24 /* Build configuration list for PBXNativeTarget "YmVideoMacRefWithoutCode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEADEF6B20DB52FF00B66C24 /* Debug */,
+				BEADEF6C20DB52FF00B66C24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BE7B21CF20A3EA1200DAAFCA /* Project object */;
+}

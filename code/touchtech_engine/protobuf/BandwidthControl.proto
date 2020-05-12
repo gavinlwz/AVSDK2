@@ -1,0 +1,54 @@
+syntax = "proto2";
+package YmBwCtrlProto;
+option optimize_for = LITE_RUNTIME;
+
+enum CtrlMsgType
+{
+CtrlMsgServerCommand   = 0; // 从服务器下发的流控命令
+CtrlMsgClientReport    = 1; // 客户端上报的流控信息
+}
+
+enum FecType
+{
+FecNone = 0;
+FecOpus = 1;  // Opus in-band FEC
+FecRed  = 2;  // RFC 2189
+FecUlp  = 3;  // RFC 5109
+FecUxp  = 4;  // draft-ietf-avt-uxp-07.txt, using Reed-Solomon FEC
+}
+
+message CtrlMsgServer
+{
+// Data for version 1 starts here
+optional FecType fecToUse = 1;
+optional int32   redunantPercent = 2;
+optional int32   redunantGroupSize = 3;
+optional int32   targetBitrateBps = 4;
+optional int32   originalTimestamp = 5;
+optional int32   loopbackTimestamp = 6;
+
+// Data for version 2 starts here
+}
+
+message CtrlMsgClient
+{
+// Data for version 1 starts here
+optional int32    forSessionId = 1;  // If less than 0, the data is general, otherwise, the data is statictics for a specific sender(client)
+optional int32    packetLossRateQ8 = 2; // packet loss rate in Q8 format(8 bits for the fractional part)
+optional int32    packetLossRateAfterFecQ8 = 3;
+optional int32    maxConsecutiveLostPackets = 4;
+optional int32    loopbackTimestamp = 5;
+optional FecType  highestFecSupported = 6;
+optional int32    originalTimestamp = 7;
+
+// Data for version 2 starts here
+}
+
+message CtrlMsgMain
+{
+required CtrlMsgType msgType     = 1;
+required uint32 msgVersion       = 2;
+optional CtrlMsgServer msgServer = 3;
+optional CtrlMsgClient msgClient = 4;
+}
+

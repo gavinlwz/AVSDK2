@@ -1,0 +1,5 @@
+#!/bin/bash
+
+BASE_DIR=$(dirname $0)
+LIB_BASE_DIR="libs-android-x86"
+source ${BASE_DIR}/pkg-config-common $@
