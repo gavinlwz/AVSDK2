@@ -199,7 +199,6 @@ public class AppPara
 		return mAppVersionString;
 	}
 
-
 	public static String getDeviceIMEI ()
 	{
 		return mDeviceIMEIString;

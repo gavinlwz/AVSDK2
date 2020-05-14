@@ -6649,14 +6649,12 @@ YouMeErrorCode CYouMeVoiceEngine::unInit ()
         g_ymvideo_pTranslateUtil = nullptr;
     }
     
-    
     setState(STATE_UNINITIALIZED);
     mIsAboutToUninit = false;
     CSDKValidate::GetInstance()->Reset();
     TSK_DEBUG_INFO ("== unInit");
     return YOUME_SUCCESS;
 }
-
 
 YouMeErrorCode CYouMeVoiceEngine::requestRestApi(  const std::string& strCommand, const std::string& strQueryBody ,  int* requestID ){
     static atomic<int> nextRequestID(0);

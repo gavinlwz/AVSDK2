@@ -214,36 +214,4 @@ public class VideoMgr {
 		 */
     	int onVideoRenderFilterCallback(int texture, int width, int height, int rotation, int mirror);
     };
-
-    public static void setVideoFrameCallback(VideoFrameCallback cb) {
-        IYouMeVideoCallback.mVideoFrameExternalCallback = cb;
-    }
-    /**
-     *
-     * @param width   合流后的画面宽
-     * @param height  合流后的画面高
-     */
-    public static void setMixVideoSize(int width, int height) {
-    	NativeEngine.setMixVideoSize(width, height);
-    }
-    
-    /**
-     * @param userId   哪一路用户的视频
-     * @param x  图像的坐标 x坐标
-     * @param y  图像的坐标 y坐标
-     * @param z  图像的坐标 z坐标       
-     * @param width           
-     * @param height                  
-     * */
-    public static void addMixOverlayVideo(String userId, int x, int y, int z, int width, int height) {
-    	NativeEngine.addMixOverlayVideo(userId, x, y, z, width, height);
-    }
-    
-    /**
-     * @param userId   哪一路用户的视频
-     *                 
-     * */
-    public static void removeMixOverlayVideo(String userId) {
-    	NativeEngine.removeMixOverlayVideo(userId);
-    }
 }

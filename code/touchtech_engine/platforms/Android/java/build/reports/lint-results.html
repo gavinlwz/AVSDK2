@@ -176,7 +176,7 @@ document.getElementById(id).style.display = 'none';
       <span class="mdl-layout-title">Lint Report: 48 errors and 47 warnings</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-Check performed at Tue May 12 18:00:33 CST 2020      </nav>
+Check performed at Thu May 14 18:22:18 CST 2020      </nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
@@ -281,14 +281,14 @@ Dismiss</button>            </div>
 <span class="lineno"> 114 </span>                NativeEngine.setUUID( uuid );
 </pre>
 
-<span class="location"><a href="../../src/com/youme/voiceengine/mgr/YouMeManager.java">../../src/com/youme/voiceengine/mgr/YouMeManager.java</a>:325</span>: <span class="message">Consider using <code>apply()</code> instead; <code>commit</code> writes its data to persistent storage immediately, whereas <code>apply</code> will handle it in the background</span><br /><pre class="errorlines">
-<span class="lineno"> 322 </span>                                <span class="keyword">int</span> iVercode = mContext.get().getPackageManager().getPackageInfo(mContext.get().getPackageName(), <span class="number">0</span>).versionCode;
-<span class="lineno"> 323 </span>                                Editor editor=sp.edit();
-<span class="lineno"> 324 </span>      editor.putString(<span class="string">"UpdateVercode"</span>,String.valueOf(iVercode));
-<span class="caretline"><span class="lineno"> 325 </span>      <span class="warning">editor.commit()</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 326 </span>                            }
-<span class="lineno"> 327 </span>                            <span class="keyword">else</span> {
-<span class="lineno"> 328 </span>                                Log.i(TAG, <span class="string">"重命名失败: "</span> + strOriSoPath);
+<span class="location"><a href="../../src/com/youme/voiceengine/mgr/YouMeManager.java">../../src/com/youme/voiceengine/mgr/YouMeManager.java</a>:324</span>: <span class="message">Consider using <code>apply()</code> instead; <code>commit</code> writes its data to persistent storage immediately, whereas <code>apply</code> will handle it in the background</span><br /><pre class="errorlines">
+<span class="lineno"> 321 </span>                                <span class="keyword">int</span> iVercode = mContext.get().getPackageManager().getPackageInfo(mContext.get().getPackageName(), <span class="number">0</span>).versionCode;
+<span class="lineno"> 322 </span>                                Editor editor=sp.edit();
+<span class="lineno"> 323 </span>      editor.putString(<span class="string">"UpdateVercode"</span>,String.valueOf(iVercode));
+<span class="caretline"><span class="lineno"> 324 </span>      <span class="warning">editor.commit()</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 325 </span>                            }
+<span class="lineno"> 326 </span>                            <span class="keyword">else</span> {
+<span class="lineno"> 327 </span>                                Log.i(TAG, <span class="string">"重命名失败: "</span> + strOriSoPath);
 </pre>
 
 </div>
@@ -1504,14 +1504,14 @@ Dismiss</button>            </div>
 <span class="lineno">  84 </span>            }
 </pre>
 
-<span class="location"><a href="../../src/com/youme/voiceengine/mgr/YouMeManager.java">../../src/com/youme/voiceengine/mgr/YouMeManager.java</a>:174</span>: <span class="message">Dynamically loading code using <code>load</code> is risky, please use <code>loadLibrary</code> instead when possible</span><br /><pre class="errorlines">
-<span class="lineno"> 171 </span>                <span class="comment">//加载更新文件的库</span>
-<span class="lineno"> 172 </span>                Log.i(TAG, <span class="string">"指定动态库存在，正在加载: "</span> + libPath);
-<span class="lineno"> 173 </span>                <span class="comment">//try 不住，所以还是别try了</span>
-<span class="caretline"><span class="lineno"> 174 </span>                <span class="warning">System.load(libPath)</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 175 </span>            } <span class="keyword">else</span> {
-<span class="lineno"> 176 </span>                Log.w(TAG, <span class="string">"指定动态库不存在，加载默认so库: "</span> + YOU_ME_LIB_NAME_STRING);
-<span class="lineno"> 177 </span>                System.loadLibrary(YOU_ME_LIB_NAME_STRING);
+<span class="location"><a href="../../src/com/youme/voiceengine/mgr/YouMeManager.java">../../src/com/youme/voiceengine/mgr/YouMeManager.java</a>:173</span>: <span class="message">Dynamically loading code using <code>load</code> is risky, please use <code>loadLibrary</code> instead when possible</span><br /><pre class="errorlines">
+<span class="lineno"> 170 </span>                <span class="comment">//加载更新文件的库</span>
+<span class="lineno"> 171 </span>                Log.i(TAG, <span class="string">"指定动态库存在，正在加载: "</span> + libPath);
+<span class="lineno"> 172 </span>                <span class="comment">//try 不住，所以还是别try了</span>
+<span class="caretline"><span class="lineno"> 173 </span>                <span class="warning">System.load(libPath)</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 174 </span>            } <span class="keyword">else</span> {
+<span class="lineno"> 175 </span>                Log.w(TAG, <span class="string">"指定动态库不存在，加载默认so库: "</span> + YOU_ME_LIB_NAME_STRING);
+<span class="lineno"> 176 </span>                System.loadLibrary(YOU_ME_LIB_NAME_STRING);
 </pre>
 
 </div>

@@ -47,7 +47,7 @@ $(LOCAL_PATH)/../../../interface/classes/monitor \
 $(LOCAL_PATH)/../../../interface/classes/service \
 $(LOCAL_PATH)/../../../interface/common \
 $(LOCAL_PATH)/../../../interface/android \
-$(LOCAL_PATH)/../../../platforms/Android/java/jni \
+$(LOCAL_PATH)/../../../platforms/Android/jni \
 $(LOCAL_PATH)/../../../basewrapper/src \
 $(LOCAL_PATH)/../../../tinySAK/src \
 $(LOCAL_PATH)/../../../tinyNET/src \
@@ -74,7 +74,7 @@ Protobuf_path := $(LOCAL_PATH)/../../../protobuf
 Protobuf_files := $(shell find $(Protobuf_path))
 Protobuf_src_files := $(filter %.cc %.cpp,$(Protobuf_files))
 
-Jni_path := $(LOCAL_PATH)/../../../platforms/Android/java/jni
+Jni_path := $(LOCAL_PATH)/../../../platforms/Android/jni
 Jni_files := $(shell find $(Jni_path))
 Jni_src_files := $(filter %.cc %.cpp,$(Jni_files))
 

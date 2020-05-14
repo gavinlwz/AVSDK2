@@ -94,8 +94,7 @@ public class YouMeManager
 	{
 		Log.i(TAG,"调用init 函数 开始，目录:");
 		if(context == null){
-			Log.e(TAG,
-					"context can not be null");
+			Log.e(TAG, "context can not be null");
 			return false;
 		}
 		if (mInited) {
