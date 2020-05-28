@@ -13,7 +13,7 @@ import android.widget.EditText;
 import com.youme.voiceengine.mgr.YouMeManager;
 
 public class MainActivity extends AppCompatActivity {
-    private final String TAG = this.getApplication().getClass().getSimpleName();
+    private String TAG = "MainActivity";
 
     private Toolbar toolbar;
     private EditText roomIdEdit;

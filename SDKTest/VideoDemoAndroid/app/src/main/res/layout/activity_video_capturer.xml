@@ -21,7 +21,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <im.youme.video.videoRender.PercentFrameLayout
+            <com.touchtech.video.PercentFrameLayout
                 android:id="@+id/PercentFrameLayout0"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -33,7 +33,7 @@
                     android:layout_height="match_parent"
                     android:onClick="onVideoViewClick"
                     android:visibility="invisible" />
-            </im.youme.video.videoRender.PercentFrameLayout>
+            </com.touchtech.video.PercentFrameLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -41,7 +41,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <im.youme.video.videoRender.PercentFrameLayout
+            <com.touchtech.video.PercentFrameLayout
                 android:id="@+id/PercentFrameLayout1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -55,7 +55,7 @@
                     android:onClick="onVideoViewClick"
                     android:visibility="invisible" />
 
-            </im.youme.video.videoRender.PercentFrameLayout>
+            </com.touchtech.video.PercentFrameLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -63,7 +63,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <im.youme.video.videoRender.PercentFrameLayout
+            <com.touchtech.video.PercentFrameLayout
                 android:id="@+id/PercentFrameLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -76,7 +76,7 @@
                     android:onClick="onVideoViewClick"
                     android:visibility="invisible" />
 
-            </im.youme.video.videoRender.PercentFrameLayout>
+            </com.touchtech.video.PercentFrameLayout>
         </LinearLayout>
 
     </LinearLayout>
@@ -108,7 +108,7 @@
 
     </com.youme.voiceengine.video.SurfaceViewRenderer>
 
-    <im.youme.video.sample2.FocusView
+    <com.touchtech.video.FocusView
         android:id="@+id/camera_focus"
         android:layout_width="120dp"
         android:layout_height="120dp"
@@ -187,6 +187,13 @@
     <!--    </RelativeLayout>-->
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_orange_dark"
+
+        android:text="hello bruce" />
+
+    <TextView
         android:id="@+id/avtip"
         android:layout_width="180dp"
         android:layout_height="match_parent"
@@ -198,5 +205,5 @@
         android:gravity="left"
         android:text=""
         android:textColor="@android:color/holo_orange_dark" />
-    android:visibility="visible" />
+
 </RelativeLayout>

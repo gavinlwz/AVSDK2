@@ -132,7 +132,6 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
             Log.w(tag, "camera init Context is not activity");
     		screenOrientation = 0;
     	}
-    	
     }
 
     public static void setLocalVideoMirrorMode(int mirror) {

@@ -46,8 +46,7 @@ public class AudioMgr
 	public static void init(Context env)
 	{
 		if(env==null){
-			Log.e("AudioMgr",
-					"context can not be null");
+			Log.e("AudioMgr", "context can not be null");
 			return;
 		}
 		if(mContext != null){
@@ -61,10 +60,7 @@ public class AudioMgr
 		mAudioManager = (AudioManager) env.getSystemService  (Context.AUDIO_SERVICE);
 
 		mIsOutputToSpeaker = mAudioManager.isSpeakerphoneOn();
-		// Get the initial network type
-        int networkType = NetUtil.getNetworkState(env);
-        AppPara.onNetWorkChange(networkType);
-		
+
 		mReceiver = new BroadcastReceiver()
 		{
 			
@@ -73,70 +69,51 @@ public class AudioMgr
 		    {
 				try {
 					if(YouMeManager.mInited && api.isJoined() && mContext!=null && mContext.get() != null) {
-						AudioManager audioManager = (AudioManager) mContext.get()
-								.getSystemService(Context.AUDIO_SERVICE);
+						AudioManager audioManager = (AudioManager) mContext.get().getSystemService(Context.AUDIO_SERVICE);
 						String action = intent.getAction();
 						// boolean hasHeadSet = false;
 						// boolean isBluetoothOn = false;
-						Log.i("AudioMgr", "onReceive action: " + action + "  state: " + intent.getIntExtra(
-								BluetoothProfile.EXTRA_STATE, -1));
+						Log.i("AudioMgr", "onReceive action: " + action + "  state: "
+								+ intent.getIntExtra(BluetoothProfile.EXTRA_STATE, -1));
 						if (action.equals(NET_CHANGE_ACTION)) {
 							int networkType = NetUtil.getNetworkState(mContext.get());
 							AppPara.onNetWorkChange(networkType);
 						}
 						if (action.equals(Intent.ACTION_HEADSET_PLUG)) {
-							mHasHeadSet = intent.getIntExtra("state", 0) == 0 ? false
-									: true;
-							OnHeadsetChange(audioManager, mHasHeadSet,
-									mIsBluetoothOn);
+							mHasHeadSet = intent.getIntExtra("state", 0) == 0 ? false : true;
+							OnHeadsetChange(audioManager, mHasHeadSet, mIsBluetoothOn);
 						}
-						if (action
-								.equals(BluetoothHeadset.ACTION_CONNECTION_STATE_CHANGED)) {
-							int state = intent.getIntExtra(
-									BluetoothProfile.EXTRA_STATE, -1);
+						if (action.equals(BluetoothHeadset.ACTION_CONNECTION_STATE_CHANGED)) {
+							int state = intent.getIntExtra(BluetoothProfile.EXTRA_STATE, -1);
 							if (state == BluetoothProfile.STATE_CONNECTED) {
-								Log.i("AudioMgr",
-										"BluetoothProfile.STATE_CONNECTED");
+								Log.i("AudioMgr", "BluetoothProfile.STATE_CONNECTED");
 								mIsBluetoothOn = true;
-								OnHeadsetChange(audioManager, mHasHeadSet,
-										mIsBluetoothOn);
+								OnHeadsetChange(audioManager, mHasHeadSet, mIsBluetoothOn);
 							} else if (state == BluetoothProfile.STATE_CONNECTING) {
-								Log.i("AudioMgr",
-										"BluetoothProfile.STATE_CONNECTING");
+								Log.i("AudioMgr", "BluetoothProfile.STATE_CONNECTING");
 							} else if (state == BluetoothProfile.STATE_DISCONNECTED) {
-								Log.i("AudioMgr",
-										"BluetoothProfile.STATE_DISCONNECTED");
+								Log.i("AudioMgr", "BluetoothProfile.STATE_DISCONNECTED");
 								mIsBluetoothOn = false;
-								OnHeadsetChange(audioManager, mHasHeadSet,
-										mIsBluetoothOn);
+								OnHeadsetChange(audioManager, mHasHeadSet, mIsBluetoothOn);
 							} else if (state == BluetoothProfile.STATE_DISCONNECTING) {
-								Log.i("AudioMgr",
-										"BluetoothProfile.STATE_DISCONNECTING");
+								Log.i("AudioMgr", "BluetoothProfile.STATE_DISCONNECTING");
 							}
-						} else if (action
-								.equals(BluetoothHeadset.ACTION_AUDIO_STATE_CHANGED)) {
-							int state = intent.getIntExtra(
-									BluetoothProfile.EXTRA_STATE, -1);
+						} else if (action.equals(BluetoothHeadset.ACTION_AUDIO_STATE_CHANGED)) {
+							int state = intent.getIntExtra(BluetoothProfile.EXTRA_STATE, -1);
 							if (state == BluetoothHeadset.STATE_AUDIO_CONNECTED) {
-								Log.i("AudioMgr",
-										"BluetoothHeadset.STATE_AUDIO_CONNECTED");
+								Log.i("AudioMgr", "BluetoothHeadset.STATE_AUDIO_CONNECTED");
 								mIsBluetoothOn = true;
-								OnHeadsetChange(audioManager, mHasHeadSet,
-										mIsBluetoothOn);
+								OnHeadsetChange(audioManager, mHasHeadSet, mIsBluetoothOn);
 							} else if (state == BluetoothHeadset.STATE_AUDIO_DISCONNECTED) {
-								Log.i("AudioMgr",
-										"BluetoothHeadset.STATE_AUDIO_DISCONNECTED");
+								Log.i("AudioMgr", "BluetoothHeadset.STATE_AUDIO_DISCONNECTED");
 								mIsBluetoothOn = false;
-								OnHeadsetChange(audioManager, mHasHeadSet,
-										mIsBluetoothOn);
+								OnHeadsetChange(audioManager, mHasHeadSet, mIsBluetoothOn);
 							} else if (state == BluetoothHeadset.STATE_AUDIO_CONNECTING) {
-								Log.i("AudioMgr",
-										"BluetoothHeadset.STATE_AUDIO_CONNECTING");
+								Log.i("AudioMgr", "BluetoothHeadset.STATE_AUDIO_CONNECTING");
 							}
 						} else if (action.equals(TelephonyManager.ACTION_PHONE_STATE_CHANGED)) {
 							String stateStr = intent.getExtras().getString(TelephonyManager.EXTRA_STATE);
-							Log.i("AudioMgr",
-									"ACTION_PHONE_STATE_CHANGED stateStr:" + stateStr);
+							Log.i("AudioMgr", "ACTION_PHONE_STATE_CHANGED stateStr:" + stateStr);
 							if (stateStr.equals(TelephonyManager.EXTRA_STATE_IDLE)) {
 								api.resumeChannel();
 //							if( isCheckedPermission ) {
@@ -168,6 +145,7 @@ public class AudioMgr
 			e.printStackTrace();
 		}
 	}
+
 	public static void uinit()
 	{
 		Log.i("AudioMgr", "uinit");
@@ -339,7 +317,6 @@ public class AudioMgr
 		try {
 			if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) && (mContext != null && mContext.get()!=null)
 					&& (mContext.get() instanceof Activity) && (mContext.get().getApplicationInfo().targetSdkVersion >= 23)) {
-
 				isApiLevel23 = true;
 				int recordPermission = ContextCompat.checkSelfPermission((Activity)mContext.get(), Manifest.permission.RECORD_AUDIO);
 				if (recordPermission != PackageManager.PERMISSION_GRANTED) {

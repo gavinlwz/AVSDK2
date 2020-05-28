@@ -29,6 +29,7 @@ import android.widget.TextView;
 
 import androidx.annotation.IdRes;
 
+import com.touchtech.utils.ToastMessage;
 import com.youme.voiceengine.CameraMgr;
 import com.youme.voiceengine.MemberChange;
 import com.youme.voiceengine.NativeEngine;
@@ -67,19 +68,10 @@ public class VideoCapturerActivity extends Activity implements YouMeCallBackInte
     ///声明video设置块相关静态变量
     public static int _videoWidth = 480;
     public static int _videoHeight = 640;
-    public static int _maxBitRate = 0;
-    public static int _minBitRate = 0;
-    public static int _reportInterval = 3000;
 
-    public static boolean _bHighAudio = false;
     public static boolean _bHWEnable = true;
-    public static boolean _bBeautify = false;
-    public static boolean _bTcp = false;
-    public static boolean _bLandscape = false;
-    public static boolean _bVBR = true;
-    public static boolean _bTestP2P = false;
-    public static int _fps = 20;
 
+    public static int _fps = 20;
     public boolean inited = false;
     private ViewGroup mViewGroup;
     private ImageButton micBtn;
@@ -153,7 +145,7 @@ public class VideoCapturerActivity extends Activity implements YouMeCallBackInte
 
         ///初始化界面相关数据
         renderInfoMap = new HashMap<>();
-        arrRenderViews = new SurfaceViewRenderer[7];
+        arrRenderViews = new SurfaceViewRenderer[4];
         getWindow().setFormat(PixelFormat.TRANSLUCENT);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);   //应用运行时，保持屏幕高亮，不锁屏
@@ -165,7 +157,6 @@ public class VideoCapturerActivity extends Activity implements YouMeCallBackInte
 //        mGestureDetector = new GestureDetector(this, simpleOnGestureListener);
 //        mScaleGestureDetector = new ScaleGestureDetector(this, scaleGestureListener);
 
-        CameraMgr.setCameraAutoFocusCallBack(cameraFocusCallback);
         //定时重置avstatic 统计信息
         resetTimer = new Timer();
         resetTimer.schedule(new TimerTask() {
@@ -182,11 +173,6 @@ public class VideoCapturerActivity extends Activity implements YouMeCallBackInte
         }, 10000, 10000);
 
         initSDK();
-
-//        addOrientationListener();
-
-        /*远程控制演示*/
-        mViewGroup = (ViewGroup) findViewById(R.id.activity_video_capturer);
     }
 
     private OrientationReciver mOrientationReciver;
@@ -223,57 +209,57 @@ public class VideoCapturerActivity extends Activity implements YouMeCallBackInte
     private int xDelta;
     private int yDelta;
 
-    @Override
-    public boolean onTouch(View view, MotionEvent event) {
-        final int x = (int) event.getRawX();
-        final int y = (int) event.getRawY();
-        Log.d(TAG, "onTouch: x= " + x + "y=" + y);
-        moveControl(event.getAction() & MotionEvent.ACTION_MASK, x, y, false);
-        return true;
-    }
+//    @Override
+//    public boolean onTouch(View view, MotionEvent event) {
+//        final int x = (int) event.getRawX();
+//        final int y = (int) event.getRawY();
+//        Log.d(TAG, "onTouch: x= " + x + "y=" + y);
+//        moveControl(event.getAction() & MotionEvent.ACTION_MASK, x, y, false);
+//        return true;
+//    }
 
-    public void moveControl(int event, int x, int y, boolean fromRemote) {
-        String message = "";
-        switch (event) {
-            case MotionEvent.ACTION_DOWN:
-                RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) mButton
-                        .getLayoutParams();
-                if (!fromRemote) {
-                    xDelta = x - params.leftMargin;
-                    yDelta = y - params.topMargin;
-                    message = event + "|" + params.leftMargin + "|" + params.topMargin;
-                } else {
-                    //对齐远端点击时的位置
-                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) mButton
-                            .getLayoutParams();
-                    layoutParams.leftMargin = x;
-                    layoutParams.topMargin = y;
-                    mButton.setLayoutParams(layoutParams);
-                }
-
-                Log.d(TAG, "ACTION_DOWN: xDelta= " + xDelta + "yDelta=" + yDelta);
-                break;
-            case MotionEvent.ACTION_MOVE:
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) mButton
-                        .getLayoutParams();
-                int xDistance = x - xDelta;
-                int yDistance = y - yDelta;
-                Log.d(TAG, "ACTION_MOVE: xDistance= " + xDistance + "yDistance=" + yDistance);
-                layoutParams.leftMargin = xDistance;
-                layoutParams.topMargin = yDistance;
-                mButton.setLayoutParams(layoutParams);
-                message = event + "|" + x + "|" + y;
-                break;
-        }
-        if (!fromRemote) {
-            if (useUDPToSendCustomMessage) {
-                api.inputCustomData(message.getBytes(), message.getBytes().length, System.currentTimeMillis());
-            } else {
-                api.sendMessage(currentRoomID, message);
-            }
-        }
-        mViewGroup.invalidate();
-    }
+//    public void moveControl(int event, int x, int y, boolean fromRemote) {
+//        String message = "";
+//        switch (event) {
+//            case MotionEvent.ACTION_DOWN:
+//                RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) mButton
+//                        .getLayoutParams();
+//                if (!fromRemote) {
+//                    xDelta = x - params.leftMargin;
+//                    yDelta = y - params.topMargin;
+//                    message = event + "|" + params.leftMargin + "|" + params.topMargin;
+//                } else {
+//                    //对齐远端点击时的位置
+//                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) mButton
+//                            .getLayoutParams();
+//                    layoutParams.leftMargin = x;
+//                    layoutParams.topMargin = y;
+//                    mButton.setLayoutParams(layoutParams);
+//                }
+//
+//                Log.d(TAG, "ACTION_DOWN: xDelta= " + xDelta + "yDelta=" + yDelta);
+//                break;
+//            case MotionEvent.ACTION_MOVE:
+//                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) mButton
+//                        .getLayoutParams();
+//                int xDistance = x - xDelta;
+//                int yDistance = y - yDelta;
+//                Log.d(TAG, "ACTION_MOVE: xDistance= " + xDistance + "yDistance=" + yDistance);
+//                layoutParams.leftMargin = xDistance;
+//                layoutParams.topMargin = yDistance;
+//                mButton.setLayoutParams(layoutParams);
+//                message = event + "|" + x + "|" + y;
+//                break;
+//        }
+//        if (!fromRemote) {
+//            if (useUDPToSendCustomMessage) {
+//                api.inputCustomData(message.getBytes(), message.getBytes().length, System.currentTimeMillis());
+//            } else {
+//                api.sendMessage(currentRoomID, message);
+//            }
+//        }
+//        mViewGroup.invalidate();
+//    }
 
 //    @Override
 //    public void onClick(View v) {
@@ -284,19 +270,19 @@ public class VideoCapturerActivity extends Activity implements YouMeCallBackInte
     private void initSDK() {
         ///初始化SDK相关设置
 //        api.setServerMode(0);
-        api.setLogLevel(YouMeConst.YOUME_LOG_LEVEL.LOG_INFO, YouMeConst.YOUME_LOG_LEVEL.LOG_INFO);
+//        api.setLogLevel(YouMeConst.YOUME_LOG_LEVEL.LOG_INFO, YouMeConst.YOUME_LOG_LEVEL.LOG_INFO);
         api.SetCallback(this);
-
-        int code = api.init(CommonDefines.appKey, CommonDefines.appSecret, areaId, "");
+        api.setCameraAutoFocusCallBack(cameraFocusCallback);
+//        int code = api.init(CommonDefines.appKey, CommonDefines.appSecret, areaId, "");
 
         VideoRendererSample.getInstance().setLocalUserId(local_user_id);
         api.setVideoFrameCallback(VideoRendererSample.getInstance());
-
-        if (code == YouMeConst.YouMeErrorCode.YOUME_ERROR_WRONG_STATE) {
-            //已经初始化过了，就不等初始化回调了，直接进频道就行
-            autoJoinClick();
-            inited = true;
-        }
+        api.initWithAppkey(CommonDefines.appKey, CommonDefines.appSecret, 0, "");
+//        if (code == YouMeConst.YouMeErrorCode.YOUME_ERROR_WRONG_STATE) {
+//            //已经初始化过了，就不等初始化回调了，直接进频道就行
+//            autoJoinClick();
+//            inited = true;
+//        }
     }
 
 
@@ -422,24 +408,24 @@ public class VideoCapturerActivity extends Activity implements YouMeCallBackInte
             //stopCamera();
             activity = true;
         }
-        if (api.isInChannel() && !RTCServiceStarted) {
-            try {
-                RTCService.mContext = getApplicationContext();
-                RTCService.mActivity = this;
-                if (RTCService.mContext != null && RTCService.mActivity != null) {
-                    forgroundIntent = new Intent(this, RTCService.class);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        this.startForegroundService(forgroundIntent);
-                    } else {
-                        this.startService(forgroundIntent);
-                    }
-                    RTCServiceStarted = true;
-                }
-            } catch (Throwable e) {
-                RTCServiceStarted = false;
-                e.printStackTrace();
-            }
-        }
+//        if (api.isInChannel() && !RTCServiceStarted) {
+//            try {
+//                RTCService.mContext = getApplicationContext();
+//                RTCService.mActivity = this;
+//                if (RTCService.mContext != null && RTCService.mActivity != null) {
+//                    forgroundIntent = new Intent(this, RTCService.class);
+//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//                        this.startForegroundService(forgroundIntent);
+//                    } else {
+//                        this.startService(forgroundIntent);
+//                    }
+//                    RTCServiceStarted = true;
+//                }
+//            } catch (Throwable e) {
+//                RTCServiceStarted = false;
+//                e.printStackTrace();
+//            }
+//        }
 //    Object[] obj = renderInfoMap.values().toArray(new Object[renderInfoMap.values().size()]);
 //    for (int i= obj.length - 1 ;i > -1; i--) {
 //        shutDOWN(((RenderInfo)obj[i]).userId);
@@ -451,7 +437,7 @@ public class VideoCapturerActivity extends Activity implements YouMeCallBackInte
         //设置横屏
         if (_bLandscape && getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
             Log.d(TAG, "rotation:" + this.getWindowManager().getDefaultDisplay().getRotation());
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+//            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
             Log.d(TAG, "rotation end:" + this.getWindowManager().getDefaultDisplay().getRotation());
             api.setScreenRotation(this.getWindowManager().getDefaultDisplay().getRotation());
         }
@@ -618,19 +604,19 @@ public class VideoCapturerActivity extends Activity implements YouMeCallBackInte
 
     }
 
-    @Override
-    public void onVideoPreDecode(String userId, byte[] data, int dataSizeInByte, long timestamp) {
+//    @Override
+//    public void onVideoPreDecode(String userId, byte[] data, int dataSizeInByte, long timestamp) {
 //        Log.i(TAG, "onVideoPreDecode:" + userId + ", ts:" + timestamp);
-        if (DEBUG) {
-            if (mPreDecodeFos != null) {
-                try {
-                    mPreDecodeFos.write(data);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
+//        if (DEBUG) {
+//            if (mPreDecodeFos != null) {
+//                try {
+//                    mPreDecodeFos.write(data);
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }
+//    }
 
     public void joinOK(String roomid) {
         currentRoomID = roomid;
@@ -650,15 +636,12 @@ public class VideoCapturerActivity extends Activity implements YouMeCallBackInte
             initRender(1, R.id.PercentFrameLayout1, R.id.SurfaceViewRenderer1);
             initRender(2, R.id.PercentFrameLayout2, R.id.SurfaceViewRenderer2);
             //本地视频
-            initRender(6, R.id.remote_video_view_twelve1, R.id.remote_video_view_twelve1);
+            initRender(3, R.id.remote_video_view_twelve1, R.id.remote_video_view_twelve1);
 
-            initRender(3, R.id.PercentFrameLayout3, R.id.SurfaceViewRenderer3);
-            initRender(4, R.id.PercentFrameLayout4, R.id.SurfaceViewRenderer4);
-            initRender(5, R.id.PercentFrameLayout5, R.id.SurfaceViewRenderer5);
             VideoRendererSample.getInstance().setLocalUserId(local_user_id);
-            updateNewView(local_user_id, 6);
+            updateNewView(local_user_id, 3);
             autoOpenStartCamera();
-            mFullScreenIndex = 6;
+            mFullScreenIndex = 3;
         }
     }
 
@@ -752,19 +735,19 @@ public class VideoCapturerActivity extends Activity implements YouMeCallBackInte
 
     }
 
-    @Override
-    public void onRecvCustomData(byte[] bytes, long l) {
-        //模拟
-        Message msg = new Message();
-        Bundle extraData = new Bundle();
-        extraData.putString("channelId", "");
-        msg.what = 999999; //模拟成event事件
-        msg.arg1 = 0;
-        msg.obj = new String(bytes);
-        msg.setData(extraData);
-
-        youmeVideoEventHandler.sendMessage(msg);
-    }
+//    @Override
+//    public void onRecvCustomData(byte[] bytes, long l) {
+//        //模拟
+//        Message msg = new Message();
+//        Bundle extraData = new Bundle();
+//        extraData.putString("channelId", "");
+//        msg.what = 999999; //模拟成event事件
+//        msg.arg1 = 0;
+//        msg.obj = new String(bytes);
+//        msg.setData(extraData);
+//
+//        youmeVideoEventHandler.sendMessage(msg);
+//    }
 
 
     private static class MyHandler extends Handler {
@@ -964,7 +947,7 @@ public class VideoCapturerActivity extends Activity implements YouMeCallBackInte
         api.setVideoCodeBitrate(_maxBitRate, _minBitRate);
         api.setVideoCodeBitrateForShare(_maxBitRate, _minBitRate);
         //设置远端语音水平回调
-        api.setFarendVoiceLevelCallback(_farendLevel);
+//        api.setFarendVoiceLevelCallback(_farendLevel);
         //设置视屏是软编还是硬编
         api.setVideoHardwareCodeEnable(_bHWEnable);
         //同步状态给其他人
@@ -974,16 +957,16 @@ public class VideoCapturerActivity extends Activity implements YouMeCallBackInte
         api.setVBR(_bVBR);
         int sampleRate = 44100;
         int channels = 1;
-        api.setPcmCallbackEnable(mOnYouMePcm, YouMeConst.YouMePcmCallBackFlag.PcmCallbackFlag_Remote |
-                YouMeConst.YouMePcmCallBackFlag.PcmCallbackFlag_Record |
-                YouMeConst.YouMePcmCallBackFlag.PcmCallbackFlag_Mix, true, 48000, 1);
+//        api.setPcmCallbackEnable(mOnYouMePcm, YouMeConst.YouMePcmCallBackFlag.PcmCallbackFlag_Remote |
+//                YouMeConst.YouMePcmCallBackFlag.PcmCallbackFlag_Record |
+//                YouMeConst.YouMePcmCallBackFlag.PcmCallbackFlag_Mix, true, 48000, 1);
 
-        if (_bTestP2P) {
-            api.setLocalConnectionInfo(_LocalIP, _LocalPort, _RemoteIP, _RemotePort);
-            api.setRouteChangeFlag(true);
-        } else {
-            api.clearLocalConnectionInfo();
-        }
+//        if (_bTestP2P) {
+//            api.setLocalConnectionInfo(_LocalIP, _LocalPort, _RemoteIP, _RemotePort);
+//            api.setRouteChangeFlag(true);
+//        } else {
+//            api.clearLocalConnectionInfo();
+//        }
 
         api.joinChannelSingleMode(local_user_id, currentRoomID, YouMeConst.YouMeUserRole.YOUME_USER_HOST, false);
     }
