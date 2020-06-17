@@ -1,10 +1,8 @@
 package main.java.com.example.library.video;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.graphics.ImageFormat;
 import android.graphics.Rect;
 import android.graphics.SurfaceTexture;
@@ -12,8 +10,6 @@ import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
 import android.hardware.Camera.Face;
 import android.hardware.Camera.FaceDetectionListener;
-import android.opengl.GLES11Ext;
-import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;

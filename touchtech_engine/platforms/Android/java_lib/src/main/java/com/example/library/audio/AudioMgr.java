@@ -1,25 +1,15 @@
 package main.java.com.example.library.audio;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.bluetooth.BluetoothHeadset;
-import android.bluetooth.BluetoothProfile;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.pm.PackageManager;
 import android.media.AudioManager;
-import android.net.ConnectivityManager;
 import android.os.Build;
-import android.telephony.TelephonyManager;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import main.java.com.example.library.AppPara;
 import main.java.com.example.library.NetUtil;
