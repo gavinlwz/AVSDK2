@@ -1,0 +1,746 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		13F5E743230E43BA002347D5 /* dukou.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 13F5E742230E43BA002347D5 /* dukou.mp3 */; };
+		4DC8F23F2354531E00550FF8 /* libyoume_voice_engine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8F2382354527B00550FF8 /* libyoume_voice_engine.a */; };
+		4DC8F240235453D300550FF8 /* libyoume_voice_engine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8F2382354527B00550FF8 /* libyoume_voice_engine.a */; };
+		4DC8F2582354562C00550FF8 /* libYouMeCommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8F2572354562C00550FF8 /* libYouMeCommon.a */; };
+		4DC8F2592354562C00550FF8 /* libYouMeCommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8F2572354562C00550FF8 /* libYouMeCommon.a */; };
+		4DC8F25E235457B200550FF8 /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8F25A235457B100550FF8 /* libavformat.a */; };
+		4DC8F25F235457B200550FF8 /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8F25A235457B100550FF8 /* libavformat.a */; };
+		4DC8F260235457B200550FF8 /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8F25B235457B200550FF8 /* libavutil.a */; };
+		4DC8F261235457B200550FF8 /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8F25B235457B200550FF8 /* libavutil.a */; };
+		4DC8F262235457B200550FF8 /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8F25C235457B200550FF8 /* libavcodec.a */; };
+		4DC8F263235457B200550FF8 /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8F25C235457B200550FF8 /* libavcodec.a */; };
+		4DC8F264235457B200550FF8 /* libx264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8F25D235457B200550FF8 /* libx264.a */; };
+		4DC8F265235457B200550FF8 /* libx264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8F25D235457B200550FF8 /* libx264.a */; };
+		4EACF072230BC56100690C09 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E3D2F202301607700FFAEEA /* ReplayKit.framework */; };
+		4EACF076230BC56100690C09 /* SampleHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EACF075230BC56100690C09 /* SampleHandler.m */; };
+		4EACF089230BC56100690C09 /* 游密.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4EACF071230BC56100690C09 /* 游密.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4EACF0A1230BCAA300690C09 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC64EC322FDA0F200D1EE39 /* libc++.tbd */; };
+		4EACF0A3230BCAB300690C09 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EACF0A2230BCAB300690C09 /* libsqlite3.tbd */; };
+		4EACF0A4230BCAC400690C09 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC64EC722FDA12B00D1EE39 /* libz.tbd */; };
+		4EACF0A5230BCAC900690C09 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC64EC922FDA13200D1EE39 /* libz.1.2.5.tbd */; };
+		4EACF0A6230BCAEA00690C09 /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC64ECB22FDA13B00D1EE39 /* libresolv.9.tbd */; };
+		4EACF0A7230BCAFC00690C09 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC64ECD22FDA14300D1EE39 /* SystemConfiguration.framework */; };
+		4EACF0A8230BCB0D00690C09 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC64ECF22FDA14D00D1EE39 /* CoreTelephony.framework */; };
+		4EACF0A9230BCB1C00690C09 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC64ED122FDA15500D1EE39 /* AVFoundation.framework */; };
+		4EACF0AA230BCB2900690C09 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC64ED322FDA15D00D1EE39 /* AudioToolbox.framework */; };
+		4EACF0AB230BCB3600690C09 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC64ED522FDA16500D1EE39 /* CFNetwork.framework */; };
+		4EACF0AC230BCB4200690C09 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC64EDA22FDADFD00D1EE39 /* VideoToolbox.framework */; };
+		4EACF0AF230BCC9200690C09 /* NSObject+SelectorOnMainThreadMutipleObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EACF0AE230BCC9200690C09 /* NSObject+SelectorOnMainThreadMutipleObjects.m */; };
+		4EC64E9D22FDA07000D1EE39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC64E9C22FDA07000D1EE39 /* AppDelegate.m */; };
+		4EC64EA022FDA07000D1EE39 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC64E9F22FDA07000D1EE39 /* ViewController.m */; };
+		4EC64EA322FDA07000D1EE39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC64EA122FDA07000D1EE39 /* Main.storyboard */; };
+		4EC64EA522FDA07100D1EE39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EC64EA422FDA07100D1EE39 /* Assets.xcassets */; };
+		4EC64EA822FDA07100D1EE39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC64EA622FDA07100D1EE39 /* LaunchScreen.storyboard */; };
+		4EC64EAB22FDA07100D1EE39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC64EAA22FDA07100D1EE39 /* main.m */; };
+		4EC64EC422FDA0F200D1EE39 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC64EC322FDA0F200D1EE39 /* libc++.tbd */; };
+		4EC64EC622FDA0FB00D1EE39 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC64EC522FDA0FB00D1EE39 /* libsqlite3.0.tbd */; };
+		4EC64EC822FDA12B00D1EE39 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC64EC722FDA12B00D1EE39 /* libz.tbd */; };
+		4EC64ECA22FDA13200D1EE39 /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC64EC922FDA13200D1EE39 /* libz.1.2.5.tbd */; };
+		4EC64ECC22FDA13B00D1EE39 /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC64ECB22FDA13B00D1EE39 /* libresolv.9.tbd */; };
+		4EC64ECE22FDA14300D1EE39 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC64ECD22FDA14300D1EE39 /* SystemConfiguration.framework */; };
+		4EC64ED022FDA14D00D1EE39 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC64ECF22FDA14D00D1EE39 /* CoreTelephony.framework */; };
+		4EC64ED222FDA15500D1EE39 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC64ED122FDA15500D1EE39 /* AVFoundation.framework */; };
+		4EC64ED422FDA15D00D1EE39 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC64ED322FDA15D00D1EE39 /* AudioToolbox.framework */; };
+		4EC64ED622FDA16600D1EE39 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC64ED522FDA16500D1EE39 /* CFNetwork.framework */; };
+		4EC64ED922FDACFD00D1EE39 /* NSObject+SelectorOnMainThreadMutipleObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC64ED822FDACFD00D1EE39 /* NSObject+SelectorOnMainThreadMutipleObjects.m */; };
+		4EC64EDB22FDADFE00D1EE39 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EC64EDA22FDADFD00D1EE39 /* VideoToolbox.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4DC8F2372354527B00550FF8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4DC8F2302354527B00550FF8 /* youme_voice_engine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 705C07481BA1637600E5719D;
+			remoteInfo = youme_voice_engine;
+		};
+		4DC8F2392354527B00550FF8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4DC8F2302354527B00550FF8 /* youme_voice_engine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 70AFE3BF1C34E81300523DEE;
+			remoteInfo = youme_voice_engine_mac;
+		};
+		4DC8F23B2354527B00550FF8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4DC8F2302354527B00550FF8 /* youme_voice_engine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7FE2FF4E1CC888E300D56A7E;
+			remoteInfo = youme_voice_engine_resource;
+		};
+		4DC8F23D2354527B00550FF8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4DC8F2302354527B00550FF8 /* youme_voice_engine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 13C5ECDF20E4BCD700DE11C7;
+			remoteInfo = youme_voice_engine_macd;
+		};
+		4EACF087230BC56100690C09 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4EC64E9022FDA07000D1EE39 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4EACF070230BC56100690C09;
+			remoteInfo = "游密";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4E3D2F3A2301607700FFAEEA /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4EACF089230BC56100690C09 /* 游密.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		13F5E742230E43BA002347D5 /* dukou.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = dukou.mp3; path = Resources/dukou.mp3; sourceTree = "<group>"; };
+		4DC8F2302354527B00550FF8 /* youme_voice_engine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = youme_voice_engine.xcodeproj; path = ../YouMeVoiceEngine/youme_voice_engine.xcodeproj; sourceTree = "<group>"; };
+		4DC8F2572354562C00550FF8 /* libYouMeCommon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libYouMeCommon.a; path = ../../youme_common/lib/ios/libYouMeCommon.a; sourceTree = "<group>"; };
+		4DC8F25A235457B100550FF8 /* libavformat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavformat.a; path = ../../ffmpegPlayer/libs/apple/universal/libavformat.a; sourceTree = "<group>"; };
+		4DC8F25B235457B200550FF8 /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavutil.a; path = ../../ffmpegPlayer/libs/apple/universal/libavutil.a; sourceTree = "<group>"; };
+		4DC8F25C235457B200550FF8 /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavcodec.a; path = ../../ffmpegPlayer/libs/apple/universal/libavcodec.a; sourceTree = "<group>"; };
+		4DC8F25D235457B200550FF8 /* libx264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libx264.a; path = ../../ffmpegPlayer/libs/apple/universal/libx264.a; sourceTree = "<group>"; };
+		4E3D2F202301607700FFAEEA /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
+		4E3D2F2D2301607700FFAEEA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4EACF071230BC56100690C09 /* 游密.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "游密.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EACF074230BC56100690C09 /* SampleHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleHandler.h; sourceTree = "<group>"; };
+		4EACF075230BC56100690C09 /* SampleHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleHandler.m; sourceTree = "<group>"; };
+		4EACF077230BC56100690C09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4EACF0A2230BCAB300690C09 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		4EACF0AD230BCC9200690C09 /* NSObject+SelectorOnMainThreadMutipleObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SelectorOnMainThreadMutipleObjects.h"; sourceTree = "<group>"; };
+		4EACF0AE230BCC9200690C09 /* NSObject+SelectorOnMainThreadMutipleObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SelectorOnMainThreadMutipleObjects.m"; sourceTree = "<group>"; };
+		4EC64E9822FDA07000D1EE39 /* YMSDKTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YMSDKTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EC64E9B22FDA07000D1EE39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4EC64E9C22FDA07000D1EE39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4EC64E9E22FDA07000D1EE39 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4EC64E9F22FDA07000D1EE39 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4EC64EA222FDA07000D1EE39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4EC64EA422FDA07100D1EE39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4EC64EA722FDA07100D1EE39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4EC64EA922FDA07100D1EE39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4EC64EAA22FDA07100D1EE39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4EC64EC322FDA0F200D1EE39 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		4EC64EC522FDA0FB00D1EE39 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		4EC64EC722FDA12B00D1EE39 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		4EC64EC922FDA13200D1EE39 /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
+		4EC64ECB22FDA13B00D1EE39 /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
+		4EC64ECD22FDA14300D1EE39 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4EC64ECF22FDA14D00D1EE39 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		4EC64ED122FDA15500D1EE39 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		4EC64ED322FDA15D00D1EE39 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		4EC64ED522FDA16500D1EE39 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		4EC64ED722FDACFD00D1EE39 /* NSObject+SelectorOnMainThreadMutipleObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SelectorOnMainThreadMutipleObjects.h"; sourceTree = "<group>"; };
+		4EC64ED822FDACFD00D1EE39 /* NSObject+SelectorOnMainThreadMutipleObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SelectorOnMainThreadMutipleObjects.m"; sourceTree = "<group>"; };
+		4EC64EDA22FDADFD00D1EE39 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4EACF06E230BC56100690C09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EACF0AC230BCB4200690C09 /* VideoToolbox.framework in Frameworks */,
+				4EACF0AB230BCB3600690C09 /* CFNetwork.framework in Frameworks */,
+				4EACF0AA230BCB2900690C09 /* AudioToolbox.framework in Frameworks */,
+				4DC8F25F235457B200550FF8 /* libavformat.a in Frameworks */,
+				4EACF0A9230BCB1C00690C09 /* AVFoundation.framework in Frameworks */,
+				4EACF0A8230BCB0D00690C09 /* CoreTelephony.framework in Frameworks */,
+				4DC8F261235457B200550FF8 /* libavutil.a in Frameworks */,
+				4DC8F2592354562C00550FF8 /* libYouMeCommon.a in Frameworks */,
+				4DC8F240235453D300550FF8 /* libyoume_voice_engine.a in Frameworks */,
+				4EACF0A7230BCAFC00690C09 /* SystemConfiguration.framework in Frameworks */,
+				4EACF0A6230BCAEA00690C09 /* libresolv.9.tbd in Frameworks */,
+				4DC8F265235457B200550FF8 /* libx264.a in Frameworks */,
+				4EACF0A5230BCAC900690C09 /* libz.1.2.5.tbd in Frameworks */,
+				4EACF0A4230BCAC400690C09 /* libz.tbd in Frameworks */,
+				4EACF0A3230BCAB300690C09 /* libsqlite3.tbd in Frameworks */,
+				4DC8F263235457B200550FF8 /* libavcodec.a in Frameworks */,
+				4EACF0A1230BCAA300690C09 /* libc++.tbd in Frameworks */,
+				4EACF072230BC56100690C09 /* ReplayKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4EC64E9522FDA07000D1EE39 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EC64EDB22FDADFE00D1EE39 /* VideoToolbox.framework in Frameworks */,
+				4EC64ED622FDA16600D1EE39 /* CFNetwork.framework in Frameworks */,
+				4EC64ED422FDA15D00D1EE39 /* AudioToolbox.framework in Frameworks */,
+				4DC8F25E235457B200550FF8 /* libavformat.a in Frameworks */,
+				4DC8F264235457B200550FF8 /* libx264.a in Frameworks */,
+				4EC64ED222FDA15500D1EE39 /* AVFoundation.framework in Frameworks */,
+				4EC64ED022FDA14D00D1EE39 /* CoreTelephony.framework in Frameworks */,
+				4EC64ECE22FDA14300D1EE39 /* SystemConfiguration.framework in Frameworks */,
+				4EC64ECC22FDA13B00D1EE39 /* libresolv.9.tbd in Frameworks */,
+				4EC64ECA22FDA13200D1EE39 /* libz.1.2.5.tbd in Frameworks */,
+				4EC64EC822FDA12B00D1EE39 /* libz.tbd in Frameworks */,
+				4EC64EC622FDA0FB00D1EE39 /* libsqlite3.0.tbd in Frameworks */,
+				4DC8F2582354562C00550FF8 /* libYouMeCommon.a in Frameworks */,
+				4EC64EC422FDA0F200D1EE39 /* libc++.tbd in Frameworks */,
+				4DC8F23F2354531E00550FF8 /* libyoume_voice_engine.a in Frameworks */,
+				4DC8F260235457B200550FF8 /* libavutil.a in Frameworks */,
+				4DC8F262235457B200550FF8 /* libavcodec.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4DC8F2312354527B00550FF8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4DC8F2382354527B00550FF8 /* libyoume_voice_engine.a */,
+				4DC8F23A2354527B00550FF8 /* libyoume_voice_engine_mac.a */,
+				4DC8F23C2354527B00550FF8 /* youme_voice_engine_resource.bundle */,
+				4DC8F23E2354527B00550FF8 /* youme_voice_engine_macd.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4EACF073230BC56100690C09 /* 游密 */ = {
+			isa = PBXGroup;
+			children = (
+				4EACF0AD230BCC9200690C09 /* NSObject+SelectorOnMainThreadMutipleObjects.h */,
+				4EACF0AE230BCC9200690C09 /* NSObject+SelectorOnMainThreadMutipleObjects.m */,
+				4EACF074230BC56100690C09 /* SampleHandler.h */,
+				4EACF075230BC56100690C09 /* SampleHandler.m */,
+				4EACF077230BC56100690C09 /* Info.plist */,
+			);
+			path = "游密";
+			sourceTree = "<group>";
+		};
+		4EC64E8F22FDA07000D1EE39 = {
+			isa = PBXGroup;
+			children = (
+				13F5E742230E43BA002347D5 /* dukou.mp3 */,
+				4EC64E9A22FDA07000D1EE39 /* YMSDKTest */,
+				4EACF073230BC56100690C09 /* 游密 */,
+				4EC64E9922FDA07000D1EE39 /* Products */,
+				4EC64EC222FDA0F200D1EE39 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4EC64E9922FDA07000D1EE39 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4EC64E9822FDA07000D1EE39 /* YMSDKTest.app */,
+				4EACF071230BC56100690C09 /* 游密.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4EC64E9A22FDA07000D1EE39 /* YMSDKTest */ = {
+			isa = PBXGroup;
+			children = (
+				4EC64E9B22FDA07000D1EE39 /* AppDelegate.h */,
+				4EC64E9C22FDA07000D1EE39 /* AppDelegate.m */,
+				4EC64E9E22FDA07000D1EE39 /* ViewController.h */,
+				4EC64E9F22FDA07000D1EE39 /* ViewController.m */,
+				4EC64ED722FDACFD00D1EE39 /* NSObject+SelectorOnMainThreadMutipleObjects.h */,
+				4EC64ED822FDACFD00D1EE39 /* NSObject+SelectorOnMainThreadMutipleObjects.m */,
+				4EC64EA122FDA07000D1EE39 /* Main.storyboard */,
+				4EC64EA422FDA07100D1EE39 /* Assets.xcassets */,
+				4EC64EA622FDA07100D1EE39 /* LaunchScreen.storyboard */,
+				4EC64EA922FDA07100D1EE39 /* Info.plist */,
+				4EC64EAA22FDA07100D1EE39 /* main.m */,
+			);
+			path = YMSDKTest;
+			sourceTree = "<group>";
+		};
+		4EC64EC222FDA0F200D1EE39 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4DC8F25C235457B200550FF8 /* libavcodec.a */,
+				4DC8F25A235457B100550FF8 /* libavformat.a */,
+				4DC8F25B235457B200550FF8 /* libavutil.a */,
+				4DC8F25D235457B200550FF8 /* libx264.a */,
+				4DC8F2572354562C00550FF8 /* libYouMeCommon.a */,
+				4DC8F2302354527B00550FF8 /* youme_voice_engine.xcodeproj */,
+				4EACF0A2230BCAB300690C09 /* libsqlite3.tbd */,
+				4EC64EDA22FDADFD00D1EE39 /* VideoToolbox.framework */,
+				4EC64ED522FDA16500D1EE39 /* CFNetwork.framework */,
+				4EC64ED322FDA15D00D1EE39 /* AudioToolbox.framework */,
+				4EC64ED122FDA15500D1EE39 /* AVFoundation.framework */,
+				4EC64ECF22FDA14D00D1EE39 /* CoreTelephony.framework */,
+				4EC64ECD22FDA14300D1EE39 /* SystemConfiguration.framework */,
+				4EC64ECB22FDA13B00D1EE39 /* libresolv.9.tbd */,
+				4EC64EC922FDA13200D1EE39 /* libz.1.2.5.tbd */,
+				4EC64EC722FDA12B00D1EE39 /* libz.tbd */,
+				4EC64EC522FDA0FB00D1EE39 /* libsqlite3.0.tbd */,
+				4EC64EC322FDA0F200D1EE39 /* libc++.tbd */,
+				4E3D2F202301607700FFAEEA /* ReplayKit.framework */,
+				4E3D2F2D2301607700FFAEEA /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4EACF070230BC56100690C09 /* 游密 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4EACF08D230BC56100690C09 /* Build configuration list for PBXNativeTarget "游密" */;
+			buildPhases = (
+				4EACF06D230BC56100690C09 /* Sources */,
+				4EACF06E230BC56100690C09 /* Frameworks */,
+				4EACF06F230BC56100690C09 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "游密";
+			productName = "游密";
+			productReference = 4EACF071230BC56100690C09 /* 游密.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		4EC64E9722FDA07000D1EE39 /* YMSDKTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4EC64EAE22FDA07100D1EE39 /* Build configuration list for PBXNativeTarget "YMSDKTest" */;
+			buildPhases = (
+				4EC64E9422FDA07000D1EE39 /* Sources */,
+				4EC64E9522FDA07000D1EE39 /* Frameworks */,
+				4EC64E9622FDA07000D1EE39 /* Resources */,
+				4E3D2F3A2301607700FFAEEA /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4EACF088230BC56100690C09 /* PBXTargetDependency */,
+			);
+			name = YMSDKTest;
+			productName = YMSDKTest;
+			productReference = 4EC64E9822FDA07000D1EE39 /* YMSDKTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4EC64E9022FDA07000D1EE39 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = LB;
+				TargetAttributes = {
+					4EACF070230BC56100690C09 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					4EC64E9722FDA07000D1EE39 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+				};
+			};
+			buildConfigurationList = 4EC64E9322FDA07000D1EE39 /* Build configuration list for PBXProject "YMSDKTest" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4EC64E8F22FDA07000D1EE39;
+			productRefGroup = 4EC64E9922FDA07000D1EE39 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4DC8F2312354527B00550FF8 /* Products */;
+					ProjectRef = 4DC8F2302354527B00550FF8 /* youme_voice_engine.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				4EC64E9722FDA07000D1EE39 /* YMSDKTest */,
+				4EACF070230BC56100690C09 /* 游密 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		4DC8F2382354527B00550FF8 /* libyoume_voice_engine.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libyoume_voice_engine.a;
+			remoteRef = 4DC8F2372354527B00550FF8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4DC8F23A2354527B00550FF8 /* libyoume_voice_engine_mac.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libyoume_voice_engine_mac.a;
+			remoteRef = 4DC8F2392354527B00550FF8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4DC8F23C2354527B00550FF8 /* youme_voice_engine_resource.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = youme_voice_engine_resource.bundle;
+			remoteRef = 4DC8F23B2354527B00550FF8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4DC8F23E2354527B00550FF8 /* youme_voice_engine_macd.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = youme_voice_engine_macd.dylib;
+			remoteRef = 4DC8F23D2354527B00550FF8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4EACF06F230BC56100690C09 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4EC64E9622FDA07000D1EE39 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EC64EA822FDA07100D1EE39 /* LaunchScreen.storyboard in Resources */,
+				4EC64EA522FDA07100D1EE39 /* Assets.xcassets in Resources */,
+				4EC64EA322FDA07000D1EE39 /* Main.storyboard in Resources */,
+				13F5E743230E43BA002347D5 /* dukou.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4EACF06D230BC56100690C09 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EACF0AF230BCC9200690C09 /* NSObject+SelectorOnMainThreadMutipleObjects.m in Sources */,
+				4EACF076230BC56100690C09 /* SampleHandler.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4EC64E9422FDA07000D1EE39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EC64ED922FDACFD00D1EE39 /* NSObject+SelectorOnMainThreadMutipleObjects.m in Sources */,
+				4EC64EA022FDA07000D1EE39 /* ViewController.m in Sources */,
+				4EC64EAB22FDA07100D1EE39 /* main.m in Sources */,
+				4EC64E9D22FDA07000D1EE39 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4EACF088230BC56100690C09 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4EACF070230BC56100690C09 /* 游密 */;
+			targetProxy = 4EACF087230BC56100690C09 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4EC64EA122FDA07000D1EE39 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EC64EA222FDA07000D1EE39 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4EC64EA622FDA07100D1EE39 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EC64EA722FDA07100D1EE39 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4EACF08E230BC56100690C09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = NUZXKA7782;
+				HEADER_SEARCH_PATHS = (
+					"../../bindings/cocos2d-x/objc",
+					"../../bindings/cocos2d-x/interface",
+				);
+				INFOPLIST_FILE = "游密/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					../../youme_common/thirdlib,
+					../../ffmpegPlayer/libs/apple/universal,
+					../../youme_common/lib/ios,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.youme.talk.test.YmTalkTestSampleRef001.--";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = wildcard;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4EACF08F230BC56100690C09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = NUZXKA7782;
+				HEADER_SEARCH_PATHS = (
+					"../../bindings/cocos2d-x/objc",
+					"../../bindings/cocos2d-x/interface",
+				);
+				INFOPLIST_FILE = "游密/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					../../youme_common/thirdlib,
+					../../ffmpegPlayer/libs/apple/universal,
+					../../youme_common/lib/ios,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.youme.talk.test.YmTalkTestSampleRef001.--";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = wildcard;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4EC64EAC22FDA07100D1EE39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4EC64EAD22FDA07100D1EE39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4EC64EAF22FDA07100D1EE39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = NUZXKA7782;
+				HEADER_SEARCH_PATHS = (
+					"../../bindings/cocos2d-x/interface",
+					"../../bindings/cocos2d-x/objc",
+				);
+				INFOPLIST_FILE = YMSDKTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_GENERATE_MAP_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					../../ffmpegPlayer/libs/apple/universal,
+					../../youme_common/lib/ios,
+					../../youme_common/thirdlib,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.youme.talk.test.YmTalkTestSampleRef001;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = wildcard;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4EC64EB022FDA07100D1EE39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = NUZXKA7782;
+				GCC_OPTIMIZATION_LEVEL = s;
+				HEADER_SEARCH_PATHS = (
+					"../../bindings/cocos2d-x/interface",
+					"../../bindings/cocos2d-x/objc",
+				);
+				INFOPLIST_FILE = YMSDKTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_GENERATE_MAP_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					../../ffmpegPlayer/libs/apple/universal,
+					../../youme_common/lib/ios,
+					../../youme_common/thirdlib,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.youme.talk.test.YmTalkTestSampleRef001;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = wildcard;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4EACF08D230BC56100690C09 /* Build configuration list for PBXNativeTarget "游密" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4EACF08E230BC56100690C09 /* Debug */,
+				4EACF08F230BC56100690C09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4EC64E9322FDA07000D1EE39 /* Build configuration list for PBXProject "YMSDKTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4EC64EAC22FDA07100D1EE39 /* Debug */,
+				4EC64EAD22FDA07100D1EE39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4EC64EAE22FDA07100D1EE39 /* Build configuration list for PBXNativeTarget "YMSDKTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4EC64EAF22FDA07100D1EE39 /* Debug */,
+				4EC64EB022FDA07100D1EE39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4EC64E9022FDA07000D1EE39 /* Project object */;
+}

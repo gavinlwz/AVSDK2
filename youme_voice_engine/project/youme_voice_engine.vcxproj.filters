@@ -1,0 +1,2050 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="baseWrapper">
+      <UniqueIdentifier>{02ee7a24-f62b-4eb1-88f2-0700b665265f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="baseWrapper\src">
+      <UniqueIdentifier>{ced8aedd-b938-4b51-ba0f-fadffa8e4d5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bindings">
+      <UniqueIdentifier>{b4a55552-4b49-46ee-8b6b-0babc3010cd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bindings\_common">
+      <UniqueIdentifier>{29a71f05-da28-4297-9383-bc9d9d5b19b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bindings\cocos2d-x">
+      <UniqueIdentifier>{bba43b6c-8f7a-419a-95dd-5f77bda4c888}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bindings\cocos2d-x\classes">
+      <UniqueIdentifier>{81c5f4b8-765e-474f-b2dd-5d307952b492}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bindings\cocos2d-x\interface">
+      <UniqueIdentifier>{71ee4b31-91cc-4c5f-b9d2-0566c81ac771}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{e582a86d-4d2c-4445-aae9-1096a1f53d7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties">
+      <UniqueIdentifier>{a104a74c-0d53-4727-820d-b8da3b6142b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="protobuf">
+      <UniqueIdentifier>{5403bc8b-3425-4b32-a805-876868074911}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common">
+      <UniqueIdentifier>{221867bc-1403-470e-9682-3c99fafa30df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src">
+      <UniqueIdentifier>{979867e7-cb3d-471b-8e58-5321a7e59da3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\crypto">
+      <UniqueIdentifier>{6997bae5-be06-4a39-a4f7-4c004709490b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\google">
+      <UniqueIdentifier>{0d3de8f2-7675-401a-96c5-048606145eaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\minizip">
+      <UniqueIdentifier>{fceaaf53-98cf-4071-bb35-cff97f55f8e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\zlib">
+      <UniqueIdentifier>{65d90806-0c50-4e06-bc7f-8686bf63f177}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\opus-1.1">
+      <UniqueIdentifier>{1f19fc02-37eb-484b-82b7-acce111dceca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\soundtouch">
+      <UniqueIdentifier>{62fda1e5-164b-42bc-a051-5eb6224bfecb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\Sqlite3">
+      <UniqueIdentifier>{e82351cd-0d91-465d-9fbc-1697093563d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\webrtc">
+      <UniqueIdentifier>{c0b6c4df-2cb4-4bf6-96ca-ca72f244daf6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\opus-1.1\celt">
+      <UniqueIdentifier>{e0cfa2c3-d163-4a47-a0d7-c75496936f49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\opus-1.1\silk">
+      <UniqueIdentifier>{26778768-3018-4f88-819b-693dd049152e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\opus-1.1\src">
+      <UniqueIdentifier>{8890c766-9dd0-4f14-ab61-ba9301d1db04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\opus-1.1\silk\fixed">
+      <UniqueIdentifier>{4950296c-6646-4a4f-9abf-4c55de25886d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\soundtouch\SoundTouch">
+      <UniqueIdentifier>{5c8ddd3e-ad42-40fa-b8ee-0265187fcead}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\soundtouch\SoundStretch">
+      <UniqueIdentifier>{39e4f557-8994-4054-99d4-ad894443dbf6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinyDAV">
+      <UniqueIdentifier>{b88dc8ee-133e-4776-b6ed-8c774d3100b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinyDAV\src">
+      <UniqueIdentifier>{2ed92dcf-68c3-48ed-9bd5-ab2778eb515c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinyDAV\src\audio">
+      <UniqueIdentifier>{4574daf8-5640-421c-9259-738cfc5b11f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinyDAV\src\codecs">
+      <UniqueIdentifier>{2e426bc5-5739-4ca5-b5f1-8b148a77bbd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinyDAV\src\audio\win32">
+      <UniqueIdentifier>{6e21d581-56f9-4270-aa97-2e32556cfb4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinyMEDIA">
+      <UniqueIdentifier>{ae7fb36d-e96a-4bf6-8ef5-560d51b23e00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinyMEDIA\src">
+      <UniqueIdentifier>{c4dfe443-e815-4a60-a2a9-bb2419038cf6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinyMEDIA\src\content">
+      <UniqueIdentifier>{8464f4fe-9fea-439d-9a4a-3c5fe1891e5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinyNET">
+      <UniqueIdentifier>{2cc734ae-e7f7-4c06-aa8c-4bad78a7a9e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinyNET\src">
+      <UniqueIdentifier>{be8083e4-8cea-4a24-946f-8719abe9dd58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinyRTP">
+      <UniqueIdentifier>{ef43ec87-47a8-464e-b1c4-79ebefc07ecf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinyRTP\src">
+      <UniqueIdentifier>{366d13a3-4d5c-4592-9931-fb0c97d0c623}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinyRTP\src\rtp">
+      <UniqueIdentifier>{c3bcec07-7097-4105-ad54-61b5d1bc81cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinySAK">
+      <UniqueIdentifier>{853d2a2c-71c3-4337-a6c6-3faf40a95705}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinySAK\src">
+      <UniqueIdentifier>{a21751b5-986e-42a4-8530-17a0868e2caa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinySDP">
+      <UniqueIdentifier>{d27aba87-fd7a-42f8-9f76-be1c34dbbcbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinySDP\src">
+      <UniqueIdentifier>{e86e9527-5fca-4d62-a0db-673f0aeecabc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinySDP\src\headers">
+      <UniqueIdentifier>{2199da83-5a0c-4855-9653-36f423b245cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tinySDP\src\parsers">
+      <UniqueIdentifier>{67fc3756-85c6-4751-b493-cd947d122a22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\webrtc\src">
+      <UniqueIdentifier>{faa7e506-13f1-4505-9898-985980eb7f0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\webrtc\src\system_wrappers">
+      <UniqueIdentifier>{723899ba-c518-4011-8a73-c3992128d112}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\webrtc\src\system_wrappers\source">
+      <UniqueIdentifier>{65c25667-f0cc-404f-a936-2f39caffe456}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\webrtc\src\base">
+      <UniqueIdentifier>{2dbe2f4c-f0e8-4223-ba58-463027827392}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\webrtc\src\common_audio">
+      <UniqueIdentifier>{458182cf-1c71-4363-81f8-3675ed11b605}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\webrtc\src\common_audio\vad">
+      <UniqueIdentifier>{902ac9d2-a57a-4968-90f6-1fa59f8be745}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\webrtc\src\common_audio\signal_processing">
+      <UniqueIdentifier>{33db0236-6846-4f6b-a627-6be16a6739d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\webrtc\src\modules">
+      <UniqueIdentifier>{61cdb8d6-dafd-4106-9516-53145e76ea2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\webrtc\src\modules\audio_coding">
+      <UniqueIdentifier>{c962c650-f1a8-42dd-bfb5-dc13de3dbc97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\webrtc\src\modules\audio_coding\codecs">
+      <UniqueIdentifier>{12e50812-7689-4d03-9809-73dc31b5dcf6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\webrtc\src\modules\audio_coding\main">
+      <UniqueIdentifier>{e9f46d44-4ef1-48a9-b108-8e78abd47109}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparties\common\src\webrtc\src\modules\audio_processing">
+      <UniqueIdentifier>{a195d443-8f7d-4ef4-af8f-2c9a6049b6f5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\baseWrapper\src\mem_pool.cpp">
+      <Filter>baseWrapper\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\baseWrapper\src\RSAUtil.cpp">
+      <Filter>baseWrapper\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\baseWrapper\src\SyncTCP.cpp">
+      <Filter>baseWrapper\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\baseWrapper\src\SyncUDP.cpp">
+      <Filter>baseWrapper\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\baseWrapper\src\XAny.cpp">
+      <Filter>baseWrapper\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\baseWrapper\src\XCondWait.cpp">
+      <Filter>baseWrapper\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\baseWrapper\src\XConfigCWrapper.cpp">
+      <Filter>baseWrapper\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\baseWrapper\src\XDNSParse.cpp">
+      <Filter>baseWrapper\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\baseWrapper\src\XSemaphore.cpp">
+      <Filter>baseWrapper\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\baseWrapper\src\XSharedArray.cpp">
+      <Filter>baseWrapper\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\baseWrapper\src\XTimer.cpp">
+      <Filter>baseWrapper\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\baseWrapper\src\XTimerCWrapper.cpp">
+      <Filter>baseWrapper\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bindings\cocos2d-x\interface\imp\IYouMeCInterface.cpp">
+      <Filter>bindings\cocos2d-x\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bindings\cocos2d-x\interface\imp\IYouMeVoiceEngine.cpp">
+      <Filter>bindings\cocos2d-x\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bindings\cocos2d-x\interface\imp\YouMeVoiceEngine.cpp">
+      <Filter>bindings\cocos2d-x\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bindings\cocos2d-x\classes\NgnApplication.cpp">
+      <Filter>bindings\cocos2d-x\classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bindings\cocos2d-x\classes\NgnEngine.cpp">
+      <Filter>bindings\cocos2d-x\classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bindings\cocos2d-x\classes\utils\NgnConfigurationEntry.cpp">
+      <Filter>bindings\cocos2d-x\classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bindings\cocos2d-x\classes\utils\SDKValidate.cpp">
+      <Filter>bindings\cocos2d-x\classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bindings\cocos2d-x\classes\service\impl\NgnLoginService.cpp">
+      <Filter>bindings\cocos2d-x\classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bindings\cocos2d-x\classes\service\impl\NgnMemoryConfiguration.cpp">
+      <Filter>bindings\cocos2d-x\classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bindings\cocos2d-x\classes\service\impl\NgnNetworkService.cpp">
+      <Filter>bindings\cocos2d-x\classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bindings\cocos2d-x\classes\monitor\MonitoringCenter.cpp">
+      <Filter>bindings\cocos2d-x\classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\protobuf\BandwidthControl.pb.cc">
+      <Filter>protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\protobuf\common.pb.cc">
+      <Filter>protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\protobuf\ProtocolBufferHelp.cpp">
+      <Filter>protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\protobuf\serverlogin.pb.cc">
+      <Filter>protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\protobuf\uploadlog.pb.cc">
+      <Filter>protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\protobuf\YoumeRunningState.pb.cc">
+      <Filter>protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\protobuf\YouMeServerValidProtocol.pb.cc">
+      <Filter>protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\crypto.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_add.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_asm.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_blind.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_ctx.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_div.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_exp.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_gcd.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_lib.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_mod.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_mont.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_mul.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_rand.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_shift.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_sqr.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_word.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\evp\digest.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\evp\m_md5.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\md5\md5_dgst.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\md5\md5_one.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\rand\md_rand.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\rand\rand_egd.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\rand\rand_lib.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\rand\rand_unix.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\rand\rand_win.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\rsa\rsa_crpt.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\rsa\rsa_depr.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\rsa\rsa_eay.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\rsa\rsa_gen.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\rsa\rsa_lib.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\crypto\rsa\rsa_pk1.cpp">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\arena.cc">
+      <Filter>thirdparties\common\src\google</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\arenastring.cc">
+      <Filter>thirdparties\common\src\google</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\stubs\atomicops_internals_x86_gcc.cc">
+      <Filter>thirdparties\common\src\google</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\stubs\atomicops_internals_x86_msvc.cc">
+      <Filter>thirdparties\common\src\google</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\io\coded_stream.cc">
+      <Filter>thirdparties\common\src\google</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\stubs\common.cc">
+      <Filter>thirdparties\common\src\google</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\extension_set.cc">
+      <Filter>thirdparties\common\src\google</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\generated_message_util.cc">
+      <Filter>thirdparties\common\src\google</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\stubs\int128.cc">
+      <Filter>thirdparties\common\src\google</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\message_lite.cc">
+      <Filter>thirdparties\common\src\google</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\stubs\once.cc">
+      <Filter>thirdparties\common\src\google</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\repeated_field.cc">
+      <Filter>thirdparties\common\src\google</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\stubs\status.cc">
+      <Filter>thirdparties\common\src\google</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\stubs\stringpiece.cc">
+      <Filter>thirdparties\common\src\google</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\stubs\stringprintf.cc">
+      <Filter>thirdparties\common\src\google</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\stubs\structurally_valid.cc">
+      <Filter>thirdparties\common\src\google</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\stubs\strutil.cc">
+      <Filter>thirdparties\common\src\google</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\wire_format_lite.cc">
+      <Filter>thirdparties\common\src\google</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\io\zero_copy_stream.cc">
+      <Filter>thirdparties\common\src\google</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\io\zero_copy_stream_impl_lite.cc">
+      <Filter>thirdparties\common\src\google</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\minizip\ioapi.cpp">
+      <Filter>thirdparties\common\src\minizip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\minizip\MiniZip.cpp">
+      <Filter>thirdparties\common\src\minizip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\minizip\mztools.cpp">
+      <Filter>thirdparties\common\src\minizip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\minizip\unzip.cpp">
+      <Filter>thirdparties\common\src\minizip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\minizip\zip.cpp">
+      <Filter>thirdparties\common\src\minizip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\src\analysis.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\src\mlp.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\src\mlp_data.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\src\opus.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\src\opus_compare.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\src\opus_decoder.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\src\opus_demo.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\src\opus_encoder.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\src\opus_multistream.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\src\opus_multistream_decoder.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\src\opus_multistream_encoder.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\src\repacketizer.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\apply_sine_window_FIX.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\autocorr_FIX.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\burg_modified_FIX.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\corrMatrix_FIX.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\encode_frame_FIX.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\find_LPC_FIX.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\find_LTP_FIX.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\find_pitch_lags_FIX.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\find_pred_coefs_FIX.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\k2a_FIX.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\k2a_Q16_FIX.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\LTP_analysis_filter_FIX.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\LTP_scale_ctrl_FIX.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\noise_shape_analysis_FIX.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\pitch_analysis_core_FIX.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\prefilter_FIX.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\process_gains_FIX.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\regularize_correlations_FIX.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\residual_energy_FIX.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\residual_energy16_FIX.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\schur_FIX.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\schur64_FIX.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\solve_LS_FIX.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\vector_ops_FIX.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\warped_autocorrelation_FIX.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\A2NLSF.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\ana_filt_bank_1.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\biquad_alt.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\bwexpander.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\bwexpander_32.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\check_control_input.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\CNG.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\code_signs.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\control_audio_bandwidth.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\control_codec.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\control_SNR.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\debug.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\dec_API.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\decode_core.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\decode_frame.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\decode_indices.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\decode_parameters.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\decode_pitch.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\decode_pulses.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\decoder_set_fs.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\enc_API.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\encode_indices.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\encode_pulses.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\gain_quant.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\HP_variable_cutoff.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\init_decoder.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\init_encoder.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\inner_prod_aligned.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\interpolate.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\lin2log.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\log2lin.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\LP_variable_cutoff.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\LPC_analysis_filter.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\LPC_inv_pred_gain.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\NLSF_decode.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\NLSF_del_dec_quant.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\NLSF_encode.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\NLSF_stabilize.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\NLSF_unpack.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\NLSF_VQ.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\NLSF_VQ_weights_laroia.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\NLSF2A.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\NSQ.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\NSQ_del_dec.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\pitch_est_tables.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\PLC.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\process_NLSFs.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\quant_LTP_gains.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\resampler.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\resampler_down2.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\resampler_down2_3.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\resampler_private_AR2.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\resampler_private_down_FIR.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\resampler_private_IIR_FIR.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\resampler_private_up2_HQ.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\resampler_rom.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\shell_coder.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\sigm_Q15.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\sort.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\stereo_decode_pred.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\stereo_encode_pred.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\stereo_find_predictor.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\stereo_LR_to_MS.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\stereo_MS_to_LR.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\stereo_quant_pred.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\sum_sqr_shift.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\table_LSF_cos.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\tables_gain.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\tables_LTP.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\tables_NLSF_CB_NB_MB.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\tables_NLSF_CB_WB.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\tables_other.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\tables_pitch_lag.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\tables_pulses_per_block.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\VAD.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\VQ_WMat_EC.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundStretch\RunParameters.cpp">
+      <Filter>thirdparties\common\src\soundtouch\SoundStretch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundStretch\WavFile.cpp">
+      <Filter>thirdparties\common\src\soundtouch\SoundStretch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\AAFilter.cpp">
+      <Filter>thirdparties\common\src\soundtouch\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\BPMDetect.cpp">
+      <Filter>thirdparties\common\src\soundtouch\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\cpu_detect_x86.cpp">
+      <Filter>thirdparties\common\src\soundtouch\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\FIFOSampleBuffer.cpp">
+      <Filter>thirdparties\common\src\soundtouch\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\FIRFilter.cpp">
+      <Filter>thirdparties\common\src\soundtouch\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\InterpolateCubic.cpp">
+      <Filter>thirdparties\common\src\soundtouch\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\InterpolateLinear.cpp">
+      <Filter>thirdparties\common\src\soundtouch\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\InterpolateShannon.cpp">
+      <Filter>thirdparties\common\src\soundtouch\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\mmx_optimized.cpp">
+      <Filter>thirdparties\common\src\soundtouch\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\PeakFinder.cpp">
+      <Filter>thirdparties\common\src\soundtouch\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\RateTransposer.cpp">
+      <Filter>thirdparties\common\src\soundtouch\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\SoundTouch.cpp">
+      <Filter>thirdparties\common\src\soundtouch\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\sse_optimized.cpp">
+      <Filter>thirdparties\common\src\soundtouch\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\TDStretch.cpp">
+      <Filter>thirdparties\common\src\soundtouch\SoundTouch</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\Sqlite3\src\shell.c">
+      <Filter>thirdparties\common\src\Sqlite3</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\Sqlite3\src\sqlite3.c">
+      <Filter>thirdparties\common\src\Sqlite3</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\Sqlite3\src\SqliteOperator.cpp">
+      <Filter>thirdparties\common\src\Sqlite3</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\base\checks.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\base\logging.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\auto_corr_to_refl_coef.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\auto_correlation.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\complex_bit_reverse.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\complex_fft.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\copy_set_operations.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\cross_correlation.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\division_operations.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\dot_product_with_scale.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\downsample_fast.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\energy.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\filter_ar.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\filter_ar_fast_q12.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\filter_ma_fast_q12.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\get_hanning_window.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\get_scaling_square.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\ilbc_specific_functions.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\levinson_durbin.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\lpc_to_refl_coef.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\min_max_operations.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\randomization_functions.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\real_fft.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\refl_coef_to_lpc.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\resample.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\resample_48khz.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\resample_by_2.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\resample_by_2_internal.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\resample_fractional.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\spl_init.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\spl_sqrt.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\spl_sqrt_floor.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\splitting_filter.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\sqrt_of_one_minus_x_squared.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\vector_scaling_operations.c">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\signal_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\vad\vad_core.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\vad</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\vad\vad_filterbank.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\vad</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\vad\vad_gmm.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\vad</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\vad\vad_sp.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\vad</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\vad\webrtc_vad.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio\vad</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\codecs\audio_decoder.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\codecs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\codecs\audio_encoder.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\codecs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\codecs\opus\audio_decoder_opus.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\codecs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\codecs\opus\audio_encoder_opus.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\codecs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\codecs\opus\opus_interface.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\codecs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\codecs\cng\cng_helpfuns.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\codecs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\codecs\cng\webrtc_cng.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\codecs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\accelerate.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\audio_classifier.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\audio_decoder_impl.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\audio_multi_vector.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\audio_vector.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\background_noise.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\buffer_level_filter.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\comfort_noise.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\decision_logic.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\decision_logic_fax.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\decision_logic_game_voice.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\decision_logic_normal.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\decoder_database.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\delay_manager.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\delay_peak_detector.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\dsp_helper.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\dtmf_buffer.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\dtmf_tone_generator.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\expand.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\merge.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\nack.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\neteq.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\neteq_impl.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\normal.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\packet_buffer.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\payload_splitter.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\post_decode_vad.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\preemptive_expand.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\random_vector.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\rtcp.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\statistics_calculator.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\sync_buffer.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\time_stretch.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\timestamp_scaler.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_coding\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\system_wrappers\source\critical_section.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\system_wrappers\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\system_wrappers\source\critical_section_win.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\system_wrappers\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\system_wrappers\source\logging.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\system_wrappers\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\system_wrappers\source\metrics_default.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\system_wrappers\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_types.cpp">
+      <Filter>thirdparties\common\src\webrtc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\zlib\adler32.c">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\zlib\compress.c">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\zlib\crc32.c">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\zlib\deflate.c">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\zlib\gzio.c">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\zlib\infback.c">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\zlib\inffast.c">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\zlib\inflate.c">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\zlib\inftrees.c">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\zlib\trees.c">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\zlib\uncompr.c">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\zlib\zutil.c">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyDAV\src\audio\waveapi\tdav_consumer_waveapi.c">
+      <Filter>tinyDAV\src\audio\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyDAV\src\audio\waveapi\tdav_producer_waveapi.c">
+      <Filter>tinyDAV\src\audio\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyDAV\src\audio\tdav_consumer_audio.c">
+      <Filter>tinyDAV\src\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyDAV\src\audio\tdav_producer_audio.c">
+      <Filter>tinyDAV\src\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyDAV\src\audio\tdav_session_audio.c">
+      <Filter>tinyDAV\src\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyDAV\src\audio\tdav_webrtc_denoise.cpp">
+      <Filter>tinyDAV\src\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyDAV\src\audio\tdav_youme_jitterbuffer.cpp">
+      <Filter>tinyDAV\src\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyDAV\src\audio\tdav_youme_neteq_jitterbuffer.cpp">
+      <Filter>tinyDAV\src\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyDAV\src\audio\youme_jitter.cpp">
+      <Filter>tinyDAV\src\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyDAV\src\codecs\mixer\tdav_codec_audio_mixer.cpp">
+      <Filter>tinyDAV\src\codecs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyDAV\src\codecs\opus\tdav_codec_opus.cpp">
+      <Filter>tinyDAV\src\codecs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyDAV\src\codecs\bandwidth_ctrl\tdav_codec_bandwidth_ctrl.cpp">
+      <Filter>tinyDAV\src\codecs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyDAV\src\codecs\rtp_extension\tdav_codec_rtp_extension.cpp">
+      <Filter>tinyDAV\src\codecs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyDAV\src\tdav.c">
+      <Filter>tinyDAV\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyDAV\src\tdav_session_av.c">
+      <Filter>tinyDAV\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyDAV\src\tdav_win32.c">
+      <Filter>tinyDAV\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyMEDIA\src\content\tmedia_content.c">
+      <Filter>tinyMEDIA\src\content</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyMEDIA\src\content\tmedia_content_cpim.c">
+      <Filter>tinyMEDIA\src\content</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyMEDIA\src\tmedia.c">
+      <Filter>tinyMEDIA\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyMEDIA\src\tmedia_codec.c">
+      <Filter>tinyMEDIA\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyMEDIA\src\tmedia_common.c">
+      <Filter>tinyMEDIA\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyMEDIA\src\tmedia_consumer.c">
+      <Filter>tinyMEDIA\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyMEDIA\src\tmedia_defaults.c">
+      <Filter>tinyMEDIA\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyMEDIA\src\tmedia_denoise.c">
+      <Filter>tinyMEDIA\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyMEDIA\src\tmedia_jitterbuffer.c">
+      <Filter>tinyMEDIA\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyMEDIA\src\tmedia_params.c">
+      <Filter>tinyMEDIA\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyMEDIA\src\tmedia_producer.c">
+      <Filter>tinyMEDIA\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyMEDIA\src\tmedia_session.c">
+      <Filter>tinyMEDIA\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyMEDIA\src\tmedia_session_dummy.c">
+      <Filter>tinyMEDIA\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyNET\src\tnet.c">
+      <Filter>tinyNET\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyNET\src\tnet_endianness.c">
+      <Filter>tinyNET\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyNET\src\tnet_poll.c">
+      <Filter>tinyNET\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyNET\src\tnet_socket.c">
+      <Filter>tinyNET\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyNET\src\tnet_transport.c">
+      <Filter>tinyNET\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyNET\src\tnet_transport_win32.c">
+      <Filter>tinyNET\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyNET\src\tnet_utils.c">
+      <Filter>tinyNET\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyRTP\src\rtp\trtp_rtp_header.c">
+      <Filter>tinyRTP\src\rtp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyRTP\src\rtp\trtp_rtp_packet.c">
+      <Filter>tinyRTP\src\rtp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyRTP\src\rtp\trtp_rtp_session.c">
+      <Filter>tinyRTP\src\rtp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyRTP\src\trtp.c">
+      <Filter>tinyRTP\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyRTP\src\trtp_manager.c">
+      <Filter>tinyRTP\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_base64.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_binaryutils.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_buffer.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_debug.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_fsm.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_hmac.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_list.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_log.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_md5.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_memory.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_mutex.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_object.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_options.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_params.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_plugin.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_ppfcs16.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_ppfcs32.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_ragel_state.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_runnable.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_safeobj.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_semaphore.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_sha1.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_string.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_thread.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_time.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_url.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_uuid.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySAK\src\tsk_xml.c">
+      <Filter>tinySAK\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySDP\src\tsdp.c">
+      <Filter>tinySDP\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySDP\src\tsdp_message.c">
+      <Filter>tinySDP\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySDP\src\headers\tsdp_header.c">
+      <Filter>tinySDP\src\headers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySDP\src\headers\tsdp_header_A.c">
+      <Filter>tinySDP\src\headers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySDP\src\headers\tsdp_header_C.c">
+      <Filter>tinySDP\src\headers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySDP\src\headers\tsdp_header_M.c">
+      <Filter>tinySDP\src\headers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySDP\src\headers\tsdp_header_O.c">
+      <Filter>tinySDP\src\headers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinySDP\src\parsers\tsdp_parser_message.c">
+      <Filter>tinySDP\src\parsers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bindings\_common\AVSessionMgr.cpp">
+      <Filter>bindings\_common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bindings\_common\MediaSessionMgr.cxx">
+      <Filter>bindings\_common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bindings\_common\SafeObject.cxx">
+      <Filter>bindings\_common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\bands.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\celt.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\celt_decoder.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\celt_encoder.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\celt_lpc.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\cwrs.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\entcode.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\entdec.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\entenc.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\kiss_fft.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\laplace.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\mathops.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\mdct.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\modes.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\pitch.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\quant_bands.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\rate.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\vq.cpp">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\aecm\aecm_core.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\aecm\aecm_core_c.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\agc\utility.cc">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\utility\source\audio_frame_operations.cc">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\utility\delay_estimator.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\utility\delay_estimator_wrapper.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\agc\legacy\digital_agc.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\aecm\echo_control_mobile.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\agc\histogram.cc">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\ns\noise_suppression.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\ns\noise_suppression_x.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\ns\ns_core.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\ns\nsx_core.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\ns\nsx_core_c.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\agc\legacy\analog_agc.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\modules\audio_processing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\ring_buffer.cpp">
+      <Filter>thirdparties\common\src\webrtc\src\common_audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tinyDAV\src\codecs\mixer\tdav_codec_audio_resample.cpp">
+      <Filter>tinyDAV\src\audio</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\baseWrapper\src\mem_pool.h">
+      <Filter>baseWrapper\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\baseWrapper\src\RSAUtil.h">
+      <Filter>baseWrapper\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\baseWrapper\src\SyncTCP.h">
+      <Filter>baseWrapper\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\baseWrapper\src\SyncUDP.h">
+      <Filter>baseWrapper\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\baseWrapper\src\XAny.h">
+      <Filter>baseWrapper\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\baseWrapper\src\XCondWait.h">
+      <Filter>baseWrapper\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\baseWrapper\src\XConfigCWrapper.hpp">
+      <Filter>baseWrapper\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\baseWrapper\src\XDNSParse.h">
+      <Filter>baseWrapper\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\baseWrapper\src\XSemaphore.h">
+      <Filter>baseWrapper\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\baseWrapper\src\XSharedArray.h">
+      <Filter>baseWrapper\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\baseWrapper\src\XTimer.h">
+      <Filter>baseWrapper\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\baseWrapper\src\XTimerCWrapper.h">
+      <Filter>baseWrapper\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bindings\cocos2d-x\interface\IMyYouMeInterface.h">
+      <Filter>bindings\cocos2d-x\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bindings\cocos2d-x\interface\IYouMeCInterface.h">
+      <Filter>bindings\cocos2d-x\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bindings\cocos2d-x\interface\IYouMeCommonCallback.h">
+      <Filter>bindings\cocos2d-x\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bindings\cocos2d-x\interface\IYouMeConferenceCallback.h">
+      <Filter>bindings\cocos2d-x\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bindings\cocos2d-x\interface\IYouMeVoiceEngine.h">
+      <Filter>bindings\cocos2d-x\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bindings\cocos2d-x\interface\YouMeConstDefine.h">
+      <Filter>bindings\cocos2d-x\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bindings\cocos2d-x\interface\imp\YouMeVoiceEngine.h">
+      <Filter>bindings\cocos2d-x\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bindings\cocos2d-x\classes\NgnApplication.h">
+      <Filter>bindings\cocos2d-x\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bindings\cocos2d-x\classes\NgnEngine.h">
+      <Filter>bindings\cocos2d-x\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bindings\cocos2d-x\classes\utils\NgnConfigurationEntry.h">
+      <Filter>bindings\cocos2d-x\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bindings\cocos2d-x\classes\utils\SDKValidate.h">
+      <Filter>bindings\cocos2d-x\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bindings\cocos2d-x\classes\service\INgnBaseService.h">
+      <Filter>bindings\cocos2d-x\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bindings\cocos2d-x\classes\service\INgnNetworkService.h">
+      <Filter>bindings\cocos2d-x\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bindings\cocos2d-x\classes\service\impl\NgnLoginService.hpp">
+      <Filter>bindings\cocos2d-x\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bindings\cocos2d-x\classes\service\impl\NgnMemoryConfiguration.hpp">
+      <Filter>bindings\cocos2d-x\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bindings\cocos2d-x\classes\service\impl\NgnNetworkService.h">
+      <Filter>bindings\cocos2d-x\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bindings\cocos2d-x\classes\monitor\MonitoringCenter.h">
+      <Filter>bindings\cocos2d-x\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\android_config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ios_config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\win_config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\protobuf\BandwidthControl.pb.h">
+      <Filter>protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\protobuf\common.pb.h">
+      <Filter>protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\protobuf\ProtocolBufferHelp.h">
+      <Filter>protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\protobuf\serverlogin.pb.h">
+      <Filter>protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\protobuf\uploadlog.pb.h">
+      <Filter>protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\protobuf\YoumeRunningState.pb.h">
+      <Filter>protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\protobuf\YouMeServerValidProtocol.pb.h">
+      <Filter>protobuf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\crypto\constant_time_locl.h">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\crypto\crypto.h">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\crypto\e_os.h">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\crypto\e_os2.h">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\crypto\md32_common.h">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\crypto\opensslconf.h">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\crypto\ossl_typ.h">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\crypto\bio\bio.h">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\crypto\bn\bn.h">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\crypto\bn\bn_lcl.h">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\crypto\evp\evp.h">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\crypto\md5\md5.h">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\crypto\md5\md5_locl.h">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\crypto\rand\rand.h">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\crypto\rsa\rsa.h">
+      <Filter>thirdparties\common\src\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\minizip\crypt.h">
+      <Filter>thirdparties\common\src\minizip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\minizip\ioapi.h">
+      <Filter>thirdparties\common\src\minizip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\minizip\MiniZip.h">
+      <Filter>thirdparties\common\src\minizip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\minizip\mztools.h">
+      <Filter>thirdparties\common\src\minizip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\minizip\unzip.h">
+      <Filter>thirdparties\common\src\minizip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\minizip\zip.h">
+      <Filter>thirdparties\common\src\minizip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\src\analysis.h">
+      <Filter>thirdparties\common\src\opus-1.1\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\src\mlp.h">
+      <Filter>thirdparties\common\src\opus-1.1\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\src\opus_private.h">
+      <Filter>thirdparties\common\src\opus-1.1\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\src\tansig_table.h">
+      <Filter>thirdparties\common\src\opus-1.1\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\fixed\main_FIX.h">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\fixed\structs_FIX.h">
+      <Filter>thirdparties\common\src\opus-1.1\silk\fixed</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\API.h">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\control.h">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\debug.h">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\define.h">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\errors.h">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\Inlines.h">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\MacroCount.h">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\MacroDebug.h">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\macros.h">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\main.h">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\pitch_est_defines.h">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\PLC.h">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\resampler_private.h">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\resampler_rom.h">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\resampler_structs.h">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\SigProc_FIX.h">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\structs.h">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\tables.h">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\tuning_parameters.h">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\typedef.h">
+      <Filter>thirdparties\common\src\opus-1.1\silk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\soundtouch\source\SoundStretch\RunParameters.h">
+      <Filter>thirdparties\common\src\soundtouch\SoundStretch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\soundtouch\source\SoundStretch\WavFile.h">
+      <Filter>thirdparties\common\src\soundtouch\SoundStretch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\AAFilter.h">
+      <Filter>thirdparties\common\src\soundtouch\SoundTouch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\cpu_detect.h">
+      <Filter>thirdparties\common\src\soundtouch\SoundTouch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\FIRFilter.h">
+      <Filter>thirdparties\common\src\soundtouch\SoundTouch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\InterpolateCubic.h">
+      <Filter>thirdparties\common\src\soundtouch\SoundTouch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\InterpolateLinear.h">
+      <Filter>thirdparties\common\src\soundtouch\SoundTouch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\InterpolateShannon.h">
+      <Filter>thirdparties\common\src\soundtouch\SoundTouch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\PeakFinder.h">
+      <Filter>thirdparties\common\src\soundtouch\SoundTouch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\RateTransposer.h">
+      <Filter>thirdparties\common\src\soundtouch\SoundTouch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\TDStretch.h">
+      <Filter>thirdparties\common\src\soundtouch\SoundTouch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\Sqlite3\src\sqlite3.h">
+      <Filter>thirdparties\common\src\Sqlite3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\Sqlite3\src\sqlite3ext.h">
+      <Filter>thirdparties\common\src\Sqlite3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\Sqlite3\src\SqliteOperator.h">
+      <Filter>thirdparties\common\src\Sqlite3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\zlib\crc32.h">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\zlib\deflate.h">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\zlib\inffast.h">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\zlib\inffixed.h">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\zlib\inflate.h">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\zlib\inftrees.h">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\zlib\trees.h">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\zlib\zconf.h">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\zlib\zconf.in.h">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\zlib\zlib.h">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\zlib\zutil.h">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinyDAV\src\audio\1ktone_3s.h">
+      <Filter>tinyDAV\src\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinyDAV\src\audio\pcm_test1.h">
+      <Filter>tinyDAV\src\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinyDAV\src\audio\pcm_test2.h">
+      <Filter>tinyDAV\src\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinyDAV\src\audio\stdinc.h">
+      <Filter>tinyDAV\src\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinyDAV\src\audio\youme_jitter.h">
+      <Filter>tinyDAV\src\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tinysak_config.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_base64.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_binaryutils.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_buffer.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_common.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_debug.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_errno.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_fsm.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_hmac.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_list.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_log.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_md5.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_memory.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_mutex.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_object.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_options.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_params.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_plugin.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_ppfcs16.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_ppfcs32.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_ragel_state.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_runnable.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_safeobj.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_semaphore.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_sha1.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_string.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_thread.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_time.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_url.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_uuid.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\tinySAK\src\tsk_xml.h">
+      <Filter>tinySAK\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bindings\_common\Common.h">
+      <Filter>bindings\_common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bindings\_common\MediaSessionMgr.h">
+      <Filter>bindings\_common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bindings\_common\SafeObject.h">
+      <Filter>bindings\_common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bindings\_common\tinyWRAP_config.h">
+      <Filter>bindings\_common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bindings\_common\AVSessionMgr.hpp">
+      <Filter>bindings\_common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\_kiss_fft_guts.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\arch.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\bands.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\celt.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\celt_lpc.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\cpu_support.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\cwrs.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\ecintrin.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\entcode.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\entdec.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\entenc.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\fixed_debug.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\fixed_generic.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\float_cast.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\kiss_fft.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\laplace.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\mathops.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\mdct.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\mfrngcod.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\modes.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\os_support.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\pitch.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\quant_bands.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\rate.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\stack_alloc.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\static_modes_fixed.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\static_modes_fixed_arm_ne10.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\static_modes_float.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\static_modes_float_arm_ne10.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\vq.h">
+      <Filter>thirdparties\common\src\opus-1.1\celt</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\thirdparties\common\src\zlib\algorithm.txt">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\thirdparties\common\src\zlib\ChangeLog">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </None>
+    <None Include="..\thirdparties\common\src\zlib\FAQ">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </None>
+    <None Include="..\thirdparties\common\src\zlib\README">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </None>
+    <None Include="..\thirdparties\common\src\zlib\zlib.dsp">
+      <Filter>thirdparties\common\src\zlib</Filter>
+    </None>
+  </ItemGroup>
+</Project>

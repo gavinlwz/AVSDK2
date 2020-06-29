@@ -35,7 +35,7 @@ show_result(){
 ################################################################################
 print_help_and_exit(){
     print_info_in_red "${1}"
-    echo "Usage: ${0} <[ios] [android] [macos]> [ffmpeg] [clean] [sdk-pkg] [svn]"
+    echo "Usage: ${0} <[ios] [android] [macos]> [ffmpeg] [clean] [sdk-pkg]"
     echo "ios, android, macos - 编译iOS/Android/MacOS平台版本, 至少要指定一个平台，也可以三个同时指定"
     echo "ffmpeg       - 支持 FFMPEG "
     echo "clean        - 编译前先清空"
@@ -90,13 +90,6 @@ print_options_and_confirm(){
     else
         print_info_in_red " -- no"
     fi
-
-    echo -n "* 上传svn"
-    if [[ $UpdateSvn != "no" ]]; then
-        print_info_in_red " -- yes"
-    else
-        print_info_in_red " -- no"
-    fi
     
     echo "Start building..."    
 }
@@ -140,7 +133,7 @@ BuildAndroid="no"
 BuildMacOS="no"
 UpdateSvn="no"
 
-ENGINE_NAME="touchtech_engine"
+ENGINE_NAME="youme_voice_engine"
 
 # Parse parameters
 for var in $*
@@ -157,8 +150,6 @@ do
         BuildFfmpeg=$var
     elif [ $var = "sdk-pkg" ]; then
         BuildSdkPkg=$var
-    elif [ $var = "svn" ]; then
-        UpdateSvn=$var
     elif [ $var != "no" ]; then
     	print_help_and_exit "Invalid parameter:${var}"
     fi

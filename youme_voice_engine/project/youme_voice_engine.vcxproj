@@ -1,0 +1,734 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{330D9E5B-3BE9-4FFE-9A1C-0DC06C5795F1}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>youme_voice_engine</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>../../output/debug</OutDir>
+    <SourcePath>$(VC_SourcePath);</SourcePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>../../output/release</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;LOG_INFO;LOG_FATAL;LOG_ERROR;LOG_WARNING;LOG_DEBUG;OS_WIN32;CURL_STATICLIB;CARES_STATICLIB;WIN32_LEAN_AND_MEAN;YOUMEDLL_EXPORTS;TINYSAK_IMPORTS_IGNORE;HAVE_CONFIG_H;TINYNET_IMPORTS_IGNORE;TNET_UNDER_WINDOWS;TINYMEDIA_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYRTP_IMPORTS_IGNORE;TINYDAV_IMPORTS_IGNORE;_XKEYCHECK_H;HAVE_WAVE_API;USE_ALLOCA;OPUS_BUILD;WEBRTC_WIN;NOMINMAX;TINYWRAP_IMPORTS_IGNORE;CMAKE_INTDIR="Debug";youme_voice_engine_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>
+      </SDLCheck>
+      <AdditionalIncludeDirectories>..\..\youme_voice_engine;..\..\youme_voice_engine\baseWrapper\src;..\..\youme_voice_engine\tinySAK\src;..\..\youme_voice_engine\tinyMEDIA\include;..\..\youme_voice_engine\tinySDP\include;..\..\youme_voice_engine\tinyMEDIA\include\tinymedia;..\..\youme_voice_engine\tinyNET\src;..\..\youme_voice_engine\tinyRTP\include;..\..\youme_voice_engine\bindings\cocos2d-x\classes\monitor;..\..\youme_voice_engine\bindings\cocos2d-x\classes\service\impl;..\..\youme_voice_engine\bindings\cocos2d-x\classes\utils;..\..\youme_voice_engine\bindings\cocos2d-x\classes;..\..\youme_voice_engine\bindings\cocos2d-x\classes\service;..\..\youme_voice_engine\bindings\cocos2d-x\interface;..\..\youme_voice_engine\bindings\cocos2d-x\interface\imp;..\..\youme_voice_engine\tinyDAV\include;..\..\youme_voice_engine\protobuf;..\..\youme_voice_engine\thirdparties\common\src\webrtc\modules\audio_processing\aecm;..\..\youme_voice_engine\thirdparties\common\src\webrtc\modules\audio_processing\ns;..\..\youme_voice_engine\thirdparties\common\src\webrtc\modules\audio_coding\codecs\cng;..\..\youme_voice_engine\thirdparties\common\src\webrtc\modules\audio_processing\agc\legacy;..\..\youme_voice_engine\thirdparties\common\src\webrtc\common_audio\signal_processing\include;..\..\youme_voice_engine\thirdparties\common\src\webrtc\common_audio\vad\include;..\..\youme_voice_engine\thirdparties\common\src;..\..\youme_voice_engine\thirdparties\common\src\zlib;..\..\youme_voice_engine\thirdparties\common\src\soundtouch\include;..\..\youme_voice_engine\thirdparties\common\src\opus-1.1\celt;..\..\youme_voice_engine\thirdparties\common\src\opus-1.1\silk\fixed;..\..\youme_voice_engine\thirdparties\common\src\opus-1.1\silk;..\..\youme_voice_engine\thirdparties\common\src\opus-1.1\include;..\..\youme_voice_engine\bindings\_common;%(AdditionalIncludeDirectories);</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <CompileAs>Default</CompileAs>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <MinimalRebuild>false</MinimalRebuild>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;wldap32.lib;Version.lib;Setupapi.lib;ws2_32.lib;Winmm.lib;Iphlpapi.lib;Shlwapi.lib;Winmm.lib;Iphlpapi.lib;Shlwapi.lib</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers>true</ImageHasSafeExceptionHandlers>
+      <AdditionalOptions> /machine:X86 /debug %(AdditionalOptions)</AdditionalOptions>
+      <ProgramDatabaseFile>../../output/$(TargetName)D.pdb</ProgramDatabaseFile>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_USRDLL;_WINDOWS;LOG_INFO;LOG_FATAL;LOG_ERROR;LOG_WARNING;LOG_DEBUG;OS_WIN32;CURL_STATICLIB;CARES_STATICLIB;WIN32_LEAN_AND_MEAN;YOUMEDLL_EXPORTS;TINYSAK_IMPORTS_IGNORE;HAVE_CONFIG_H;TINYNET_IMPORTS_IGNORE;TNET_UNDER_WINDOWS;TINYMEDIA_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYRTP_IMPORTS_IGNORE;TINYDAV_IMPORTS_IGNORE;_XKEYCHECK_H;HAVE_WAVE_API;USE_ALLOCA;OPUS_BUILD;WEBRTC_WIN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;TINYWRAP_IMPORTS_IGNORE;_WINSOCK_DEPRECATED_NO_WARNINGS;CMAKE_INTDIR="Debug";youme_voice_engine_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\..\youme_voice_engine;..\..\youme_voice_engine\baseWrapper\src;..\..\youme_voice_engine\tinySAK\src;..\..\youme_voice_engine\tinyMEDIA\include;..\..\youme_voice_engine\tinySDP\include;..\..\youme_voice_engine\tinyMEDIA\include\tinymedia;..\..\youme_voice_engine\tinyNET\src;..\..\youme_voice_engine\tinyRTP\include;..\..\youme_voice_engine\bindings\cocos2d-x\classes\monitor;..\..\youme_voice_engine\bindings\cocos2d-x\classes\service\impl;..\..\youme_voice_engine\bindings\cocos2d-x\classes\utils;..\..\youme_voice_engine\bindings\cocos2d-x\classes;..\..\youme_voice_engine\bindings\cocos2d-x\classes\service;..\..\youme_voice_engine\bindings\cocos2d-x\interface;..\..\youme_voice_engine\bindings\cocos2d-x\interface\imp;..\..\youme_voice_engine\tinyDAV\include;..\..\youme_voice_engine\protobuf;..\..\youme_voice_engine\thirdparties\common\src\webrtc\modules\audio_processing\aecm;..\..\youme_voice_engine\thirdparties\common\src\webrtc\modules\audio_processing\ns;..\..\youme_voice_engine\thirdparties\common\src\webrtc\modules\audio_coding\codecs\cng;..\..\youme_voice_engine\thirdparties\common\src\webrtc\modules\audio_processing\agc\legacy;..\..\youme_voice_engine\thirdparties\common\src\webrtc\common_audio\signal_processing\include;..\..\youme_voice_engine\thirdparties\common\src\webrtc\common_audio\vad\include;..\..\youme_voice_engine\thirdparties\common\src;..\..\youme_voice_engine\thirdparties\common\src\zlib;..\..\youme_voice_engine\thirdparties\common\src\soundtouch\include;..\..\youme_voice_engine\thirdparties\common\src\opus-1.1\celt;..\..\youme_voice_engine\thirdparties\common\src\opus-1.1\silk\fixed;..\..\youme_voice_engine\thirdparties\common\src\opus-1.1\silk;..\..\youme_voice_engine\thirdparties\common\src\opus-1.1\include;..\..\youme_voice_engine\bindings\_common;%(AdditionalIncludeDirectories);</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;wldap32.lib;Version.lib;Setupapi.lib;ws2_32.lib;Winmm.lib;Iphlpapi.lib;Shlwapi.lib;Winmm.lib;Iphlpapi.lib;Shlwapi.lib</AdditionalDependencies>
+      <ProgramDatabaseFile>../../output/$(TargetName).pdb</ProgramDatabaseFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\baseWrapper\src\mem_pool.cpp" />
+    <ClCompile Include="..\baseWrapper\src\RSAUtil.cpp" />
+    <ClCompile Include="..\baseWrapper\src\SyncTCP.cpp" />
+    <ClCompile Include="..\baseWrapper\src\SyncUDP.cpp" />
+    <ClCompile Include="..\baseWrapper\src\XAny.cpp" />
+    <ClCompile Include="..\baseWrapper\src\XCondWait.cpp" />
+    <ClCompile Include="..\baseWrapper\src\XConfigCWrapper.cpp" />
+    <ClCompile Include="..\baseWrapper\src\XDNSParse.cpp" />
+    <ClCompile Include="..\baseWrapper\src\XSemaphore.cpp" />
+    <ClCompile Include="..\baseWrapper\src\XSharedArray.cpp" />
+    <ClCompile Include="..\baseWrapper\src\XTimer.cpp" />
+    <ClCompile Include="..\baseWrapper\src\XTimerCWrapper.cpp" />
+    <ClCompile Include="..\bindings\cocos2d-x\classes\monitor\MonitoringCenter.cpp" />
+    <ClCompile Include="..\bindings\cocos2d-x\classes\NgnApplication.cpp" />
+    <ClCompile Include="..\bindings\cocos2d-x\classes\NgnEngine.cpp" />
+    <ClCompile Include="..\bindings\cocos2d-x\classes\service\impl\NgnLoginService.cpp" />
+    <ClCompile Include="..\bindings\cocos2d-x\classes\service\impl\NgnMemoryConfiguration.cpp" />
+    <ClCompile Include="..\bindings\cocos2d-x\classes\service\impl\NgnNetworkService.cpp" />
+    <ClCompile Include="..\bindings\cocos2d-x\classes\utils\NgnConfigurationEntry.cpp" />
+    <ClCompile Include="..\bindings\cocos2d-x\classes\utils\SDKValidate.cpp" />
+    <ClCompile Include="..\bindings\cocos2d-x\interface\imp\IYouMeCInterface.cpp" />
+    <ClCompile Include="..\bindings\cocos2d-x\interface\imp\IYouMeVoiceEngine.cpp" />
+    <ClCompile Include="..\bindings\cocos2d-x\interface\imp\YouMeVoiceEngine.cpp" />
+    <ClCompile Include="..\bindings\_common\AVSessionMgr.cpp" />
+    <ClCompile Include="..\bindings\_common\MediaSessionMgr.cxx" />
+    <ClCompile Include="..\bindings\_common\SafeObject.cxx" />
+    <ClCompile Include="..\protobuf\BandwidthControl.pb.cc" />
+    <ClCompile Include="..\protobuf\common.pb.cc" />
+    <ClCompile Include="..\protobuf\ProtocolBufferHelp.cpp" />
+    <ClCompile Include="..\protobuf\serverlogin.pb.cc" />
+    <ClCompile Include="..\protobuf\uploadlog.pb.cc" />
+    <ClCompile Include="..\protobuf\YoumeRunningState.pb.cc" />
+    <ClCompile Include="..\protobuf\YouMeServerValidProtocol.pb.cc" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_add.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_asm.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_blind.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_ctx.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_div.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_exp.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_gcd.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_lib.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_mod.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_mont.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_mul.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_rand.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_shift.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_sqr.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\bn\bn_word.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\crypto.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\evp\digest.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\evp\m_md5.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\md5\md5_dgst.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\md5\md5_one.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\rand\md_rand.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\rand\rand_egd.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\rand\rand_lib.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\rand\rand_unix.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\rand\rand_win.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\rsa\rsa_crpt.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\rsa\rsa_depr.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\rsa\rsa_eay.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\rsa\rsa_gen.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\rsa\rsa_lib.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\crypto\rsa\rsa_pk1.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\arena.cc" />
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\arenastring.cc" />
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\extension_set.cc" />
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\generated_message_util.cc" />
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\io\coded_stream.cc" />
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\stubs\atomicops_internals_x86_gcc.cc" />
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\stubs\atomicops_internals_x86_msvc.cc" />
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\stubs\common.cc" />
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\stubs\int128.cc" />
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\message_lite.cc" />
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\stubs\once.cc" />
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\repeated_field.cc" />
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\stubs\status.cc" />
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\stubs\stringpiece.cc" />
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\stubs\stringprintf.cc" />
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\stubs\structurally_valid.cc" />
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\stubs\strutil.cc" />
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\wire_format_lite.cc" />
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\io\zero_copy_stream.cc" />
+    <ClCompile Include="..\thirdparties\common\src\google\protobuf\io\zero_copy_stream_impl_lite.cc" />
+    <ClCompile Include="..\thirdparties\common\src\minizip\ioapi.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\minizip\MiniZip.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\minizip\mztools.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\minizip\unzip.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\minizip\zip.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\bands.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\celt.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\celt_decoder.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\celt_encoder.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\celt_lpc.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\cwrs.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\entcode.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\entdec.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\entenc.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\kiss_fft.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\laplace.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\mathops.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\mdct.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\modes.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\pitch.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\quant_bands.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\rate.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\celt\vq.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\A2NLSF.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\ana_filt_bank_1.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\biquad_alt.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\bwexpander.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\bwexpander_32.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\check_control_input.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\CNG.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\code_signs.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\control_audio_bandwidth.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\control_codec.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\control_SNR.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\debug.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\decoder_set_fs.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\decode_core.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\decode_frame.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\decode_indices.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\decode_parameters.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\decode_pitch.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\decode_pulses.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\dec_API.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\encode_indices.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\encode_pulses.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\enc_API.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\apply_sine_window_FIX.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\autocorr_FIX.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\burg_modified_FIX.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\corrMatrix_FIX.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\encode_frame_FIX.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\find_LPC_FIX.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\find_LTP_FIX.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\find_pitch_lags_FIX.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\find_pred_coefs_FIX.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\k2a_FIX.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\k2a_Q16_FIX.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\LTP_analysis_filter_FIX.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\LTP_scale_ctrl_FIX.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\noise_shape_analysis_FIX.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\pitch_analysis_core_FIX.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\prefilter_FIX.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\process_gains_FIX.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\regularize_correlations_FIX.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\residual_energy16_FIX.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\residual_energy_FIX.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\schur64_FIX.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\schur_FIX.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\solve_LS_FIX.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\vector_ops_FIX.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\fixed\warped_autocorrelation_FIX.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\gain_quant.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\HP_variable_cutoff.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\init_decoder.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\init_encoder.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\inner_prod_aligned.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\interpolate.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\lin2log.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\log2lin.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\LPC_analysis_filter.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\LPC_inv_pred_gain.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\LP_variable_cutoff.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\NLSF2A.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\NLSF_decode.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\NLSF_del_dec_quant.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\NLSF_encode.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\NLSF_stabilize.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\NLSF_unpack.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\NLSF_VQ.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\NLSF_VQ_weights_laroia.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\NSQ.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\NSQ_del_dec.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\pitch_est_tables.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\PLC.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\process_NLSFs.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\quant_LTP_gains.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\resampler.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\resampler_down2.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\resampler_down2_3.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\resampler_private_AR2.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\resampler_private_down_FIR.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\resampler_private_IIR_FIR.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\resampler_private_up2_HQ.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\resampler_rom.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\shell_coder.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\sigm_Q15.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\sort.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\stereo_decode_pred.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\stereo_encode_pred.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\stereo_find_predictor.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\stereo_LR_to_MS.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\stereo_MS_to_LR.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\stereo_quant_pred.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\sum_sqr_shift.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\tables_gain.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\tables_LTP.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\tables_NLSF_CB_NB_MB.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\tables_NLSF_CB_WB.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\tables_other.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\tables_pitch_lag.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\tables_pulses_per_block.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\table_LSF_cos.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\VAD.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\silk\VQ_WMat_EC.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\src\analysis.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\src\mlp.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\src\mlp_data.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\src\opus.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\src\opus_compare.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\src\opus_decoder.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\src\opus_demo.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\src\opus_encoder.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\src\opus_multistream.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\src\opus_multistream_decoder.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\src\opus_multistream_encoder.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\opus-1.1\src\repacketizer.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundStretch\RunParameters.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundStretch\WavFile.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\AAFilter.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\BPMDetect.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\cpu_detect_x86.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\FIFOSampleBuffer.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\FIRFilter.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\InterpolateCubic.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\InterpolateLinear.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\InterpolateShannon.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\mmx_optimized.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\PeakFinder.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\RateTransposer.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\SoundTouch.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\sse_optimized.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\TDStretch.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\Sqlite3\src\shell.c" />
+    <ClCompile Include="..\thirdparties\common\src\Sqlite3\src\sqlite3.c" />
+    <ClCompile Include="..\thirdparties\common\src\Sqlite3\src\SqliteOperator.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\base\checks.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\base\logging.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\ring_buffer.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\auto_correlation.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\auto_corr_to_refl_coef.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\complex_bit_reverse.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\complex_fft.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\copy_set_operations.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\cross_correlation.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\division_operations.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\dot_product_with_scale.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\downsample_fast.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\energy.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\filter_ar.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\filter_ar_fast_q12.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\filter_ma_fast_q12.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\get_hanning_window.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\get_scaling_square.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\ilbc_specific_functions.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\levinson_durbin.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\lpc_to_refl_coef.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\min_max_operations.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\randomization_functions.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\real_fft.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\refl_coef_to_lpc.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\resample.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\resample_48khz.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\resample_by_2.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\resample_by_2_internal.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\resample_fractional.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\splitting_filter.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\spl_init.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\spl_sqrt.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\spl_sqrt_floor.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\sqrt_of_one_minus_x_squared.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\signal_processing\vector_scaling_operations.c" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\vad\vad_core.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\vad\vad_filterbank.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\vad\vad_gmm.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\vad\vad_sp.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_audio\vad\webrtc_vad.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\common_types.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\codecs\audio_decoder.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\codecs\audio_encoder.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\codecs\cng\cng_helpfuns.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\codecs\cng\webrtc_cng.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\codecs\opus\audio_decoder_opus.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\codecs\opus\audio_encoder_opus.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\codecs\opus\opus_interface.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\accelerate.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\audio_classifier.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\audio_decoder_impl.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\audio_multi_vector.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\audio_vector.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\background_noise.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\buffer_level_filter.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\comfort_noise.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\decision_logic.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\decision_logic_fax.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\decision_logic_game_voice.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\decision_logic_normal.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\decoder_database.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\delay_manager.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\delay_peak_detector.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\dsp_helper.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\dtmf_buffer.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\dtmf_tone_generator.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\expand.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\merge.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\nack.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\neteq.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\neteq_impl.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\normal.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\packet_buffer.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\payload_splitter.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\post_decode_vad.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\preemptive_expand.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\random_vector.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\rtcp.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\statistics_calculator.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\sync_buffer.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\timestamp_scaler.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_coding\neteq\time_stretch.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\aecm\aecm_core.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\aecm\aecm_core_c.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\aecm\echo_control_mobile.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\agc\histogram.cc" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\agc\legacy\analog_agc.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\agc\legacy\digital_agc.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\agc\utility.cc" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\ns\noise_suppression.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\ns\noise_suppression_x.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\ns\nsx_core.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\ns\nsx_core_c.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\ns\ns_core.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\utility\delay_estimator.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\audio_processing\utility\delay_estimator_wrapper.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\modules\utility\source\audio_frame_operations.cc" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\system_wrappers\source\critical_section.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\system_wrappers\source\critical_section_win.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\system_wrappers\source\logging.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\webrtc\system_wrappers\source\metrics_default.cpp" />
+    <ClCompile Include="..\thirdparties\common\src\zlib\adler32.c" />
+    <ClCompile Include="..\thirdparties\common\src\zlib\compress.c" />
+    <ClCompile Include="..\thirdparties\common\src\zlib\crc32.c" />
+    <ClCompile Include="..\thirdparties\common\src\zlib\deflate.c" />
+    <ClCompile Include="..\thirdparties\common\src\zlib\gzio.c" />
+    <ClCompile Include="..\thirdparties\common\src\zlib\infback.c" />
+    <ClCompile Include="..\thirdparties\common\src\zlib\inffast.c" />
+    <ClCompile Include="..\thirdparties\common\src\zlib\inflate.c" />
+    <ClCompile Include="..\thirdparties\common\src\zlib\inftrees.c" />
+    <ClCompile Include="..\thirdparties\common\src\zlib\trees.c" />
+    <ClCompile Include="..\thirdparties\common\src\zlib\uncompr.c" />
+    <ClCompile Include="..\thirdparties\common\src\zlib\zutil.c" />
+    <ClCompile Include="..\tinyDAV\src\audio\tdav_consumer_audio.c" />
+    <ClCompile Include="..\tinyDAV\src\audio\tdav_producer_audio.c" />
+    <ClCompile Include="..\tinyDAV\src\audio\tdav_session_audio.c" />
+    <ClCompile Include="..\tinyDAV\src\audio\tdav_webrtc_denoise.cpp" />
+    <ClCompile Include="..\tinyDAV\src\audio\tdav_youme_jitterbuffer.cpp" />
+    <ClCompile Include="..\tinyDAV\src\audio\tdav_youme_neteq_jitterbuffer.cpp" />
+    <ClCompile Include="..\tinyDAV\src\audio\waveapi\tdav_consumer_waveapi.c" />
+    <ClCompile Include="..\tinyDAV\src\audio\waveapi\tdav_producer_waveapi.c" />
+    <ClCompile Include="..\tinyDAV\src\audio\youme_jitter.cpp" />
+    <ClCompile Include="..\tinyDAV\src\codecs\bandwidth_ctrl\tdav_codec_bandwidth_ctrl.cpp" />
+    <ClCompile Include="..\tinyDAV\src\codecs\mixer\tdav_codec_audio_mixer.cpp" />
+    <ClCompile Include="..\tinyDAV\src\codecs\mixer\tdav_codec_audio_resample.cpp" />
+    <ClCompile Include="..\tinyDAV\src\codecs\opus\tdav_codec_opus.cpp" />
+    <ClCompile Include="..\tinyDAV\src\codecs\rtp_extension\tdav_codec_rtp_extension.cpp" />
+    <ClCompile Include="..\tinyDAV\src\tdav.c" />
+    <ClCompile Include="..\tinyDAV\src\tdav_session_av.c" />
+    <ClCompile Include="..\tinyDAV\src\tdav_win32.c" />
+    <ClCompile Include="..\tinyMEDIA\src\content\tmedia_content.c" />
+    <ClCompile Include="..\tinyMEDIA\src\content\tmedia_content_cpim.c" />
+    <ClCompile Include="..\tinyMEDIA\src\tmedia.c" />
+    <ClCompile Include="..\tinyMEDIA\src\tmedia_codec.c" />
+    <ClCompile Include="..\tinyMEDIA\src\tmedia_common.c" />
+    <ClCompile Include="..\tinyMEDIA\src\tmedia_consumer.c" />
+    <ClCompile Include="..\tinyMEDIA\src\tmedia_defaults.c" />
+    <ClCompile Include="..\tinyMEDIA\src\tmedia_denoise.c" />
+    <ClCompile Include="..\tinyMEDIA\src\tmedia_jitterbuffer.c" />
+    <ClCompile Include="..\tinyMEDIA\src\tmedia_params.c" />
+    <ClCompile Include="..\tinyMEDIA\src\tmedia_producer.c" />
+    <ClCompile Include="..\tinyMEDIA\src\tmedia_session.c" />
+    <ClCompile Include="..\tinyMEDIA\src\tmedia_session_dummy.c" />
+    <ClCompile Include="..\tinyNET\src\tnet.c" />
+    <ClCompile Include="..\tinyNET\src\tnet_endianness.c" />
+    <ClCompile Include="..\tinyNET\src\tnet_poll.c" />
+    <ClCompile Include="..\tinyNET\src\tnet_socket.c" />
+    <ClCompile Include="..\tinyNET\src\tnet_transport.c" />
+    <ClCompile Include="..\tinyNET\src\tnet_transport_win32.c" />
+    <ClCompile Include="..\tinyNET\src\tnet_utils.c" />
+    <ClCompile Include="..\tinyRTP\src\rtp\trtp_rtp_header.c" />
+    <ClCompile Include="..\tinyRTP\src\rtp\trtp_rtp_packet.c" />
+    <ClCompile Include="..\tinyRTP\src\rtp\trtp_rtp_session.c" />
+    <ClCompile Include="..\tinyRTP\src\trtp.c" />
+    <ClCompile Include="..\tinyRTP\src\trtp_manager.c" />
+    <ClCompile Include="..\tinySAK\src\tsk.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_base64.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_binaryutils.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_buffer.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_debug.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_fsm.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_hmac.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_list.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_log.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_md5.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_memory.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_mutex.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_object.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_options.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_params.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_plugin.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_ppfcs16.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_ppfcs32.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_ragel_state.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_runnable.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_safeobj.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_semaphore.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_sha1.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_string.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_thread.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_time.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_url.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_uuid.c" />
+    <ClCompile Include="..\tinySAK\src\tsk_xml.c" />
+    <ClCompile Include="..\tinySDP\src\headers\tsdp_header.c" />
+    <ClCompile Include="..\tinySDP\src\headers\tsdp_header_A.c" />
+    <ClCompile Include="..\tinySDP\src\headers\tsdp_header_C.c" />
+    <ClCompile Include="..\tinySDP\src\headers\tsdp_header_M.c" />
+    <ClCompile Include="..\tinySDP\src\headers\tsdp_header_O.c" />
+    <ClCompile Include="..\tinySDP\src\parsers\tsdp_parser_message.c" />
+    <ClCompile Include="..\tinySDP\src\tsdp.c" />
+    <ClCompile Include="..\tinySDP\src\tsdp_message.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\android_config.h" />
+    <ClInclude Include="..\baseWrapper\src\mem_pool.h" />
+    <ClInclude Include="..\baseWrapper\src\RSAUtil.h" />
+    <ClInclude Include="..\baseWrapper\src\SyncTCP.h" />
+    <ClInclude Include="..\baseWrapper\src\SyncUDP.h" />
+    <ClInclude Include="..\baseWrapper\src\XAny.h" />
+    <ClInclude Include="..\baseWrapper\src\XCondWait.h" />
+    <ClInclude Include="..\baseWrapper\src\XConfigCWrapper.hpp" />
+    <ClInclude Include="..\baseWrapper\src\XDNSParse.h" />
+    <ClInclude Include="..\baseWrapper\src\XSemaphore.h" />
+    <ClInclude Include="..\baseWrapper\src\XSharedArray.h" />
+    <ClInclude Include="..\baseWrapper\src\XTimer.h" />
+    <ClInclude Include="..\baseWrapper\src\XTimerCWrapper.h" />
+    <ClInclude Include="..\bindings\cocos2d-x\classes\monitor\MonitoringCenter.h" />
+    <ClInclude Include="..\bindings\cocos2d-x\classes\NgnApplication.h" />
+    <ClInclude Include="..\bindings\cocos2d-x\classes\NgnEngine.h" />
+    <ClInclude Include="..\bindings\cocos2d-x\classes\service\impl\NgnLoginService.hpp" />
+    <ClInclude Include="..\bindings\cocos2d-x\classes\service\impl\NgnMemoryConfiguration.hpp" />
+    <ClInclude Include="..\bindings\cocos2d-x\classes\service\impl\NgnNetworkService.h" />
+    <ClInclude Include="..\bindings\cocos2d-x\classes\service\INgnBaseService.h" />
+    <ClInclude Include="..\bindings\cocos2d-x\classes\service\INgnNetworkService.h" />
+    <ClInclude Include="..\bindings\cocos2d-x\classes\utils\NgnConfigurationEntry.h" />
+    <ClInclude Include="..\bindings\cocos2d-x\classes\utils\SDKValidate.h" />
+    <ClInclude Include="..\bindings\cocos2d-x\interface\imp\YouMeVoiceEngine.h" />
+    <ClInclude Include="..\bindings\cocos2d-x\interface\IMyYouMeInterface.h" />
+    <ClInclude Include="..\bindings\cocos2d-x\interface\IYouMeCInterface.h" />
+    <ClInclude Include="..\bindings\cocos2d-x\interface\IYouMeCommonCallback.h" />
+    <ClInclude Include="..\bindings\cocos2d-x\interface\IYouMeConferenceCallback.h" />
+    <ClInclude Include="..\bindings\cocos2d-x\interface\IYouMeVoiceEngine.h" />
+    <ClInclude Include="..\bindings\cocos2d-x\interface\YouMeConstDefine.h" />
+    <ClInclude Include="..\bindings\_common\AVSessionMgr.hpp" />
+    <ClInclude Include="..\bindings\_common\Common.h" />
+    <ClInclude Include="..\bindings\_common\MediaSessionMgr.h" />
+    <ClInclude Include="..\bindings\_common\SafeObject.h" />
+    <ClInclude Include="..\bindings\_common\tinyWRAP_config.h" />
+    <ClInclude Include="..\config.h" />
+    <ClInclude Include="..\ios_config.h" />
+    <ClInclude Include="..\protobuf\BandwidthControl.pb.h" />
+    <ClInclude Include="..\protobuf\common.pb.h" />
+    <ClInclude Include="..\protobuf\ProtocolBufferHelp.h" />
+    <ClInclude Include="..\protobuf\serverlogin.pb.h" />
+    <ClInclude Include="..\protobuf\uploadlog.pb.h" />
+    <ClInclude Include="..\protobuf\YoumeRunningState.pb.h" />
+    <ClInclude Include="..\protobuf\YouMeServerValidProtocol.pb.h" />
+    <ClInclude Include="..\thirdparties\common\src\crypto\bio\bio.h" />
+    <ClInclude Include="..\thirdparties\common\src\crypto\bn\bn.h" />
+    <ClInclude Include="..\thirdparties\common\src\crypto\bn\bn_lcl.h" />
+    <ClInclude Include="..\thirdparties\common\src\crypto\constant_time_locl.h" />
+    <ClInclude Include="..\thirdparties\common\src\crypto\crypto.h" />
+    <ClInclude Include="..\thirdparties\common\src\crypto\evp\evp.h" />
+    <ClInclude Include="..\thirdparties\common\src\crypto\e_os.h" />
+    <ClInclude Include="..\thirdparties\common\src\crypto\e_os2.h" />
+    <ClInclude Include="..\thirdparties\common\src\crypto\md32_common.h" />
+    <ClInclude Include="..\thirdparties\common\src\crypto\md5\md5.h" />
+    <ClInclude Include="..\thirdparties\common\src\crypto\md5\md5_locl.h" />
+    <ClInclude Include="..\thirdparties\common\src\crypto\opensslconf.h" />
+    <ClInclude Include="..\thirdparties\common\src\crypto\ossl_typ.h" />
+    <ClInclude Include="..\thirdparties\common\src\crypto\rand\rand.h" />
+    <ClInclude Include="..\thirdparties\common\src\crypto\rsa\rsa.h" />
+    <ClInclude Include="..\thirdparties\common\src\minizip\crypt.h" />
+    <ClInclude Include="..\thirdparties\common\src\minizip\ioapi.h" />
+    <ClInclude Include="..\thirdparties\common\src\minizip\MiniZip.h" />
+    <ClInclude Include="..\thirdparties\common\src\minizip\mztools.h" />
+    <ClInclude Include="..\thirdparties\common\src\minizip\unzip.h" />
+    <ClInclude Include="..\thirdparties\common\src\minizip\zip.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\arch.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\bands.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\celt.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\celt_lpc.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\cpu_support.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\cwrs.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\ecintrin.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\entcode.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\entdec.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\entenc.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\fixed_debug.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\fixed_generic.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\float_cast.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\kiss_fft.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\laplace.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\mathops.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\mdct.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\mfrngcod.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\modes.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\os_support.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\pitch.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\quant_bands.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\rate.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\stack_alloc.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\static_modes_fixed.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\static_modes_fixed_arm_ne10.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\static_modes_float.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\static_modes_float_arm_ne10.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\vq.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\celt\_kiss_fft_guts.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\API.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\control.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\debug.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\define.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\errors.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\fixed\main_FIX.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\fixed\structs_FIX.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\Inlines.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\MacroCount.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\MacroDebug.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\macros.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\main.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\pitch_est_defines.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\PLC.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\resampler_private.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\resampler_rom.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\resampler_structs.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\SigProc_FIX.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\structs.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\tables.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\tuning_parameters.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\silk\typedef.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\src\analysis.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\src\mlp.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\src\opus_private.h" />
+    <ClInclude Include="..\thirdparties\common\src\opus-1.1\src\tansig_table.h" />
+    <ClInclude Include="..\thirdparties\common\src\soundtouch\source\SoundStretch\RunParameters.h" />
+    <ClInclude Include="..\thirdparties\common\src\soundtouch\source\SoundStretch\WavFile.h" />
+    <ClInclude Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\AAFilter.h" />
+    <ClInclude Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\cpu_detect.h" />
+    <ClInclude Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\FIRFilter.h" />
+    <ClInclude Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\InterpolateCubic.h" />
+    <ClInclude Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\InterpolateLinear.h" />
+    <ClInclude Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\InterpolateShannon.h" />
+    <ClInclude Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\PeakFinder.h" />
+    <ClInclude Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\RateTransposer.h" />
+    <ClInclude Include="..\thirdparties\common\src\soundtouch\source\SoundTouch\TDStretch.h" />
+    <ClInclude Include="..\thirdparties\common\src\Sqlite3\src\sqlite3.h" />
+    <ClInclude Include="..\thirdparties\common\src\Sqlite3\src\sqlite3ext.h" />
+    <ClInclude Include="..\thirdparties\common\src\Sqlite3\src\SqliteOperator.h" />
+    <ClInclude Include="..\thirdparties\common\src\zlib\crc32.h" />
+    <ClInclude Include="..\thirdparties\common\src\zlib\deflate.h" />
+    <ClInclude Include="..\thirdparties\common\src\zlib\inffast.h" />
+    <ClInclude Include="..\thirdparties\common\src\zlib\inffixed.h" />
+    <ClInclude Include="..\thirdparties\common\src\zlib\inflate.h" />
+    <ClInclude Include="..\thirdparties\common\src\zlib\inftrees.h" />
+    <ClInclude Include="..\thirdparties\common\src\zlib\trees.h" />
+    <ClInclude Include="..\thirdparties\common\src\zlib\zconf.h" />
+    <ClInclude Include="..\thirdparties\common\src\zlib\zconf.in.h" />
+    <ClInclude Include="..\thirdparties\common\src\zlib\zlib.h" />
+    <ClInclude Include="..\thirdparties\common\src\zlib\zutil.h" />
+    <ClInclude Include="..\tinyDAV\src\audio\1ktone_3s.h" />
+    <ClInclude Include="..\tinyDAV\src\audio\pcm_test1.h" />
+    <ClInclude Include="..\tinyDAV\src\audio\pcm_test2.h" />
+    <ClInclude Include="..\tinyDAV\src\audio\stdinc.h" />
+    <ClInclude Include="..\tinyDAV\src\audio\youme_jitter.h" />
+    <ClInclude Include="..\tinySAK\src\tinysak_config.h" />
+    <ClInclude Include="..\tinySAK\src\tsk.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_base64.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_binaryutils.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_buffer.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_common.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_debug.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_errno.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_fsm.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_hmac.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_list.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_log.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_md5.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_memory.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_mutex.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_object.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_options.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_params.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_plugin.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_ppfcs16.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_ppfcs32.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_ragel_state.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_runnable.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_safeobj.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_semaphore.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_sha1.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_string.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_thread.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_time.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_url.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_uuid.h" />
+    <ClInclude Include="..\tinySAK\src\tsk_xml.h" />
+    <ClInclude Include="..\version.h" />
+    <ClInclude Include="..\win_config.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\thirdparties\common\src\zlib\algorithm.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\thirdparties\common\src\zlib\ChangeLog" />
+    <None Include="..\thirdparties\common\src\zlib\FAQ" />
+    <None Include="..\thirdparties\common\src\zlib\README" />
+    <None Include="..\thirdparties\common\src\zlib\zlib.dsp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

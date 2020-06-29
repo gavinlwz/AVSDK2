@@ -1,0 +1,14 @@
+prefix=/Users/youme/JenkinsWorkSpace/workspace/Video_SDK/source/youme_voice_engine/ffmpegPlayer/build/ffmpeg_ios/build/ffmpeg-mac_x86_64/output
+exec_prefix=${prefix}
+libdir=/Users/youme/JenkinsWorkSpace/workspace/Video_SDK/source/youme_voice_engine/ffmpegPlayer/build/ffmpeg_ios/../../libs/apple/mac_x64/lib
+includedir=/Users/youme/JenkinsWorkSpace/workspace/Video_SDK/source/youme_voice_engine/ffmpegPlayer/build/ffmpeg_ios/../../libs/apple/mac_x64/include
+
+Name: libavformat
+Description: FFmpeg container format library
+Version: 57.71.100
+Requires: libavcodec >= 57.89.100, libavutil >= 55.58.100
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavformat -framework CoreFoundation -framework AudioToolbox -framework CoreMedia -framework VideoDecodeAcceleration -Wl,-framework,CoreFoundation -Wl,-framework,Security -lx264 -lfdk-aac -lm -lbz2 -lz -pthread -framework CoreServices
+Libs.private: 
+Cflags: -I${includedir}

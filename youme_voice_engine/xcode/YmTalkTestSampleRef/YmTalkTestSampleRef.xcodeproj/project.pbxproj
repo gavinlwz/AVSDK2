@@ -1,0 +1,539 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1329195A1FA7091E00544F8B /* 春夏秋冬.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 132919541FA7091E00544F8B /* 春夏秋冬.mp3 */; };
+		1329195B1FA7091E00544F8B /* stefan_cif.yuv in Resources */ = {isa = PBXBuildFile; fileRef = 132919551FA7091E00544F8B /* stefan_cif.yuv */; };
+		1329195C1FA7091E00544F8B /* tc.avc in Resources */ = {isa = PBXBuildFile; fileRef = 132919561FA7091E00544F8B /* tc.avc */; };
+		1329195D1FA7091E00544F8B /* 风景.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 132919571FA7091E00544F8B /* 风景.jpg */; };
+		1329195E1FA7091E00544F8B /* kanong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 132919581FA7091E00544F8B /* kanong.mp3 */; };
+		1329195F1FA7091E00544F8B /* dump_h264.h264 in Resources */ = {isa = PBXBuildFile; fileRef = 132919591FA7091E00544F8B /* dump_h264.h264 */; };
+		132919641FA7097300544F8B /* libyoume_voice_engine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 132919651FA7097300544F8B /* libyoume_voice_engine.a */; };
+		132919671FA70AAC00544F8B /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 132919681FA70AAC00544F8B /* CoreVideo.framework */; };
+		132919691FA70AB100544F8B /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 132919661FA70AA700544F8B /* AVKit.framework */; };
+		1329196A1FA70AB500544F8B /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1329196B1FA70AB500544F8B /* VideoToolbox.framework */; };
+		1329196E1FA70ABA00544F8B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1329196F1FA70ABA00544F8B /* UIKit.framework */; };
+		132919701FA70AC300544F8B /* libYouMeCommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 132919751FA70AC300544F8B /* libYouMeCommon.a */; };
+		132919711FA70AC300544F8B /* libx264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 132919761FA70AC300544F8B /* libx264.a */; };
+		132919721FA70AC300544F8B /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 132919771FA70AC300544F8B /* libavcodec.a */; };
+		132919731FA70AC300544F8B /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 132919781FA70AC300544F8B /* libavformat.a */; };
+		132919741FA70AC300544F8B /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 132919791FA70AC300544F8B /* libavutil.a */; };
+		1329197A1FA70AC900544F8B /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 132919841FA70AC900544F8B /* libsqlite3.0.tbd */; };
+		1329197B1FA70AC900544F8B /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 132919851FA70AC900544F8B /* libresolv.9.tbd */; };
+		1329197C1FA70AC900544F8B /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 132919861FA70AC900544F8B /* libz.1.2.5.tbd */; };
+		1329197D1FA70AC900544F8B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 132919871FA70AC900544F8B /* libz.tbd */; };
+		1329197E1FA70AC900544F8B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 132919881FA70AC900544F8B /* AudioToolbox.framework */; };
+		1329197F1FA70AC900544F8B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 132919891FA70AC900544F8B /* AVFoundation.framework */; };
+		132919801FA70AC900544F8B /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1329198A1FA70AC900544F8B /* CoreTelephony.framework */; };
+		132919811FA70AC900544F8B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1329198B1FA70AC900544F8B /* SystemConfiguration.framework */; };
+		132919821FA70AC900544F8B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1329198C1FA70AC900544F8B /* CFNetwork.framework */; };
+		132919831FA70AC900544F8B /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1329198D1FA70AC900544F8B /* CoreFoundation.framework */; };
+		132919BF1FA70F3F00544F8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 132919AF1FA70F3F00544F8B /* Assets.xcassets */; };
+		132919C01FA70F3F00544F8B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 132919B01FA70F3F00544F8B /* ViewController.m */; };
+		132919C11FA70F3F00544F8B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 132919B21FA70F3F00544F8B /* LaunchScreen.storyboard */; };
+		132919C21FA70F3F00544F8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 132919B41FA70F3F00544F8B /* Main.storyboard */; };
+		132919C31FA70F3F00544F8B /* ExportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 132919B61FA70F3F00544F8B /* ExportOptions.plist */; };
+		132919C41FA70F3F00544F8B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 132919B81FA70F3F00544F8B /* main.m */; };
+		132919C51FA70F3F00544F8B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 132919B91FA70F3F00544F8B /* AppDelegate.m */; };
+		132919C61FA70F3F00544F8B /* ParamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 132919BA1FA70F3F00544F8B /* ParamViewController.m */; };
+		13B563261FA858DF00C8DAFF /* Bugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13B563251FA858DF00C8DAFF /* Bugly.framework */; };
+		D9F970711FCE66C200852EC5 /* RenderGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F9706C1FCE66C200852EC5 /* RenderGroupView.m */; };
+		D9F970721FCE66C200852EC5 /* YMTalkUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F9706E1FCE66C200852EC5 /* YMTalkUtils.m */; };
+		D9F970731FCE66C200852EC5 /* NSObject+SelectorOnMainThreadMutipleObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F9706F1FCE66C200852EC5 /* NSObject+SelectorOnMainThreadMutipleObjects.m */; };
+		D9F970741FCE66C200852EC5 /* ParamSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F970701FCE66C200852EC5 /* ParamSetting.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		132919211FA708C100544F8B /* YmTalkTestSampleRef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YmTalkTestSampleRef.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		132919541FA7091E00544F8B /* 春夏秋冬.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "春夏秋冬.mp3"; path = "../../../SDKTest/iosSample/Resources/春夏秋冬.mp3"; sourceTree = "<group>"; };
+		132919551FA7091E00544F8B /* stefan_cif.yuv */ = {isa = PBXFileReference; lastKnownFileType = file; name = stefan_cif.yuv; path = ../../../SDKTest/iosSample/Resources/stefan_cif.yuv; sourceTree = "<group>"; };
+		132919561FA7091E00544F8B /* tc.avc */ = {isa = PBXFileReference; lastKnownFileType = file; name = tc.avc; path = ../../../SDKTest/iosSample/Resources/tc.avc; sourceTree = "<group>"; };
+		132919571FA7091E00544F8B /* 风景.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "风景.jpg"; path = "../../../SDKTest/iosSample/Resources/风景.jpg"; sourceTree = "<group>"; };
+		132919581FA7091E00544F8B /* kanong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = kanong.mp3; path = ../../../SDKTest/iosSample/Resources/kanong.mp3; sourceTree = "<group>"; };
+		132919591FA7091E00544F8B /* dump_h264.h264 */ = {isa = PBXFileReference; lastKnownFileType = file; name = dump_h264.h264; path = ../../../SDKTest/iosSample/Resources/dump_h264.h264; sourceTree = "<group>"; };
+		132919651FA7097300544F8B /* libyoume_voice_engine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libyoume_voice_engine.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		132919661FA70AA700544F8B /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		132919681FA70AAC00544F8B /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		1329196B1FA70AB500544F8B /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		1329196F1FA70ABA00544F8B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		132919751FA70AC300544F8B /* libYouMeCommon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libYouMeCommon.a; path = /Users/aeron/videoSDK_qiniu/youme_voice_engine/xcode/YmTalkTestRef/../../youme_common/lib/ios/libYouMeCommon.a; sourceTree = "<absolute>"; };
+		132919761FA70AC300544F8B /* libx264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libx264.a; path = /Users/aeron/videoSDK_qiniu/youme_voice_engine/xcode/YmTalkTestRef/../../ffmpegPlayer/libs/apple/universal/libx264.a; sourceTree = "<absolute>"; };
+		132919771FA70AC300544F8B /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavcodec.a; path = /Users/aeron/videoSDK_qiniu/youme_voice_engine/xcode/YmTalkTestRef/../../ffmpegPlayer/libs/apple/universal/libavcodec.a; sourceTree = "<absolute>"; };
+		132919781FA70AC300544F8B /* libavformat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavformat.a; path = /Users/aeron/videoSDK_qiniu/youme_voice_engine/xcode/YmTalkTestRef/../../ffmpegPlayer/libs/apple/universal/libavformat.a; sourceTree = "<absolute>"; };
+		132919791FA70AC300544F8B /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavutil.a; path = /Users/aeron/videoSDK_qiniu/youme_voice_engine/xcode/YmTalkTestRef/../../ffmpegPlayer/libs/apple/universal/libavutil.a; sourceTree = "<absolute>"; };
+		132919841FA70AC900544F8B /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		132919851FA70AC900544F8B /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
+		132919861FA70AC900544F8B /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
+		132919871FA70AC900544F8B /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		132919881FA70AC900544F8B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		132919891FA70AC900544F8B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1329198A1FA70AC900544F8B /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		1329198B1FA70AC900544F8B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1329198C1FA70AC900544F8B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		1329198D1FA70AC900544F8B /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		132919AC1FA70F3F00544F8B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		132919AE1FA70F3F00544F8B /* ParamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParamViewController.h; sourceTree = "<group>"; };
+		132919AF1FA70F3F00544F8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		132919B01FA70F3F00544F8B /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		132919B31FA70F3F00544F8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		132919B51FA70F3F00544F8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		132919B61FA70F3F00544F8B /* ExportOptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ExportOptions.plist; sourceTree = "<group>"; };
+		132919B81FA70F3F00544F8B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		132919B91FA70F3F00544F8B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		132919BA1FA70F3F00544F8B /* ParamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParamViewController.m; sourceTree = "<group>"; };
+		132919BB1FA70F3F00544F8B /* IMyYouMeInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMyYouMeInterface.h; sourceTree = "<group>"; };
+		132919BC1FA70F3F00544F8B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		132919BD1FA70F3F00544F8B /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		13B563251FA858DF00C8DAFF /* Bugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bugly.framework; path = ../../../SDKTest/iosSample/Frameworks/Bugly.framework; sourceTree = "<group>"; };
+		AF4EC5B41FD01BBE0018F604 /* libMuseProcessor.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMuseProcessor.a; sourceTree = "<group>"; };
+		D9F970691FCE66C100852EC5 /* NSObject+SelectorOnMainThreadMutipleObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SelectorOnMainThreadMutipleObjects.h"; sourceTree = "<group>"; };
+		D9F9706A1FCE66C100852EC5 /* ParamSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParamSetting.h; sourceTree = "<group>"; };
+		D9F9706B1FCE66C100852EC5 /* RenderGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderGroupView.h; sourceTree = "<group>"; };
+		D9F9706C1FCE66C200852EC5 /* RenderGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenderGroupView.m; sourceTree = "<group>"; };
+		D9F9706D1FCE66C200852EC5 /* YMTalkUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YMTalkUtils.h; sourceTree = "<group>"; };
+		D9F9706E1FCE66C200852EC5 /* YMTalkUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YMTalkUtils.m; sourceTree = "<group>"; };
+		D9F9706F1FCE66C200852EC5 /* NSObject+SelectorOnMainThreadMutipleObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SelectorOnMainThreadMutipleObjects.m"; sourceTree = "<group>"; };
+		D9F970701FCE66C200852EC5 /* ParamSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParamSetting.m; sourceTree = "<group>"; };
+		D9F970751FCE66CE00852EC5 /* YmTalkTest.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YmTalkTest.pch; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1329191E1FA708C100544F8B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				132919641FA7097300544F8B /* libyoume_voice_engine.a in Frameworks */,
+				132919671FA70AAC00544F8B /* CoreVideo.framework in Frameworks */,
+				1329196A1FA70AB500544F8B /* VideoToolbox.framework in Frameworks */,
+				132919701FA70AC300544F8B /* libYouMeCommon.a in Frameworks */,
+				132919711FA70AC300544F8B /* libx264.a in Frameworks */,
+				132919721FA70AC300544F8B /* libavcodec.a in Frameworks */,
+				132919731FA70AC300544F8B /* libavformat.a in Frameworks */,
+				1329197A1FA70AC900544F8B /* libsqlite3.0.tbd in Frameworks */,
+				1329197B1FA70AC900544F8B /* libresolv.9.tbd in Frameworks */,
+				1329197C1FA70AC900544F8B /* libz.1.2.5.tbd in Frameworks */,
+				1329197D1FA70AC900544F8B /* libz.tbd in Frameworks */,
+				1329197E1FA70AC900544F8B /* AudioToolbox.framework in Frameworks */,
+				1329197F1FA70AC900544F8B /* AVFoundation.framework in Frameworks */,
+				132919801FA70AC900544F8B /* CoreTelephony.framework in Frameworks */,
+				132919811FA70AC900544F8B /* SystemConfiguration.framework in Frameworks */,
+				132919821FA70AC900544F8B /* CFNetwork.framework in Frameworks */,
+				13B563261FA858DF00C8DAFF /* Bugly.framework in Frameworks */,
+				132919831FA70AC900544F8B /* CoreFoundation.framework in Frameworks */,
+				132919741FA70AC300544F8B /* libavutil.a in Frameworks */,
+				1329196E1FA70ABA00544F8B /* UIKit.framework in Frameworks */,
+				132919691FA70AB100544F8B /* AVKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		132919181FA708C100544F8B = {
+			isa = PBXGroup;
+			children = (
+				132919531FA7091100544F8B /* Music */,
+				132919AB1FA70F3F00544F8B /* VoiceTest */,
+				132919221FA708C100544F8B /* Products */,
+				132919631FA7097300544F8B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		132919221FA708C100544F8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				132919211FA708C100544F8B /* YmTalkTestSampleRef.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		132919531FA7091100544F8B /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				132919541FA7091E00544F8B /* 春夏秋冬.mp3 */,
+				132919571FA7091E00544F8B /* 风景.jpg */,
+				132919591FA7091E00544F8B /* dump_h264.h264 */,
+				132919581FA7091E00544F8B /* kanong.mp3 */,
+				132919551FA7091E00544F8B /* stefan_cif.yuv */,
+				132919561FA7091E00544F8B /* tc.avc */,
+			);
+			name = Music;
+			sourceTree = "<group>";
+		};
+		132919631FA7097300544F8B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				13B563251FA858DF00C8DAFF /* Bugly.framework */,
+				132919661FA70AA700544F8B /* AVKit.framework */,
+				132919681FA70AAC00544F8B /* CoreVideo.framework */,
+				132919651FA7097300544F8B /* libyoume_voice_engine.a */,
+				1329196B1FA70AB500544F8B /* VideoToolbox.framework */,
+				1329196F1FA70ABA00544F8B /* UIKit.framework */,
+				132919751FA70AC300544F8B /* libYouMeCommon.a */,
+				AF4EC5B41FD01BBE0018F604 /* libMuseProcessor.a */,
+				132919761FA70AC300544F8B /* libx264.a */,
+				132919771FA70AC300544F8B /* libavcodec.a */,
+				132919781FA70AC300544F8B /* libavformat.a */,
+				132919791FA70AC300544F8B /* libavutil.a */,
+				132919841FA70AC900544F8B /* libsqlite3.0.tbd */,
+				132919851FA70AC900544F8B /* libresolv.9.tbd */,
+				132919861FA70AC900544F8B /* libz.1.2.5.tbd */,
+				132919871FA70AC900544F8B /* libz.tbd */,
+				132919881FA70AC900544F8B /* AudioToolbox.framework */,
+				132919891FA70AC900544F8B /* AVFoundation.framework */,
+				1329198A1FA70AC900544F8B /* CoreTelephony.framework */,
+				1329198B1FA70AC900544F8B /* SystemConfiguration.framework */,
+				1329198C1FA70AC900544F8B /* CFNetwork.framework */,
+				1329198D1FA70AC900544F8B /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		132919AB1FA70F3F00544F8B /* VoiceTest */ = {
+			isa = PBXGroup;
+			children = (
+				D9F970751FCE66CE00852EC5 /* YmTalkTest.pch */,
+				132919AC1FA70F3F00544F8B /* AppDelegate.h */,
+				132919AE1FA70F3F00544F8B /* ParamViewController.h */,
+				132919AF1FA70F3F00544F8B /* Assets.xcassets */,
+				132919BD1FA70F3F00544F8B /* ViewController.h */,
+				132919B01FA70F3F00544F8B /* ViewController.m */,
+				132919B21FA70F3F00544F8B /* LaunchScreen.storyboard */,
+				132919B41FA70F3F00544F8B /* Main.storyboard */,
+				132919B61FA70F3F00544F8B /* ExportOptions.plist */,
+				132919B81FA70F3F00544F8B /* main.m */,
+				132919B91FA70F3F00544F8B /* AppDelegate.m */,
+				132919BA1FA70F3F00544F8B /* ParamViewController.m */,
+				132919BB1FA70F3F00544F8B /* IMyYouMeInterface.h */,
+				132919BC1FA70F3F00544F8B /* Info.plist */,
+				D9F970691FCE66C100852EC5 /* NSObject+SelectorOnMainThreadMutipleObjects.h */,
+				D9F9706F1FCE66C200852EC5 /* NSObject+SelectorOnMainThreadMutipleObjects.m */,
+				D9F9706A1FCE66C100852EC5 /* ParamSetting.h */,
+				D9F970701FCE66C200852EC5 /* ParamSetting.m */,
+				D9F9706B1FCE66C100852EC5 /* RenderGroupView.h */,
+				D9F9706C1FCE66C200852EC5 /* RenderGroupView.m */,
+				D9F9706D1FCE66C200852EC5 /* YMTalkUtils.h */,
+				D9F9706E1FCE66C200852EC5 /* YMTalkUtils.m */,
+			);
+			name = VoiceTest;
+			path = ../../../SDKTest/iosSample/VoiceTest;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		132919201FA708C100544F8B /* YmTalkTestSampleRef */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 132919371FA708C100544F8B /* Build configuration list for PBXNativeTarget "YmTalkTestSampleRef" */;
+			buildPhases = (
+				1329191D1FA708C100544F8B /* Sources */,
+				1329191E1FA708C100544F8B /* Frameworks */,
+				1329191F1FA708C100544F8B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YmTalkTestSampleRef;
+			productName = YmTalkTestSampleRef;
+			productReference = 132919211FA708C100544F8B /* YmTalkTestSampleRef.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		132919191FA708C100544F8B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = aeron;
+				TargetAttributes = {
+					132919201FA708C100544F8B = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = 1329191C1FA708C100544F8B /* Build configuration list for PBXProject "YmTalkTestSampleRef" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 132919181FA708C100544F8B;
+			productRefGroup = 132919221FA708C100544F8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				132919201FA708C100544F8B /* YmTalkTestSampleRef */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1329191F1FA708C100544F8B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1329195B1FA7091E00544F8B /* stefan_cif.yuv in Resources */,
+				132919C31FA70F3F00544F8B /* ExportOptions.plist in Resources */,
+				132919C11FA70F3F00544F8B /* LaunchScreen.storyboard in Resources */,
+				1329195A1FA7091E00544F8B /* 春夏秋冬.mp3 in Resources */,
+				1329195D1FA7091E00544F8B /* 风景.jpg in Resources */,
+				1329195F1FA7091E00544F8B /* dump_h264.h264 in Resources */,
+				132919BF1FA70F3F00544F8B /* Assets.xcassets in Resources */,
+				132919C21FA70F3F00544F8B /* Main.storyboard in Resources */,
+				1329195C1FA7091E00544F8B /* tc.avc in Resources */,
+				1329195E1FA7091E00544F8B /* kanong.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1329191D1FA708C100544F8B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9F970731FCE66C200852EC5 /* NSObject+SelectorOnMainThreadMutipleObjects.m in Sources */,
+				132919C51FA70F3F00544F8B /* AppDelegate.m in Sources */,
+				132919C01FA70F3F00544F8B /* ViewController.m in Sources */,
+				D9F970721FCE66C200852EC5 /* YMTalkUtils.m in Sources */,
+				D9F970711FCE66C200852EC5 /* RenderGroupView.m in Sources */,
+				132919C61FA70F3F00544F8B /* ParamViewController.m in Sources */,
+				132919C41FA70F3F00544F8B /* main.m in Sources */,
+				D9F970741FCE66C200852EC5 /* ParamSetting.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		132919B21FA70F3F00544F8B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				132919B31FA70F3F00544F8B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		132919B41FA70F3F00544F8B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				132919B51FA70F3F00544F8B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		132919351FA708C100544F8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		132919361FA708C100544F8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		132919381FA708C100544F8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: me you (Z5JLD7ST65)";
+				CODE_SIGN_STYLE = Manual;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = NUZXKA7782;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = ../../../SDKTest/iosSample/Frameworks/;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/../../../SDKTest/iosSample/VoiceTest/YmTalkTest.pch";
+				HEADER_SEARCH_PATHS = (
+					"../../bindings/cocos2d-x/interface",
+					"../../bindings/cocos2d-x/objc",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/../../../SDKTest/iosSample/VoiceTest/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					../../ffmpegPlayer/libs/apple/universal,
+					../../youme_common/lib/ios,
+					"$(PROJECT_DIR)",
+					../../youme_common/thirdlib,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.youme.talk.test.YmTalkTestSampleRef;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "04125f8c-5440-4db9-8f15-800921c1e458";
+				PROVISIONING_PROFILE_SPECIFIER = wildcard;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		132919391FA708C100544F8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = NUZXKA7782;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = ../../../SDKTest/iosSample/Frameworks/;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/../../../SDKTest/iosSample/VoiceTest/YmTalkTest.pch";
+				HEADER_SEARCH_PATHS = (
+					"../../bindings/cocos2d-x/interface",
+					"../../bindings/cocos2d-x/objc",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/../../../SDKTest/iosSample/VoiceTest/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					../../ffmpegPlayer/libs/apple/universal,
+					../../youme_common/lib/ios,
+					"$(PROJECT_DIR)",
+					../../youme_common/thirdlib,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.youme.talk.test.YmTalkTestSampleRef;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "a80feb72-8fe7-43c1-a10e-0a81436b5aa3";
+				PROVISIONING_PROFILE_SPECIFIER = "XC iOS: com.youme.*";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1329191C1FA708C100544F8B /* Build configuration list for PBXProject "YmTalkTestSampleRef" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				132919351FA708C100544F8B /* Debug */,
+				132919361FA708C100544F8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		132919371FA708C100544F8B /* Build configuration list for PBXNativeTarget "YmTalkTestSampleRef" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				132919381FA708C100544F8B /* Debug */,
+				132919391FA708C100544F8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 132919191FA708C100544F8B /* Project object */;
+}

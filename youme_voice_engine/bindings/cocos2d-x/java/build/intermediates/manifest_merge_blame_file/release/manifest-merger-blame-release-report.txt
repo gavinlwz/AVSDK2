@@ -1,0 +1,39 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.youme.voiceengine"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+7-->/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/bindings/cocos2d-x/java/AndroidManifest.xml:17:5-19:41
+8        android:minSdkVersion="16"
+8-->/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/bindings/cocos2d-x/java/AndroidManifest.xml:18:9-35
+9        android:targetSdkVersion="28" />
+9-->/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/bindings/cocos2d-x/java/AndroidManifest.xml:19:9-38
+10
+11    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+11-->/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/bindings/cocos2d-x/java/AndroidManifest.xml:7:5-78
+11-->/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/bindings/cocos2d-x/java/AndroidManifest.xml:7:22-76
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/bindings/cocos2d-x/java/AndroidManifest.xml:8:5-67
+12-->/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/bindings/cocos2d-x/java/AndroidManifest.xml:8:22-64
+13    <uses-permission android:name="android.permission.READ_LOGS" />
+13-->/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/bindings/cocos2d-x/java/AndroidManifest.xml:9:2-65
+13-->/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/bindings/cocos2d-x/java/AndroidManifest.xml:9:19-62
+14
+15    <!-- video -->
+16    <uses-feature android:name="android.hardware.camera" />
+16-->/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/bindings/cocos2d-x/java/AndroidManifest.xml:12:5-60
+16-->/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/bindings/cocos2d-x/java/AndroidManifest.xml:12:19-57
+17    <uses-feature android:name="android.hardware.camera.autofocus" />
+17-->/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/bindings/cocos2d-x/java/AndroidManifest.xml:13:5-70
+17-->/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/bindings/cocos2d-x/java/AndroidManifest.xml:13:19-67
+18
+19    <uses-permission android:name="android.permission.CAMERA" />
+19-->/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/bindings/cocos2d-x/java/AndroidManifest.xml:14:5-65
+19-->/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/bindings/cocos2d-x/java/AndroidManifest.xml:14:22-62
+20    <uses-permission android:name="android.permission.CAPTURE_VIDEO_OUTPUT" />
+20-->/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/bindings/cocos2d-x/java/AndroidManifest.xml:15:5-79
+20-->/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/bindings/cocos2d-x/java/AndroidManifest.xml:15:22-76
+21
+22</manifest>
