@@ -26,16 +26,8 @@ LOCAL_CPPFLAGS +=\
 -fvisibility=hidden\
 
 LOCAL_C_INCLUDES :=  \
-$(LOCAL_PATH)/../..\
-$(LOCAL_PATH)/../include \
-$(LOCAL_PATH)/../include/api\
-$(LOCAL_PATH)/../include/authentication\
-$(LOCAL_PATH)/../include/dialogs\
-$(LOCAL_PATH)/../include/headers\
-$(LOCAL_PATH)/../include/parsers\
-$(LOCAL_PATH)/../include/sigcomp\
-$(LOCAL_PATH)/../include/transactions\
-$(LOCAL_PATH)/../include/transports\
+$(LOCAL_PATH)/../.. \
+$(LOCAL_PATH)/../src \
 $(LOCAL_PATH)/../../tinyMEDIA/include\
 $(LOCAL_PATH)/../../tinySDP/include\
 $(LOCAL_PATH)/../../tinyHTTP/include\
@@ -44,8 +36,7 @@ $(LOCAL_PATH)/../../tinyNET/src\
 $(LOCAL_PATH)/../../tinyIPSec/src\
 $(LOCAL_PATH)/../../tinySIGCOMP/src\
 $(LOCAL_PATH)/../../thirdparties/common/src\
-$(LOCAL_PATH)/../../bindings/cocos2d-x/classes/service/impl\
-$(LOCAL_PATH)/../../baseWrapper/src\
+$(LOCAL_PATH)/../../bindings/cocos2d-x/classes/service \
 $(LOCAL_PATH)/../../youme_common/include \
 $(LOCAL_PATH)/../../bindings/cocos2d-x/classes/monitor \
 $(LOCAL_PATH)/../../protobuf \

@@ -1,0 +1,2 @@
+/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/obj/local/x86/objs/youme_voice_engine//Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/jni/__/__/__/bindings/cocos2d-x/classes/utils/MMNotificationClient.o: \
+ /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/jni/../../../bindings/cocos2d-x/classes/utils/MMNotificationClient.cpp

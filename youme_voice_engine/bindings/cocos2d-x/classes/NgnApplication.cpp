@@ -43,7 +43,7 @@
 #elif TARGET_OS_OSX
 #include <YouMeCommon/CrossPlatformDefine/OSX/YouMeApplication_OSX.h>
 #elif ANDROID
-#include <bindings/cocos2d-x/java/jni/YouMeApplication_Android.h>
+#include <YouMeApplication_Android.h>
 extern YouMeApplication_Android* g_AndroidSystemProvider;
 #endif
 
