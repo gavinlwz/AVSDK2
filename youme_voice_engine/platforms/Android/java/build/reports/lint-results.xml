@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="5" by="lint 3.6.3">
+
+    <issue
+        id="ApplySharedPref"
+        severity="Warning"
+        message="Consider using `apply()` instead; `commit` writes its data to persistent storage immediately, whereas `apply` will handle it in the background"
+        category="Correctness"
+        priority="6"
+        summary="Use `apply()` on `SharedPreferences`"
+        explanation="Consider using `apply()` instead of `commit` on shared preferences. Whereas `commit` blocks and writes its data to persistent storage immediately, `apply` will handle it in the background."
+        errorLine1="                    editor.commit();"
+        errorLine2="                    ~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/src/com/youme/engine/AppPara.java"
+            line="92"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead"
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="                AudioName = String.format(&quot;/sdcard/test_%d.pcm&quot;, mCounter++);"
+        errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/src/com/youme/engine/AudioRecorder.java"
+            line="256"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `String.format(Locale, ...)` instead"
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="                    + &quot; Render fps: &quot; + String.format(&quot;%.1f&quot;, renderFps) + &quot;.&quot;"
+        errorLine2="                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/src/com/youme/engine/video/EglRenderer.java"
+            line="725"
+            column="41"/>
+    </issue>
+
+    <issue
+        id="InlinedApi"
+        severity="Warning"
+        message="Field requires API level 21 (current min is 16): `android.media.AudioManager#AUDIO_SESSION_ID_GENERATE`"
+        category="Correctness"
+        priority="6"
+        summary="Using inlined constants on older versions"
+        explanation="This check scans through all the Android API field references in the application and flags certain constants, such as static final integers and Strings, which were introduced in later versions. These will actually be copied into the class files rather than being referenced, which means that the value is available even when running on older devices. In some cases that&apos;s fine, and in other cases it can result in a runtime crash or incorrect behavior. It depends on the context, so consider the code carefully and decide whether it&apos;s safe and can be suppressed or whether the code needs to be guarded.&#xA;&#xA;If you really want to use this API and don&apos;t need to support older devices just set the `minSdkVersion` in your `build.gradle` or `AndroidManifest.xml` files.&#xA;&#xA;If your code is **deliberately** accessing newer APIs, and you have ensured (e.g. with conditional execution) that this code will only ever be called on a supported platform, then you can annotate your class or method with the `@TargetApi` annotation specifying the local minimum SDK to apply, such as `@TargetApi(11)`, such that this check considers 11 rather than your manifest file&apos;s minimum SDK as the required API level."
+        errorLine1="    mAudioTrack = new AudioTrack(mStreamType, mSamplerate, channelCfg, pcmType, mMinBufferSize, mMode,audioRecordSessionID==-1?AudioManager.AUDIO_SESSION_ID_GENERATE:audioRecordSessionID);"
+        errorLine2="                                                                                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/src/com/youme/engine/AudioPlayer.java"
+            line="110"
+            column="128"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        severity="Error"
+        message="Class requires API level 17 (current min is 16): `android.opengl.EGLContext`"
+        category="Correctness"
+        priority="6"
+        summary="Calling new methods on older versions"
+        explanation="This check scans through all the Android API calls in the application and warns about any calls that are not available on **all** versions targeted by this application (according to its minimum SDK attribute in the manifest).&#xA;&#xA;If you really want to use this API and don&apos;t need to support older devices just set the `minSdkVersion` in your `build.gradle` or `AndroidManifest.xml` files.&#xA;&#xA;If your code is **deliberately** accessing newer APIs, and you have ensured (e.g. with conditional execution) that this code will only ever be called on a supported platform, then you can annotate your class or method with the `@TargetApi` annotation specifying the local minimum SDK to apply, such as `@TargetApi(11)`, such that this check considers 11 rather than your manifest file&apos;s minimum SDK as the required API level.&#xA;&#xA;If you are deliberately setting `android:` attributes in style definitions, make sure you place this in a `values-v`*NN* folder in order to avoid running into runtime conflicts on certain devices where manufacturers have added custom attributes whose ids conflict with the new ones on later platforms.&#xA;&#xA;Similarly, you can use tools:targetApi=&quot;11&quot; in an XML file to indicate that the element will only be inflated in an adequate context."
+        errorLine1="      return new EglBase14.Context((android.opengl.EGLContext)sharedContext);"
+        errorLine2="                                    ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/src/com/youme/engine/video/EglBase.java"
+            line="95"
+            column="37"/>
+    </issue>
+
+    <issue
+        id="OldTargetApi"
+        severity="Warning"
+        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details."
+        category="Correctness"
+        priority="6"
+        summary="Target SDK attribute is not targeting latest version"
+        explanation="When your application runs on a version of Android that is more recent than your `targetSdkVersion` specifies that it has been tested with, various compatibility modes kick in. This ensures that your application continues to work, but it may look out of place. For example, if the `targetSdkVersion` is less than 14, your app may get an option button in the UI.&#xA;&#xA;To fix this issue, set the `targetSdkVersion` to the highest available value. Then test your app to make sure everything works correctly. You may want to consult the compatibility notes to see what changes apply to each version you are adding support for: http://developer.android.com/reference/android/os/Build.VERSION_CODES.html as well as follow this guide:&#xA;https://developer.android.com/distribute/best-practices/develop/target-sdk.html"
+        url="https://developer.android.com/distribute/best-practices/develop/target-sdk.html"
+        urls="https://developer.android.com/distribute/best-practices/develop/target-sdk.html,http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
+        errorLine1="        targetSdkVersion 28"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/build.gradle"
+            line="33"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="SdCardPath"
+        severity="Warning"
+        message="Do not hardcode &quot;/sdcard/&quot;; use `Environment.getExternalStorageDirectory().getPath()` instead"
+        category="Correctness"
+        priority="6"
+        summary="Hardcoded reference to `/sdcard`"
+        explanation="Your code should not reference the `/sdcard` path directly; instead use `Environment.getExternalStorageDirectory().getPath()`.&#xA;&#xA;Similarly, do not reference the `/data/data/` path directly; it can vary in multi-user scenarios. Instead, use `Context.getFilesDir().getPath()`."
+        url="http://developer.android.com/guide/topics/data/data-storage.html#filesExternal"
+        urls="http://developer.android.com/guide/topics/data/data-storage.html#filesExternal"
+        errorLine1="                AudioName = String.format(&quot;/sdcard/test_%d.pcm&quot;, mCounter++);"
+        errorLine2="                                          ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/src/com/youme/engine/AudioRecorder.java"
+            line="256"
+            column="43"/>
+    </issue>
+
+    <issue
+        id="ProtectedPermissions"
+        severity="Error"
+        message="Permission is only granted to system apps"
+        category="Correctness"
+        priority="5"
+        summary="Using system app permission"
+        explanation="Permissions with the protection level signature, privileged or signatureOrSystem are only granted to system apps. If an app is a regular non-system app, it will never be able to use these permissions."
+        errorLine1=" &lt;uses-permission android:name=&quot;android.permission.READ_LOGS&quot; />"
+        errorLine2="                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml"
+            line="9"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="ProtectedPermissions"
+        severity="Error"
+        message="Permission is only granted to system apps"
+        category="Correctness"
+        priority="5"
+        summary="Using system app permission"
+        explanation="Permissions with the protection level signature, privileged or signatureOrSystem are only granted to system apps. If an app is a regular non-system app, it will never be able to use these permissions."
+        errorLine1="    &lt;uses-permission android:name=&quot;android.permission.CAPTURE_VIDEO_OUTPUT&quot; />"
+        errorLine2="                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml"
+            line="15"
+            column="22"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="A newer version of com.android.tools.build:gradle than 3.6.3 is available: 4.0.1"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="        classpath &apos;com.android.tools.build:gradle:3.6.3&apos;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/build.gradle"
+            line="7"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        severity="Warning"
+        message="Old buildToolsVersion 29.0.2; recommended version is 29.0.3 or later"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Gradle Dependency"
+        explanation="This detector looks for usages of libraries where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="    buildToolsVersion &quot;29.0.2&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/build.gradle"
+            line="29"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        severity="Warning"
+        message="Unnecessary; SDK_INT is always >= 16"
+        category="Performance"
+        priority="6"
+        summary="Obsolete SDK_INT Version Check"
+        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for.&#xA;&#xA;Similarly, it also looks for resources in `-vNN` folders, such as `values-v14` where the version qualifier is less than or equal to the `minSdkVersion`, where the contents should be merged into the best folder."
+        errorLine1="            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/src/com/youme/engine/AudioMgr.java"
+            line="171"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        severity="Warning"
+        message="Unnecessary; SDK_INT is always >= 16"
+        category="Performance"
+        priority="6"
+        summary="Obsolete SDK_INT Version Check"
+        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for.&#xA;&#xA;Similarly, it also looks for resources in `-vNN` folders, such as `values-v14` where the version qualifier is less than or equal to the `minSdkVersion`, where the contents should be merged into the best folder."
+        errorLine1="         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {"
+        errorLine2="             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/src/com/youme/engine/AudioRecorder.java"
+            line="95"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        severity="Warning"
+        message="Unnecessary; SDK_INT is always >= 16"
+        category="Performance"
+        priority="6"
+        summary="Obsolete SDK_INT Version Check"
+        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for.&#xA;&#xA;Similarly, it also looks for resources in `-vNN` folders, such as `values-v14` where the version qualifier is less than or equal to the `minSdkVersion`, where the contents should be merged into the best folder."
+        errorLine1="        if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) &amp;&amp; (null == svCamera)) {"
+        errorLine2="             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/src/com/youme/engine/CameraMgr.java"
+            line="407"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        severity="Warning"
+        message="This folder configuration (`v11`) is unnecessary; `minSdkVersion` is 16. Merge all the resources in this folder into `values`."
+        category="Performance"
+        priority="6"
+        summary="Obsolete SDK_INT Version Check"
+        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for.&#xA;&#xA;Similarly, it also looks for resources in `-vNN` folders, such as `values-v14` where the version qualifier is less than or equal to the `minSdkVersion`, where the contents should be merged into the best folder.">
+        <location
+            file="/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/res/values-v11"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        severity="Warning"
+        message="This folder configuration (`v14`) is unnecessary; `minSdkVersion` is 16. Merge all the resources in this folder into `values`."
+        category="Performance"
+        priority="6"
+        summary="Obsolete SDK_INT Version Check"
+        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for.&#xA;&#xA;Similarly, it also looks for resources in `-vNN` folders, such as `values-v14` where the version qualifier is less than or equal to the `minSdkVersion`, where the contents should be merged into the best folder.">
+        <location
+            file="/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/res/values-v14"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        severity="Warning"
+        message="Do not place Android context classes in static fields (static reference to `CameraMgr` which has field `svCamera` pointing to `SurfaceView`); this is a memory leak"
+        category="Performance"
+        priority="6"
+        summary="Static Field Leaks"
+        explanation="A static field will leak contexts.&#xA;&#xA;Non-static inner classes have an implicit reference to their outer class. If that outer class is for example a `Fragment` or `Activity`, then this reference means that the long-running handler/loader/task will hold a reference to the activity which prevents it from getting garbage collected.&#xA;&#xA;Similarly, direct field references to activities and fragments from these longer running instances can cause leaks.&#xA;&#xA;ViewModel classes should never point to Views or non-application Contexts."
+        errorLine1="    private static CameraMgr instance = new CameraMgr();"
+        errorLine2="            ~~~~~~">
+        <location
+            file="/Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/src/com/youme/engine/CameraMgr.java"
+            line="68"
+            column="13"/>
+    </issue>
+
+</issues>

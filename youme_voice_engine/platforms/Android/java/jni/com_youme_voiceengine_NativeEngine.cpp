@@ -1979,8 +1979,8 @@ JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setVideoPreDecode
  * Method:    init
  * Signature: (Ljava/lang/String;Ljava/lang/String;)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_init(JNIEnv *env, jclass className, jstring strAPPKey, jstring strAPPSecret,
-                                                           jint serverRegionId, jstring strExtServerRegionName)
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_connect(JNIEnv *env, jclass className, jstring strAPPKey, jstring strAPPSecret,
+                                                           jint serverRegionId)
 {
     CYouMeVoiceEngine::getInstance ()->setRestApiCallback( mPYouMeEventCallback );
     CYouMeVoiceEngine::getInstance ()->setMemberChangeCallback( mPYouMeEventCallback );
@@ -1989,7 +1989,7 @@ JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_init(JNIEnv *env, jclass c
     CYouMeVoiceEngine::getInstance()->setRecvCustomDataCallback(mPYouMeEventCallback);
     CYouMeVoiceEngine::getInstance()->setTranslateCallback( mPYouMeEventCallback );
     return CYouMeVoiceEngine::getInstance ()->init(mPYouMeEventCallback,jstring2string (env, strAPPKey),jstring2string (env, strAPPSecret),
-                                                   (YOUME_RTC_SERVER_REGION)serverRegionId, jstring2string(env, strExtServerRegionName));
+                                                   (YOUME_RTC_SERVER_REGION)serverRegionId);
 }
 
 /*

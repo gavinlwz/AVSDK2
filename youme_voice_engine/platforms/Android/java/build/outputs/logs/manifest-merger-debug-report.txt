@@ -1,14 +1,14 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml:2:1-21:12
-INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml:2:1-21:12
-INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml:2:1-21:12
-INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml:2:1-21:12
-INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml:2:1-21:12
-INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml:2:1-21:12
-INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml:2:1-21:12
+ADDED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml:2:1-17:12
+INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml:2:1-17:12
+INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml:2:1-17:12
+INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml:2:1-17:12
+INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml:2:1-17:12
+INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml:2:1-17:12
+INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml:2:1-17:12
 	package
-		ADDED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml:3:5-36
+		ADDED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml:3:5-31
 		INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml
 		INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml
 	android:versionName
@@ -50,16 +50,16 @@ ADDED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Andr
 	android:name
 		ADDED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml:15:22-76
 uses-sdk
-ADDED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml:17:5-19:41
-INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml:17:5-19:41
-INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml:17:5-19:41
-INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml:17:5-19:41
-INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml:17:5-19:41
+INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml
+INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml
+INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml
+INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml
 	android:targetSdkVersion
-		ADDED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml:19:9-38
 		INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml
+		ADDED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml
 		INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml
 	android:minSdkVersion
-		ADDED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml:18:9-35
 		INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml
+		ADDED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml
 		INJECTED from /Users/shuhuan/Desktop/github/AVSDK/youme_voice_engine/platforms/Android/java/AndroidManifest.xml
