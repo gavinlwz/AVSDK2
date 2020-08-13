@@ -85,7 +85,7 @@ public:
 public:
     //公共接口
     YouMeErrorCode init (IYouMeEventCallback *pEventCallback, const std::string &strAPPKey, const std::string &strAPPSecret,
-                         YOUME_RTC_SERVER_REGION serverRegionId, const std::string &extServerRegionName);
+                         YOUME_RTC_SERVER_REGION serverRegionId);
     
     YouMeErrorCode setJoinChannelKey( const std::string &strAPPKey );
     void setToken( const char* pToken, uint32_t uTimeStamp = 0);

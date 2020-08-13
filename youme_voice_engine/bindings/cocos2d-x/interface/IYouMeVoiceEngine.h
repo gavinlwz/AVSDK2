@@ -56,7 +56,7 @@ public:
      *  @return 错误码，详见YouMeConstDefine.h定义
      */
     YouMeErrorCode init (IYouMeEventCallback * pEventCallback, const char* pAPPKey, const char* pAPPSecret,
-                         YOUME_RTC_SERVER_REGION serverRegionId, const char* pExtServerRegionName);
+                         YOUME_RTC_SERVER_REGION serverRegionId);
 
     /**
      *  功能描述:设置身份验证的token和用户加入房间的时间

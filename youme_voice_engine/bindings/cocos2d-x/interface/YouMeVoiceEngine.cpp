@@ -1426,7 +1426,6 @@ void CYouMeVoiceEngine::MainMessgeHandler(void* pContext, CMessageBlock* pMsg)
             break;
         case CMessageBlock::MsgApiSetServerRegion:
             pThis->doSetServerRegion(pMsg->m_param.apiSetServerRegion.regionId,
-                                     *(pMsg->m_param.apiSetServerRegion.pStrRegionName),
                                      pMsg->m_param.apiSetServerRegion.bAppend);
             break;
         case CMessageBlock::MsgApiLeaveConfMulti:
@@ -2906,7 +2905,7 @@ void CYouMeVoiceEngine::doSetServerRegion(YOUME_RTC_SERVER_REGION serverRegionId
             regionName = "dxb";
             break;
         case RTC_EXT_SERVER:
-            regionName = extServerRegionName.substr(0, 5);
+            // regionName = extServerRegionName.substr(0, 5);
             break;
         case RTC_DEFAULT_SERVER:
             TSK_DEBUG_INFO("Default region:%d", serverRegionId);

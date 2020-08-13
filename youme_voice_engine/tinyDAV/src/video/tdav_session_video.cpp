@@ -986,7 +986,7 @@ static int tdav_session_video_producer_enc_cb_new(const void* callback_data, con
 
 #if ANDROID
     // backup frame, only for share stream (videoid=2)
-    if(2 == video_id && )
+    if(2 == video_id)
     {
         uint64_t timestamp_now = tsk_gettimeofday_ms();
         if (size != 0 && timestamp_now - video->last_check_timestamp > video->refresh_copy_interval) {//输入间隔大于500ms才复制帧

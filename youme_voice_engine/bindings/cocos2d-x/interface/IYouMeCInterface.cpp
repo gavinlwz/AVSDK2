@@ -498,7 +498,7 @@ void youme_setExternalInputMode( bool bInputModeEnabled )
 }
 
 int youme_init(const char* strAPPKey, const char* strAPPSecret,
-               YOUME_RTC_SERVER_REGION serverRegionId, const char* pExtServerRegionName)
+               YOUME_RTC_SERVER_REGION serverRegionId)
 {
     if (NULL == g_InterImpCallback) {
         g_InterImpCallback = new InterImpEventCallback;
@@ -514,7 +514,7 @@ int youme_init(const char* strAPPKey, const char* strAPPSecret,
     IYouMeVoiceEngine::getInstance()->setNotifyCallback( g_InterImpCallback );
     IYouMeVoiceEngine::getInstance()->setAVStatisticCallback( g_InterImpCallback );
     IYouMeVoiceEngine::getInstance()->setTranslateCallback( g_InterImpCallback );
-    return IYouMeVoiceEngine::getInstance()->init(g_InterImpCallback, strAPPKey, strAPPSecret, serverRegionId, pExtServerRegionName);
+    return IYouMeVoiceEngine::getInstance()->init(g_InterImpCallback, strAPPKey, strAPPSecret, serverRegionId);
 }
 
 /* video callback for unity */

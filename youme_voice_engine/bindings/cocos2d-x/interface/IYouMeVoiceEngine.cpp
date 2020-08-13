@@ -48,22 +48,22 @@ void IYouMeVoiceEngine::destroy ()
 }
 
 //公共接口
-YouMeErrorCode IYouMeVoiceEngine::init (IYouMeEventCallback *pEventCallback, const char *pAPPKey, const char *pAPPSecret, YOUME_RTC_SERVER_REGION serverRegionId, const char *pExtServerRegionName)
+YouMeErrorCode IYouMeVoiceEngine::init (IYouMeEventCallback *pEventCallback, const char *pAPPKey, const char *pAPPSecret, YOUME_RTC_SERVER_REGION serverRegionId)
 {
     std::string strAPPKey = "";
     std::string strAPPSecret = "";
     std::string strExtServerRegionName = "";
-    if (pAPPKey && pAPPSecret && pExtServerRegionName)
+    if (pAPPKey && pAPPSecret)
     {
         strAPPKey = pAPPKey;
         strAPPSecret = pAPPSecret;
-        strExtServerRegionName = pExtServerRegionName;
+        // strExtServerRegionName = pExtServerRegionName;
     }
     else
     {
         return YOUME_ERROR_INVALID_PARAM;
     }
-    return mPEngineImp->init (pEventCallback, strAPPKey, strAPPSecret, serverRegionId, strExtServerRegionName);
+    return mPEngineImp->init (pEventCallback, strAPPKey, strAPPSecret, serverRegionId);
 }
 
 void IYouMeVoiceEngine::setToken (const char *pToken, uint32_t uTimeStamp)
