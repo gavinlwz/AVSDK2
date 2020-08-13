@@ -2710,17 +2710,17 @@ void CYouMeVoiceEngine::doInit()
     mCanRefreshRedirect = false;
     ReportQuitData::getInstance()->m_valid_count++;
     YouMeErrorCode yErrorcode = CSDKValidate::GetInstance ()->ServerLoginIn (false, mAppKeySuffix, mRedirectServerInfoVec, mCanRefreshRedirect);
-    if ((YOUME_SUCCESS == yErrorcode) && !(g_extServerRegionName.empty())) {
+    // if ((YOUME_SUCCESS == yErrorcode) && !(g_extServerRegionName.empty())) {
         // The redirect server list returned here is for the region speicifed in mServerRegionName.
         // Not for regions specified in mServerRegionNameMap.
-        mLastServerRegionNameMap.insert(ServerRegionNameMap_t::value_type(g_extServerRegionName, 1));
-    }
+        // mLastServerRegionNameMap.insert(ServerRegionNameMap_t::value_type(g_extServerRegionName, 1));
+    // }
     
-    if ((yErrorcode != YOUME_SUCCESS) && (YOUME_ERROR_UNKNOWN != yErrorcode)){
+    // if ((yErrorcode != YOUME_SUCCESS) && (YOUME_ERROR_UNKNOWN != yErrorcode)){
         //触发日志上报
         //MonitoringCenter::getInstance()->UploadLog(UploadType_SDKValidFail,(int)yErrorcode);
         
-    }
+    // }
 #ifdef WIN32
     CMMNotificationClient::Init();
 #endif //WIN32
@@ -2738,10 +2738,8 @@ void CYouMeVoiceEngine::doInit()
             //SDK 验证成功了才初始化别的
             CXTimer::GetInstance ()->Init ();
             
-            
             mPNetworkService = mPNgnEngine->getNetworkService ();
             mPNetworkService->registerCallback (this);
-            
             
             start ();
             
@@ -2849,11 +2847,11 @@ bail_out:
     TSK_DEBUG_INFO ("== doInit failed");
 }
 
-void CYouMeVoiceEngine::doSetServerRegion(YOUME_RTC_SERVER_REGION serverRegionId, const std::string &extServerRegionName, bool bAppend)
+void CYouMeVoiceEngine::doSetServerRegion(YOUME_RTC_SERVER_REGION serverRegionId, bool bAppend)
 {
     std::string regionName;
     
-    TSK_DEBUG_INFO ("$$ doSetServerRegion regionId:%d, extRegionName:%s, bAppend:%d", serverRegionId, extServerRegionName.c_str(), (int)bAppend);
+    TSK_DEBUG_INFO ("$$ doSetServerRegion regionId:%d, bAppend:%d", serverRegionId, (int)bAppend);
     
     switch (serverRegionId) {
         case RTC_CN_SERVER:
@@ -2930,7 +2928,6 @@ void CYouMeVoiceEngine::doSetServerRegion(YOUME_RTC_SERVER_REGION serverRegionId
         mServerRegionNameMap.clear();
         mServerRegionNameMap.insert(std::map<std::string, int>::value_type(regionName, 1));
         g_serverRegionId = serverRegionId;
-        g_extServerRegionName = regionName;
     }
     
     TSK_DEBUG_INFO ("== doSetServerRegion");
@@ -6276,7 +6273,7 @@ YouMeErrorCode CYouMeVoiceEngine::setJoinChannelKey( const std::string &strAPPKe
 }
 
 YouMeErrorCode CYouMeVoiceEngine::init (IYouMeEventCallback *pEventCallback, const std::string &strAPPKey, const std::string &strAPPSecret,
-                                        YOUME_RTC_SERVER_REGION serverRegionId, const std::string &extServerRegionName)
+                                        YOUME_RTC_SERVER_REGION serverRegionId)
 {
     YouMeErrorCode errCode = YOUME_SUCCESS;
     
@@ -6289,8 +6286,8 @@ YouMeErrorCode CYouMeVoiceEngine::init (IYouMeEventCallback *pEventCallback, con
         TSK_DEBUG_ERROR ("!! init: wrong state:%s", stateToString(mState));
         return YOUME_ERROR_WRONG_STATE;
     }
+
     mState = STATE_INITIALIZING;
-    
     mAppKey = strAPPKey;
     mAppSecret = strAPPSecret;
 
@@ -6315,7 +6312,7 @@ YouMeErrorCode CYouMeVoiceEngine::init (IYouMeEventCallback *pEventCallback, con
     
     m_roomMode = ROOM_MODE_NONE;
     // Since the message loop has not been set up yet, we can call the "doXXXX" functions safely here.
-    doSetServerRegion(serverRegionId, extServerRegionName, false);
+    doSetServerRegion(serverRegionId, false);
     
     //验证key与进房间的key分离，域名前缀用验证key
     int appKeyLen = mAppKey.length();
@@ -6437,7 +6434,6 @@ YouMeErrorCode CYouMeVoiceEngine::init (IYouMeEventCallback *pEventCallback, con
         m_pPcmCallbackLoop = NULL;
     }
     m_pcmCallbackLoopMutex.unlock();
-    
     
     //避免初始化失败后再次进入
     if( m_queryHttpThread.joinable() ){

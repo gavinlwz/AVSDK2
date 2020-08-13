@@ -68,14 +68,18 @@ public class VideoCapturerActivity extends Activity implements YouMeCallBackInte
     ///声明video设置块相关静态变量
     public static int _videoWidth = 480;
     public static int _videoHeight = 640;
-
     public static boolean _bHWEnable = true;
+    private int child_width = 240;
+    private int child_height = 320;
 
+    public int previewFps = 24;
     public static int _fps = 20;
-    public boolean inited = false;
+    private int fpsChild = 12;
     private ViewGroup mViewGroup;
     private ImageButton micBtn;
     private ImageButton speakerBtn;
+
+    public boolean inited = false;
 
     private SurfaceViewRenderer[] arrRenderViews = null;
     private static boolean lastTestmode = false;
@@ -125,10 +129,8 @@ public class VideoCapturerActivity extends Activity implements YouMeCallBackInte
     private GestureDetector mGestureDetector;
     private View mFocusView;
     private Timer resetTimer;
+    private int viewMaxCount = 4;
 
-
-    private static FileOutputStream mPreDecodeFos = null;
-    private static int mPreDecodeCounter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,7 +147,7 @@ public class VideoCapturerActivity extends Activity implements YouMeCallBackInte
 
         ///初始化界面相关数据
         renderInfoMap = new HashMap<>();
-        arrRenderViews = new SurfaceViewRenderer[4];
+        arrRenderViews = new SurfaceViewRenderer[viewMaxCount];
         getWindow().setFormat(PixelFormat.TRANSLUCENT);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);   //应用运行时，保持屏幕高亮，不锁屏
@@ -154,8 +156,6 @@ public class VideoCapturerActivity extends Activity implements YouMeCallBackInte
         avTips = (TextView) findViewById(R.id.avtip);
 
         mFocusView = findViewById(R.id.camera_focus);
-//        mGestureDetector = new GestureDetector(this, simpleOnGestureListener);
-//        mScaleGestureDetector = new ScaleGestureDetector(this, scaleGestureListener);
 
         //定时重置avstatic 统计信息
         resetTimer = new Timer();
@@ -269,20 +269,20 @@ public class VideoCapturerActivity extends Activity implements YouMeCallBackInte
 
     private void initSDK() {
         ///初始化SDK相关设置
-//        api.setServerMode(0);
-//        api.setLogLevel(YouMeConst.YOUME_LOG_LEVEL.LOG_INFO, YouMeConst.YOUME_LOG_LEVEL.LOG_INFO);
+        api.setServerMode(0);
+        api.setLogLevel(YouMeConst.YOUME_LOG_LEVEL.LOG_INFO, YouMeConst.YOUME_LOG_LEVEL.LOG_INFO);
         api.SetCallback(this);
-        api.setCameraAutoFocusCallBack(cameraFocusCallback);
+//        api.setCameraAutoFocusCallBack(cameraFocusCallback);
 //        int code = api.init(CommonDefines.appKey, CommonDefines.appSecret, areaId, "");
 
         VideoRendererSample.getInstance().setLocalUserId(local_user_id);
         api.setVideoFrameCallback(VideoRendererSample.getInstance());
-        api.initWithAppkey(CommonDefines.appKey, CommonDefines.appSecret, 0, "");
-//        if (code == YouMeConst.YouMeErrorCode.YOUME_ERROR_WRONG_STATE) {
-//            //已经初始化过了，就不等初始化回调了，直接进频道就行
-//            autoJoinClick();
-//            inited = true;
-//        }
+        int code = api.connectServer(CommonDefines.appKey, CommonDefines.appSecret, 0, "");
+        if (code == YouMeConst.YouMeErrorCode.YOUME_ERROR_WRONG_STATE) {
+            //已经初始化过了，就不等初始化回调了，直接进频道就行
+            joinClick();
+            inited = true;
+        }
     }
 
 
@@ -626,7 +626,6 @@ public class VideoCapturerActivity extends Activity implements YouMeCallBackInte
             //进频道成功后可以设置视频回调
             api.SetVideoCallback();
             //设置远端语音音量回调
-            api.setFarendVoiceLevelCallback(10);
             //开启扬声器
             api.setSpeakerMute(false);
 
@@ -767,7 +766,7 @@ public class VideoCapturerActivity extends Activity implements YouMeCallBackInte
                     case YouMeConst.YouMeEvent.YOUME_EVENT_INIT_OK:
                         Log.d(TAG, "初始化成功");
                         ToastMessage.showToast(mActivity.get(), "初始化成功", 1000);
-                        activity.autoJoinClick();
+                        activity.joinClick();
                         activity.inited = true;
                         break;
                     case YouMeConst.YouMeEvent.YOUME_EVENT_INIT_FAILED:
@@ -905,56 +904,47 @@ public class VideoCapturerActivity extends Activity implements YouMeCallBackInte
     /**
      * 自动进入频道方法   在初始化后面使用
      */
-    private void autoJoinClick() {
+    private void joinClick() {
         // 录屏模块初始化
 //        ScreenRecorder.init(this);
 //        ScreenRecorder.setResolution(mVideoShareWidth, mVideoShareHeight);
 //        ScreenRecorder.setFps(_fps);
 
-            api.setVideoPreviewFps(24);
-
         //加入频道前进行video设置
+        api.setVideoPreviewFps(previewFps);
         api.setVideoFps(_fps);
-        api.setVideoFpsForSecond(12);
-        //设置本地采集分辨率
         api.setVideoLocalResolution(_videoWidth, _videoHeight);
-        //调用这个方法来设置视屏的分辨率
         api.setVideoNetResolution(_videoWidth, _videoHeight);
 
         //NativeEngine.setVideoEncodeParamCallbackEnable(true);
 
-        int child_width = 160;//_videoWidth/2;
-        int child_height = 224;//_videoHeight/2;
-
-        /*
-        if (child_width * child_height <= 240*320) {
-            child_width = 240;
-            child_height = 320;
-        } else if (child_width * child_height >= 960 * 540){
-            child_width = _videoWidth/4;
-            child_height = _videoHeight/4;
-        }
-        */
-
         //设置视频小流分辨率
+        api.setVideoFpsForSecond(fpsChild);
         api.setVideoNetResolutionForSecond(child_width, child_height);
+
         api.setVideoFpsForShare(_fps);
         api.setVideoNetResolutionForShare(mVideoShareWidth, mVideoShareHeight);
 
+        api.setFarendVoiceLevelCallback(10);
+
+
         //调用这个方法来设置时间间隔
-        api.setAVStatisticInterval(_reportInterval);
+//        api.setAVStatisticInterval(_reportInterval);
+
         //设置视频编码比特率
-        api.setVideoCodeBitrate(_maxBitRate, _minBitRate);
-        api.setVideoCodeBitrateForShare(_maxBitRate, _minBitRate);
+//        api.setVideoCodeBitrate(_maxBitRate, _minBitRate);
+//        api.setVideoCodeBitrateForShare(_maxBitRate, _minBitRate);
+
         //设置远端语音水平回调
 //        api.setFarendVoiceLevelCallback(_farendLevel);
         //设置视屏是软编还是硬编
         api.setVideoHardwareCodeEnable(_bHWEnable);
+
         //同步状态给其他人
-        api.setAutoSendStatus(true);
+//        api.setAutoSendStatus(true);
         // 设置视频无帧渲染的等待超时时间，超过这个时间会给上层回调YOUME_EVENT_OTHERS_VIDEO_SHUT_DOWN, 单位ms
         api.setVideoNoFrameTimeout(5000);
-        api.setVBR(_bVBR);
+//        api.setVBR(_bVBR);
         int sampleRate = 44100;
         int channels = 1;
 //        api.setPcmCallbackEnable(mOnYouMePcm, YouMeConst.YouMePcmCallBackFlag.PcmCallbackFlag_Remote |
@@ -977,9 +967,6 @@ public class VideoCapturerActivity extends Activity implements YouMeCallBackInte
     private void autoOpenStartCamera() {
         //开启摄像头
         startCamera();
-
-        //设置视频无渲染帧超时等待时间，单位毫秒
-        api.setVideoNoFrameTimeout(5000);
     }
 
     private void initCtrls() {

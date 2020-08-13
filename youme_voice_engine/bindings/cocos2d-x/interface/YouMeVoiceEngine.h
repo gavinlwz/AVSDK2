@@ -669,7 +669,7 @@ private:
     
 
     void doInit();
-    void doSetServerRegion(YOUME_RTC_SERVER_REGION serverRegionId, const std::string &extServerRegionName, bool bAppend);
+    void doSetServerRegion(YOUME_RTC_SERVER_REGION serverRegionId, bool bAppend);
     bool leaveConfForUninit();
     void doJoinConferenceSingle(const std::string& strUserID, const string &strRoomID,
                                 YouMeUserRole_t eUserRole, bool needMic, bool bVideoAutoRecv);

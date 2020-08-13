@@ -65,6 +65,7 @@ void NgnEngine::initialize ()
 #ifndef FFMPEG_SUPPORT
 #define FFMPEG_SUPPORT 0
 #endif
+
     if (NgnApplication::getInstance()->getUserLogPath().empty()) {
         tsk_init_log(NgnApplication::getInstance()->getLogPath().c_str(), NgnApplication::getInstance()->getBackupLogPath().c_str());
     }else {

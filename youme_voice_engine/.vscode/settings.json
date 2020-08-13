@@ -3,6 +3,10 @@
         "istream": "cpp",
         "locale": "cpp",
         "numeric": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "ios": "cpp",
+        "__mutex_base": "cpp",
+        "string": "cpp",
+        "string_view": "cpp"
     }
 }

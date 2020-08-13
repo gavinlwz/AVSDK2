@@ -986,7 +986,7 @@ static int tdav_session_video_producer_enc_cb_new(const void* callback_data, con
 
 #if ANDROID
     // backup frame, only for share stream (videoid=2)
-    if(2 == video_id)
+    if(2 == video_id && )
     {
         uint64_t timestamp_now = tsk_gettimeofday_ms();
         if (size != 0 && timestamp_now - video->last_check_timestamp > video->refresh_copy_interval) {//输入间隔大于500ms才复制帧
@@ -3759,7 +3759,10 @@ static int _tdav_session_video_init(tdav_session_video_t *p_self, tmedia_type_t 
     p_self->refresh_timeout = tmedia_get_max_video_refresh_timeout(); //no data input check timeout
     p_self->refresh_limit = Config_GetInt("VIDEO_FRAME_LIMIT", 2);
     p_self->refresh_copy_interval = Config_GetInt("SHARE_COPY_INTERVAL", 50);
-    p_self->check_timer_id = xt_timer_mgr_global_schedule_loop(TDAV_VIDEO_FRAME_CHECK_TIMEOUT, tdav_codec_check_timer_callback_f, p_self);
+    if(p_self->refresh_timeout > 0) {
+        p_self->check_timer_id = xt_timer_mgr_global_schedule_loop(TDAV_VIDEO_FRAME_CHECK_TIMEOUT, tdav_codec_check_timer_callback_f, p_self);
+    }
+    
     p_self->last_check_timestamp = tsk_gettimeofday_ms();
     p_self->last_frame_size = 0;
 #endif
