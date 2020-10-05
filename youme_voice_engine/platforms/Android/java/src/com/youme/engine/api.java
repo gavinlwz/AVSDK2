@@ -14,9 +14,8 @@ public class api {
 
 	public static WeakReference<Context> mContext = null;
 	public static Boolean mInited = false;
-	public static String mCachePath;
 
-    public static boolean LoadSO() {
+    private static boolean LoadSO() {
         try {
             System.loadLibrary("youme_voice_engine");
         } catch (Throwable e) {
@@ -29,7 +28,7 @@ public class api {
 
     //加载文件
     public static boolean Init(Context context) {
-        Log.i(TAG, "调用init 函数 开始，目录:");
+        Log.i(TAG, "调用init 函数 开始");
         if (context == null) {
             Log.e(TAG, "context can not be null");
             return false;
@@ -52,8 +51,6 @@ public class api {
             mContext.clear();
         }
         mContext = new WeakReference<Context>(context);
-        mCachePath = context.getDir("libs", Context.MODE_PRIVATE).getAbsolutePath();
-        Log.i(TAG, "调用init 函数 开始，目录:" + mCachePath);
 
         if (!LoadSO()) {
             Log.e(TAG, "Failed to load so");
@@ -74,7 +71,7 @@ public class api {
         return true;
     }
 
-    //反初始化
+    //释放资源
     public static void Uninit() {
         try {
             AudioMgr.uinit();
@@ -82,6 +79,48 @@ public class api {
         } catch (Throwable e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     *  功能描述:初始化引擎
+     *
+     *  @param strAPPKey:在申请SDK注册时得到的App Key，也可凭账号密码到http://gmx.dev.net/createApp.html查询
+     *  @param strAPPSecret:在申请SDK注册时得到的App Secret，也可凭账号密码到http://gmx.dev.net/createApp.html查询
+     *
+     *  @return 错误码，详见YouMeConstDefine.h定义
+     */
+    public static void initSDK(String strAPPKey, String strAPPSecret, int serverRegionId, String strExtServerRegionName) {
+        NativeEngine.init(strAPPKey, strAPPSecret, serverRegionId, strExtServerRegionName);
+    }
+
+    /**
+     *  功能描述:反初始化引擎
+     *
+     *  @return 错误码，详见YouMeConstDefine.h定义
+     */
+    public static int unInitSDK() {
+        return NativeEngine.unInit();
+    }
+
+    /**
+     * 功能描述:   设置是否由外部输入音视频
+     *
+     * @param bInputModeEnabled: true:外部输入模式，false:SDK内部采集模式
+     */
+    public static void setExternalInputMode(boolean bInputModeEnabled) {
+        NativeEngine.setExternalInputMode(bInputModeEnabled);
+    }
+
+    /**
+     * 功能描述: 设置外部输入模式的语音采样率
+     *
+     * @param inputSampleRate:         输入语音采样率
+     * @param mixedCallbackSampleRate: mix后输出语音采样率
+     * @return YOUME_SUCCESS - 成功
+     * 其他 - 具体错误码
+     */
+    public static int setExternalInputSampleRate(int inputSampleRate, int mixedCallbackSampleRate) {
+        return NativeEngine.setExternalInputSampleRate(inputSampleRate, mixedCallbackSampleRate);
     }
 
     public static void connect(String strAPPKey, String strAPPSecret, int serverRegionId) {
@@ -93,103 +132,37 @@ public class api {
         LogUtil.SaveLogcat(strPath);
     }
 
-//	public static void SetCallback(YouMeCallBackInterface callBack)
-//	{
-//		//IYouMeChannelCallback.callBack = callBack;
-//		//IYouMeCommonCallback.callBack = callBack;
-//		IYouMeEventCallback.callBack = callBack;
-//	}
+    //事件回调
+	public static void SetCallback(YouMeCallBackInterface callBack)
+	{
+		IYouMeEventCallback.callBack = callBack;
+	}
 
-//	public static void setPcmCallbackEnable (YouMePcmCallBackInterface callback, int flag, boolean outputToSpeaker, int nOutputSampleRate, int nOutputChannel)
-//	{
-//		Log.d("Api", "setPcmCallbackEnable");
-//		IYouMeEventCallback.mCallbackPcm = callback;
-//		if (callback == null) {
-//			NativeEngine.setPcmCallbackEnable(0 , false, nOutputSampleRate, nOutputChannel);
-//		} else {
-//			NativeEngine.setPcmCallbackEnable(flag, outputToSpeaker, nOutputSampleRate, nOutputChannel);
-//		}
-//	}
+    //设置屏幕旋转度数
+    public static void setScreenRotation(int rotation){
+		CameraMgr.setRotation( rotation );
+	}
 
-//    public static void setScreenRotation(int rotation){
-//		CameraMgr.setRotation( rotation );
-//	}
+	//当屏幕发生旋转时，调用此接口
+	public static void screenRotationChange(){
+		CameraMgr.rotationChange();
+	}
 
-//	public static void screenRotationChange(){
-//		CameraMgr.rotationChange();
-//	}
+    //外部渲染
+    public static void setVideoFrameCallback(VideoMgr.VideoFrameCallback callback) {
+        VideoMgr.setVideoFrameCallback(callback);
+    }
 
-    /**
-     * 功能描述: 设置用户自定义数据的回调
-     *
-     * @param callback:收到其它人自定义数据的回调地址，需要继承IYouMeCustomDataCallback并实现其中的回调函数
-     * @return void
-     */
-//	public static void setRecvCustomDataCallback (YouMeCustomDataCallbackInterface callback)
-//	{
-//		IYouMeEventCallback.mCustomDataCallback = callback;
-//	}
-
-    //设置合流视频数据回调
-//    public static void setVideoFrameCallback(VideoMgr.VideoFrameCallback callback) {
-//        VideoMgr.setVideoFrameCallback(callback);
-//    }
+    //内部渲染
+    public static void SetVideoCallback() {
+        IYouMeVideoCallback.mVideoFrameRenderCallback = VideoRenderer.getInstance();
+        NativeEngine.setVideoCallback();
+    }
 
     //设置音频回调
-//	public static void setAudioFrameCallback( YouMeAudioCallbackInterface callback  ){
-//		IYouMeAudioCallback.callback = callback;
-//	}
-
-//    public static void SetVideoCallback() {
-//        IYouMeVideoCallback.mVideoFrameRenderCallback = VideoRenderer.getInstance();
-//        setVideoCallback();
-//    }
-
-    /**
-     *  功能描述: 设置是否回调视频解码前H264数据，需要在加入房间之前设置
-     *  @param  preDecodeCallback 回调方法
-     *  @param  needDecodeandRender 是否需要解码并渲染:true 需要;false 不需要
-     */
-//	public static void setVideoPreDecodeCallbackEnable(YouMeVideoPreDecodeCallbackInterface callback, boolean needDecodeandRender)
-//	{
-//		IYouMeVideoCallback.mVideoPreDecodeCallback = callback;
-//		if (callback == null) {
-//			NativeEngine.setVideoPreDecodeCallbackEnable(false , needDecodeandRender);
-//		} else {
-//			NativeEngine.setVideoPreDecodeCallbackEnable(true, needDecodeandRender);
-//		}
-//	}
-
-    /**
-     * 功能描述:   设置是否由外部输入音视频
-     *
-     * @param bInputModeEnabled: true:外部输入模式，false:SDK内部采集模式
-     */
-    public static native void setExternalInputMode(boolean bInputModeEnabled);
-
-    /**
-     * 功能描述:初始化引擎
-     *
-     * @param strAPPKey:在申请SDK注册时得到的App    Key，也可凭账号密码到http://gmx.dev.net/createApp.html查询
-     * @param strAPPSecret:在申请SDK注册时得到的App Secret，也可凭账号密码到http://gmx.dev.net/createApp.html查询
-     * @return 错误码，详见YouMeConstDefine.h定义
-     */
-//    public static native int initWithAppKey(String strAPPKey, String strAPPSecret, int serverRegionId, String strExtServerRegionName);
-
-
-    /**
-     * 功能描述:反初始化引擎
-     *
-     * @return 错误码，详见YouMeConstDefine.h定义
-     */
-    public static native int unInit();
-
-    /**
-     *  功能描述:设置身份验证的token
-     *  @param strToken: 身份验证用token，设置为NULL或者空字符串，清空token值。
-     *  @return 无
-     */
-//    public static native void setToken( String strToken );
+	public static void setAudioFrameCallback( YouMeAudioCallbackInterface callback  ){
+		IYouMeAudioCallback.callback = callback;
+	}
 
     /**
      *  功能描述:设置身份验证的token
@@ -197,14 +170,18 @@ public class api {
      *  @param timeStamp: 用户加入房间的时间，单位s。
      *  @return 无
      */
-//	public static native void setTokenV3( String strToken, long timeStamp);
+	public static void setTokenV3( String strToken, long timeStamp) {
+        NativeEngine.setTokenV3(strToken, timeStamp);
+    }
 
     /**
      *  功能描述:设置是否使用TCP模式来收发数据，针对特殊网络没有UDP端口使用，必须在加入房间之前调用
      *  @param bUseTcp: 是否使用。
      *  @return 错误码，详见YouMeConstDefine.h定义
      */
-//	public static native int setTCPMode( boolean bUseTcp );
+	public static int setTCPMode( boolean bUseTcp ) {
+	    return NativeEngine.setTCPMode(bUseTcp);
+    }
 
     /**
      * 功能描述: 设置用户自定义Log路径
@@ -213,7 +190,9 @@ public class api {
      * @return YOUME_SUCCESS - 成功
      * 其他 - 具体错误码
      */
-    public static native int setUserLogPath(String filePath);
+    public static int setUserLogPath(String filePath) {
+        return NativeEngine.setUserLogPath(filePath);
+    }
 
     /**
      * 功能描述:切换语音输出设备
@@ -222,7 +201,9 @@ public class api {
      * @param bOutputToSpeaker:true——使用扬声器，false——使用听筒
      * @return 错误码，详见YouMeConstDefine.h定义
      */
-    public static native int setOutputToSpeaker(boolean bOutputToSpeaker);
+    public static int setOutputToSpeaker(boolean bOutputToSpeaker) {
+        return NativeEngine.setOutputToSpeaker(bOutputToSpeaker);
+    }
 
     /**
      * 功能描述:设置扬声器静音
@@ -230,29 +211,37 @@ public class api {
      * @param bOn:true——静音，false——取消静音
      * @return 无
      */
-    public static native void setSpeakerMute(boolean bOn);
+    public static void setSpeakerMute(boolean bOn) {
+        NativeEngine.setSpeakerMute(bOn);
+    }
 
     /**
      * 功能描述:获取扬声器静音状态
      *
      * @return true——静音，false——没有静音
      */
-    public static native boolean getSpeakerMute();
+    public static boolean getSpeakerMute() {
+        return NativeEngine.getSpeakerMute();
+    }
 
     /**
      * 功能描述:获取麦克风静音状态
      *
      * @return true——静音，false——没有静音
      */
-    public static native boolean getMicrophoneMute();
+    public static boolean getMicrophoneMute() {
+        return NativeEngine.getMicrophoneMute();
+    }
 
     /**
      * 功能描述:设置麦克风静音
      *
-     * @param bOn:true——静音，false——取消静音
+     * @param mute:true——静音，false——取消静音
      * @return 无
      */
-    public static native void setMicrophoneMute(boolean mute);
+    public static void setMicrophoneMute(boolean mute) {
+        NativeEngine.setMicrophoneMute(mute);
+    }
 
     /**
      *  功能描述:设置是否通知其他人自己的开关麦克风和扬声器的状态
@@ -268,14 +257,18 @@ public class api {
      *
      * @return 音量值[0, 100]
      */
-    public static native int getVolume();
+    public static int getVolume() {
+        return NativeEngine.getVolume();
+    }
 
     /**
      * 功能描述:增加音量，音量数值加1
      *
      * @return 无
      */
-    public static native void setVolume(int uiVolume);
+    public static void setVolume(int uiVolume) {
+        NativeEngine.setVolume(uiVolume);
+    }
 
     /**
      *  功能描述:是否可使用移动网络
@@ -332,7 +325,9 @@ public class api {
      * @param userRole:  用户角色，用于决定讲话/播放背景音乐等权限
      * @return 错误码，详见YouMeConstDefine.h定义
      */
-    public static native int joinChannelSingleMode(String strUserID, String strRoomID, int userRole, boolean autoRecv);
+    public static int joinChannelSingleMode(String strUserID, String strRoomID, int userRole, boolean autoRecv) {
+        return NativeEngine.joinChannelSingleMode(strUserID, strRoomID, userRole, autoRecv);
+    }
 
     /**
      *  功能描述：加入语音频道（多频道模式，可以同时在多个语音频道里面）
@@ -390,16 +385,18 @@ public class api {
      * @param notifyMemChagne:            其他用户进出房间时，是否要收到通知
      * @return 错误码，详见YouMeConstDefine.h定义
      */
-    public static native int getChannelUserList(String strChannelID, int maxCount, boolean notifyMemChange);
+//    public static native int getChannelUserList(String strChannelID, int maxCount, boolean notifyMemChange);
 
     /**
      * 功能描述:控制其他人的麦克风开关
      *
      * @param strUserID:用户ID，要保证全局唯一
-     * @param mute:                  true 静音对方的麦克风，false 取消静音对方麦克风
+     * @param status:                  true 静音对方的麦克风，false 取消静音对方麦克风
      * @return 错误码，详见YouMeConstDefine.h定义
      */
-    public static native int setOtherMicMute(String strUserID, boolean status);
+    public static int setOtherMicMute(String strUserID, boolean status) {
+        return NativeEngine.setOtherMicMute(strUserID, status);
+    }
 
     /**
      *  功能描述:控制其他人的扬声器开关
@@ -418,9 +415,13 @@ public class api {
      * @param on:                    false屏蔽对方语音，true取消屏蔽
      * @return 错误码，详见YouMeConstDefine.h定义
      */
-    public static native int setListenOtherVoice(String strUserID, boolean on);
+    public static int setMaskOtherVoice(String strUserID, boolean on) {
+        return NativeEngine.setMaskOtherVoice(strUserID, on);
+    }
 
-    public static native void setServerRegion(int region, String extServerName, boolean bAppend);
+    public static void setServerRegion(int region, String extServerName, boolean bAppend) {
+        NativeEngine.setServerRegion(region, extServerName, bAppend);
+    }
 
 
     /**
@@ -431,7 +432,7 @@ public class api {
      * @return YOUME_SUCCESS - 成功
      * 其他 - 具体错误码
      */
-    public static native int playBackgroundMusic(String filePath, boolean bRepeat);
+//    public static native int playBackgroundMusic(String filePath, boolean bRepeat);
 
     /**
      * 功能描述: 如果当前正在播放背景音乐的话，暂停播放
@@ -439,7 +440,7 @@ public class api {
      * @return YOUME_SUCCESS - 成功
      * 其他 - 具体错误码
      */
-    public static native int pauseBackgroundMusic();
+//    public static native int pauseBackgroundMusic();
 
     /**
      * 功能描述: 如果当前背景音乐处于暂停状态的话，恢复播放
@@ -447,7 +448,7 @@ public class api {
      * @return YOUME_SUCCESS - 成功
      * 其他 - 具体错误码
      */
-    public static native int resumeBackgroundMusic();
+//    public static native int resumeBackgroundMusic();
 
     /**
      * 功能描述: 如果当前正在播放背景音乐的话，停止播放
@@ -455,7 +456,7 @@ public class api {
      * @return YOUME_SUCCESS - 成功
      * 其他 - 具体错误码
      */
-    public static native int stopBackgroundMusic();
+//    public static native int stopBackgroundMusic();
 
     /**
      * 功能描述: 设置背景音乐播放的音量
@@ -464,7 +465,7 @@ public class api {
      * @return YOUME_SUCCESS - 成功
      * 其他 - 具体错误码
      */
-    public static native int setBackgroundMusicVolume(int vol);
+//    public static native int setBackgroundMusicVolume(int vol);
 
     /**
      *  功能描述: 设置是否用耳机监听自己的声音或背景音乐，当不插耳机或外部输入模式时，这个设置不起作用
@@ -497,7 +498,9 @@ public class api {
      * @return YOUME_SUCCESS - 成功
      * 其他 - 具体错误码
      */
-    public static native int pauseChannel();
+    public static int pauseChannel() {
+        return NativeEngine.pauseChannel();
+    }
 
     /**
      * 功能描述: 恢复通话
@@ -505,7 +508,9 @@ public class api {
      * @return YOUME_SUCCESS - 成功
      * 其他 - 具体错误码
      */
-    public static native int resumeChannel();
+    public static int resumeChannel() {
+        return NativeEngine.resumeChannel();
+    }
 
     /**
      * 功能描述: 设置是否开启语音检测回调
@@ -514,7 +519,7 @@ public class api {
      * @return YOUME_SUCCESS - 成功
      * 其他 - 具体错误码
      */
-    public static native int setVadCallbackEnabled(boolean enabled);
+//    public static native int setVadCallbackEnabled(boolean enabled);
 
     /**
      *  功能描述: 设置当前录音的时间戳
@@ -571,7 +576,9 @@ public class api {
      * 其他 - 具体错误码
      */
 //    public static native int setExitCommModeWhenHeadsetPlugin(boolean enabled);
-    public static native String getSdkInfo();
+    public static String getSdkInfo() {
+        return NativeEngine.getSdkInfo();
+    }
 
     public static native int createRender(String userId);
 
@@ -579,7 +586,6 @@ public class api {
 
     public static native int deleteRenderByUserID(String userId);
 
-    private static native int setVideoCallback();
     /**
      *  功能描述:Rest API , 向服务器请求额外数据
      *  @param strCommand: 请求的命令字符串
@@ -710,17 +716,9 @@ public class api {
      * @param consoleLevel: 控制台日志等级, 有效值参看YOUME_LOG_LEVEL
      * @param fileLevel:    文件日志等级, 有效值参看YOUME_LOG_LEVEL
      */
-    public static native void setLogLevel(int consoleLevel, int fileLevel);
-
-    /**
-     * 功能描述: 设置外部输入模式的语音采样率
-     *
-     * @param inputSampleRate:         输入语音采样率
-     * @param mixedCallbackSampleRate: mix后输出语音采样率
-     * @return YOUME_SUCCESS - 成功
-     * 其他 - 具体错误码
-     */
-    public static native int setExternalInputSampleRate(int inputSampleRate, int mixedCallbackSampleRate);
+    public static void setLogLevel(int consoleLevel, int fileLevel) {
+        NativeEngine.setLogLevel(consoleLevel, fileLevel);
+    }
 
     /**
      * 功能描述: 设置语音传输质量
@@ -755,7 +753,9 @@ public class api {
      * @return YOUME_SUCCESS - 成功
      * 其他 - 具体错误码
      */
-    public static native int setVideoNetResolution(int width, int height);
+    public static int setVideoNetResolution(int width, int height) {
+        return NativeEngine.setVideoNetResolution(width, height);
+    }
 
     /**
      * 功能描述: 设置视频网络传输过程的分辨率 第二路低分辨率，默认不发送
@@ -765,7 +765,7 @@ public class api {
      * @return YOUME_SUCCESS - 成功
      * 其他 - 具体错误码
      */
-    public static native int setVideoNetResolutionForSecond(int width, int height);
+//    public static native int setVideoNetResolutionForSecond(int width, int height);
 
     /**
      * 功能描述: 设置共享视频网络传输过程的分辨率
@@ -775,7 +775,7 @@ public class api {
      * @return YOUME_SUCCESS - 成功
      * 其他 - 具体错误码
      */
-    public static native int setVideoNetResolutionForShare(int width, int height);
+//    public static native int setVideoNetResolutionForShare(int width, int height);
 
     /**
      * 功能描述: 设置视频数据上行的码率的上下限。
@@ -785,7 +785,7 @@ public class api {
      * @return None
      * @warning:需要在进房间之前设置
      */
-    public static native void setVideoCodeBitrate(int maxBitrate, int minBitrate);
+//    public static native void setVideoCodeBitrate(int maxBitrate, int minBitrate);
 
 
     /**
@@ -796,7 +796,7 @@ public class api {
      * @return None
      * @warning:需要在进房间之前设置
      */
-    public static native void setVideoCodeBitrateForSecond(int maxBitrate, int minBitrate);
+//    public static native void setVideoCodeBitrateForSecond(int maxBitrate, int minBitrate);
 
 
     /**
@@ -807,14 +807,14 @@ public class api {
      * @return None
      * @warning:需要在进房间之前设置
      */
-    public static native void setVideoCodeBitrateForShare(int maxBitrate, int minBitrate);
+//    public static native void setVideoCodeBitrateForShare(int maxBitrate, int minBitrate);
 
     /**
      * 功能描述: 获取视频数据上行的当前码率。
      *
      * @return 视频数据上行的当前码率
      */
-    public static native int getCurrentVideoCodeBitrate();
+//    public static native int getCurrentVideoCodeBitrate();
 
     /**
      * 功能描述: 设置视频编码是否采用VBR动态码率方式
@@ -822,7 +822,7 @@ public class api {
      * @return None
      * @warning:需要在进房间之前设置
      */
-    public static native void setVBR(boolean useVBR);
+//    public static native void setVBR(boolean useVBR);
 
 
     /**
@@ -831,7 +831,7 @@ public class api {
      * @return None
      * @warning:需要在进房间之前设置
      */
-    public static native void setVBRForSecond(boolean useVBR);
+//    public static native void setVBRForSecond(boolean useVBR);
 
     /**
      * 功能描述: 设置共享流视频编码是否采用VBR动态码率方式
@@ -839,7 +839,7 @@ public class api {
      * @return None
      * @warning:需要在进房间之前设置
      */
-    public static native int setVBRForShare(boolean useVBR);
+//    public static native int setVBRForShare(boolean useVBR);
 
     /**
      * 功能描述: 设置视频数据是否同意开启硬编硬解
@@ -849,7 +849,9 @@ public class api {
      * @note: 实际是否开启硬解，还跟服务器配置及硬件是否支持有关，要全部支持开启才会使用硬解。并且如果硬编硬解失败，也会切换回软解。
      * @warning:需要在进房间之前设置
      */
-    public static native void setVideoHardwareCodeEnable(boolean bEnable);
+    public static void setVideoHardwareCodeEnable(boolean bEnable) {
+        NativeEngine.setVideoHardwareCodeEnable(bEnable);
+    }
 
     /**
      * 功能描述: 获取视频数据是否同意开启硬编硬解
@@ -857,7 +859,9 @@ public class api {
      * @return true:开启，false:不开启， 默认为true;
      * @note: 实际是否开启硬解，还跟服务器配置及硬件是否支持有关，要全部支持开启才会使用硬解。并且如果硬编硬解失败，也会切换回软解。
      */
-    public static native boolean getVideoHardwareCodeEnable();
+    public static boolean getVideoHardwareCodeEnable() {
+        return NativeEngine.getVideoHardwareCodeEnable();
+    }
 
     /**
      * 功能描述: 获取是否使用GL进行视频前处理
@@ -865,21 +869,25 @@ public class api {
      * @return true:开启，false:不开启， 默认为true;
      * @note: 无。
      */
-    public static native boolean getUseGL();
+    public static boolean getUseGL() {
+        return NativeEngine.getUseGL();
+    }
 
     /**
      * 功能描述: 设置无视频帧渲染的等待超时时间
      *
      * @param timeout:单位毫秒
      */
-    public static native void setVideoNoFrameTimeout(int timeout);
+//    public static native void setVideoNoFrameTimeout(int timeout);
 
     /**
      * 功能描述: 设置音视频统计数据时间间隔
      *
      * @param interval:时间间隔
      */
-    public static native void setAVStatisticInterval(int interval);
+    public static void setAVStatisticInterval(int interval) {
+        NativeEngine.setAVStatisticInterval(interval);
+    }
 
 //    public static native int openVideoEncoder(String pFilePath);
 
@@ -898,34 +906,38 @@ public class api {
      * @return 0 - 成功
      * 其他 - 具体错误码
      */
-    public static native int setCaptureFrontCameraEnable(boolean enable);
+//    public static native int setCaptureFrontCameraEnable(boolean enable);
 
     /**
      *  功能描述: 设置视频帧率
      *  @param fps:帧率（1-60），默认15帧
      */
-//    public static native int setVideoPreviewFps(int fps);
+    public static int setVideoPreviewFps(int fps) {
+        return NativeEngine.setVideoPreviewFps(fps);
+    }
 
     /**
      * 功能描述: 设置视频帧率
      *
      * @param fps:帧率（1-60），默认15帧
      */
-    public static native int setVideoFps(int fps);
+    public static int setVideoFps(int fps) {
+        return NativeEngine.setVideoFps(fps);
+    }
 
     /**
      * 功能描述: 设置小流帧率 (如果大于大流帧率，以大流帧率为准)
      *
      * @param fps:帧率（1-30），默认15帧
      */
-    public static native int setVideoFpsForSecond(int fps);
+//    public static native int setVideoFpsForSecond(int fps);
 
     /**
      * 功能描述: 设置共享视频帧率
      *
      * @param fps:帧率（1-30），默认15帧
      */
-    public static native int setVideoFpsForShare(int fps);
+//    public static native int setVideoFpsForShare(int fps);
 
     /**
      * 功能描述:切换身份(仅支持单频道模式，进入房间以后设置)
@@ -933,7 +945,7 @@ public class api {
      * @param userRole: 用户身份
      * @return 错误码，详见YouMeConstDefine.h定义
      */
-    public static native int setUserRole(int userRole);
+//    public static native int setUserRole(int userRole);
 
 
     /**
@@ -941,7 +953,7 @@ public class api {
      *
      * @return 身份定义，详见YouMeConstDefine.h定义
      */
-    public static native int getUserRole();
+//    public static native int getUserRole();
 
 
     /**
@@ -950,14 +962,16 @@ public class api {
      * @param strChannelID:要查询的频道ID
      * @return true——在频道内，false——没有在频道内
      */
-    public static native boolean isInChannel(String strChannelID);
+//    public static native boolean isInChannel(String strChannelID);
 
     /**
      * 功能描述:查询是否在语音频道内
      *
      * @return true——在频道内，false——没有在频道内
      */
-    public static native boolean isJoined();
+    public static boolean isJoined() {
+        return NativeEngine.isJoined();
+    }
 
     /**
      *  功能描述:查询是否在语音频道内
@@ -974,7 +988,7 @@ public class api {
      *
      * @return true——正在播放，false——没有播放
      */
-    public static native boolean isBackgroundMusicPlaying();
+//    public static native boolean isBackgroundMusicPlaying();
 
 
     /**
@@ -982,7 +996,9 @@ public class api {
      *
      * @return true——完成，false——还未完成
      */
-    public static native boolean isInited();
+    public static boolean isInited() {
+        return NativeEngine.isInited();
+    }
 
     /**
      * 功能描述: 查询多个用户视频信息（支持分辨率）
@@ -991,7 +1007,7 @@ public class api {
      * @return YOUME_SUCCESS - 成功
      * 其他 - 具体错误码
      */
-    public static native int queryUsersVideoInfo(String[] userArray);
+//    public static native int queryUsersVideoInfo(String[] userArray);
 
     /**
      * 功能描述: 设置多个用户视频信息（支持分辨率）
@@ -1001,7 +1017,7 @@ public class api {
      * @return YOUME_SUCCESS - 成功
      * 其他 - 具体错误码
      */
-    public static native int setUsersVideoInfo(String[] userArray, int[] resolutionArray);
+//    public static native int setUsersVideoInfo(String[] userArray, int[] resolutionArray);
 
     ///摄像头相关
 
@@ -1011,14 +1027,14 @@ public class api {
      * @return YOUME_SUCCESS - 成功
      * 其他 - 具体错误码
      */
-    public static int startCapturer() {
+    public static int startCapture() {
         return NativeEngine.startCapture();
     }
 
     /***
      * 停止采集
      */
-    public static void stopCapturer() {
+    public static void stopCapture() {
         NativeEngine.stopCapture();
     }
 
@@ -1042,9 +1058,9 @@ public class api {
      * @param timestamp 时间戳
      * @return 成功/失败
      */
-    public static boolean inputAudioFrame(byte[] data, int len, long timestamp) {
-        return NativeEngine.inputAudioFrame(data, len, timestamp, 1, false);
-    }
+//    public static boolean inputAudioFrame(byte[] data, int len, long timestamp) {
+//        return NativeEngine.inputAudioFrame(data, len, timestamp, 1, false);
+//    }
 
     /**
      *  功能描述: 将提供的音频数据混合到麦克风或者扬声器的音轨里面
@@ -1055,17 +1071,17 @@ public class api {
      *  @param binterleaved 音频数据打包格式（仅对双声道有效）
      *  @return 成功/失败
      */
-//	public static boolean inputAudioFrameEx(byte[] data, int len, long timestamp, int channelnum, boolean binterleaved)
-//	{
-//		long realLen = data.length;
-//		if(realLen < 2 || len > realLen)
-//		{
-//			Log.e("YOUME", "inputAudioFrameEx data length error input len:"+ len +" real len:"+realLen );
-//			return false;
-//		}
-//
-//		return NativeEngine.inputAudioFrame( data, len , timestamp, channelnum, binterleaved );
-//	}
+	public static boolean inputAudioFrameEx(byte[] data, int len, long timestamp, int channelnum, boolean binterleaved)
+	{
+		long realLen = data.length;
+		if(realLen < 2 || len > realLen)
+		{
+			Log.e("YOUME", "inputAudioFrameEx data length error input len:"+ len +" real len:"+realLen );
+			return false;
+		}
+
+		return NativeEngine.inputAudioFrame( data, len , timestamp, channelnum, binterleaved );
+	}
 
     /**
      *  功能描述: 将多路音频数据流混合到麦克风或者扬声器的音轨里面。
@@ -1243,16 +1259,16 @@ public class api {
 //	}
 
     ///美颜相关
-    public static void openBeautify(boolean open) {
-        NativeEngine.openBeautify(open);
-    }
+//    public static void openBeautify(boolean open) {
+//        NativeEngine.openBeautify(open);
+//    }
 
     /***
      * 设置美颜, 0.0 - 1.0
      */
-    public static void setBeautyLevel(float level) {
-        NativeEngine.setBeautyLevel(level);
-    }
+//    public static void setBeautyLevel(float level) {
+//        NativeEngine.setBeautyLevel(level);
+//    }
 
     /**
      *  功能描述: 调用后同步完成麦克风释放，只是为了方便使用 IM 的录音接口时，临时切换麦克风使用权。
@@ -1330,7 +1346,7 @@ public class api {
      * @return YOUME_SUCCESS - 成功
      * 其他 - 具体错误码
      */
-    public static native int setVideoFrameRawCbEnabled(boolean enabled);
+//    public static native int setVideoFrameRawCbEnabled(boolean enabled);
 
     /**
      * 功能描述: 设置视频数据回调方式，硬编解码默认回调opengl纹理方式，使用该方法可以将解码数据回调yuv格式
@@ -1339,7 +1355,7 @@ public class api {
      * @return YOUME_SUCCESS - 成功
      * 其他 - 具体错误码
      */
-    public static native int setVideoDecodeRawCbEnabled(boolean enabled);
+//    public static native int setVideoDecodeRawCbEnabled(boolean enabled);
 
     /**
      *  功能描述: 获取摄像头是否支持变焦
@@ -1449,7 +1465,7 @@ public class api {
      * @return YOUME_SUCCESS - 成功
      * 其他 - 具体错误码
      */
-    public static native int switchResolutionForLandscape();
+//    public static native int switchResolutionForLandscape();
 
     /**
      * 功能描述: 设置视频预览镜像模式，目前仅对前置摄像头生效
@@ -1457,7 +1473,9 @@ public class api {
      * @return YOUME_SUCCESS - 成功
      * 其他 - 具体错误码
      */
-    public static native void setlocalVideoPreviewMirror(boolean enable);
+    public static void setlocalVideoPreviewMirror(boolean enable) {
+        NativeEngine.setlocalVideoPreviewMirror(enable);
+    }
 
     /**
      * 功能描述: 横竖屏变化时，通知sdk把分辨率切换到竖屏适配模式
@@ -1465,7 +1483,7 @@ public class api {
      * @return YOUME_SUCCESS - 成功
      * 其他 - 具体错误码
      */
-    public static native int resetResolutionForPortrait();
+//    public static native int resetResolutionForPortrait();
 
     /*
      * 功能：国际语言文本翻译

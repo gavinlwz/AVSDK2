@@ -5,8 +5,8 @@ import java.util.List;
 
 import java.util.ArrayList;
 
-//import com.youme.mixers.GLESVideoMixer;
-//import com.youme.mixers.VideoMixerHelper;
+import com.youme.mixers.GLESVideoMixer;
+import com.youme.mixers.VideoMixerHelper;
 import com.youme.engine.YouMeConst.YOUME_VIDEO_FMT;
 import com.youme.engine.YouMeConst.YouMeVideoMirrorMode;
 import com.youme.engine.video.GlUtil;
@@ -45,18 +45,15 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
 
     private final static int DEFAULE_WIDTH = 640;
     private final static int DEFAULE_HEIGHT = 480;
-    //    private final static int DEFAULE_FPS = 15;
+    private final static int DEFAULE_FPS = 15;
     private static int requestPermissionCount = 0;
     private static boolean isStopedByExternalNotify = false;
 
     private SurfaceView svCamera = null;
-    private TextureView tvCamera = null;
-    private SurfaceTexture stCamera = null;
     private int mTextureId = 0;
     private SurfaceTexture mSurfaceTexture = null;
     private Camera camera = null;
     Camera.Parameters camPara = null;
-    private long lastTicks = 0;
     private String camWhiteBalance;
     private String camFocusMode;
 
@@ -68,8 +65,6 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
     private static CameraMgr instance = new CameraMgr();
     private static WeakReference<Context> context = null;
 
-    private static boolean mErrorFlag = false;
-
     private boolean needLoseFrame = true;
     private boolean droped = false;
     private int frameCount = 0;
@@ -78,12 +73,7 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
     private int mFmt = 0;
     private int mWidth = 640;
     private int mHeight = 480;
-    private int mMirror = YouMeVideoMirrorMode.YOUME_VIDEO_MIRROR_MODE_AUTO;
     private static int mMirrorMode = 0;
-    private boolean isOpenBeauty = false;
-//    private CameraRender mCameraRender;
-
-    private static boolean enableBeauty = false;
 
     private boolean mAutoFocusLocked = false;
     private boolean mIsSupportAutoFocus = false;
@@ -104,8 +94,6 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
         Log.d(tag, "CameraMgr with svCamera");
         this.svCamera = svCamera;
         mHandler = new CameraControllerHandler(this);
-        //this.svCamera.getHolder().setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-        //this.svCamera.getHolder().addCallback(new YMSurfaceHolderCallback());
     }
 
     public static void init(Context ctx) {
@@ -117,8 +105,6 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
         Log.d(tag, "camera init Context:" + ctx);
         if (ctx instanceof Activity) {
             setRotation(((Activity) ctx).getWindowManager().getDefaultDisplay().getRotation());
-//    		if(getInstance().mCameraRender == null && enableBeauty)
-//    	    	   getInstance().mCameraRender = new CameraRender(ctx.getApplicationContext());
         } else {
             Log.w(tag, "camera init Context is not activity");
             screenOrientation = 0;
@@ -126,7 +112,6 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
     }
 
     public static void setLocalVideoMirrorMode(int mirror) {
-        // CameraMgr.getInstance().mMirror = mirror;
         mMirrorMode = mirror;
     }
 
@@ -179,7 +164,6 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
                 Log.d(tag, "Default Rotation!");
                 break;
         }
-        //setRotation(rotation);
 
         int cameraNum = Camera.getNumberOfCameras();
         CameraInfo cameraInfo = new CameraInfo();
@@ -189,27 +173,27 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
             if ((isFrontCamera) && (cameraInfo.facing == CameraInfo.CAMERA_FACING_FRONT)) {
                 orientation2 = (360 - cameraInfo.orientation + 360 - screenOrientation) % 360;
                 orientation = (360 - orientation2) % 360;  // compensate the mirror
-                Log.d(tag, "i:" + i + "orientation:" + orientation + " orientation2:" + orientation2 + " screenOrientation:" + screenOrientation);
+                Log.d(tag, "i:" + i + " cameraInfo.orientation:" + cameraInfo.orientation + " screenOrientation:" + screenOrientation);
                 break;
             } else if ((!isFrontCamera) && (cameraInfo.facing == CameraInfo.CAMERA_FACING_BACK)) {
                 orientation = (cameraInfo.orientation + 360 - screenOrientation) % 360;
                 orientation2 = orientation;//(360 - orientation) % 360;
-                Log.d(tag, "ii:" + i + "orientation:" + orientation + " orientation2:" + orientation2 + " screenOrientation:" + screenOrientation);
+                Log.d(tag, "i:" + i + " cameraInfo.orientation:" + cameraInfo.orientation + " screenOrientation:" + screenOrientation);
                 break;
             }
         }
 
         if (rotation != 0 && rotation != 2) {
             if (width > height) {
-                api.switchResolutionForLandscape();
+                NativeEngine.switchResolutionForLandscape();
             } else {
-                api.resetResolutionForPortrait();
+                NativeEngine.resetResolutionForPortrait();
             }
         } else {
             if (width > height) {
-                api.switchResolutionForLandscape();
+                NativeEngine.switchResolutionForLandscape();
             } else {
-                api.resetResolutionForPortrait();
+                NativeEngine.resetResolutionForPortrait();
             }
         }
 
@@ -219,35 +203,7 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
         return orientation == 90 || orientation == 270;
     }
 
-//    public static void Beauty(boolean enable)
-//    {
-//    	enableBeauty = enable;
-//    	if(getInstance().mCameraRender == null && enableBeauty && context != null){
-//    		if( context!=null && context.get()!=null&& context.get() instanceof Activity )
-//    		{
-//    			getInstance().mCameraRender = new CameraRender(context.get().getApplicationContext());
-//    		}
-//    	}
-
-//    }
-
-//    public void setBeatuyChange(float level){
-//    	if(!enableBeauty){
-//            if(isOpenBeauty)
-//                isOpenBeauty = false;
-//            return;
-//        }
-//        if (level < 0.0f || level > 1.0f)
-//            return;
-//        if(level == 0.0f)
-//            isOpenBeauty = false;
-//        else
-//            isOpenBeauty = true;
-//        mCameraRender.setBeautyLevel(level);
-//    }
-
     public int openCamera(boolean isFront) {
-        Log.d(tag, "openCamera enableBeauty:" + enableBeauty + " isOpenBeauty:" + isOpenBeauty);
         if (null != camera) {
             closeCamera();
         }
@@ -282,7 +238,6 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
             return -1;
         }
 
-        mErrorFlag = false;
         camera.setErrorCallback(new android.hardware.Camera.ErrorCallback() {
             @Override
             public void onError(int error, android.hardware.Camera camera) {
@@ -293,13 +248,12 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
                     errorMessage = "Camera error: " + error;
                 }
 
-                mErrorFlag = true;
                 Log.e(tag, "camera error:" + errorMessage);
-                api.stopCapturer();
+                NativeEngine.stopCapture();
             }
         });
 
-        //   dumpCameraInfo(camera, cameraId);
+        dumpCameraInfo(camera, cameraId);
 
         try {
             camPara = camera.getParameters();
@@ -328,20 +282,11 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
             return -2;
         }
 
-        ///每个参数单独设置下，避免一个设置不成功，导致全都不对
-//		try {
-//			camera.setParameters(camPara);
-//		} catch(Exception e) {
-//			e.printStackTrace();
-//		}
-
         try {
             mFmt = YOUME_VIDEO_FMT.VIDEO_FMT_NV21;
-            //p.setPreviewSize(352, 288);
             camPara.setPreviewFormat(ImageFormat.NV21);
         } catch (Exception e) {
             e.printStackTrace();
-//			camera = null;
             Log.e(tag, "nv21 failed,try yv12");
             mFmt = YOUME_VIDEO_FMT.VIDEO_FMT_YV12;
             try {
@@ -358,6 +303,7 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         try {
             //设置自动对焦
             List<String> focusModes = camPara.getSupportedFocusModes();
@@ -375,12 +321,9 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
             e.printStackTrace();
         }
 
-//        List<int[]> fpsRangeList = camPara.getSupportedPreviewFpsRange();
-        //camPara.setPreviewFpsRange(VideoMgr.getFps() * 1000, VideoMgr.getFps() * 1000);
         camPara.setPreviewFpsRange(VideoMgr.getFps() * 1000, VideoMgr.getFps() * 1000);
         Log.i(tag, "minfps = " + (VideoMgr.getFps() * 1000) + " maxfps = " + (VideoMgr.getFps() * 1000));
-        //camera.setDisplayOrientation(90);
-        //mCamera.setPreviewCallback(new H264Encoder(352, 288));
+
         camWhiteBalance = camPara.getWhiteBalance();
         camFocusMode = camPara.getFocusMode();
         Log.d(tag, "white balance = " + camWhiteBalance + ", focus mode = " + camFocusMode);
@@ -392,6 +335,7 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
             setCatpturePreViewFps();
             e.printStackTrace();
         }
+
         mFps = VideoMgr.getFps();
         int mFrameWidth = camPara.getPreviewSize().width;
         int mFrameHeigth = camPara.getPreviewSize().height;
@@ -405,22 +349,15 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
         }
 
         if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) && (null == svCamera)) {
-//        	if(enableBeauty){
-//                mSurfaceTexture = mCameraRender.getSurfaceTexture();
-//                mSurfaceTexture.setOnFrameAvailableListener(onFrameAvailableListener);
-//        	}
-//        	else{
-//            GLESVideoMixer.SurfaceContext surfaceContext = VideoMixerHelper.getCameraSurfaceContext();
-//            if (surfaceContext != null) {
-//                mTextureId = surfaceContext.textureId;
-//                mSurfaceTexture = surfaceContext.surfaceTexture;
-//                if (useEGL) mSurfaceTexture.setOnFrameAvailableListener(onFrameAvailableListener);
-//            } else
-                {
+            GLESVideoMixer.SurfaceContext surfaceContext = VideoMixerHelper.getCameraSurfaceContext();
+            if (surfaceContext != null) {
+                mTextureId = surfaceContext.textureId;
+                mSurfaceTexture = surfaceContext.surfaceTexture;
+                if (useEGL) mSurfaceTexture.setOnFrameAvailableListener(onFrameAvailableListener);
+            } else {
                 mTextureId = GlUtil.generateTexture(GLES11Ext.GL_TEXTURE_EXTERNAL_OES);
                 mSurfaceTexture = new SurfaceTexture(mTextureId);
             }
-//        	}
 
             try {
                 camera.setPreviewTexture(mSurfaceTexture);
@@ -457,15 +394,6 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
         totalTime = 0;
         frameCount = 0;
         isFrontCamera = isFront;
-        mMirror = mMirrorMode;
-//        if(enableBeauty){
-//           mCameraRender.setOrientation(orientation);
-//           mCameraRender.setOutputSize(mWidth, mHeight);
-//           mCameraRender.setFps(mFps);
-//           mCameraRender.setFirstCamera(isFrontCamera);
-//           mCameraRender.startRender();
-//        }
-
         return 0;
     }
 
@@ -497,38 +425,28 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
                 e.printStackTrace();
             }
         }
-//        if(enableBeauty)
-//           mCameraRender.stopRender();
+
         return 0;
     }
 
     public void setSvCamera(SurfaceView svCamera) {
         this.svCamera = svCamera;
-        //this.svCamera.getHolder().addCallback(new YMSurfaceHolderCallback());
-        //this.svCamera.getHolder().setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
     }
 
     private SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener = new SurfaceTexture.OnFrameAvailableListener() {
-
         @Override
         public void onFrameAvailable(SurfaceTexture surfaceTexture) {
-            if (isOpenBeauty)
-                pushVideoFrame(null);
-//            else if(enableBeauty)
-//                mCameraRender.frameAvailable(mSurfaceTexture, false);
-            else {
-                int mirror = mMirrorMode;
-                if (isFrontCamera) {
-                    if (YouMeVideoMirrorMode.YOUME_VIDEO_MIRROR_MODE_AUTO == mirror) { //自适应模式下，近端/远端都镜像
-                        mirror = YouMeVideoMirrorMode.YOUME_VIDEO_MIRROR_MODE_FAR;
-                    } else if (YouMeVideoMirrorMode.YOUME_VIDEO_MIRROR_MODE_FAR == mirror) {
-                        mirror = YouMeVideoMirrorMode.YOUME_VIDEO_MIRROR_MODE_ENABLED;  // 前置摄像头预览默认为镜像模式，关闭镜像则是再镜像一次
-                    }
-                } else {
-                    mirror = YouMeVideoMirrorMode.YOUME_VIDEO_MIRROR_MODE_DISABLED;
+            int mirror = mMirrorMode;
+            if (isFrontCamera) {
+                if (YouMeVideoMirrorMode.YOUME_VIDEO_MIRROR_MODE_AUTO == mirror) { //自适应模式下，近端/远端都镜像
+                    mirror = YouMeVideoMirrorMode.YOUME_VIDEO_MIRROR_MODE_FAR;
+                } else if (YouMeVideoMirrorMode.YOUME_VIDEO_MIRROR_MODE_FAR == mirror) {
+                    mirror = YouMeVideoMirrorMode.YOUME_VIDEO_MIRROR_MODE_ENABLED;  // 前置摄像头预览默认为镜像模式，关闭镜像则是再镜像一次
                 }
-                api.inputVideoFrameGLES(mTextureId, null, mWidth, mHeight, YOUME_VIDEO_FMT.VIDEO_FMT_TEXTURE_OES, orientation2, mirror, System.currentTimeMillis());
+            } else {
+                mirror = YouMeVideoMirrorMode.YOUME_VIDEO_MIRROR_MODE_DISABLED;
             }
+            api.inputVideoFrameGLES(mTextureId, null, mWidth, mHeight, YOUME_VIDEO_FMT.VIDEO_FMT_TEXTURE_OES, orientation2, mirror, System.currentTimeMillis());
         }
     };
 
@@ -543,7 +461,6 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
             }
         }
     };
-
 
     private void pushVideoFrame(byte[] data) {
         int mirror = mMirrorMode;
@@ -562,8 +479,6 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
                 frameCount++;
                 if (data != null)
                     api.inputVideoFrame(data, data.length, mWidth, mHeight, mFmt, orientation, mirror, System.currentTimeMillis());
-//                else if(enableBeauty)
-//                	mCameraRender.frameAvailable(mSurfaceTexture, true);
             } else {
                 droped = true;
             }
@@ -577,10 +492,7 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
         } else {
             if (data != null)
                 api.inputVideoFrame(data, data.length, mWidth, mHeight, mFmt, orientation, mirror, System.currentTimeMillis());
-//        	else if(enableBeauty)
-//        		mCameraRender.frameAvailable(mSurfaceTexture, true);
         }
-
     }
 
     public static int startCapture() {
@@ -594,10 +506,6 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
         Log.i(tag, "stop capture is called.");
         CameraMgr.getInstance().closeCamera();
 
-        if (mErrorFlag) {
-            mErrorFlag = false;
-            ret = 1;
-        }
         return ret;
     }
 
@@ -611,11 +519,6 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
             CameraMgr.getInstance().setCameraMgrAutoFocusFaceModeEnabled(true);
         return ret;
     }
-
-//    public static void setBeautyLevel(float level){
-//    	Log.i(tag, "setBeautyLevel is level:"+level);
-//    	CameraMgr.getInstance().setBeatuyChange(level);
-//    }
 
     public static boolean isCameraZoomSupported() {
         return CameraMgr.getInstance().isCameraMgrZoomSupported();
@@ -684,11 +587,6 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
                 camera.setParameters(parameters);
                 return zoom / ratio;
             } else {
-//    	    	  List<Integer> list = parameters.getZoomRatios();
-//    	    	  Log.i(tag, "camera ratios:");
-//    	    	  for(int i = 0; i < list.size(); i++){
-//    	    		  Log.i(tag, " " +list.get(i));
-//    	    	  }
                 Log.i(tag, "camera set zoom out max :" + parameters.getMaxZoom() / ratio);
                 return parameters.getZoom() / ratio;
             }
@@ -706,10 +604,7 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
     }
 
     public boolean setCameraMgrFocusPositionInPreview(float x, float y) {
-        if (!mIsSupportAutoFocus &&
-                !mIsSupportAutoFocusContinuousPicture ||
-                camera == null) {
-
+        if (!mIsSupportAutoFocus && !mIsSupportAutoFocusContinuousPicture || camera == null) {
             return false;
         }
 
@@ -724,7 +619,6 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
             focusY = focusX;
             focusX = tmp;
         }
-
 
         try {
             mAutoFocusLocked = true;
@@ -780,7 +674,6 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
                     parameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
                 else
                     parameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
-
             }
             camera.setParameters(parameters);
             return true;
@@ -803,6 +696,7 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
             e.printStackTrace();
         }
         Log.i(tag, "camera not supported auto face focus!");
+
         return false;
     }
 
@@ -825,9 +719,8 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         return false;
-
-
     }
 
 
@@ -895,7 +788,6 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
 
     @Override
     public void onAutoFocus(boolean success, Camera camera) {
-
         mHandler.sendEmptyMessageDelayed(RESET_TOUCH_FOCUS, RESET_TOUCH_FOCUS_DELAY);
         mAutoFocusLocked = false;
         if (mFocusCallback != null)
@@ -961,9 +853,7 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
                 int cameraPermission = ContextCompat.checkSelfPermission((Activity) mContext, Manifest.permission.CAMERA);
                 if (cameraPermission != PackageManager.PERMISSION_GRANTED) {
                     Log.w(tag, "Request for camera permission");
-                    ActivityCompat.requestPermissions((Activity) context.get(),
-                            new String[]{Manifest.permission.CAMERA},
-                            9);
+                    ActivityCompat.requestPermissions((Activity) context.get(), new String[]{Manifest.permission.CAMERA}, 9);
                     // Start a thread to check if the permission is granted. Once it's granted, reset the microphone to apply it.
                     if (mPermissionCheckThread != null) {
                         mPermissionCheckThread.interrupt();
@@ -1020,43 +910,7 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
         }
     }
 
-//    public void setTvCamera(TextureView tvCamera) {
-//		this.tvCamera = tvCamera;
-//		this.tvCamera.setSurfaceTextureListener(new YMTextureListener());
-//	}
-
-    class YMTextureListener implements TextureView.SurfaceTextureListener {
-
-        @Override
-        public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
-            // TODO Auto-generated method stub
-            Log.e(tag, "onSurfaceTextureAvailable is called.");
-            stCamera = surface;
-        }
-
-        @Override
-        public boolean onSurfaceTextureDestroyed(SurfaceTexture surface) {
-            // TODO Auto-generated method stub
-            Log.e(tag, "onSurfaceTextureDestroyed is called.");
-            return false;
-        }
-
-        @Override
-        public void onSurfaceTextureSizeChanged(SurfaceTexture surface, int width, int height) {
-            // TODO Auto-generated method stub
-            Log.e(tag, "onSurfaceTextureSizeChanged is called.");
-        }
-
-        @Override
-        public void onSurfaceTextureUpdated(SurfaceTexture surface) {
-            // TODO Auto-generated method stub
-            Log.e(tag, "onSurfaceTextureUpdated is called.");
-        }
-
-    }
-
     class YMSurfaceHolderCallback implements SurfaceHolder.Callback {
-
         @Override
         public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
             // TODO Auto-generated method stub
@@ -1084,9 +938,7 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
      * @param preSizeList   需要对比的预览尺寸列表
      * @return 得到与原宽高比例最接近的尺寸
      */
-    protected Camera.Size getCloselyPreSize(int surfaceWidth, int surfaceHeight,
-                                            List<Camera.Size> preSizeList, boolean mIsPortrait) {
-
+    protected Camera.Size getCloselyPreSize(int surfaceWidth, int surfaceHeight, List<Camera.Size> preSizeList, boolean mIsPortrait) {
         int ReqTmpWidth;
         int ReqTmpHeight;
         // 当屏幕为垂直的时候需要把宽高值进行调换，保证宽大于高
@@ -1129,20 +981,6 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
             }
         }
 
-        // 得到与传入的宽高比最接近的size
-//        float reqRatio = ((float) ReqTmpWidth) / ReqTmpHeight;
-//        float curRatio, deltaRatio;
-//        float deltaRatioMin = Float.MAX_VALUE;
-//        Camera.Size retSize = null;
-//        for (Camera.Size size : preSizeList) {
-//            curRatio = ((float) size.width) / size.height;
-//            deltaRatio = Math.abs(reqRatio - curRatio);
-//            if (deltaRatio < deltaRatioMin) {
-//                deltaRatioMin = deltaRatio;
-//                retSize = size;
-//            }
-//        }
-
         return retSize;
     }
 
@@ -1183,12 +1021,12 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
     }
 
     public static Rect calculateTapArea(float x, float y, float coefficient, int orientation) {
-
         if (orientation == 90 || orientation == 270) {
             float tmp = x;
             x = y;
             y = tmp;
         }
+
         float focusAreaSize = 200;
         int areaSize = Float.valueOf(focusAreaSize * coefficient).intValue();
         int centerX = (int) (x * 2000 - 1000);
@@ -1211,6 +1049,4 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
         }
         return x;
     }
-
-
 }

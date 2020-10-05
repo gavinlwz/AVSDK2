@@ -3,27 +3,9 @@ import com.youme.engine.VideoMgr.VideoFrameCallback;
 
 public class IYouMeVideoCallback {
 
-//	public static YouMeVideoCallbackInterface callback = null;
 	public static VideoFrameCallback mVideoFrameRenderCallback = null;
 	public static VideoFrameCallback mVideoFrameExternalCallback = null;
-//	public static YouMeVideoPreDecodeCallbackInterface mVideoPreDecodeCallback = null;
-//	public static void FrameRender(int renderId, int width, int height, int rotationDegree, byte[] yuvframe) 
-//	{
-//		//Log.i("YouMeApi", "IYouMeVideoCallback FrameRender");
-//		
-//		if (callback != null){
-//			callback.FrameRender(renderId, width, height, rotationDegree, yuvframe);
-//		}
-//	}
-//	
-//	public static void FrameRenderGLES(int renderId, int width, int height, int type, int texture, float[]matrix){
-//		if (callback != null){
-//			callback.FrameRenderGLES(renderId, width, height, type, texture, matrix);
-//			
-//			//Log.d("YouMeApi", "IYouMeVideoCallback FrameRenderGLES texture:"+texture + " w:" +width+" h:"+height);
-//		}
-//	}
-	
+
 	public static void onVideoFrameCallback(String userId, byte[] data, int len, int width, int height, int fmt, long timestamp) {
 		if(null != mVideoFrameRenderCallback) {
 			mVideoFrameRenderCallback.onVideoFrameCallback(userId, data, len, width, height, fmt, timestamp);
@@ -66,12 +48,4 @@ public class IYouMeVideoCallback {
 		}
 	    return 0;
 	}
-
-//	public static void onVideoPreDecode(String userID, byte[] data, int dataSizeInByte, long timestamp)
-//	{
-//		if (null != mVideoPreDecodeCallback)
-//		{
-//			mVideoPreDecodeCallback.onVideoPreDecode(userID, data, dataSizeInByte, timestamp);
-//		}
-//	}
 }

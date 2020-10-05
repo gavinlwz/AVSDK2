@@ -8,5 +8,5 @@ public interface YouMeCustomDataCallbackInterface {
 	 * @param timestamp     
 	 * @return void
 	 */
-	public void onRecvCustomData(byte[] data, long timestamp);
+
 }

@@ -423,8 +423,4 @@ public class AudioMgr {
             Log.i("AudioMgr", "hasHeadSet:" + hasHeadSet + " isBluetoothOn:" + isBluetoothOn + " output2Speaker:" + mIsOutputToSpeaker);
         }
     }
-
-//    public static void setAudioFrameCallback(YouMeAudioCallbackInterface callback) {
-//        IYouMeAudioCallback.callback = callback;
-//    }
 }

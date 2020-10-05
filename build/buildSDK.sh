@@ -177,6 +177,13 @@ if [ "${curFFMpegSupport}"x != "${ffmpegSupport}"x ]; then
 	print_and_exit "修改version.h中的 FFMPEG_SUPPORT 为${ffmpegSupport} 失败"
 fi
 
+#清空Output目录
+if [[ $BuildClean != "no" ]]; then
+	if [ -d ../Output ]; then
+		rm -rf ../Output/$ENGINE_NAME
+	fi
+fi
+
 ################################################################################
 # 开始编译 SDK
 ################################################################################
@@ -191,10 +198,10 @@ if [[ $BuildIos != "no" ]]; then
 	rm -rf ../SDKTest/iosSample/SDK/include/*
 	rm -rf ../SDKTest/iosSample/SDK/libs/*
 	mkdir -p ../SDKTest/iosSample/SDK/include/
-	cp ../../Output/$ENGINE_NAME/include/*  ../SDKTest/iosSample/SDK/include/
+	cp ../Output/$ENGINE_NAME/include/*  ../SDKTest/iosSample/SDK/include/
 	show_result $? "复制SDK头文件到SDKTest iOS工程"
 	mkdir -p ../SDKTest/iosSample/SDK/libs/
-	cp ../../Output/$ENGINE_NAME/lib/ios/Release-universal/*.a  ../SDKTest/iosSample/SDK/libs/
+	cp ../Output/$ENGINE_NAME/lib/ios/Release-universal/*.a  ../SDKTest/iosSample/SDK/libs/
 	show_result $? "复制SDK库文件到SDKTest iOS工程"
 fi #BuildIos
 
@@ -229,60 +236,3 @@ if [[ $BuildMacOS != "no" ]]; then
 	show_result $? "复制SDK库文件到YmVoiceMacRef工程"
 fi #BuildMacOS
 
-
-#清空Output目录
-if [[ $BuildClean != "no" ]]; then
-	if [ -d ../../Output ]; then
-		rm -rf ../../Output/$ENGINE_NAME
-	fi
-fi
-
-#复制SDK头文件
-#SDK_INCLUDE_PATH="../../Output/${SDK_OUTPUT_DIR}/include"
-#if [ ! -d ${SDK_INCLUDE_PATH} ]; then
-#    mkdir -p ${SDK_INCLUDE_PATH}
-#    check_error $? "创建SDK头文件Output目录"
-#fi
-
-#EXPORT_HEADER_PATH="../youme_voice_engine/bindings/cocos2d-x/interface"
-#cp ${EXPORT_HEADER_PATH}/YouMeConstDefine.h  ${SDK_INCLUDE_PATH}
-#check_error $? "复制SDK头文件YouMeConstDefine.h到Output目录"
-#cp ${EXPORT_HEADER_PATH}/IYouMeVoiceEngine.h  ${SDK_INCLUDE_PATH}
-#check_error $? "复制SDK头文件IYouMeVoiceEngine.h到Output目录"
-#cp ${EXPORT_HEADER_PATH}/IYouMeEventCallback.h  ${SDK_INCLUDE_PATH}
-#check_error $? "复制SDK头文件IYouMeEventCallback.h到Output目录"
-#cp ${EXPORT_HEADER_PATH}/IYouMeVideoCallback.h  ${SDK_INCLUDE_PATH}
-#check_error $? "复制SDK头文件IYouMeVideoCallback.h到Output目录"
-
-#cp ${EXPORT_HEADER_PATH}/../objc/YMVoiceService.h  ${SDK_INCLUDE_PATH}
-#check_error $? "复制SDK头文件YMVoiceService.h到Output目录"
-#cp ${EXPORT_HEADER_PATH}/../objc/VoiceEngineCallback.h  ${SDK_INCLUDE_PATH}
-#check_error $? "复制SDK头文件VoiceEngineCallback.h到Output目录"
-#cp ${EXPORT_HEADER_PATH}/../objc/OpenGLView20.h  ${SDK_INCLUDE_PATH}
-#check_error $? "复制SDK头文件OpenGLView20.h到Output目录"
-#cp ${EXPORT_HEADER_PATH}/../objc/OpenGLESView.h  ${SDK_INCLUDE_PATH}
-#check_error $? "复制SDK头文件OpenGLESView.h到Output目录"
-
-#打包SDK
-if [[ $BuildSdkPkg != "no" ]]; then
-	if [[ $BuildMini != "no" ]]; then
-		SdkNameSuffix="${nextBuildVersion}_min"
-	elif [[ $BuildFfmpeg != "no" ]]; then
-		SdkNameSuffix="${nextBuildVersion}"
-	else
-		SdkNameSuffix="${nextBuildVersion}_no_bgm"
-	fi
-
-	if [[ $BuildAndroid != "no" ]]; then
-			./buildSDKPackages.sh android        ${SdkNameSuffix}
-			./buildSDKPackages.sh android_symbol ${SdkNameSuffix}
-	fi
-
-	if [[ $BuildIos != "no" ]]; then
-		./buildSDKPackages.sh ios ${SdkNameSuffix}
-	fi
-
-	if [[ $BuildMacOS != "no" ]]; then
-		./buildSDKPackages.sh macos            ${SdkNameSuffix} ${BuildUpload}
-	fi
-fi

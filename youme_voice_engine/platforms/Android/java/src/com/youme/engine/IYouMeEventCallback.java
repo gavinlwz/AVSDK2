@@ -4,11 +4,10 @@ import org.json.JSONArray;
 
 public class IYouMeEventCallback {
 	public static YouMeCallBackInterface callBack=null;
-	public static YouMeCustomDataCallbackInterface mCustomDataCallback = null;
 	public static void onEvent (int eventType, int iErrorCode, String channel, String param)
 	{
 
-		if(callBack!=null){
+		if(callBack != null){
 			callBack.onEvent(eventType, iErrorCode, channel, param);
 		}
 	}
@@ -67,19 +66,20 @@ public class IYouMeEventCallback {
 			callBack.onAVStatistic( avType, userID, value );
 		}
 	}
-	public static void onRecvCustomData(byte[] data,long timeSpan)
-	{
-		if (null != mCustomDataCallback)
-		{
-			mCustomDataCallback.onRecvCustomData(data,timeSpan);
-		}
-	}
 
 	public static void onTranslateTextComplete( int errorcode, int requestID, String text, int srcLangCode, int destLangCode )
 	{
 		if (callBack != null )
 		{
 			callBack.onTranslateTextComplete( errorcode, requestID, text, srcLangCode,  destLangCode);
+		}
+	}
+
+	public static void onRecvCustomData(byte[] data,long timeSpan)
+	{
+		if (callBack != null)
+		{
+			callBack.onRecvCustomData(data,timeSpan);
 		}
 	}
 }

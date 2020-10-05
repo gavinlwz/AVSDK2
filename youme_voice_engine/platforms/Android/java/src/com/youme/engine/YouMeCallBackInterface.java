@@ -13,15 +13,6 @@ public interface YouMeCallBackInterface {
 	public  void onAVStatistic( int avType,  String userID, int value );
 
 	public  void onTranslateTextComplete( int errorcode, int requestID, String text, int srcLangCode, int destLangCode );
-	/*****
-	
-	public  void onInitEvent (int eventType, int iErrorCode);
-	
-	public  void onCallEvent (int eventType, int iErrorCode, String strRoomId);
-	
-	public  void OnCommonEventStatus(int eventType,String strUserID,int iStatus);
-	
-	public  void OnMemberChangeMsg(String[] userIDs, String strRoomId);
-	
-	*****/
+
+	public void onRecvCustomData(byte[] data, long timestamp);
 }

@@ -469,7 +469,6 @@ void AVStatisticImpl::NotifyStartVideo()
 {
     std::lock_guard<std::mutex> lock(m_dataMutex);
     m_nVideoBeginTime = tsk_time_now();
-    
 }
 
 void AVStatisticImpl::NotifyGetRenderFrame()

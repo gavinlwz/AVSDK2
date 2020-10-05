@@ -927,7 +927,6 @@ public class VideoCapturerActivity extends Activity implements YouMeCallBackInte
 
         api.setFarendVoiceLevelCallback(10);
 
-
         //调用这个方法来设置时间间隔
 //        api.setAVStatisticInterval(_reportInterval);
 

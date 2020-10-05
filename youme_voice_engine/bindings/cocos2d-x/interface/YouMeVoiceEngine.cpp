@@ -5854,9 +5854,10 @@ void CYouMeVoiceEngine::doVideoInputStatusChgReport(int inputStatus, YouMeErrorC
             return;
         }
         
+        //通知服务器，用户视频输入状态
         m_loginService.videoInputStatusChgReport(mStrUserID, mSessionID, inputStatus);
+
         this->m_bInputVideoIsOpen = inputStatus ? true : false;
-        
         AVStatistic::getInstance()->NotifyVideoStat( mStrUserID,  m_bInputVideoIsOpen );
         
         if (this->m_bInputVideoIsOpen) {
@@ -10382,13 +10383,7 @@ YouMeErrorCode CYouMeVoiceEngine::startCapture()
     JNI_startRequestPermissionForApi23_camera();
 #endif
 
-   /* if (!isStateInitialized()) {
-        TSK_DEBUG_ERROR("== wrong state:%s", stateToString(mState));
-        return YOUME_ERROR_WRONG_STATE;
-    }
-    */
     YouMeErrorCode ret = ICameraManager::getInstance()->startCapture();
-
     if(YOUME_SUCCESS == ret) {
         AVStatistic::getInstance()->NotifyStartVideo();
         AVStatistic::getInstance()->NotifyVideoStat( mStrUserID,  true );

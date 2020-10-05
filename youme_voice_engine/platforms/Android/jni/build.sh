@@ -37,7 +37,8 @@ fi
 done
 
 #准备目录
-SDK_PATH="../../../../Output/youme_voice_engine"
+OUTPUT_PATH="../../../../Output"
+SDK_PATH="$OUTPUT_PATH/youme_voice_engine"
 LIB_PATH="$SDK_PATH/lib"
 SYMBOL_PATH="$SDK_PATH/symbol"
 if [ ! -d $SDK_PATH ]; then
@@ -47,8 +48,9 @@ fi
 
 ARMV5_PATH="$LIB_PATH/android/armeabi"
 ARMV7_PATH="$LIB_PATH/android/armeabi-v7a"
+ARM64_PATH="$LIB_PATH/android/arm64-v8a"
 X86_PATH="$LIB_PATH/android/x86"
-arm64_PATH="$LIB_PATH/android/arm64-v8a"
+X86_64_PATH="$LIB_PATH/android/x86_64"
 if [ ! -d $ARMV5_PATH ]; then
 mkdir -p $ARMV5_PATH
 fi
@@ -57,18 +59,25 @@ if [ ! -d $ARMV7_PATH ]; then
 mkdir -p $ARMV7_PATH
 fi
 
-if [ ! -d $X86_PATH ]; then
-mkdir -p $X86_PATH
-fi
-
 if [ ! -d $arm64_PATH ]; then
 mkdir -p $arm64_PATH
 fi
 
+if [ ! -d $X86_PATH ]; then
+mkdir -p $X86_PATH
+fi
+
+if [ ! -d $X86_64_PATH ]; then
+mkdir -p $X86_64_PATH
+fi
+
 ARMV5_SYMBOL_PATH="$SYMBOL_PATH/android/armeabi"
 ARMV7_SYMBOL_PATH="$SYMBOL_PATH/android/armeabi-v7a"
+ARM64_SYMBOL_PATH="$SYMBOL_PATH/android/arm64-v8a"
 X86_SYMBOL_PATH="$SYMBOL_PATH/android/x86"
-Arm64_SYMBOL_PATH="$SYMBOL_PATH/android/arm64-v8a"
+X86_64_SYMBOL_PATH="$SYMBOL_PATH/android/x86_64"
+
+
 if [ ! -d $ARMV5_SYMBOL_PATH ]; then
 mkdir -p $ARMV5_SYMBOL_PATH
 fi
@@ -77,12 +86,16 @@ if [ ! -d $ARMV7_SYMBOL_PATH ]; then
 mkdir -p $ARMV7_SYMBOL_PATH
 fi
 
+if [ ! -d $ARM64_SYMBOL_PATH ]; then
+mkdir -p $ARM64_SYMBOL_PATH
+fi
+
 if [ ! -d $X86_SYMBOL_PATH ]; then
 mkdir -p $X86_SYMBOL_PATH
 fi
 
-if [ ! -d $Arm64_SYMBOL_PATH ]; then
-mkdir -p $Arm64_SYMBOL_PATH
+if [ ! -d $X86_64_SYMBOL_PATH ]; then
+mkdir -p $X86_64_SYMBOL_PATH
 fi
 
 if [[ "$CleanType" = "yes" ]]; then
@@ -114,7 +127,7 @@ FFMPEG_SUPPORT="0"
 fi
 
 function buildSO(){
-    ndk-build -j8 TARGET_PLATFORM=android-14 APP_ABI="armeabi armeabi-v7a x86" NEON=1 FFMPEG=${FFMPEG_SUPPORT} TMediaDump=${TMediadump} RSCode=${RSCode}
+    ndk-build -j8 TARGET_PLATFORM=android-14 APP_ABI="armeabi armeabi-v7a x86 " NEON=1 FFMPEG=${FFMPEG_SUPPORT} TMediaDump=${TMediadump} RSCode=${RSCode}
     check_result $? "编译 Android 非64位动态库"
 
     cp ../libs/armeabi/libyoume_voice_engine.so $ARMV5_PATH/
@@ -145,18 +158,18 @@ function buildSO64(){
     ndk-build -j8 TARGET_PLATFORM=android-21 APP_ABI="arm64-v8a" NEON=1 FFMPEG=${FFMPEG_SUPPORT} TMediaDump=${TMediadump} RSCode=${RSCode}
     check_result $? "编译 Android 64位动态库"
 
-    cp ../libs/arm64-v8a/libyoume_voice_engine.so $arm64_PATH/
+    cp ../libs/arm64-v8a/libyoume_voice_engine.so $ARM64_PATH/
     check_result $? "复制 Android arm64-v8a so"
 
-    cp ../obj/local/arm64-v8a/libyoume_voice_engine.so $Arm64_SYMBOL_PATH/
+    cp ../obj/local/arm64-v8a/libyoume_voice_engine.so $ARM64_SYMBOL_PATH/
     check_result $? "复制 Android arm64-v8a symbol so"   
+
 }
 
 
 function buildJar(){
     pushd ../java
-    rm -rf ./bin
-    rm -rf ./build
+
     # 编译
     #ant debug
     sh build.sh
@@ -170,13 +183,9 @@ function buildJar(){
     fi
 }
 
-if [[ $OnlyJar == "jar" ]];then
-    buildJar
-else
-    buildSO
-    buildSO64
-    buildJar
-fi
+buildSO
+buildSO64
+buildJar
 
 
 

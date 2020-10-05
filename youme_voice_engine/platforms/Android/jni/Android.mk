@@ -97,12 +97,6 @@ endif
 
 LOCAL_LDLIBS := -llog -lOpenSLES -lz -lGLESv2
 
-#ifeq ($(TARGET_ARCH_ABI),x86)
-#LOCAL_STATIC_LIBRARIES = ssl_x86 crypto_x86
-#else
-#LOCAL_STATIC_LIBRARIES = ssl crypto
-#endif
-
 
 include $(BUILD_SHARED_LIBRARY)
 $(call import-module,../../../tinySAK/jni)
@@ -120,29 +114,6 @@ endif
 $(call import-module,../../../thirdparties/common/src/soundtouch/source/Android-lib/jni/)
 $(call import-module,../../../ffmpegPlayer/jni)
 
-
-
-#include $(CLEAR_VARS)
-#LOCAL_PATH = .
-#ifeq ($(TARGET_ARCH_ABI),x86)
-#LOCAL_MODULE := ssl_x86
-#LOCAL_SRC_FILES := $(LOCAL_PATH)/../thirdparties/android/x86/lib/libssl.a
-#else
-#LOCAL_MODULE := ssl
-#LOCAL_SRC_FILES := $(LOCAL_PATH)/../thirdparties/android/armeabi-v7a/lib/libssl.a
-#endif
-#include $(PREBUILT_STATIC_LIBRARY)
-
-#include $(CLEAR_VARS)
-#LOCAL_PATH = .
-#ifeq ($(TARGET_ARCH_ABI),x86)
-#LOCAL_MODULE := crypto_x86
-#LOCAL_SRC_FILES := $(LOCAL_PATH)/../thirdparties/android/x86/lib/libcrypto.a
-#else
-#LOCAL_MODULE := crypto
-#LOCAL_SRC_FILES := $(LOCAL_PATH)/../thirdparties/android/armeabi-v7a/lib/libcrypto.a
-#endif
-#include $(PREBUILT_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
 LOCAL_PATH := .

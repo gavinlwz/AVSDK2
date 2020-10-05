@@ -1,5 +1,0 @@
-com.youme.voiceengine
-drawable ic_launcher
-layout activity_main
-string app_name
-string hello_world

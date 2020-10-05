@@ -40,35 +40,42 @@ public:
 	{
 		m_strAudioCachePath = path;
 	}
+
 	//get 接口
-    virtual XString getBrand () = 0;
-    virtual XString getSystemVersion () = 0;
-    virtual XString getCpuArchive () = 0;
 	virtual XString getPackageName()
 	{
 		return m_strPackageName;
 	}
+
+	virtual XString getAppKey()
+	{
+		return m_strAppKey;
+	}
+
+	virtual XString getAppSecret()
+	{
+		return m_strAppSecrit;
+	}
+
+	virtual int getSDKVersion()
+	{
+		return m_iSDKVer;
+	}
+
+	virtual XString getAudioCachePath()
+	{
+		return m_strAudioCachePath;
+	}
+
+    virtual XString getBrand () = 0;
+    virtual XString getSystemVersion () = 0;
+    virtual XString getCpuArchive () = 0;
     virtual XString getUUID () = 0;
     virtual XString getModel () = 0;
     virtual XString getCpuChip () = 0;
     virtual XString getDocumentPath () = 0;
 	virtual XString getCachePath() = 0;
-	virtual XString getAppKey()
-	{
-		return m_strAppKey;
-	}
-	virtual XString getAppSecret()
-	{
-		return m_strAppSecrit;
-	}
-	virtual int getSDKVersion()
-	{
-		return m_iSDKVer;
-	}
-	virtual XString getAudioCachePath()
-	{
-		return m_strAudioCachePath;
-	}
+	
 private:
 	XString m_strPackageName;
 	XString m_strAppKey;
