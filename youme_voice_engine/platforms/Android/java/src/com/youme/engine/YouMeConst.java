@@ -19,6 +19,17 @@ public class YouMeConst{
 	    public static final int YOUME_USER_GUSET             = 6;    ///< 嘉宾，主播或指挥邀请的连麦嘉宾，同一个时刻只能在一个语音频道里面， 可以随时讲话
 	}
 
+	public class ServerMode {
+		public static final int SERVER_MODE_FORMAL  = 0; // Formal environment.
+		public static final int SERVER_MODE_TEST    = 1; // Using test servers.
+		public static final int SERVER_MODE_DEV     = 2; // Using development servers.
+		public static final int SERVER_MODE_DEMO    = 3; // Using special servers for buniness demo only.
+		public static final int SERVER_MODE_FIXED_IP_VALIDATE    = 4;
+		public static final int SERVER_MODE_FIXED_IP_REDIRECT    = 5;
+		public static final int SERVER_MODE_FIXED_IP_MCU         = 6;
+		public static final int SERVER_MODE_FIXED_IP_PRIVATE_SERVICE	= 7;
+	}
+
 	public class YouMeEvent
 	{
 		public static final int YOUME_EVENT_INIT_OK                      = 0;   ///< SDK初始化成功
@@ -152,16 +163,6 @@ public class YouMeConst{
 		public static final int YOUME_EVENT_EOF                          = 1000;
 	}
 	
-	/// 房间内的广播消息
-	public class YouMeBroadcast
-	{
-		public static final int YOUME_BROADCAST_NONE = 0;
-		public static final int YOUME_BROADCAST_GRABMIC_BROADCAST_GETMIC = 1;	    ///< 有人抢到了麦
-		public static final int YOUME_BROADCAST_GRABMIC_BROADCAST_FREEMIC = 2;	    ///< 有人释放了麦
-		public static final int YOUME_BROADCAST_INVITEMIC_BROADCAST_CONNECT = 3;	///< A和B正在连麦
-		public static final int YOUME_BROADCAST_INVITEMIC_BROADCAST_DISCONNECT = 4; ///< A和B取消了连麦
-	}
-	
 	public class YouMeErrorCode
 	{
 		public static final int YOUME_SUCCESS                            = 0;    ///< 成功
@@ -194,32 +195,10 @@ public class YouMeConst{
 		public static final int YOUME_ERROR_USER_ABORT                   = -108; ///< 用户请求中断当前操作
 		public static final int YOUME_ERROR_SEND_MESSAGE_FAIL            = -109; ///< 发送消息失败
 	    	    
-		// 麦克风错误
-		public static final int YOUME_ERROR_REC_INIT_FAILED              = -201; ///< 录音模块初始化失败
-		public static final int YOUME_ERROR_REC_NO_PERMISSION            = -202; ///< 没有录音权限
-		public static final int YOUME_ERROR_REC_NO_DATA                  = -203; ///< 虽然初始化成功，但没有音频数据输出，比如oppo系列手机在录音权限被禁止的时候
-		public static final int YOUME_ERROR_REC_OTHERS                   = -204; ///< 其他录音模块的错误
-		public static final int YOUME_ERROR_REC_PERMISSION_UNDEFINED     = -205; ///< 录音权限未确定，iOS显示是否允许录音权限对话框时，返回的是这个错误码
-
-		// 抢麦错误
-		public static final int YOUME_ERROR_GRABMIC_FULL				 = -301; ///< 抢麦失败，人数满
-		public static final int YOUME_ERROR_GRABMIC_HASEND				 = -302; ///< 抢麦失败，活动已经结束
-		
-		// 连麦错误
-		public static final int YOUME_ERROR_INVITEMIC_NOUSER			 = -401; ///< 连麦失败，用户不存在
-		public static final int YOUME_ERROR_INVITEMIC_OFFLINE			 = -402; ///< 连麦失败，用户已离线
-		public static final int YOUME_ERROR_INVITEMIC_REJECT			 = -403; ///< 连麦失败，用户拒绝
-		public static final int YOUME_ERROR_INVITEMIC_TIMEOUT			 = -404; ///< 连麦失败，两种情况：1.连麦时，对方超时无应答 2.通话中，双方通话时间到
-		
 		public static final int YOUME_ERROR_CAMERA_OPEN_FAILED			 = -501; ///< 打开摄像头失败
 
 		
 		public static final int YOUME_ERROR_UNKNOWN                      = -1000;///< 未知错误
-	}
-
-	public class YouMeKickReason{
-		public static final  int  YOUME_KICK_ADMIN  = 1;	///< 管理员踢人
-		public static final  int  YOUME_KICK_RELOGIN  = 2;	///< 多端登录被踢
 	}
 
 	public class YouMeAVStatisticType
@@ -250,21 +229,11 @@ public class YouMeConst{
 		public static final  int  LOG_VERBOSE = 60;
 	}
 
-	public class YOUME_SAMPLE_RATE
-	{
-		public static final  int  SAMPLE_RATE_8 = 8000;
-		public static final  int  SAMPLE_RATE_16 = 16000;
-		public static final  int  SAMPLE_RATE_24 = 24000;
-		public static final  int  SAMPLE_RATE_32 = 32000;
-		public static final  int  SAMPLE_RATE_44 = 44100;
-		public static final  int  SAMPLE_RATE_48 = 48000;
+	public class LOG_LEVEL {
+		public static final int LOG_INFO = 1;
+		public static final int LOG_WARN = 2;
+		public static final int LOG_ERROR = 3;
 	}
-    
-    public class YOUME_AUDIO_QUALITY
-    {
-        public static final int LOW_QUALITY = 0;
-        public static final int HIGH_QUALITY = 1;
-    }
 	
 	public class YOUME_RTC_SERVER_REGION {
 		public static final int RTC_CN_SERVER      = 0;  // 中国
@@ -312,146 +281,19 @@ public class YouMeConst{
 		public static final int YOUME_VIDEO_MIRROR_MODE_FAR = 4;                  //远端镜像
 	}
 
-	public class  YouMePcmCallBackFlag{
+	public class YouMePcmCallBackFlag{
 		public static final int PcmCallbackFlag_Remote = 0x1;       //远端pcm回调
 		public static final int PcmCallbackFlag_Record = 0x2;       //本地录音回调
 		public static final int PcmCallbackFlag_Mix = 0x4;          //本地录音和远端pcm进行mix之后的回调
 	}
 
-	public class YouMeLanguageCode
+	public class YOUME_SAMPLE_RATE
 	{
-		public static final int	LANG_AUTO	=	0	;    //
-		public static final int	LANG_AF	=	1	;    //	南非荷兰语
-		public static final int	LANG_AM	=	2	;    //	阿姆哈拉语
-		public static final int	LANG_AR	=	3	;    //	阿拉伯语
-		public static final int	LANG_AR_AE	=	4	;    //	阿拉伯语+阿拉伯联合酋长国
-		public static final int	LANG_AR_BH	=	5	;    //	阿拉伯语+巴林
-		public static final int	LANG_AR_DZ	=	6	;    //	阿拉伯语+阿尔及利亚
-		public static final int	LANG_AR_KW	=	7	;    //	阿拉伯语+科威特
-		public static final int	LANG_AR_LB	=	8	;    //	阿拉伯语+黎巴嫩
-		public static final int	LANG_AR_OM	=	9	;    //	阿拉伯语+阿曼
-		public static final int	LANG_AR_SA	=	10	;    //	阿拉伯语+沙特阿拉伯
-		public static final int	LANG_AR_SD	=	11	;    //	阿拉伯语+苏丹
-		public static final int	LANG_AR_TN	=	12	;    //	阿拉伯语+突尼斯
-		public static final int	LANG_AZ	=	13	;    //	阿塞拜疆
-		public static final int	LANG_BE	=	14	;    //	白俄罗斯语
-		public static final int	LANG_BG	=	15	;    //	保加利亚语
-		public static final int	LANG_BN	=	16	;    //	孟加拉
-		public static final int	LANG_BS	=	17	;    //	波斯尼亚语
-		public static final int	LANG_CA	=	18	;    //	加泰罗尼亚语
-		public static final int	LANG_CA_ES	=	19	;    //	加泰罗尼亚语+西班牙
-		public static final int	LANG_CO	=	20	;    //	科西嘉
-		public static final int	LANG_CS	=	21	;    //	捷克语
-		public static final int	LANG_CY	=	22	;    //	威尔士语
-		public static final int	LANG_DA	=	23	;    //	丹麦语
-		public static final int	LANG_DE	=	24	;    //	德语
-		public static final int	LANG_DE_CH	=	25	;    //	德语+瑞士
-		public static final int	LANG_DE_LU	=	26	;    //	德语+卢森堡
-		public static final int	LANG_EL	=	27	;    //	希腊语
-		public static final int	LANG_EN	=	28	;    //	英语
-		public static final int	LANG_EN_CA	=	29	;    //	英语+加拿大
-		public static final int	LANG_EN_IE	=	30	;    //	英语+爱尔兰
-		public static final int	LANG_EN_ZA	=	31	;    //	英语+南非
-		public static final int	LANG_EO	=	32	;    //	世界语
-		public static final int	LANG_ES	=	33	;    //	西班牙语
-		public static final int	LANG_ES_BO	=	34	;    //	西班牙语+玻利维亚
-		public static final int	LANG_ES_AR	=	35	;    //	西班牙语+阿根廷
-		public static final int	LANG_ES_CO	=	36	;    //	西班牙语+哥伦比亚
-		public static final int	LANG_ES_CR	=	37	;    //	西班牙语+哥斯达黎加
-		public static final int	LANG_ES_ES	=	38	;    //	西班牙语+西班牙
-		public static final int	LANG_ET	=	39	;    //	爱沙尼亚语
-		public static final int	LANG_ES_PA	=	40	;    //	西班牙语+巴拿马
-		public static final int	LANG_ES_SV	=	41	;    //	西班牙语+萨尔瓦多
-		public static final int	LANG_ES_VE	=	42	;    //	西班牙语+委内瑞拉
-		public static final int	LANG_ET_EE	=	43	;    //	爱沙尼亚语+爱沙尼亚
-		public static final int	LANG_EU	=	44	;    //	巴斯克
-		public static final int	LANG_FA	=	45	;    //	波斯语
-		public static final int	LANG_FI	=	46	;    //	芬兰语
-		public static final int	LANG_FR	=	47	;    //	法语
-		public static final int	LANG_FR_BE	=	48	;    //	法语+比利时
-		public static final int	LANG_FR_CA	=	49	;    //	法语+加拿大
-		public static final int	LANG_FR_CH	=	50	;    //	法语+瑞士
-		public static final int	LANG_FR_LU	=	51	;    //	法语+卢森堡
-		public static final int	LANG_FY	=	52	;    //	弗里斯兰
-		public static final int	LANG_GA	=	53	;    //	爱尔兰语
-		public static final int	LANG_GD	=	54	;    //	苏格兰盖尔语
-		public static final int	LANG_GL	=	55	;    //	加利西亚
-		public static final int	LANG_GU	=	56	;    //	古吉拉特文
-		public static final int	LANG_HA	=	57	;    //	豪撒语
-		public static final int	LANG_HI	=	58	;    //	印地语
-		public static final int	LANG_HR	=	59	;    //	克罗地亚语
-		public static final int	LANG_HT	=	60	;    //	海地克里奥尔
-		public static final int	LANG_HU	=	61	;    //	匈牙利语
-		public static final int	LANG_HY	=	62	;    //	亚美尼亚
-		public static final int	LANG_ID	=	63	;    //	印度尼西亚
-		public static final int	LANG_IG	=	64	;    //	伊博
-		public static final int	LANG_IS	=	65	;    //	冰岛语
-		public static final int	LANG_IT	=	66	;    //	意大利语
-		public static final int	LANG_IT_CH	=	67	;    //	意大利语+瑞士
-		public static final int	LANG_JA	=	68	;    //	日语
-		public static final int	LANG_KA	=	69	;    //	格鲁吉亚语
-		public static final int	LANG_KK	=	70	;    //	哈萨克语
-		public static final int	LANG_KN	=	71	;    //	卡纳达
-		public static final int	LANG_KM	=	72	;    //	高棉语
-		public static final int	LANG_KO	=	73	;    //	朝鲜语
-		public static final int	LANG_KO_KR	=	74	;    //	朝鲜语+南朝鲜
-		public static final int	LANG_KU	=	75	;    //	库尔德
-		public static final int	LANG_KY	=	76	;    //	吉尔吉斯斯坦
-		public static final int	LANG_LA	=	77	;    //	拉丁语
-		public static final int	LANG_LB	=	78	;    //	卢森堡语
-		public static final int	LANG_LO	=	79	;    //	老挝
-		public static final int	LANG_LT	=	80	;    //	立陶宛语
-		public static final int	LANG_LV	=	81	;    //	拉托维亚语+列托
-		public static final int	LANG_MG	=	82	;    //	马尔加什
-		public static final int	LANG_MI	=	83	;    //	毛利
-		public static final int	LANG_MK	=	84	;    //	马其顿语
-		public static final int	LANG_ML	=	85	;    //	马拉雅拉姆
-		public static final int	LANG_MN	=	86	;    //	蒙古
-		public static final int	LANG_MR	=	87	;    //	马拉地语
-		public static final int	LANG_MS	=	88	;    //	马来语
-		public static final int	LANG_MT	=	89	;    //	马耳他
-		public static final int	LANG_MY	=	90	;    //	缅甸
-		public static final int	LANG_NL	=	91	;    //	荷兰语
-		public static final int	LANG_NL_BE	=	92	;    //	荷兰语+比利时
-		public static final int	LANG_NE	=	93	;    //	尼泊尔
-		public static final int	LANG_NO	=	94	;    //	挪威语
-		public static final int	LANG_NY	=	95	;    //	齐切瓦语
-		public static final int	LANG_PL	=	96	;    //	波兰语
-		public static final int	LANG_PS	=	97	;    //	普什图语
-		public static final int	LANG_PT	=	98	;    //	葡萄牙语
-		public static final int	LANG_PT_BR	=	99	;    //	葡萄牙语+巴西
-		public static final int	LANG_RO	=	100	;    //	罗马尼亚语
-		public static final int	LANG_RU	=	101	;    //	俄语
-		public static final int	LANG_SD	=	102	;    //	信德
-		public static final int	LANG_SI	=	103	;    //	僧伽罗语
-		public static final int	LANG_SK	=	104	;    //	斯洛伐克语
-		public static final int	LANG_SL	=	105	;    //	斯洛语尼亚语
-		public static final int	LANG_SM	=	106	;    //	萨摩亚
-		public static final int	LANG_SN	=	107	;    //	修纳
-		public static final int	LANG_SO	=	108	;    //	索马里
-		public static final int	LANG_SQ	=	109	;    //	阿尔巴尼亚语
-		public static final int	LANG_SR	=	110	;    //	塞尔维亚语
-		public static final int	LANG_ST	=	111	;    //	塞索托语
-		public static final int	LANG_SU	=	112	;    //	巽他语
-		public static final int	LANG_SV	=	113	;    //	瑞典语
-		public static final int	LANG_SV_SE	=	114	;    //	瑞典语+瑞典
-		public static final int	LANG_SW	=	115	;    //	斯瓦希里语
-		public static final int	LANG_TA	=	116	;    //	泰米尔
-		public static final int	LANG_TE	=	117	;    //	泰卢固语
-		public static final int	LANG_TG	=	118	;    //	塔吉克斯坦
-		public static final int	LANG_TH	=	119	;    //	泰语
-		public static final int	LANG_TL	=	120	;    //	菲律宾
-		public static final int	LANG_TR	=	121	;    //	土耳其语
-		public static final int	LANG_UK	=	122	;    //	乌克兰语
-		public static final int	LANG_UR	=	123	;    //	乌尔都语
-		public static final int	LANG_UZ	=	124	;    //	乌兹别克斯坦
-		public static final int	LANG_VI	=	125	;    //	越南
-		public static final int	LANG_XH	=	126	;    //	科萨
-		public static final int	LANG_YID	=	127	;    //	意第绪语
-		public static final int	LANG_YO	=	128	;    //	约鲁巴语
-		public static final int	LANG_ZH	=	129	;    //	汉语
-		public static final int	LANG_ZH_TW	=	130	;    //	繁体
-		public static final int	LANG_ZU	=	131	;    //	/祖鲁语
+		public static final  int  SAMPLE_RATE_8 = 8000;
+		public static final  int  SAMPLE_RATE_16 = 16000;
+		public static final  int  SAMPLE_RATE_24 = 24000;
+		public static final  int  SAMPLE_RATE_32 = 32000;
+		public static final  int  SAMPLE_RATE_44 = 44100;
+		public static final  int  SAMPLE_RATE_48 = 48000;
 	}
-	
 }

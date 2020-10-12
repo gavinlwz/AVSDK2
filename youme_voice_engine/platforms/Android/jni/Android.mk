@@ -97,8 +97,9 @@ endif
 
 LOCAL_LDLIBS := -llog -lOpenSLES -lz -lGLESv2
 
-
 include $(BUILD_SHARED_LIBRARY)
+
+
 $(call import-module,../../../tinySAK/jni)
 $(call import-module,../../../tinyNET/jni)
 $(call import-module,../../../tinySDP/jni)

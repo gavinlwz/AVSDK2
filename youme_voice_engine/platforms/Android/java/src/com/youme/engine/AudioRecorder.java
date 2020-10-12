@@ -321,7 +321,7 @@ public class AudioRecorder
                                 mRecordStatus = -4;//对应c++的 YOUME_ERROR_REC_NO_PERMISSION 错误
                             }
                             if(mErrorCounter % 100 == 0) {
-                                NativeEngine.logcat(NativeEngine.LOG_WARN, TAG, "mRecordStatus: " + mRecordStatus + "AudioRecordError：" + AudioRecordError);
+                                NativeEngine.logcat(YouMeConst.LOG_LEVEL.LOG_WARN, TAG, "mRecordStatus: " + mRecordStatus + "AudioRecordError：" + AudioRecordError);
                             }
                             mErrorCounter ++;
                             mRecordStatus = ret;

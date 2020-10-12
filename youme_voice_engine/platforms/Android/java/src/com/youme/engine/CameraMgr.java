@@ -5,8 +5,8 @@ import java.util.List;
 
 import java.util.ArrayList;
 
-import com.youme.mixers.GLESVideoMixer;
-import com.youme.mixers.VideoMixerHelper;
+//import com.youme.mixers.GLESVideoMixer;
+//import com.youme.mixers.VideoMixerHelper;
 import com.youme.engine.YouMeConst.YOUME_VIDEO_FMT;
 import com.youme.engine.YouMeConst.YouMeVideoMirrorMode;
 import com.youme.engine.video.GlUtil;
@@ -341,23 +341,23 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
         int mFrameHeigth = camPara.getPreviewSize().height;
         int frameSize = mFrameWidth * mFrameHeigth;
         frameSize = frameSize * ImageFormat.getBitsPerPixel(camPara.getPreviewFormat()) / 8;
-        boolean useEGL = api.getUseGL();
-        if (!useEGL) {
+//        boolean useEGL = api.getUseGL();
+//        if (!useEGL) {
             mBuffer = new byte[frameSize];
             camera.addCallbackBuffer(mBuffer);
             camera.setPreviewCallbackWithBuffer(youmePreviewCallback);
-        }
+//        }
 
         if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) && (null == svCamera)) {
-            GLESVideoMixer.SurfaceContext surfaceContext = VideoMixerHelper.getCameraSurfaceContext();
-            if (surfaceContext != null) {
-                mTextureId = surfaceContext.textureId;
-                mSurfaceTexture = surfaceContext.surfaceTexture;
-                if (useEGL) mSurfaceTexture.setOnFrameAvailableListener(onFrameAvailableListener);
-            } else {
-                mTextureId = GlUtil.generateTexture(GLES11Ext.GL_TEXTURE_EXTERNAL_OES);
-                mSurfaceTexture = new SurfaceTexture(mTextureId);
-            }
+//            GLESVideoMixer.SurfaceContext surfaceContext = VideoMixerHelper.getCameraSurfaceContext();
+//            if (surfaceContext != null) {
+//                mTextureId = surfaceContext.textureId;
+//                mSurfaceTexture = surfaceContext.surfaceTexture;
+//                if (useEGL) mSurfaceTexture.setOnFrameAvailableListener(onFrameAvailableListener);
+//            } else {
+//                mTextureId = GlUtil.generateTexture(GLES11Ext.GL_TEXTURE_EXTERNAL_OES);
+//                mSurfaceTexture = new SurfaceTexture(mTextureId);
+//            }
 
             try {
                 camera.setPreviewTexture(mSurfaceTexture);
@@ -446,7 +446,7 @@ public class CameraMgr implements Camera.AutoFocusCallback, Camera.ErrorCallback
             } else {
                 mirror = YouMeVideoMirrorMode.YOUME_VIDEO_MIRROR_MODE_DISABLED;
             }
-            api.inputVideoFrameGLES(mTextureId, null, mWidth, mHeight, YOUME_VIDEO_FMT.VIDEO_FMT_TEXTURE_OES, orientation2, mirror, System.currentTimeMillis());
+//            api.inputVideoFrameGLES(mTextureId, null, mWidth, mHeight, YOUME_VIDEO_FMT.VIDEO_FMT_TEXTURE_OES, orientation2, mirror, System.currentTimeMillis());
         }
     };
 

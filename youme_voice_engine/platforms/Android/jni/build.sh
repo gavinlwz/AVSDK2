@@ -163,9 +163,7 @@ function buildSO64(){
 
     cp ../obj/local/arm64-v8a/libyoume_voice_engine.so $ARM64_SYMBOL_PATH/
     check_result $? "复制 Android arm64-v8a symbol so"   
-
 }
-
 
 function buildJar(){
     pushd ../java

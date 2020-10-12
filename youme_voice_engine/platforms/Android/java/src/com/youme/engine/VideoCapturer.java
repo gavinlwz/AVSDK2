@@ -28,9 +28,9 @@ public class VideoCapturer {
 	/***
 	 * 设置是否前置摄像头
 	 */
-	public static void SetCaptureFrontCameraEnable(boolean enable) {
-        api.setCaptureFrontCameraEnable(enable);
-	}
+//	public static void SetCaptureFrontCameraEnable(boolean enable) {
+//        api.setCaptureFrontCameraEnable(enable);
+//	}
 	
 	
 	/***
@@ -50,9 +50,9 @@ public class VideoCapturer {
 	/***
 	 * 设置美颜
 	 */
-	public static void SetBeautyLevel(float level) {
-		NativeEngine.setBeautyLevel(level);
-	}
+//	public static void SetBeautyLevel(float level) {
+//		NativeEngine.setBeautyLevel(level);
+//	}
 	
 	/**
 	 * 初始化camera

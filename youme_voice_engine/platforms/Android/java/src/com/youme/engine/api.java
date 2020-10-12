@@ -123,9 +123,9 @@ public class api {
         return NativeEngine.setExternalInputSampleRate(inputSampleRate, mixedCallbackSampleRate);
     }
 
-    public static void connect(String strAPPKey, String strAPPSecret, int serverRegionId) {
-        NativeEngine.connect(strAPPKey, strAPPSecret, serverRegionId);
-    }
+//    public static void connect(String strAPPKey, String strAPPSecret, int serverRegionId) {
+//        NativeEngine.connect(strAPPKey, strAPPSecret, serverRegionId);
+//    }
 
     //保存logcat 日志
     public static void SaveLogcat(String strPath) {
@@ -170,18 +170,18 @@ public class api {
      *  @param timeStamp: 用户加入房间的时间，单位s。
      *  @return 无
      */
-	public static void setTokenV3( String strToken, long timeStamp) {
-        NativeEngine.setTokenV3(strToken, timeStamp);
-    }
+//	public static void setTokenV3( String strToken, long timeStamp) {
+//        NativeEngine.setTokenV3(strToken, timeStamp);
+//    }
 
     /**
      *  功能描述:设置是否使用TCP模式来收发数据，针对特殊网络没有UDP端口使用，必须在加入房间之前调用
      *  @param bUseTcp: 是否使用。
      *  @return 错误码，详见YouMeConstDefine.h定义
      */
-	public static int setTCPMode( boolean bUseTcp ) {
-	    return NativeEngine.setTCPMode(bUseTcp);
-    }
+//	public static int setTCPMode( boolean bUseTcp ) {
+//	    return NativeEngine.setTCPMode(bUseTcp);
+//    }
 
     /**
      * 功能描述: 设置用户自定义Log路径
@@ -190,9 +190,9 @@ public class api {
      * @return YOUME_SUCCESS - 成功
      * 其他 - 具体错误码
      */
-    public static int setUserLogPath(String filePath) {
-        return NativeEngine.setUserLogPath(filePath);
-    }
+//    public static int setUserLogPath(String filePath) {
+//        return NativeEngine.setUserLogPath(filePath);
+//    }
 
     /**
      * 功能描述:切换语音输出设备
@@ -394,9 +394,9 @@ public class api {
      * @param status:                  true 静音对方的麦克风，false 取消静音对方麦克风
      * @return 错误码，详见YouMeConstDefine.h定义
      */
-    public static int setOtherMicMute(String strUserID, boolean status) {
-        return NativeEngine.setOtherMicMute(strUserID, status);
-    }
+//    public static int setOtherMicMute(String strUserID, boolean status) {
+//        return NativeEngine.setOtherMicMute(strUserID, status);
+//    }
 
     /**
      *  功能描述:控制其他人的扬声器开关
@@ -415,9 +415,9 @@ public class api {
      * @param on:                    false屏蔽对方语音，true取消屏蔽
      * @return 错误码，详见YouMeConstDefine.h定义
      */
-    public static int setMaskOtherVoice(String strUserID, boolean on) {
-        return NativeEngine.setMaskOtherVoice(strUserID, on);
-    }
+//    public static int setMaskOtherVoice(String strUserID, boolean on) {
+//        return NativeEngine.setMaskOtherVoice(strUserID, on);
+//    }
 
     public static void setServerRegion(int region, String extServerName, boolean bAppend) {
         NativeEngine.setServerRegion(region, extServerName, bAppend);
@@ -576,15 +576,15 @@ public class api {
      * 其他 - 具体错误码
      */
 //    public static native int setExitCommModeWhenHeadsetPlugin(boolean enabled);
-    public static String getSdkInfo() {
-        return NativeEngine.getSdkInfo();
-    }
+//    public static String getSdkInfo() {
+//        return NativeEngine.getSdkInfo();
+//    }
 
-    public static native int createRender(String userId);
+//    public static native int createRender(String userId);
 
-    public static native int deleteRender(int renderId);
+//    public static native int deleteRender(int renderId);
 
-    public static native int deleteRenderByUserID(String userId);
+//    public static native int deleteRenderByUserID(String userId);
 
     /**
      *  功能描述:Rest API , 向服务器请求额外数据
@@ -727,7 +727,7 @@ public class api {
      * @return YOUME_SUCCESS - 成功
      * 其他 - 具体错误码
      */
-    public static native void setAudioQuality(int quality);
+//    public static native void setAudioQuality(int quality);
 
     /**
      *  功能描述: 设置视频接收平滑开关
@@ -869,9 +869,9 @@ public class api {
      * @return true:开启，false:不开启， 默认为true;
      * @note: 无。
      */
-    public static boolean getUseGL() {
-        return NativeEngine.getUseGL();
-    }
+//    public static boolean getUseGL() {
+//        return NativeEngine.getUseGL();
+//    }
 
     /**
      * 功能描述: 设置无视频帧渲染的等待超时时间
@@ -885,9 +885,9 @@ public class api {
      *
      * @param interval:时间间隔
      */
-    public static void setAVStatisticInterval(int interval) {
-        NativeEngine.setAVStatisticInterval(interval);
-    }
+//    public static void setAVStatisticInterval(int interval) {
+//        NativeEngine.setAVStatisticInterval(interval);
+//    }
 
 //    public static native int openVideoEncoder(String pFilePath);
 
@@ -1107,9 +1107,9 @@ public class api {
      * @return YOUME_SUCCESS - 成功
      * 其他 - 具体错误码
      */
-    public static int inputCustomData(byte[] data, int len, long timestamp) {
-        return NativeEngine.inputCustomData(data, len, timestamp);
-    }
+//    public static int inputCustomData(byte[] data, int len, long timestamp) {
+//        return NativeEngine.inputCustomData(data, len, timestamp);
+//    }
 
     /**
      *  功能描述: 输入用户自定义数据，发送到房间内指定成员或广播全部成员
@@ -1202,9 +1202,9 @@ public class api {
      * @param timestamp 时间戳
      * @return 成功/失败
      */
-    public static boolean inputVideoFrameGLES(int texture, float[] matrix, int width, int height, int fmt, int rotation, int mirror, long timestamp) {
-        return NativeEngine.inputVideoFrameGLES(texture, matrix, width, height, fmt, rotation, mirror, timestamp);
-    }
+//    public static boolean inputVideoFrameGLES(int texture, float[] matrix, int width, int height, int fmt, int rotation, int mirror, long timestamp) {
+//        return NativeEngine.inputVideoFrameGLES(texture, matrix, width, height, fmt, rotation, mirror, timestamp);
+//    }
 
     /**
      * 功能描述: 共享视频数据输入(不需要sdk来进行预览，和摄像头视频流一起发送出去)
@@ -1219,9 +1219,9 @@ public class api {
      * @param timestamp 时间戳
      * @return 成功/失败
      */
-    public static boolean inputVideoFrameGLESForshare(int texture, float[] matrix, int width, int height, int fmt, int rotation, int mirror, long timestamp) {
-        return NativeEngine.inputVideoFrameGLESForShare(texture, matrix, width, height, fmt, rotation, mirror, timestamp);
-    }
+//    public static boolean inputVideoFrameGLESForshare(int texture, float[] matrix, int width, int height, int fmt, int rotation, int mirror, long timestamp) {
+//        return NativeEngine.inputVideoFrameGLESForShare(texture, matrix, width, height, fmt, rotation, mirror, timestamp);
+//    }
 
     /**
      * 功能描述: 停止视频数据输入(在inputVideoFrame之后调用，房间内其它用户会收到YOUME_EVENT_OTHERS_VIDEO_INPUT_STOP事件)
@@ -1473,9 +1473,9 @@ public class api {
      * @return YOUME_SUCCESS - 成功
      * 其他 - 具体错误码
      */
-    public static void setlocalVideoPreviewMirror(boolean enable) {
-        NativeEngine.setlocalVideoPreviewMirror(enable);
-    }
+//    public static void setlocalVideoPreviewMirror(boolean enable) {
+//        NativeEngine.setlocalVideoPreviewMirror(enable);
+//    }
 
     /**
      * 功能描述: 横竖屏变化时，通知sdk把分辨率切换到竖屏适配模式
@@ -1494,5 +1494,5 @@ public class api {
      */
 //	public static native int translateText(  String text, int destLangCode, int srcLangCode);
 
-    public static native void setScreenSharedEGLContext(Object gles);
+//    public static native void setScreenSharedEGLContext(Object gles);
 }

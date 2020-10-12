@@ -262,8 +262,7 @@ public:
 };
 
 
-class YouMeEventCallback:public IYouMeEventCallback, public IRestApiCallback, public IYouMeMemberChangeCallback, public IYouMeChannelMsgCallback, public IYouMeAVStatisticCallback
-,public IYouMeCustomDataCallback, public IYouMeTranslateCallback
+class YouMeEventCallback:public IYouMeEventCallback
 {
 public:
     void onEvent (const YouMeEvent_t eventType, const YouMeErrorCode iErrorCode, const char * channel, const char * param)
@@ -289,16 +288,16 @@ public:
         }    
     }
     
-    void onRequestRestAPI( int requestID, const YouMeErrorCode &iErrorCode, const char* strQuery, const char*  strResult ) {
-        JNIEvnWrap jniWrap;
-        if (NULL == jniWrap.m_pThreadJni)
-        {
-            return;
-        }
+    // void onRequestRestAPI( int requestID, const YouMeErrorCode &iErrorCode, const char* strQuery, const char*  strResult ) {
+    //     JNIEvnWrap jniWrap;
+    //     if (NULL == jniWrap.m_pThreadJni)
+    //     {
+    //         return;
+    //     }
         
-        jniWrap.m_pThreadJni->CallStaticVoidMethod (mAudioEventCallbackClass, mOnRestApiCallbackID, requestID,iErrorCode,
-                                                    string2jstring(jniWrap.m_pThreadJni, strQuery) , string2jstring(jniWrap.m_pThreadJni, strResult ));
-    }
+    //     jniWrap.m_pThreadJni->CallStaticVoidMethod (mAudioEventCallbackClass, mOnRestApiCallbackID, requestID,iErrorCode,
+    //                                                 string2jstring(jniWrap.m_pThreadJni, strQuery) , string2jstring(jniWrap.m_pThreadJni, strResult ));
+    // }
     
     
    
@@ -308,35 +307,7 @@ public:
         {
             return;
         }
-        /*
-        JNIEnv* env = jniWrap.m_pThreadJni;
         
-        int nCount = listMemberChange.size();
-        
-        jobjectArray membs = NULL;
-        jsize len = nCount;
-        membs = (env)->NewObjectArray(len, mMemberChangeClass, NULL );
-        jfieldID nameID = (env)->GetFieldID(mMemberChangeClass, "userID", "Ljava/lang/String;");
-        jfieldID isJoinID = (env)->GetFieldID(mMemberChangeClass, "isJoin", "Z");
-        jmethodID  consID = (env)->GetMethodID(mMemberChangeClass, "<init>", "()V" );
-        
-        int i = 0;
-        for( auto it = listMemberChange.begin() ; it != listMemberChange.end(); ++it  ){
-            jobject obj = env->NewObject( mMemberChangeClass, consID );
-            (env)->SetObjectField(obj, nameID, string2jstring( env, it->userID ));
-            (env)->SetBooleanField(obj, isJoinID, jboolean( it->isJoin ) );
-            
-            //添加到objcet数组中
-            (env)->SetObjectArrayElement(membs, i, obj);
-            
-            i++;
-        }
-
-        jniWrap.m_pThreadJni->CallStaticVoidMethod (mAudioEventCallbackClass, mOnMemberChangeCallbackID,
-                                                    string2jstring(jniWrap.m_pThreadJni, channel ),
-                                                    membs, jboolean( isUpdate )
-                                                   );
-         */
         jniWrap.m_pThreadJni->CallStaticVoidMethod (mAudioEventCallbackClass, mOnMemberChangeCallbackID,
                                                     string2jstring(jniWrap.m_pThreadJni, channel ),
                                                     string2jstring(jniWrap.m_pThreadJni, listMemberChange ),
@@ -344,18 +315,18 @@ public:
                                                     );
     }
 
-    void onBroadcast(const YouMeBroadcast bc, const char* channel,
-    		const char* param1, const char* param2, const char* strContent){
+    // void onBroadcast(const YouMeBroadcast bc, const char* channel,
+    // 		const char* param1, const char* param2, const char* strContent){
 
-        JNIEvnWrap jniWrap;
-        if (NULL == jniWrap.m_pThreadJni)
-        {
-            return;
-        }
+    //     JNIEvnWrap jniWrap;
+    //     if (NULL == jniWrap.m_pThreadJni)
+    //     {
+    //         return;
+    //     }
 
-        jniWrap.m_pThreadJni->CallStaticVoidMethod (mAudioEventCallbackClass, mOnBroadcastCallbackID, bc, string2jstring(jniWrap.m_pThreadJni, channel) ,
-        		string2jstring(jniWrap.m_pThreadJni, param1), string2jstring(jniWrap.m_pThreadJni, param2), string2jstring(jniWrap.m_pThreadJni, strContent));
-    }
+    //     jniWrap.m_pThreadJni->CallStaticVoidMethod (mAudioEventCallbackClass, mOnBroadcastCallbackID, bc, string2jstring(jniWrap.m_pThreadJni, channel) ,
+    //     		string2jstring(jniWrap.m_pThreadJni, param1), string2jstring(jniWrap.m_pThreadJni, param2), string2jstring(jniWrap.m_pThreadJni, strContent));
+    // }
     
     void onAVStatistic( YouMeAVStatisticType type,  const char* userID,  int value )
     {
@@ -372,34 +343,34 @@ public:
         
     }
 
-    virtual void OnCustomDataNotify(const void*data, int len, unsigned long long timestamp)
-    {
-         JNIEvnWrap jniWrap;
-        if (NULL == jniWrap.m_pThreadJni)
-        {
-            return;
-        }
-        jbyteArray jArray = jniWrap.m_pThreadJni->NewByteArray(len);
-        jniWrap.m_pThreadJni->SetByteArrayRegion(jArray, 0, len, (const jbyte *)data);
-        jniWrap.m_pThreadJni->CallStaticVoidMethod(mAudioEventCallbackClass, mOnRecvCustomDataCallbackID,  jArray,  (jlong)timestamp);
-        jniWrap.m_pThreadJni->DeleteLocalRef(jArray);
-    }
+    // virtual void OnCustomDataNotify(const void*data, int len, unsigned long long timestamp)
+    // {
+    //      JNIEvnWrap jniWrap;
+    //     if (NULL == jniWrap.m_pThreadJni)
+    //     {
+    //         return;
+    //     }
+    //     jbyteArray jArray = jniWrap.m_pThreadJni->NewByteArray(len);
+    //     jniWrap.m_pThreadJni->SetByteArrayRegion(jArray, 0, len, (const jbyte *)data);
+    //     jniWrap.m_pThreadJni->CallStaticVoidMethod(mAudioEventCallbackClass, mOnRecvCustomDataCallbackID,  jArray,  (jlong)timestamp);
+    //     jniWrap.m_pThreadJni->DeleteLocalRef(jArray);
+    // }
 
-    virtual void onTranslateTextComplete(YouMeErrorCode errorcode, unsigned int requestID, const std::string& text, YouMeLanguageCode srcLangCode, YouMeLanguageCode destLangCode)
-    {
-        JNIEvnWrap jniWrap;
-        if (NULL == jniWrap.m_pThreadJni)
-        {
-            return;
-        }
+    // virtual void onTranslateTextComplete(YouMeErrorCode errorcode, unsigned int requestID, const std::string& text, YouMeLanguageCode srcLangCode, YouMeLanguageCode destLangCode)
+    // {
+    //     JNIEvnWrap jniWrap;
+    //     if (NULL == jniWrap.m_pThreadJni)
+    //     {
+    //         return;
+    //     }
         
-        jniWrap.m_pThreadJni->CallStaticVoidMethod (mAudioEventCallbackClass, mOnTranslateCallbackID,
-                                                    errorcode,
-                                                    requestID,
-                                                    string2jstring(jniWrap.m_pThreadJni, text.c_str()) ,
-                                                    srcLangCode, 
-                                                    destLangCode);
-    }
+    //     jniWrap.m_pThreadJni->CallStaticVoidMethod (mAudioEventCallbackClass, mOnTranslateCallbackID,
+    //                                                 errorcode,
+    //                                                 requestID,
+    //                                                 string2jstring(jniWrap.m_pThreadJni, text.c_str()) ,
+    //                                                 srcLangCode, 
+    //                                                 destLangCode);
+    // }
 };
 
 class YouMePcmCallback: public IYouMePcmCallback
@@ -528,22 +499,22 @@ class YouMeVideoCallback : public IYouMeVideoFrameCallback{
 
 };
 
-class YouMeVideoPreDecodeCallback : public IYouMeVideoPreDecodeCallback{
-    void onVideoPreDecode(const char* userId, void* data, int dataSizeInByte, unsigned long long timestamp) {
-        JNIEvnWrap jniWrap;
-        if (NULL == jniWrap.m_pThreadJni)
-        {
-            return;
-        }
+// class YouMeVideoPreDecodeCallback : public IYouMeVideoPreDecodeCallback{
+//     void onVideoPreDecode(const char* userId, void* data, int dataSizeInByte, unsigned long long timestamp) {
+//         JNIEvnWrap jniWrap;
+//         if (NULL == jniWrap.m_pThreadJni)
+//         {
+//             return;
+//         }
 
-        jbyteArray jArray = jniWrap.m_pThreadJni->NewByteArray(dataSizeInByte);
-        jniWrap.m_pThreadJni->SetByteArrayRegion(jArray, 0, dataSizeInByte, (const jbyte *)data);
+//         jbyteArray jArray = jniWrap.m_pThreadJni->NewByteArray(dataSizeInByte);
+//         jniWrap.m_pThreadJni->SetByteArrayRegion(jArray, 0, dataSizeInByte, (const jbyte *)data);
         
-        jniWrap.m_pThreadJni->CallStaticVoidMethod(mVideoFrameCallbackClass, mOnPreDecodeCallbackID, string2jstring(jniWrap.m_pThreadJni,userId), jArray, dataSizeInByte, (jlong)timestamp);
-        jniWrap.m_pThreadJni->DeleteLocalRef(jArray);
+//         jniWrap.m_pThreadJni->CallStaticVoidMethod(mVideoFrameCallbackClass, mOnPreDecodeCallbackID, string2jstring(jniWrap.m_pThreadJni,userId), jArray, dataSizeInByte, (jlong)timestamp);
+//         jniWrap.m_pThreadJni->DeleteLocalRef(jArray);
 
-    }
-};
+//     }
+// };
 
 void JNI_onAudioFrameCallbackID(std::string userId, const void * data, int len, uint64_t timestamp)
 {
@@ -592,7 +563,7 @@ JNIEXPORT jint JNICALL JNI_OnLoad (JavaVM *jvm, void *reserved)
         return -1;
     }
     //由于在回调的时候不能使用attached env来findclass，所以在这里获取到class
-    jclass audioMgrClass = pEnv->FindClass ("com/youme/voiceengine/AudioMgr");
+    jclass audioMgrClass = pEnv->FindClass ("com/youme/engine/AudioMgr");
     if (NULL == audioMgrClass)
     {
         return -1;
@@ -607,9 +578,9 @@ JNIEXPORT jint JNICALL JNI_OnLoad (JavaVM *jvm, void *reserved)
     mPYouMeEventCallback = new YouMeEventCallback();
     mPYouMePcmCallback = new YouMePcmCallback();
     mPYouMeVideoCallback = new YouMeVideoCallback();
-    mPYouMeVideoPreDecodeCallback = new YouMeVideoPreDecodeCallback();
+    // mPYouMeVideoPreDecodeCallback = new YouMeVideoPreDecodeCallback();
     
-    jclass audioRecorderClass = pEnv->FindClass ("com/youme/voiceengine/AudioRecorder");
+    jclass audioRecorderClass = pEnv->FindClass ("com/youme/engine/AudioRecorder");
     if (NULL == audioRecorderClass)
     {
         return -1;
@@ -621,7 +592,7 @@ JNIEXPORT jint JNICALL JNI_OnLoad (JavaVM *jvm, void *reserved)
     mAudioRecorderPauseMethodID  = pEnv->GetStaticMethodID (mAudioRecorderClass, "OnAudioRecorderTmp", "(I)V");
     mAudioRecorderStatusMethodID = pEnv->GetStaticMethodID (mAudioRecorderClass, "getRecorderInitStatus", "()I");
     
-    jclass audioPlayerClass = pEnv->FindClass ("com/youme/voiceengine/AudioPlayer");
+    jclass audioPlayerClass = pEnv->FindClass ("com/youme/engine/AudioPlayer");
     if (NULL == audioPlayerClass)
     {
         return -1;
@@ -631,12 +602,12 @@ JNIEXPORT jint JNICALL JNI_OnLoad (JavaVM *jvm, void *reserved)
     mAudioPlayerMethodID         = pEnv->GetStaticMethodID (mAudioPlayerClass, "OnAudioPlayer", "(I)V");
     mAudioPlayerStatusMethodID   = pEnv->GetStaticMethodID (mAudioPlayerClass, "getPlayerInitStatus", "()I");
     
-    jclass videoCapturerClass = pEnv->FindClass ("com/youme/voiceengine/VideoMgr");
+    jclass videoCaptureClass = pEnv->FindClass ("com/youme/engine/VideoMgr");
     if (NULL == videoCapturerClass)
     {
         return -1;
     }
-    mVideoCapturerClass          = (jclass)(pEnv->NewGlobalRef (videoCapturerClass));
+    mVideoCapturerClass          = (jclass)(pEnv->NewGlobalRef (videoCaptureClass));
     mVideoSetCamera              = pEnv->GetStaticMethodID (mVideoCapturerClass, "setCamera", "(III)V");
     mVideoSetCameraFps           = pEnv->GetStaticMethodID (mVideoCapturerClass, "setFps", "(I)V");
     mVideoSetCameraRotation      = pEnv->GetStaticMethodID (mVideoCapturerClass, "setRotation", "(I)V");
@@ -652,7 +623,7 @@ JNIEXPORT jint JNICALL JNI_OnLoad (JavaVM *jvm, void *reserved)
     mVideoFrameRender            = pEnv->GetStaticMethodID (mVideoRendererClass, "FrameRender", "(IIII[B)V");
 #endif
     
-    jclass audioEventCallbackClass = pEnv->FindClass ("com/youme/voiceengine/IYouMeEventCallback");
+    jclass audioEventCallbackClass = pEnv->FindClass ("com/youme/engine/IYouMeEventCallback");
     if (NULL == audioEventCallbackClass)
     {
         return -1;
@@ -671,13 +642,13 @@ JNIEXPORT jint JNICALL JNI_OnLoad (JavaVM *jvm, void *reserved)
     mOnTranslateCallbackID = pEnv->GetStaticMethodID( mAudioEventCallbackClass, "onTranslateTextComplete", "(IILjava/lang/String;II)V");
 
     TSK_DEBUG_INFO(">>> JNI init VideoCallback set begin");
-	jclass clsMemChange = pEnv->FindClass("com/youme/voiceengine/MemberChange");
+	jclass clsMemChange = pEnv->FindClass("com/youme/engine/MemberChange");
     if( NULL == clsMemChange ){
         return -1;
     }
     mMemberChangeClass = (jclass)(pEnv->NewGlobalRef( clsMemChange ) );
     
-    jclass videoFrameCallbackClass = pEnv->FindClass ("com/youme/voiceengine/IYouMeVideoCallback");
+    jclass videoFrameCallbackClass = pEnv->FindClass ("com/youme/engine/IYouMeVideoCallback");
     if (NULL == videoFrameCallbackClass)
     {
         return -1;
@@ -689,7 +660,6 @@ JNIEXPORT jint JNICALL JNI_OnLoad (JavaVM *jvm, void *reserved)
     mOnVideoFrameMixedCallbackGLESID = pEnv->GetStaticMethodID (mVideoFrameCallbackClass, "onVideoFrameMixedCallbackGLES", "(II[FIIJ)V");
     mOnVideoFilterExtCallbackGLESID = pEnv->GetStaticMethodID (mVideoFrameCallbackClass, "onVideoRenderFilterCallback", "(IIIII)I");
     mOnPreDecodeCallbackID = pEnv->GetStaticMethodID (mVideoFrameCallbackClass, "onVideoPreDecode", "(Ljava/lang/String;[BIJ)V");
-
     TSK_DEBUG_INFO(">>> JNI init VideoCallback set success");
     
     jclass audioFrameCallbackClass = pEnv->FindClass ("com/youme/voiceengine/IYouMeAudioCallback");
@@ -700,7 +670,6 @@ JNIEXPORT jint JNICALL JNI_OnLoad (JavaVM *jvm, void *reserved)
     mAudioFrameCallbackClass = (jclass)(pEnv->NewGlobalRef (audioFrameCallbackClass));
     mOnAudioFrameCallbackID = pEnv->GetStaticMethodID (mAudioFrameCallbackClass, "onAudioFrameCallback", "(Ljava/lang/String;[BIJ)V");
     mOnAudioFrameMixedCallbackID = pEnv->GetStaticMethodID (mAudioFrameCallbackClass, "onAudioFrameMixedCallback", "([BIJ)V");
-    
     TSK_DEBUG_INFO(">>> JNI init AudioCallback set success");
     
     /*****
@@ -724,24 +693,8 @@ JNIEXPORT jint JNICALL JNI_OnLoad (JavaVM *jvm, void *reserved)
     mOnMemberChangeMsgCallbackID = pEnv->GetStaticMethodID (mAudioConferenceCallbackClass, "OnMemberChangeMsg", "(Ljava/lang/String;Ljava/lang/String;)V");
      *****/
     
-    //提供的更新接口
-    jclass youmeMgrClass = pEnv->FindClass ("com/youme/voiceengine/mgr/YouMeManager");
-    if (NULL == youmeMgrClass)
-    {
-        return -1;
-    }
-    mYouMeManagerClass = (jclass)(pEnv->NewGlobalRef (youmeMgrClass));
-    mUpdateSelfMethodID = pEnv->GetStaticMethodID (mYouMeManagerClass, "UpdateSelf", "(Ljava/lang/String;Ljava/lang/String;)V");
-    
-    mTriggerNetChangeMethodID = pEnv->GetStaticMethodID (mYouMeManagerClass, "TriggerNetChange", "()V");
-    
-    
-    mSaveLogcatMethoidID = pEnv->GetStaticMethodID (mYouMeManagerClass, "SaveLogcat", "(Ljava/lang/String;)V");
-    
-    TSK_DEBUG_INFO(">>> JNI init CameraMgr set beigin");
-    
     // CameraMgr Class and methods
-    jclass cameraMgrClass = pEnv->FindClass ("com/youme/voiceengine/CameraMgr");
+    jclass cameraMgrClass = pEnv->FindClass ("com/youme/engine/CameraMgr");
     if (NULL == cameraMgrClass)
     {
         return -1;
@@ -754,7 +707,6 @@ JNIEXPORT jint JNICALL JNI_OnLoad (JavaVM *jvm, void *reserved)
     mStopRequestPermissionForApi23MethodID_camera = pEnv->GetStaticMethodID (mCameraMgrClass, "stopRequestPermissionForApi23", "()V");
     // mSetBeautyLevelMethodID = pEnv->GetStaticMethodID(mCameraMgrClass, "setBeautyLevel", "(F)V");
     // mOpenBeautifyMethodID = pEnv->GetStaticMethodID(mCameraMgrClass, "Beauty", "(Z)V");
-    
     mIsCameraZoomSupportedMethodID = pEnv->GetStaticMethodID(mCameraMgrClass, "isCameraZoomSupported", "()Z");
     mSetCameraZoomFactorMethodID = pEnv->GetStaticMethodID(mCameraMgrClass, "setCameraZoomFactor", "(F)F");
     mIsCameraFocusPositionInPreviewSupportedMethodID = pEnv->GetStaticMethodID(mCameraMgrClass, "isCameraFocusPositionInPreviewSupported", "()Z");
@@ -763,7 +715,6 @@ JNIEXPORT jint JNICALL JNI_OnLoad (JavaVM *jvm, void *reserved)
     mSetCameraTorchOnMethodID = pEnv->GetStaticMethodID(mCameraMgrClass, "setCameraTorchOn", "(Z)Z");
     mIsCameraAutoFocusFaceModeSupportedMethodID = pEnv->GetStaticMethodID(mCameraMgrClass, "isCameraAutoFocusFaceModeSupported", "()Z");
     mSetCameraAutoFocusFaceModeEnabledMethodID = pEnv->GetStaticMethodID(mCameraMgrClass, "setCameraAutoFocusFaceModeEnabled", "(Z)Z");
-    
     mSetLocalVideoMirrorModeMethodID = pEnv->GetStaticMethodID (mCameraMgrClass, "setLocalVideoMirrorMode", "(I)V");
   
     //video mixer
@@ -796,15 +747,17 @@ JNIEXPORT jint JNICALL JNI_OnLoad (JavaVM *jvm, void *reserved)
     mSetVideoFpsMethodID = pEnv->GetStaticMethodID(mVideoMixerHelperClass, "setVideoFps", "(I)V");
     mSetOpenEncoderRawCallBackMethodID = pEnv->GetStaticMethodID(mVideoMixerHelperClass, "setVideoEncoderRawCallbackEnabled", "(Z)Z");
     mSetExternalFilterEnabledMethodID = pEnv->GetStaticMethodID(mVideoMixerHelperClass, "setExternalFilterEnabled", "(Z)Z");
-    jclass apiClass = pEnv->FindClass ("com/youme/voiceengine/api");
+    
+    jclass apiClass = pEnv->FindClass ("com/youme/engine/api");
     if (NULL == apiClass)
     {
         return -1;
     }
     mJavaApiClass = (jclass)(pEnv->NewGlobalRef(apiClass));
     mSetOpenMixerRawCallBackMethodID = pEnv->GetStaticMethodID(mJavaApiClass, "setVideoMixerRawCallbackEnabled", "(Z)Z");
+    mSaveLogcatMethoidID = pEnv->GetStaticMethodID (mYouMeManagerClass, "SaveLogcat", "(Ljava/lang/String;)V");
 
-    jclass screenRecorderClass = pEnv->FindClass ("com/youme/voiceengine/ScreenRecorder");
+    jclass screenRecorderClass = pEnv->FindClass ("com/youme/engine/ScreenRecorder");
     if (NULL == screenRecorderClass)
     {
         return -1;
@@ -839,7 +792,6 @@ JNIEXPORT void JNICALL JNI_OnUnload (JavaVM *vm, void *reserved)
 	env->DeleteGlobalRef (mMemberChangeClass);
     env->DeleteGlobalRef (mVideoFrameCallbackClass);
     env->DeleteGlobalRef (mAudioFrameCallbackClass);
-    env->DeleteGlobalRef (mYouMeManagerClass);
     env->DeleteGlobalRef (mAudioRecorderClass);
     env->DeleteGlobalRef (mAudioPlayerClass);
     
@@ -1281,29 +1233,27 @@ void SaveLogcat(const std::string& strPath)
    
 }
 
-void UpdateAndroid(const std::string& strURL,const std::string& strMD5)
-{
-    JNIEvnWrap jniWrap;
-    if (NULL == jniWrap.m_pThreadJni)
-    {
-        return;
-    }
-    jniWrap.m_pThreadJni->CallStaticVoidMethod (mYouMeManagerClass, mUpdateSelfMethodID, string2jstring(jniWrap.m_pThreadJni,strURL.c_str()),string2jstring(jniWrap.m_pThreadJni,strMD5.c_str()));
+// void UpdateAndroid(const std::string& strURL,const std::string& strMD5)
+// {
+//     JNIEvnWrap jniWrap;
+//     if (NULL == jniWrap.m_pThreadJni)
+//     {
+//         return;
+//     }
+//     jniWrap.m_pThreadJni->CallStaticVoidMethod (mYouMeManagerClass, mUpdateSelfMethodID, string2jstring(jniWrap.m_pThreadJni,strURL.c_str()),string2jstring(jniWrap.m_pThreadJni,strMD5.c_str()));
 
-}
+// }
 
-void TriggerNetChange()
-{
-    JNIEvnWrap jniWrap;
-    if (NULL == jniWrap.m_pThreadJni)
-    {
-        return;
-    }
+// void TriggerNetChange()
+// {
+//     JNIEvnWrap jniWrap;
+//     if (NULL == jniWrap.m_pThreadJni)
+//     {
+//         return;
+//     }
     
-    jniWrap.m_pThreadJni->CallStaticVoidMethod (mYouMeManagerClass, mTriggerNetChangeMethodID);
-  
-    
-}
+//     jniWrap.m_pThreadJni->CallStaticVoidMethod (mYouMeManagerClass, mTriggerNetChangeMethodID);
+// }
 
 std::string jstring2string (JNIEnv *env, jstring jstr)
 {
@@ -1665,24 +1615,24 @@ JNIEXPORT jboolean Java_com_youme_voiceengine_NativeEngine_inputVideoFrameByteBu
  * Method:    inputVideoFrameEncrypt
  * Signature: ([BIIIIIIJI)Z
  */
-JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_NativeEngine_inputVideoFrameEncrypt
-(JNIEnv * env, jclass className, jbyteArray videoBuf, jint bufSize, jint width, jint height, jint fmt, jint rotation, jint mirror, jlong timestamp, jint streamID)
-{
-    if (NULL == videoBuf) {
-        return false;
-    }
+// JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_NativeEngine_inputVideoFrameEncrypt
+// (JNIEnv * env, jclass className, jbyteArray videoBuf, jint bufSize, jint width, jint height, jint fmt, jint rotation, jint mirror, jlong timestamp, jint streamID)
+// {
+//     if (NULL == videoBuf) {
+//         return false;
+//     }
     
-    jbyte *jArray = (jbyte *)env->GetByteArrayElements(videoBuf, NULL);
-    if (NULL == jArray)
-    {
-        TSK_DEBUG_WARN("Native layer jArray = NULL");
-        return false;
-    }
+//     jbyte *jArray = (jbyte *)env->GetByteArrayElements(videoBuf, NULL);
+//     if (NULL == jArray)
+//     {
+//         TSK_DEBUG_WARN("Native layer jArray = NULL");
+//         return false;
+//     }
     
-    IYouMeVoiceEngine::getInstance()->inputVideoFrame(jArray, bufSize, width, height, fmt, rotation, mirror, timestamp, streamID);
-    env->ReleaseByteArrayElements(videoBuf, jArray, 0);
-    return true;
-}
+//     IYouMeVoiceEngine::getInstance()->inputVideoFrame(jArray, bufSize, width, height, fmt, rotation, mirror, timestamp, streamID);
+//     env->ReleaseByteArrayElements(videoBuf, jArray, 0);
+//     return true;
+// }
 
 /*
  * Class:     com_youme_voiceengine_NativeEngine
@@ -1964,24 +1914,24 @@ JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setPcmCallbackEna
     }
 }
 
-JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setVideoPreDecodeCallbackEnable
-    (JNIEnv *env, jclass jobj, jboolean enable, jboolean needDecodeandRender)
-{
-    if ( (bool)enable ) {
-        CYouMeVoiceEngine::getInstance ()->setVideoPreDecodeCallbackEnable(mPYouMeVideoPreDecodeCallback, (bool)needDecodeandRender);
-    } else {
-        CYouMeVoiceEngine::getInstance ()->setVideoPreDecodeCallbackEnable(NULL, (bool)needDecodeandRender);
-    }
-}
+// JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setVideoPreDecodeCallbackEnable
+//     (JNIEnv *env, jclass jobj, jboolean enable, jboolean needDecodeandRender)
+// {
+//     if ( (bool)enable ) {
+//         CYouMeVoiceEngine::getInstance ()->setVideoPreDecodeCallbackEnable(mPYouMeVideoPreDecodeCallback, (bool)needDecodeandRender);
+//     } else {
+//         CYouMeVoiceEngine::getInstance ()->setVideoPreDecodeCallbackEnable(NULL, (bool)needDecodeandRender);
+//     }
+// }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    init
  * Signature: (Ljava/lang/String;Ljava/lang/String;)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_connect(JNIEnv *env, jclass className, jstring strAPPKey, jstring strAPPSecret,
-                                                           jint serverRegionId)
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_init(JNIEnv *env, jclass className, jstring strAPPKey, jstring strAPPSecret,
+                                                           jint serverRegionId, jstring strExtServerRegionName)
 {
     CYouMeVoiceEngine::getInstance ()->setRestApiCallback( mPYouMeEventCallback );
     CYouMeVoiceEngine::getInstance ()->setMemberChangeCallback( mPYouMeEventCallback );
@@ -1994,282 +1944,312 @@ JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_connect(JNIEnv *e
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    unInit
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_unInit(JNIEnv *env, jclass className)
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_unInit(JNIEnv *env, jclass className)
 {
     return CYouMeVoiceEngine::getInstance ()->unInit();
 }
 
-JNIEXPORT void JNICALL Java_com_youme_voiceengine_api_setToken
-(JNIEnv *env, jclass className, jstring strToken ){
-    return  CYouMeVoiceEngine::getInstance()->setToken( jstring2string(env, strToken ).c_str() );
-}
+// JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setToken
+// (JNIEnv *env, jclass className, jstring strToken ){
+//     return  CYouMeVoiceEngine::getInstance()->setToken( jstring2string(env, strToken ).c_str() );
+// }
 
-JNIEXPORT void JNICALL Java_com_youme_voiceengine_api_setTokenV3
+JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setTokenV3
 (JNIEnv *env, jclass className, jstring strToken, jlong timeStamp ){
     return  CYouMeVoiceEngine::getInstance()->setToken( jstring2string(env, strToken ).c_str(), (uint32_t)timeStamp );
 }
 
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setTCPMode
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setTCPMode
 (JNIEnv *env, jclass className, jboolean bUseTcp ){
     return  CYouMeVoiceEngine::getInstance()->setTCPMode( bUseTcp);
 }
 
 
-
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setUserLogPath
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setUserLogPath
 (JNIEnv * env, jclass jobj, jstring filePath)
 {
     return CYouMeVoiceEngine::getInstance ()->setUserLogPath(jstring2string(env,filePath));
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setOutputToSpeaker
  * Signature: (Z)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setOutputToSpeaker
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setOutputToSpeaker
 (JNIEnv *env, jclass className, jboolean bOutputToSpeaker)
 {
     return CYouMeVoiceEngine::getInstance ()->setOutputToSpeaker(bOutputToSpeaker);
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setSpeakerMute
  * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_com_youme_voiceengine_api_setSpeakerMute
+JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setSpeakerMute
 (JNIEnv *env, jclass className, jboolean bOn)
 {
     CYouMeVoiceEngine::getInstance ()->setSpeakerMute(bOn);
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    getSpeakerMute
  * Signature: ()I
  */
-JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_api_getSpeakerMute
+JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_NativeEngine_getSpeakerMute
 (JNIEnv *env, jclass className)
 {
     return (jboolean)CYouMeVoiceEngine::getInstance ()->getSpeakerMute();
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    getMicrophoneMute
  * Signature: ()I
  */
-JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_api_getMicrophoneMute
+JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_NativeEngine_getMicrophoneMute
 (JNIEnv *env, jclass className)
 {
     return (jboolean)CYouMeVoiceEngine::getInstance ()->isMicrophoneMute();
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setMicrophoneMute
  * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_com_youme_voiceengine_api_setMicrophoneMute
+JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setMicrophoneMute
 (JNIEnv *env, jclass className, jboolean bOn)
 {
     CYouMeVoiceEngine::getInstance ()->setMicrophoneMute(bOn);
 }
 
-JNIEXPORT void JNICALL Java_com_youme_voiceengine_api_setAutoSendStatus
+JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setAutoSendStatus
 (JNIEnv *env, jclass className, jboolean bOn)
 {
     CYouMeVoiceEngine::getInstance()->setAutoSendStatus( bOn );
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    getVolume
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_getVolume
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_getVolume
 (JNIEnv *env, jclass className)
 {
     return CYouMeVoiceEngine::getInstance ()->getVolume();
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setVolume
  * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_com_youme_voiceengine_api_setVolume
+JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setVolume
 (JNIEnv *env, jclass className, jint volume)
 {
     return CYouMeVoiceEngine::getInstance ()->setVolume(volume);
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    getUseMobileNetworkEnabled
  * Signature: ()I
  */
-JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_api_getUseMobileNetworkEnabled
+JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_NativeEngine_getUseMobileNetworkEnabled
 (JNIEnv *env, jclass className)
 {
     return (jboolean)CYouMeVoiceEngine::getInstance ()->getUseMobileNetWorkEnabled();
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setUseMobileNetworkEnabled
  * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_com_youme_voiceengine_api_setUseMobileNetworkEnabled
-(JNIEnv *env, jclass className, jboolean bUse)
-{
-    return CYouMeVoiceEngine::getInstance ()->setUseMobileNetworkEnabled(bUse);
-}
+// JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setUseMobileNetworkEnabled
+// (JNIEnv *env, jclass className, jboolean bUse)
+// {
+//     return CYouMeVoiceEngine::getInstance ()->setUseMobileNetworkEnabled(bUse);
+// }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setLocalConnectionInfo
  * Signature: (I)V
  */
-JNIEXPORT int JNICALL Java_com_youme_voiceengine_api_setLocalConnectionInfo
-(JNIEnv *env, jclass className, jstring localIP, jint localPort, jstring remoteIP, jint remotePort)
-{
-    return CYouMeVoiceEngine::getInstance ()->setLocalConnectionInfo(jstring2string(env, localIP), localPort, jstring2string(env, remoteIP), remotePort, 0);
-}
+// JNIEXPORT int JNICALL Java_com_youme_voiceengine_NativeEngine_setLocalConnectionInfo
+// (JNIEnv *env, jclass className, jstring localIP, jint localPort, jstring remoteIP, jint remotePort)
+// {
+//     return CYouMeVoiceEngine::getInstance ()->setLocalConnectionInfo(jstring2string(env, localIP), localPort, jstring2string(env, remoteIP), remotePort, 0);
+// }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    clearLocalConnectionInfo
  * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_com_youme_voiceengine_api_clearLocalConnectionInfo(JNIEnv *env, jclass className)
-{
-    CYouMeVoiceEngine::getInstance ()->clearLocalConnectionInfo();
-}
+// JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_clearLocalConnectionInfo(JNIEnv *env, jclass className)
+// {
+//     CYouMeVoiceEngine::getInstance ()->clearLocalConnectionInfo();
+// }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setRouteChangeFlag
  * Signature: (I)V
  */
-JNIEXPORT int JNICALL Java_com_youme_voiceengine_api_setRouteChangeFlag
-(JNIEnv *env, jclass className, jboolean enable)
+// JNIEXPORT int JNICALL Java_com_youme_voiceengine_NativeEngine_setRouteChangeFlag
+// (JNIEnv *env, jclass className, jboolean enable)
+// {
+//     return CYouMeVoiceEngine::getInstance ()->setRouteChangeFlag(enable);
+// }
+
+/*
+ * Class:     com_youme_voiceengine_NativeEngine
+ * Method:    Java_com_youme_voiceengine_NativeEngine_setServerRegion
+ * Signature: (Ljava/lang/String;)I
+ */
+JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setServerRegion
+(JNIEnv *env, jclass className,jint regionId, jstring extRegionName, jboolean bAppend)
 {
-    return CYouMeVoiceEngine::getInstance ()->setRouteChangeFlag(enable);
+    CYouMeVoiceEngine::getInstance ()->setServerRegion((YOUME_RTC_SERVER_REGION)regionId, jstring2string(env,extRegionName), (bool)bAppend);
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    joinChannelSingle
  * Signature: (Ljava/lang/String;)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_joinChannelSingleMode
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_joinChannelSingleMode
 (JNIEnv *env, jclass className,jstring userid, jstring channelid, jint userRole, jboolean autoRecv)
 {
     return CYouMeVoiceEngine::getInstance ()->joinChannelSingleMode(jstring2string(env,userid), jstring2string(env,channelid),
                                                                 (YouMeUserRole_t)userRole, autoRecv);
 }
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_joinChannelSingleModeWithAppKey
-(JNIEnv *env, jclass className,jstring userid, jstring channelid, jint userRole, jstring appKey, jboolean autoRecv)
-{
-    return CYouMeVoiceEngine::getInstance ()->joinChannelSingleMode(jstring2string(env,userid), jstring2string(env,channelid),
-                                                                    (YouMeUserRole_t)userRole,
-                                                                    jstring2string(env,appKey), autoRecv);
-}
-
 
 /*
- * Class:     com_youme_voiceengine_api
- * Method:    joinChannelMultiMode
- * Signature: (Ljava/lang/String;Ljava/lang/String;I)I
- */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_joinChannelMultiMode
-  (JNIEnv * env, jclass className, jstring strUserId, jstring strChannelId, jint userRole)
-{
-	return CYouMeVoiceEngine::getInstance ()->joinChannelMultiMode(jstring2string(env, strUserId), jstring2string(env, strChannelId), (YouMeUserRole_t)userRole);
-}
-
-/*
- * Class:     com_youme_voiceengine_api
- * Method:    speakToChannel
- * Signature: (Ljava/lang/String;)I
- */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_speakToChannel
-  (JNIEnv * env, jclass className, jstring strChannelId)
-{
-	return CYouMeVoiceEngine::getInstance ()->speakToChannel(jstring2string(env, strChannelId));
-}
-
-/*
- * Class:     com_youme_voiceengine_api
- * Method:    leaveChannelMultiMode
- * Signature: (Ljava/lang/String;)I
- */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_leaveChannelMultiMode
-(JNIEnv *env, jclass className, jstring channelid)
-{
-    return CYouMeVoiceEngine::getInstance ()->leaveChannelMultiMode(jstring2string(env,channelid));
-}
-
-/*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    leaveChannelAll
  * Signature: (Ljava/lang/String;)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_leaveChannelAll
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_leaveChannelAll
 (JNIEnv *env, jclass className)
 {
     return CYouMeVoiceEngine::getInstance ()->leaveChannelAll();
 }
 
 
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_joinChannelSingleModeWithAppKey
+// (JNIEnv *env, jclass className,jstring userid, jstring channelid, jint userRole, jstring appKey, jboolean autoRecv)
+// {
+//     return CYouMeVoiceEngine::getInstance ()->joinChannelSingleMode(jstring2string(env,userid), jstring2string(env,channelid),
+//                                                                     (YouMeUserRole_t)userRole,
+//                                                                     jstring2string(env,appKey), autoRecv);
+// }
+
+
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
+ * Method:    joinChannelMultiMode
+ * Signature: (Ljava/lang/String;Ljava/lang/String;I)I
+ */
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_joinChannelMultiMode
+//   (JNIEnv * env, jclass className, jstring strUserId, jstring strChannelId, jint userRole)
+// {
+// 	return CYouMeVoiceEngine::getInstance ()->joinChannelMultiMode(jstring2string(env, strUserId), jstring2string(env, strChannelId), (YouMeUserRole_t)userRole);
+// }
+
+/*
+ * Class:     com_youme_voiceengine_NativeEngine
+ * Method:    speakToChannel
+ * Signature: (Ljava/lang/String;)I
+ */
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_speakToChannel
+//   (JNIEnv * env, jclass className, jstring strChannelId)
+// {
+// 	return CYouMeVoiceEngine::getInstance ()->speakToChannel(jstring2string(env, strChannelId));
+// }
+
+/*
+ * Class:     com_youme_voiceengine_NativeEngine
+ * Method:    leaveChannelMultiMode
+ * Signature: (Ljava/lang/String;)I
+ */
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_leaveChannelMultiMode
+// (JNIEnv *env, jclass className, jstring channelid)
+// {
+//     return CYouMeVoiceEngine::getInstance ()->leaveChannelMultiMode(jstring2string(env,channelid));
+// }
+
+
+/*
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    getChannelUserList
  * Signature: (Ljava/lang/String;IZ)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_getChannelUserList
-(JNIEnv *env, jclass className, jstring  strChannel , jint maxCount , jboolean notifyMemChange ){
-    if(strChannel == NULL){
-        return -2;// YOUME_ERROR_INVALID_PARAM
-    }
-    return CYouMeVoiceEngine::getInstance ()->getChannelUserList( jstring2string(env, strChannel).c_str(), maxCount, notifyMemChange );
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_getChannelUserList
+// (JNIEnv *env, jclass className, jstring  strChannel , jint maxCount , jboolean notifyMemChange ){
+//     if(strChannel == NULL){
+//         return -2;// YOUME_ERROR_INVALID_PARAM
+//     }
+//     return CYouMeVoiceEngine::getInstance ()->getChannelUserList( jstring2string(env, strChannel).c_str(), maxCount, notifyMemChange );
+// }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setOtherMicMute
  * Signature: (Ljava/lang/String;Z)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setOtherMicMute
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setOtherMicMute
 (JNIEnv *env, jclass className, jstring strUserID , jboolean bMute){
     return CYouMeVoiceEngine::getInstance ()->setOtherMicMute( jstring2string(env, strUserID).c_str(),  bMute);
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setOtherSpeakerStatus
  * Signature: (Ljava/lang/String;Z)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setOtherSpeakerMute
-(JNIEnv *env, jclass className, jstring strUserID , jboolean bMute){
-    return CYouMeVoiceEngine::getInstance ()->setOtherSpeakerMute( jstring2string(env, strUserID).c_str(),  bMute);
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setOtherSpeakerMute
+// (JNIEnv *env, jclass className, jstring strUserID , jboolean bMute){
+//     return CYouMeVoiceEngine::getInstance ()->setOtherSpeakerMute( jstring2string(env, strUserID).c_str(),  bMute);
+// }
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setListenOtherVoice
  * Signature: (Ljava/lang/String;Z)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setListenOtherVoice
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setMaskOtherVoice
 (JNIEnv *env, jclass className, jstring strUserID , jboolean bOn){
     return CYouMeVoiceEngine::getInstance ()->setListenOtherVoice( jstring2string(env, strUserID).c_str(),  bOn);
+}
+
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setMicLevelCallback
+(JNIEnv *env, jclass jobj, jint maxLevel)
+{
+    return CYouMeVoiceEngine::getInstance ()->setMicLevelCallback((int)maxLevel);
+}
+
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setFarendVoiceLevelCallback
+(JNIEnv *env, jclass jobj, jint maxLevel)
+{
+    return CYouMeVoiceEngine::getInstance ()->setFarendVoiceLevelCallback((int)maxLevel);
+}
+
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setReleaseMicWhenMute
+(JNIEnv *env, jclass jobj, jboolean enabled)
+{
+    return CYouMeVoiceEngine::getInstance ()->setReleaseMicWhenMute((bool)enabled);
 }
 
 
@@ -2284,8 +2264,6 @@ JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setBrand (JNIEnv 
 }
 
 
-
-
 /*
  * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setCPUChip
@@ -2296,472 +2274,438 @@ JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setCPUChip
 {
     g_AndroidSystemProvider->m_strCpuChip= (jstring2string (env, para));
 }
-/*
- * Class:     com_youme_voiceengine_api
- * Method:    Java_com_youme_voiceengine_api_setServerRegion
- * Signature: (Ljava/lang/String;)I
- */
-JNIEXPORT void JNICALL Java_com_youme_voiceengine_api_setServerRegion
-(JNIEnv *env, jclass className,jint regionId, jstring extRegionName, jboolean bAppend)
-{
-    CYouMeVoiceEngine::getInstance ()->setServerRegion((YOUME_RTC_SERVER_REGION)regionId, jstring2string(env,extRegionName), (bool)bAppend);
-}
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_playBackgroundMusic
-(JNIEnv * env, jclass jobj, jstring filePath, jboolean bRepeat)
-{
-    return CYouMeVoiceEngine::getInstance ()->playBackgroundMusic(jstring2string(env,filePath),(bool)bRepeat);
-}
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_pauseBackgroundMusic
-(JNIEnv *env, jclass jobj)
-{
-    return CYouMeVoiceEngine::getInstance ()->pauseBackgroundMusic();
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_playBackgroundMusic
+// (JNIEnv * env, jclass jobj, jstring filePath, jboolean bRepeat)
+// {
+//     return CYouMeVoiceEngine::getInstance ()->playBackgroundMusic(jstring2string(env,filePath),(bool)bRepeat);
+// }
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_resumeBackgroundMusic
-(JNIEnv *env, jclass jobj)
-{
-    return CYouMeVoiceEngine::getInstance ()->resumeBackgroundMusic();
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_pauseBackgroundMusic
+// (JNIEnv *env, jclass jobj)
+// {
+//     return CYouMeVoiceEngine::getInstance ()->pauseBackgroundMusic();
+// }
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_stopBackgroundMusic
-(JNIEnv *env, jclass jobj)
-{
-    return CYouMeVoiceEngine::getInstance ()->stopBackgroundMusic();
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_resumeBackgroundMusic
+// (JNIEnv *env, jclass jobj)
+// {
+//     return CYouMeVoiceEngine::getInstance ()->resumeBackgroundMusic();
+// }
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setBackgroundMusicVolume
-(JNIEnv *env, jclass jobj, jint vol)
-{
-    return CYouMeVoiceEngine::getInstance ()->setBackgroundMusicVolume((int)vol);
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_stopBackgroundMusic
+// (JNIEnv *env, jclass jobj)
+// {
+//     return CYouMeVoiceEngine::getInstance ()->stopBackgroundMusic();
+// }
+
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setBackgroundMusicVolume
+// (JNIEnv *env, jclass jobj, jint vol)
+// {
+//     return CYouMeVoiceEngine::getInstance ()->setBackgroundMusicVolume((int)vol);
+// }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setHeadsetMonitorOn
  * Signature: (Z)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setHeadsetMonitorOn__Z
-(JNIEnv *env, jclass jobj, jboolean micEnabled)
-{
-    return CYouMeVoiceEngine::getInstance ()->setHeadsetMonitorOn((bool)micEnabled);
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setHeadsetMonitorOn__Z
+// (JNIEnv *env, jclass jobj, jboolean micEnabled)
+// {
+//     return CYouMeVoiceEngine::getInstance ()->setHeadsetMonitorOn((bool)micEnabled);
+// }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setHeadsetMonitorOn
  * Signature: (ZZ)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setHeadsetMonitorOn__ZZ
-(JNIEnv *env, jclass jobj, jboolean micEnabled, jboolean bgmEnabled)
-{
-    return CYouMeVoiceEngine::getInstance ()->setHeadsetMonitorOn((bool)micEnabled, (bool)bgmEnabled);
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setHeadsetMonitorOn__ZZ
+// (JNIEnv *env, jclass jobj, jboolean micEnabled, jboolean bgmEnabled)
+// {
+//     return CYouMeVoiceEngine::getInstance ()->setHeadsetMonitorOn((bool)micEnabled, (bool)bgmEnabled);
+// }
 
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_pauseChannel
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_pauseChannel
 (JNIEnv *env, jclass jobj)
 {
     return CYouMeVoiceEngine::getInstance ()->pauseChannel();
 }
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_resumeChannel
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_resumeChannel
 (JNIEnv *env, jclass jobj)
 {
     return CYouMeVoiceEngine::getInstance ()->resumeChannel();
 }
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setReverbEnabled
-(JNIEnv *env, jclass jobj, jboolean enabled)
-{
-    return CYouMeVoiceEngine::getInstance ()->setReverbEnabled((bool)enabled);
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setReverbEnabled
+// (JNIEnv *env, jclass jobj, jboolean enabled)
+// {
+//     return CYouMeVoiceEngine::getInstance ()->setReverbEnabled((bool)enabled);
+// }
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setVadCallbackEnabled
-(JNIEnv *env, jclass jobj, jboolean enabled)
-{
-    return CYouMeVoiceEngine::getInstance ()->setVadCallbackEnabled((bool)enabled);
-}
+// JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setRecordingTimeMs
+// (JNIEnv *env, jclass jobj, jint timeMs)
+// {
+//     CYouMeVoiceEngine::getInstance ()->setRecordingTimeMs((unsigned int)timeMs);
+// }
 
-JNIEXPORT void JNICALL Java_com_youme_voiceengine_api_setRecordingTimeMs
-(JNIEnv *env, jclass jobj, jint timeMs)
-{
-    CYouMeVoiceEngine::getInstance ()->setRecordingTimeMs((unsigned int)timeMs);
-}
+// JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setPlayingTimeMs
+// (JNIEnv *env, jclass jobj, jint timeMs)
+// {
+//     CYouMeVoiceEngine::getInstance ()->setPlayingTimeMs((unsigned int)timeMs);
+// }
 
-JNIEXPORT void JNICALL Java_com_youme_voiceengine_api_setPlayingTimeMs
-(JNIEnv *env, jclass jobj, jint timeMs)
-{
-    CYouMeVoiceEngine::getInstance ()->setPlayingTimeMs((unsigned int)timeMs);
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setExitCommModeWhenHeadsetPlugin
+// (JNIEnv *env, jclass jobj, jboolean enabled)
+// {
+//     return CYouMeVoiceEngine::getInstance ()->setExitCommModeWhenHeadsetPlugin((bool)enabled);
+// }
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setMicLevelCallback
-(JNIEnv *env, jclass jobj, jint maxLevel)
-{
-    return CYouMeVoiceEngine::getInstance ()->setMicLevelCallback((int)maxLevel);
-}
-
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setFarendVoiceLevelCallback
-(JNIEnv *env, jclass jobj, jint maxLevel)
-{
-    return CYouMeVoiceEngine::getInstance ()->setFarendVoiceLevelCallback((int)maxLevel);
-}
-
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setReleaseMicWhenMute
-(JNIEnv *env, jclass jobj, jboolean enabled)
-{
-    return CYouMeVoiceEngine::getInstance ()->setReleaseMicWhenMute((bool)enabled);
-}
-
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setExitCommModeWhenHeadsetPlugin
-(JNIEnv *env, jclass jobj, jboolean enabled)
-{
-    return CYouMeVoiceEngine::getInstance ()->setExitCommModeWhenHeadsetPlugin((bool)enabled);
-}
-
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_requestRestApi
-(JNIEnv *env, jclass jobj, jstring strCommand, jstring strBody)
-{
-    int requestID = 0;
-    int ret = CYouMeVoiceEngine::getInstance ()->requestRestApi( jstring2string(env,strCommand).c_str(), jstring2string(env,strBody).c_str(),  &requestID  );
-    if( ret >= 0 ){
-        ret = requestID;
-    }
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_requestRestApi
+// (JNIEnv *env, jclass jobj, jstring strCommand, jstring strBody)
+// {
+//     int requestID = 0;
+//     int ret = CYouMeVoiceEngine::getInstance ()->requestRestApi( jstring2string(env,strCommand).c_str(), jstring2string(env,strBody).c_str(),  &requestID  );
+//     if( ret >= 0 ){
+//         ret = requestID;
+//     }
     
-    return ret;
-}
+//     return ret;
+// }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setGrabMicOption
  * Signature: (Ljava/lang/String;IIII)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setGrabMicOption
-  (JNIEnv * env, jclass jobj, jstring channelid, jint mode, jint maxAllowCount, jint maxTalkTime, jint voteTime)
-{
-    return CYouMeVoiceEngine::getInstance ()->setGrabMicOption(jstring2string(env, channelid).c_str(),
-    		(int)mode, (int)maxAllowCount, (int)maxTalkTime, (unsigned int)voteTime);
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setGrabMicOption
+//   (JNIEnv * env, jclass jobj, jstring channelid, jint mode, jint maxAllowCount, jint maxTalkTime, jint voteTime)
+// {
+//     return CYouMeVoiceEngine::getInstance ()->setGrabMicOption(jstring2string(env, channelid).c_str(),
+//     		(int)mode, (int)maxAllowCount, (int)maxTalkTime, (unsigned int)voteTime);
+// }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    startGrabMicAction
  * Signature: (Ljava/lang/String;Ljava/lang/String;)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_startGrabMicAction
-  (JNIEnv * env, jclass jobj, jstring channelid, jstring content)
-{
-	return CYouMeVoiceEngine::getInstance ()->startGrabMicAction(jstring2string(env, channelid).c_str(),
-			jstring2string(env, content).c_str());
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_startGrabMicAction
+//   (JNIEnv * env, jclass jobj, jstring channelid, jstring content)
+// {
+// 	return CYouMeVoiceEngine::getInstance ()->startGrabMicAction(jstring2string(env, channelid).c_str(),
+// 			jstring2string(env, content).c_str());
+// }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    stopGrabMicAction
  * Signature: (Ljava/lang/String;Ljava/lang/String;)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_stopGrabMicAction
-  (JNIEnv * env, jclass jobj, jstring channelid, jstring content)
-{
-	return CYouMeVoiceEngine::getInstance ()->stopGrabMicAction(jstring2string(env, channelid).c_str(),
-			jstring2string(env, content).c_str());
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_stopGrabMicAction
+//   (JNIEnv * env, jclass jobj, jstring channelid, jstring content)
+// {
+// 	return CYouMeVoiceEngine::getInstance ()->stopGrabMicAction(jstring2string(env, channelid).c_str(),
+// 			jstring2string(env, content).c_str());
+// }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    requestGrabMic
  * Signature: (Ljava/lang/String;IZLjava/lang/String;)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_requestGrabMic
-  (JNIEnv * env, jclass jobj, jstring channelid, jint score, jboolean isAutoOpenMic, jstring content)
-{
-	return CYouMeVoiceEngine::getInstance ()->requestGrabMic(jstring2string(env, channelid).c_str(),
-			(int)score, (bool)isAutoOpenMic, jstring2string(env, content).c_str());
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_requestGrabMic
+//   (JNIEnv * env, jclass jobj, jstring channelid, jint score, jboolean isAutoOpenMic, jstring content)
+// {
+// 	return CYouMeVoiceEngine::getInstance ()->requestGrabMic(jstring2string(env, channelid).c_str(),
+// 			(int)score, (bool)isAutoOpenMic, jstring2string(env, content).c_str());
+// }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    releaseGrabMic
  * Signature: (Ljava/lang/String;)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_releaseGrabMic
-  (JNIEnv * env, jclass jobj, jstring channelid)
-{
-	return CYouMeVoiceEngine::getInstance ()->releaseGrabMic(jstring2string(env, channelid).c_str());
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_releaseGrabMic
+//   (JNIEnv * env, jclass jobj, jstring channelid)
+// {
+// 	return CYouMeVoiceEngine::getInstance ()->releaseGrabMic(jstring2string(env, channelid).c_str());
+// }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setInviteMicOption
  * Signature: (Ljava/lang/String;II)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setInviteMicOption
-  (JNIEnv * env, jclass jobj, jstring channelid, jint waitTimeout, jint maxTalkTime)
-{
-	return CYouMeVoiceEngine::getInstance ()->setInviteMicOption(jstring2string(env, channelid).c_str(),
-			(int)waitTimeout, (int)maxTalkTime);
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setInviteMicOption
+//   (JNIEnv * env, jclass jobj, jstring channelid, jint waitTimeout, jint maxTalkTime)
+// {
+// 	return CYouMeVoiceEngine::getInstance ()->setInviteMicOption(jstring2string(env, channelid).c_str(),
+// 			(int)waitTimeout, (int)maxTalkTime);
+// }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    requestInviteMic
  * Signature: (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_requestInviteMic
-  (JNIEnv * env, jclass jobj, jstring channelid, jstring userid, jstring content)
-{
-	return CYouMeVoiceEngine::getInstance ()->requestInviteMic(jstring2string(env, channelid).c_str(),
-			jstring2string(env, userid).c_str(),jstring2string(env, content).c_str());
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_requestInviteMic
+//   (JNIEnv * env, jclass jobj, jstring channelid, jstring userid, jstring content)
+// {
+// 	return CYouMeVoiceEngine::getInstance ()->requestInviteMic(jstring2string(env, channelid).c_str(),
+// 			jstring2string(env, userid).c_str(),jstring2string(env, content).c_str());
+// }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    responseInviteMic
  * Signature: (Ljava/lang/String;ZLjava/lang/String;)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_responseInviteMic
-  (JNIEnv * env, jclass jobj, jstring userid, jboolean isAccept, jstring content)
-{
-	return CYouMeVoiceEngine::getInstance ()->responseInviteMic(jstring2string(env, userid).c_str(),
-			(bool)isAccept, jstring2string(env, content).c_str());
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_responseInviteMic
+//   (JNIEnv * env, jclass jobj, jstring userid, jboolean isAccept, jstring content)
+// {
+// 	return CYouMeVoiceEngine::getInstance ()->responseInviteMic(jstring2string(env, userid).c_str(),
+// 			(bool)isAccept, jstring2string(env, content).c_str());
+// }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    stopInviteMic
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_stopInviteMic
-  (JNIEnv * env, jclass jobj)
-{
-	return CYouMeVoiceEngine::getInstance ()->stopInviteMic();
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_stopInviteMic
+//   (JNIEnv * env, jclass jobj)
+// {
+// 	return CYouMeVoiceEngine::getInstance ()->stopInviteMic();
+// }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    sendMessage
  * Signature: (Ljava/lang/String;Ljava/lang/String;)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_sendMessage
-  (JNIEnv * env, jclass jobj, jstring channelid, jstring content){
-    int requestID = 0;
-    int err =  CYouMeVoiceEngine::getInstance ()->sendMessage( jstring2string(env, channelid).c_str(), jstring2string(env, content).c_str(), NULL, &requestID );
-    if( err < 0 ){
-        return err;
-    }
-    else {
-        return requestID;
-    }
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_sendMessage
+//   (JNIEnv * env, jclass jobj, jstring channelid, jstring content){
+//     int requestID = 0;
+//     int err =  CYouMeVoiceEngine::getInstance ()->sendMessage( jstring2string(env, channelid).c_str(), jstring2string(env, content).c_str(), NULL, &requestID );
+//     if( err < 0 ){
+//         return err;
+//     }
+//     else {
+//         return requestID;
+//     }
+// }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    sendMessageToUser
  * Signature: (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_sendMessageToUser
-  (JNIEnv * env, jclass jobj, jstring channelid, jstring content, jstring userid){
-    int requestID = 0;
-    int err =  CYouMeVoiceEngine::getInstance ()->sendMessage( jstring2string(env, channelid).c_str(), jstring2string(env, content).c_str(), jstring2string(env, userid).c_str(), &requestID );
-    if( err < 0 ){
-        return err;
-    }
-    else {
-        return requestID;
-    }
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_sendMessageToUser
+//   (JNIEnv * env, jclass jobj, jstring channelid, jstring content, jstring userid){
+//     int requestID = 0;
+//     int err =  CYouMeVoiceEngine::getInstance ()->sendMessage( jstring2string(env, channelid).c_str(), jstring2string(env, content).c_str(), jstring2string(env, userid).c_str(), &requestID );
+//     if( err < 0 ){
+//         return err;
+//     }
+//     else {
+//         return requestID;
+//     }
+// }
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_kickOtherFromChannel
-(JNIEnv * env, jclass jobj, jstring userID , jstring channelId , jint  lastTime )
-{
-    return CYouMeVoiceEngine::getInstance ()->kickOther(  jstring2string(env, userID).c_str(),
-                                                                       jstring2string(env, channelId).c_str(),
-                                                                      lastTime );
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_kickOtherFromChannel
+// (JNIEnv * env, jclass jobj, jstring userID , jstring channelId , jint  lastTime )
+// {
+//     return CYouMeVoiceEngine::getInstance ()->kickOther(  jstring2string(env, userID).c_str(),
+//                                                                        jstring2string(env, channelId).c_str(),
+//                                                                       lastTime );
+// }
 
-JNIEXPORT void JNICALL Java_com_youme_voiceengine_api_setLogLevel
+JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setLogLevel
 (JNIEnv * env, jclass jobj, jint consoleLevel, jint fileLevel )
 {
     CYouMeVoiceEngine::getInstance ()->setLogLevel( (YOUME_LOG_LEVEL) consoleLevel, (YOUME_LOG_LEVEL) fileLevel);
 }
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setExternalInputSampleRate
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setExternalInputSampleRate
 (JNIEnv * env, jclass jobj, jint inputSamplerate, jint mixedCallbackSamplerate)
 {
     return IYouMeVoiceEngine::getInstance ()->setExternalInputSampleRate( (YOUME_SAMPLE_RATE)inputSamplerate, (YOUME_SAMPLE_RATE)mixedCallbackSamplerate );
 }
 
-JNIEXPORT void JNICALL Java_com_youme_voiceengine_api_setAudioQuality
-(JNIEnv * env, jclass jobj, jint quality )
-{
-    CYouMeVoiceEngine::getInstance ()->setAudioQuality(  (YOUME_AUDIO_QUALITY) quality );
-}
+// JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setAudioQuality
+// (JNIEnv * env, jclass jobj, jint quality )
+// {
+//     CYouMeVoiceEngine::getInstance ()->setAudioQuality(  (YOUME_AUDIO_QUALITY) quality );
+// }
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setVideoSmooth
-(JNIEnv * env, jclass jobj, jint  mode )
-{
-    return CYouMeVoiceEngine::getInstance ()->setVideoSmooth(  mode  );
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setVideoSmooth
+// (JNIEnv * env, jclass jobj, jint  mode )
+// {
+//     return CYouMeVoiceEngine::getInstance ()->setVideoSmooth(  mode  );
+// }
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setVideoNetAdjustmode
-(JNIEnv * env, jclass jobj, jint  mode )
-{
-    return CYouMeVoiceEngine::getInstance ()->setVideoNetAdjustmode(  mode  );
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setVideoNetAdjustmode
+// (JNIEnv * env, jclass jobj, jint  mode )
+// {
+//     return CYouMeVoiceEngine::getInstance ()->setVideoNetAdjustmode(  mode  );
+// }
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setVideoNetResolution
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setVideoNetResolution
 (JNIEnv * env, jclass jobj, jint  width  ,jint height )
 {
     return CYouMeVoiceEngine::getInstance ()->setVideoNetResolution(  width, height  );
 }
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setVideoNetResolutionForSecond
-(JNIEnv * env, jclass jobj, jint  width  ,jint height )
-{
-    return CYouMeVoiceEngine::getInstance ()->setVideoNetResolutionForSecond(  width, height  );
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setVideoNetResolutionForSecond
+// (JNIEnv * env, jclass jobj, jint  width  ,jint height )
+// {
+//     return CYouMeVoiceEngine::getInstance ()->setVideoNetResolutionForSecond(  width, height  );
+// }
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setVideoNetResolutionForShare
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setVideoNetResolutionForShare
 (JNIEnv * env, jclass jobj, jint  width  ,jint height )
 {
     return CYouMeVoiceEngine::getInstance ()->setVideoNetResolutionForShare(  width, height  );
 }
 
-JNIEXPORT void JNICALL Java_com_youme_voiceengine_api_setVideoCodeBitrate
+JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setVideoCodeBitrate
 (JNIEnv * env, jclass jobj, jint maxBitrate, jint minBitrate )
 {
     CYouMeVoiceEngine::getInstance ()->setVideoCodeBitrate( maxBitrate, minBitrate  );
 }
 
-JNIEXPORT void JNICALL Java_com_youme_voiceengine_api_setVideoCodeBitrateForSecond
-(JNIEnv * env, jclass jobj, jint maxBitrate, jint minBitrate )
-{
-    CYouMeVoiceEngine::getInstance ()->setVideoCodeBitrateForSecond( maxBitrate, minBitrate  );
-}
+// JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setVideoCodeBitrateForSecond
+// (JNIEnv * env, jclass jobj, jint maxBitrate, jint minBitrate )
+// {
+//     CYouMeVoiceEngine::getInstance ()->setVideoCodeBitrateForSecond( maxBitrate, minBitrate  );
+// }
 
-JNIEXPORT void JNICALL Java_com_youme_voiceengine_api_setVideoCodeBitrateForShare
+JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setVideoCodeBitrateForShare
 (JNIEnv * env, jclass jobj, jint maxBitrate, jint minBitrate )
 {
     CYouMeVoiceEngine::getInstance ()->setVideoCodeBitrateForShare( maxBitrate, minBitrate  );
 }
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setVBR
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setVBR
 (JNIEnv * env, jclass jobj, jboolean useVBR)
 {
     return CYouMeVoiceEngine::getInstance ()->setVBR( useVBR );
 }
 
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setVBRForSecond
+// (JNIEnv * env, jclass jobj, jboolean useVBR)
+// {
+//     return  CYouMeVoiceEngine::getInstance ()->setVBRForSecond( useVBR );
+// }
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setVBRForSecond
-(JNIEnv * env, jclass jobj, jboolean useVBR)
-{
-    return  CYouMeVoiceEngine::getInstance ()->setVBRForSecond( useVBR );
-}
-
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setVBRForShare
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setVBRForShare
 (JNIEnv * env, jclass jobj, jboolean useVBR)
 {
     return  CYouMeVoiceEngine::getInstance ()->setVBRForShare( useVBR );
 }
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_getCurrentVideoCodeBitrate
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_getCurrentVideoCodeBitrate
 (JNIEnv * env, jclass jobj)
 {
     return CYouMeVoiceEngine::getInstance ()->getCurrentVideoCodeBitrate( );
 }
 
-JNIEXPORT void JNICALL Java_com_youme_voiceengine_api_setVideoHardwareCodeEnable
+JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setVideoHardwareCodeEnable
 (JNIEnv * env, jclass jobj, jboolean bEnable )
 {
     CYouMeVoiceEngine::getInstance ()->setVideoHardwareCodeEnable( bEnable );
 }
 
-JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_api_getVideoHardwareCodeEnable
+JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_NativeEngine_getVideoHardwareCodeEnable
 (JNIEnv * env, jclass jobj)
 {
     return CYouMeVoiceEngine::getInstance ()->getVideoHardwareCodeEnable();
 }
 
-JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_api_getUseGL
+JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_NativeEngine_getUseGL
 (JNIEnv * env, jclass jobj)
 {
     return CYouMeVoiceEngine::getInstance ()->getUseGL();
 }
 
-JNIEXPORT void JNICALL Java_com_youme_voiceengine_api_setVideoNoFrameTimeout
+JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setVideoNoFrameTimeout
 (JNIEnv * env, jclass jobj, jint timeout)
 {
     CYouMeVoiceEngine::getInstance ()->setVideoNoFrameTimeout(timeout);
 }
 
-JNIEXPORT void JNICALL Java_com_youme_voiceengine_api_setAVStatisticInterval
+JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setAVStatisticInterval
 (JNIEnv * env, jclass jobj, jint  interval )
 {
     CYouMeVoiceEngine::getInstance ()->setAVStatisticInterval(  interval  );
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setUserRole
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setUserRole
-(JNIEnv * env, jclass jobj, jint role){
-    return CYouMeVoiceEngine::getInstance()->setUserRole((YouMeUserRole_t)role);
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setUserRole
+// (JNIEnv * env, jclass jobj, jint role){
+//     return CYouMeVoiceEngine::getInstance()->setUserRole((YouMeUserRole_t)role);
+// }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    getUserRole
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_getUserRole
-(JNIEnv * env, jclass jobj){
-    return CYouMeVoiceEngine::getInstance()->getUserRole();
-}
+// JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_getUserRole
+// (JNIEnv * env, jclass jobj){
+//     return CYouMeVoiceEngine::getInstance()->getUserRole();
+// }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    isInChannel
  * Signature: (Ljava/lang/String;)Z
  */
-JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_api_isInChannel
-(JNIEnv * env, jclass jobj, jstring channelid){
-    return (jboolean)CYouMeVoiceEngine::getInstance()->isInRoom(jstring2string(env, channelid));
-}
+// JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_NativeEngine_isInChannel
+// (JNIEnv * env, jclass jobj, jstring channelid){
+//     return (jboolean)CYouMeVoiceEngine::getInstance()->isInRoom(jstring2string(env, channelid));
+// }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    isInChannel
  * Signature: (Ljava/lang)Z
  */
-JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_api_isJoined
+JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_NativeEngine_isJoined
 (JNIEnv * env, jclass jobj){
     return (jboolean)CYouMeVoiceEngine::getInstance()->isInRoom();
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    isBackgroundMusicPlaying
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_api_isBackgroundMusicPlaying
-(JNIEnv * env, jclass jobj){
-    return (jboolean)CYouMeVoiceEngine::getInstance()->isBackgroundMusicPlaying();
-}
+// JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_NativeEngine_isBackgroundMusicPlaying
+// (JNIEnv * env, jclass jobj){
+//     return (jboolean)CYouMeVoiceEngine::getInstance()->isBackgroundMusicPlaying();
+// }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    isInited
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_api_isInited
+JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_NativeEngine_isInited
 (JNIEnv * env, jclass jobj){
     return (jboolean)CYouMeVoiceEngine::getInstance()->isInited();
 }
 
-JNIEXPORT jstring JNICALL Java_com_youme_voiceengine_api_getSdkInfo
+JNIEXPORT jstring JNICALL Java_com_youme_voiceengine_NativeEngine_getSdkInfo
 (JNIEnv *env, jclass jobj)
 {
     std::string strInfo;
@@ -2770,11 +2714,11 @@ JNIEXPORT jstring JNICALL Java_com_youme_voiceengine_api_getSdkInfo
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    queryUsersVideoInfo
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_queryUsersVideoInfo
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_queryUsersVideoInfo
 (JNIEnv *env, jclass jobj, jobjectArray userArray)
 {
     jstring jstr;
@@ -2790,11 +2734,11 @@ JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_queryUsersVideoInfo
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setUsersVideoInfo
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setUsersVideoInfo
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setUsersVideoInfo
 (JNIEnv *env, jclass jobj, jobjectArray userArray, jintArray resolutionArray)
 {
     jstring jstr;
@@ -2815,112 +2759,112 @@ JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setUsersVideoInfo
 
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setExternalFilterEnabled
  * Signature: (Z)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setExternalFilterEnabled
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setExternalFilterEnabled
 (JNIEnv *env, jclass jobj, jboolean enabled){
     
    return CYouMeVoiceEngine::getInstance()->setExternalFilterEnabled(enabled);
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setVideoFrameRawCbEnabled
  * Signature: (Z)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setVideoFrameRawCbEnabled
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setVideoFrameRawCbEnabled
 (JNIEnv *env, jclass jobj, jboolean enabled){
     return CYouMeVoiceEngine::getInstance()->setVideoFrameRawCbEnabled(enabled);
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setVideoDecodeRawCbEnabled
  * Signature: (Z)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setVideoDecodeRawCbEnabled
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setVideoDecodeRawCbEnabled
 (JNIEnv *env, jclass jobj, jboolean enabled){
     return CYouMeVoiceEngine::getInstance()->setVideoDecodeRawCbEnabled(enabled);
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    isCameraZoomSupported
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_api_isCameraZoomSupported
+JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_NativeEngine_isCameraZoomSupported
 (JNIEnv *env , jclass jobj){
    return CYouMeVoiceEngine::getInstance()->isCameraZoomSupported();
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setCameraZoomFactor
  * Signature: (F)F
  */
-JNIEXPORT jfloat JNICALL Java_com_youme_voiceengine_api_setCameraZoomFactor
+JNIEXPORT jfloat JNICALL Java_com_youme_voiceengine_NativeEngine_setCameraZoomFactor
 (JNIEnv *env, jclass jobj, jfloat zoomfactor){
     return CYouMeVoiceEngine::getInstance()->setCameraZoomFactor(zoomfactor);
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    isCameraFocusPositionInPreviewSupported
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_api_isCameraFocusPositionInPreviewSupported
+JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_NativeEngine_isCameraFocusPositionInPreviewSupported
 (JNIEnv *env, jclass jobj){
     return CYouMeVoiceEngine::getInstance()->isCameraFocusPositionInPreviewSupported();
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setCameraFocusPositionInPreview
  * Signature: (FF)Z
  */
-JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_api_setCameraFocusPositionInPreview
+JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_NativeEngine_setCameraFocusPositionInPreview
 (JNIEnv *env, jclass jobj, jfloat x, jfloat y){
     return CYouMeVoiceEngine::getInstance()->setCameraFocusPositionInPreview(x, y);
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    isCameraTorchSupported
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_api_isCameraTorchSupported
+JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_NativeEngine_isCameraTorchSupported
 (JNIEnv *env, jclass jobj){
     return CYouMeVoiceEngine::getInstance()->isCameraTorchSupported();
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setCameraTorchOn
  * Signature: (Z)Z
  */
-JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_api_setCameraTorchOn
+JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_NativeEngine_setCameraTorchOn
 (JNIEnv *env, jclass jobj, jboolean enabled){
     return CYouMeVoiceEngine::getInstance()->setCameraTorchOn(enabled);
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    isCameraAutoFocusFaceModeSupported
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_api_isCameraAutoFocusFaceModeSupported
+JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_NativeEngine_isCameraAutoFocusFaceModeSupported
 (JNIEnv *env, jclass jobj){
      return CYouMeVoiceEngine::getInstance()->isCameraAutoFocusFaceModeSupported();
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setCameraAutoFocusFaceModeEnabled
  * Signature: (Z)Z
  */
-JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_api_setCameraAutoFocusFaceModeEnabled
+JNIEXPORT jboolean JNICALL Java_com_youme_voiceengine_NativeEngine_setCameraAutoFocusFaceModeEnabled
 (JNIEnv *env, jclass jobj, jboolean enabled){
     return CYouMeVoiceEngine::getInstance()->setCameraAutoFocusFaceModeEnabled(enabled);
 }
@@ -3099,11 +3043,11 @@ JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_openBeautify
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    createRender
  * Signature: (Ljava/lang/String;)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_createRender
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_createRender
 (JNIEnv * env, jclass className, jstring userId)
 {
     std::string userIdstr = jstring2string(env, userId);
@@ -3111,22 +3055,22 @@ JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_createRender
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    deleteRender
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_deleteRender
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_deleteRender
 (JNIEnv * env, jclass className, jint renderId)
 {
     return CYouMeVoiceEngine::getInstance()->deleteRender(renderId);
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    deleteRender
  * Signature: (Ljava/lang/String;)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_deleteRenderByUserID
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_deleteRenderByUserID
 (JNIEnv * env, jclass className, jstring userId)
 {
     std::string userIdstr = jstring2string(env, userId);
@@ -3134,11 +3078,11 @@ JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_deleteRenderByUserID
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    SetVideoCallback
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setVideoCallback
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setVideoCallback
 (JNIEnv * env, jclass className)
 {
     TSK_DEBUG_INFO(">>> JNI setVideoCallback");
@@ -3146,22 +3090,22 @@ JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setVideoCallback
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setExternalInputMode
  * Signature: (Z)V
  */
-JNIEXPORT void JNICALL Java_com_youme_voiceengine_api_setExternalInputMode
+JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setExternalInputMode
 (JNIEnv * env, jclass className, jboolean bInputModeEnabled)
 {
     CYouMeVoiceEngine::getInstance()->setExternalInputMode(bInputModeEnabled);
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    openVideoEncoder
  * Signature: (Ljava/lang/String;)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_openVideoEncoder
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_openVideoEncoder
 (JNIEnv * env, jclass className, jstring pFilePath)
 {
     std::string pFilePathStr = jstring2string(env, pFilePath);
@@ -3169,11 +3113,11 @@ JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_openVideoEncoder
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setVideoLocalResolution
  * Signature: (II)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setVideoLocalResolution
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setVideoLocalResolution
 (JNIEnv * env, jclass className, jint width, jint height)
 {
     return CYouMeVoiceEngine::getInstance()->setVideoLocalResolution((int)width, (int)height);
@@ -3181,55 +3125,55 @@ JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setVideoLocalResolution
 
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setVideoPreviewFps
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setVideoPreviewFps
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setVideoPreviewFps
 (JNIEnv *env, jclass className, jint fps)
 {
      return CYouMeVoiceEngine::getInstance()->setVideoPreviewFps(fps);
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setVideoFps
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setVideoFps
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setVideoFps
 (JNIEnv *env, jclass className, jint fps)
 {
      return CYouMeVoiceEngine::getInstance()->setVideoFps(fps);
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setVideoFpsForSecond
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setVideoFpsForSecond
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setVideoFpsForSecond
 (JNIEnv *env, jclass className, jint fps)
 {
      return CYouMeVoiceEngine::getInstance()->setVideoFpsForSecond(fps);
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setVideoFpsForShare
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setVideoFpsForShare
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setVideoFpsForShare
 (JNIEnv *env, jclass className, jint fps)
 {
      return CYouMeVoiceEngine::getInstance()->setVideoFpsForShare(fps);
 }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setCaptureFrontCameraEnable
  * Signature: (Z)I
  */
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setCaptureFrontCameraEnable
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setCaptureFrontCameraEnable
 (JNIEnv * env, jclass className, jboolean enable)
 {
     return CYouMeVoiceEngine::getInstance()->setCaptureFrontCameraEnable((bool)enable);
@@ -3545,51 +3489,51 @@ JNIEXPORT jint JNICALL Java_com_youme_mixers_VideoMixerNative_videoRenderFilterC
 }
 
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_startPush
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_startPush
   (JNIEnv *env, jclass className, jstring pushUrl)
   {
      return  CYouMeVoiceEngine::getInstance()->startPush( jstring2string(env,pushUrl) );
   }
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_stopPush
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_stopPush
   (JNIEnv *env, jclass className)
   {
      return  CYouMeVoiceEngine::getInstance()->stopPush();
   }
 
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_setPushMix
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_setPushMix
   (JNIEnv *env, jclass className,  jstring pushUrl , jint width , jint height )
   {
     return  CYouMeVoiceEngine::getInstance()->setPushMix( jstring2string(env,pushUrl), width , height );
   }
 
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_clearPushMix
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_clearPushMix
   (JNIEnv *env, jclass className)
   {
     return  CYouMeVoiceEngine::getInstance()->clearPushMix(  );
   }
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_addPushMixUser
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_addPushMixUser
   (JNIEnv *env, jclass className, jstring userId , jint x, jint y , jint z , jint width , jint height )
   {
 return  CYouMeVoiceEngine::getInstance()->addPushMixUser( jstring2string(env,userId), x , y , z , width , height   );
   }
 
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_removePushMixUser
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_removePushMixUser
   (JNIEnv *env, jclass className, jstring userId )
   {
 return  CYouMeVoiceEngine::getInstance()->removePushMixUser(  jstring2string(env,userId)  );
   }
 
 /*
- * Class:     com_youme_voiceengine_api
+ * Class:     com_youme_voiceengine_NativeEngine
  * Method:    setScreenSharedEGLContext
  * Signature: ()Ljava/lang/Object;
  */
-JNIEXPORT void JNICALL Java_com_youme_voiceengine_api_setScreenSharedEGLContext
+JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setScreenSharedEGLContext
 (JNIEnv *env, jclass className,jobject elgOBJ){
     jobject globalRef = env->NewGlobalRef(elgOBJ);
     return CYouMeVoiceEngine::getInstance()->setScreenSharedEGLContext(globalRef);
@@ -3852,7 +3796,7 @@ bool JNI_setOpenMixerRawCallBack(bool enabled){
     {
         return false;
     }
-   return  jniWrap.m_pThreadJni->CallStaticBooleanMethod(mJavaApiClass, mSetOpenMixerRawCallBackMethodID, enabled);
+   return  jniWrap.m_pThreadJni->CallStaticBooleanMethod(mJavaNativeEngineClass, mSetOpenMixerRawCallBackMethodID, enabled);
 }
 
 bool JNI_setOpenEncoderRawCallBack(bool enabled){
@@ -3875,25 +3819,25 @@ bool JNI_setExternalFilterEnabled(bool enabled){
 
 }
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_switchResolutionForLandscape
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_switchResolutionForLandscape
 (JNIEnv *env, jclass className)
 {
 	return  CYouMeVoiceEngine::getInstance()->switchResolutionForLandscape();
 }
 
-JNIEXPORT void JNICALL Java_com_youme_voiceengine_api_setlocalVideoPreviewMirror
+JNIEXPORT void JNICALL Java_com_youme_voiceengine_NativeEngine_setlocalVideoPreviewMirror
 (JNIEnv *env, jclass className, jboolean enable)
 {
     IYouMeVoiceEngine::getInstance()->setLocalVideoPreviewMirror(enable);
 }
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_resetResolutionForPortrait
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_resetResolutionForPortrait
 (JNIEnv *env, jclass className)
 {
 	return  CYouMeVoiceEngine::getInstance()->resetResolutionForPortrait();
 }
 
-JNIEXPORT jint JNICALL Java_com_youme_voiceengine_api_translateText
+JNIEXPORT jint JNICALL Java_com_youme_voiceengine_NativeEngine_translateText
 (JNIEnv *env, jclass className,  jstring text, int  destLangCode, int srcLangCode )
 {
     unsigned int  requestId = 0;

@@ -79,8 +79,8 @@ extern int  JNI_Is_Wired_HeadsetOn ();
 #include "../win/AudioDeviceMgr_Win.h"
 #elif ANDROID
 #include "AudioMgr.h"
-extern void UpdateAndroid(const std::string& strURL,const std::string& strMD5);
-extern void TriggerNetChange();
+// extern void UpdateAndroid(const std::string& strURL,const std::string& strMD5);
+// extern void TriggerNetChange();
 #else
 #include "tdav_apple.h"
 #endif
@@ -1887,9 +1887,9 @@ void CYouMeVoiceEngine::CbMessgeHandler(void* pContext, CMessageBlock* pMsg)
                     jsonRoot["memchange"].append(jsonMemChange);
                     
                     //单个用户回调通知
-                    pThis->mMemChangeCallback->onMemberChange( pMsg->m_param.cbMemChange.roomID->c_str(),
-                                                              iter->userID.c_str() ,iter->isJoin ,
-                                                              pMsg->m_param.cbMemChange.bUpdate );
+                    // pThis->mMemChangeCallback->onMemberChange( pMsg->m_param.cbMemChange.roomID->c_str(),
+                    //                                           iter->userID.c_str() ,iter->isJoin ,
+                    //                                           pMsg->m_param.cbMemChange.bUpdate );
                 }
                 TSK_DEBUG_INFO("Send MemberChange callback %s",XStringToUTF8(jsonRoot.toSimpleString()).c_str());
                 pThis->mMemChangeCallback->onMemberChange( pMsg->m_param.cbMemChange.roomID->c_str(),
@@ -2743,16 +2743,16 @@ void CYouMeVoiceEngine::doInit()
             start ();
             
             //判断是否需要更新
-#ifdef ANDROID
-            if (CNgnMemoryConfiguration::getInstance()->GetConfiguration(NgnConfigurationEntry::UPDATE, NgnConfigurationEntry::DEFAULT_UPDATE))
-            {
+// #ifdef ANDROID
+//             if (CNgnMemoryConfiguration::getInstance()->GetConfiguration(NgnConfigurationEntry::UPDATE, NgnConfigurationEntry::DEFAULT_UPDATE))
+//             {
                 
-                std::string strUrl =CNgnMemoryConfiguration::getInstance()->GetConfiguration(NgnConfigurationEntry::UPDATE_URL,NgnConfigurationEntry::DEFAULT_UPDATE_URL);
-                std::string strMD5 =CNgnMemoryConfiguration::getInstance()->GetConfiguration(NgnConfigurationEntry::UPDATE_MD5,NgnConfigurationEntry::DEFAULT_UPDATE_MD5);
-                TSK_DEBUG_INFO("Need to update:%s %s",strUrl.c_str(),strMD5.c_str());
-                UpdateAndroid(strUrl,strMD5);
-            }
-#endif
+//                 std::string strUrl =CNgnMemoryConfiguration::getInstance()->GetConfiguration(NgnConfigurationEntry::UPDATE_URL,NgnConfigurationEntry::DEFAULT_UPDATE_URL);
+//                 std::string strMD5 =CNgnMemoryConfiguration::getInstance()->GetConfiguration(NgnConfigurationEntry::UPDATE_MD5,NgnConfigurationEntry::DEFAULT_UPDATE_MD5);
+//                 TSK_DEBUG_INFO("Need to update:%s %s",strUrl.c_str(),strMD5.c_str());
+//                 UpdateAndroid(strUrl,strMD5);
+//             }
+// #endif
         }
         else
         {
@@ -6342,9 +6342,9 @@ YouMeErrorCode CYouMeVoiceEngine::init (IYouMeEventCallback *pEventCallback, con
     }
 #endif
     
-#ifdef  ANDROID
+// #ifdef  ANDROID
     // TriggerNetChange();
-#endif
+// #endif
     
     // TCP socket在服务器shutdown或其他意外发送了RST消息后，如果还强行去send, 或发SIGPIPE，导致进程退出.
     // 处理SIGPIPE信号可以优雅的处理这种情况。

@@ -20,36 +20,42 @@
 //    virtual void frameRenderGLES(int renderId, int nWidth, int nHeight, int nRotationDegree, const void* buf) = 0;
 //};
 
-class IYouMeVideoFrameCallback {
-public:
-    //软件处理方式回调YUV数据格式，android不支持硬编码机型和pc回调 fmt:VIDEO_FMT_YUV420P
-    virtual void onVideoFrameCallback(const char* userId, void * data, int len, int width, int height, int fmt, uint64_t timestamp){};
-    virtual void onVideoFrameMixedCallback(void * data, int len, int width, int height, int fmt, uint64_t timestamp){};
-    
-    //ios 硬件处理方式回调，目前所有iphone ios>=8.0机型兼容，fmt:VIDEO_FMT_CVPIXELBUFFER
-	virtual void onVideoFrameCallbackGLESForIOS(const char* userId, void* pixelBuffer, int width, int height, int fmt, uint64_t timestamp){};
-    virtual void onVideoFrameMixedCallbackGLESForIOS(void* pixelBuffer, int width, int height, int fmt, uint64_t timestamp){};
- 
-    //android 硬件处理方式回调，支持硬编码机型回调，fmt：VIDEO_FMT_TEXTURE ，VIDEO_FMT_TEXTURE_OES
-	virtual void onVideoFrameCallbackGLESForAndroid(const char* userId, int textureId, float* matrix, int width, int height, int fmt, uint64_t timestamp){};
-    virtual void onVideoFrameMixedCallbackGLESForAndroid(int textureId, float* matrix, int width, int height, int fmt, uint64_t timestamp){};
-  
-    //自定义滤镜
-    virtual int  onVideoRenderFilterCallback(int textureId, int width, int height, int rotation, int mirror){return 0;};
-};
-
-class IYouMeAudioFrameCallback {
-public:
-	virtual void onAudioFrameCallback(const char* userId, void* data, int len, uint64_t timestamp) = 0;
-    virtual void onAudioFrameMixedCallback(void* data, int len, uint64_t timestamp) = 0;
-};
-
-class IYouMeAVStatisticCallback
+class IYouMeVideoFrameCallback
 {
 public:
-    virtual void onAVStatistic( YouMeAVStatisticType type,  const char* userID,  int value ) = 0 ;
+    //软件处理方式回调YUV数据格式，android不支持硬编码机型和pc回调 fmt:VIDEO_FMT_YUV420P
+    virtual void onVideoFrameCallback(const char *userId, void *data, int len, int width, int height, int fmt, uint64_t timestamp){};
+    virtual void onVideoFrameMixedCallback(void *data, int len, int width, int height, int fmt, uint64_t timestamp){};
+
+    //ios 硬件处理方式回调，目前所有iphone ios>=8.0机型兼容，fmt:VIDEO_FMT_CVPIXELBUFFER
+    virtual void onVideoFrameCallbackGLESForIOS(const char *userId, void *pixelBuffer, int width, int height, int fmt, uint64_t timestamp){};
+    virtual void onVideoFrameMixedCallbackGLESForIOS(void *pixelBuffer, int width, int height, int fmt, uint64_t timestamp){};
+
+    //android 硬件处理方式回调，支持硬编码机型回调，fmt：VIDEO_FMT_TEXTURE ，VIDEO_FMT_TEXTURE_OES
+    virtual void onVideoFrameCallbackGLESForAndroid(const char *userId, int textureId, float *matrix, int width, int height, int fmt, uint64_t timestamp){};
+    virtual void onVideoFrameMixedCallbackGLESForAndroid(int textureId, float *matrix, int width, int height, int fmt, uint64_t timestamp){};
+
+    //自定义滤镜
+    virtual int onVideoRenderFilterCallback(int textureId, int width, int height, int rotation, int mirror) { return 0; };
 };
 
+class IYouMeAudioFrameCallback
+{
+public:
+    virtual void onAudioFrameCallback(const char *userId, void *data, int len, uint64_t timestamp) = 0;
+    virtual void onAudioFrameMixedCallback(void *data, int len, uint64_t timestamp) = 0;
+};
 
+class IYouMePcmCallback
+{
+public:
+    //需要先调用setPcmCallBackEnable
+    //远端pcm数据回调
+    virtual void onPcmDataRemote(int channelNum, int samplingRateHz, int bytesPerSample, void *data, int dataSizeInByte) = 0;
+    //本地录音pcm数据回调
+    virtual void onPcmDataRecord(int channelNum, int samplingRateHz, int bytesPerSample, void *data, int dataSizeInByte) = 0;
+    //远端pcm和本地录音pcm的混合pcm数据回调
+    virtual void onPcmDataMix(int channelNum, int samplingRateHz, int bytesPerSample, void *data, int dataSizeInByte) = 0;
+}
 
 #endif /* IYouMeFrameCallback_h */
